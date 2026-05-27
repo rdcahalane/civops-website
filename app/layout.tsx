@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Role-specific HMI, batch execution, AI agents, and OPC-UA integration for mid-market manufacturers.",
     url: "https://civops.io",
     siteName: "CivOps",
-    images: [{ url: "/civops-logo-horizontal-2x.png", width: 1200, height: 400 }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "CivOps — The Enterprise OS for Manufacturing Operations",
     description:
       "Role-specific HMI, batch execution, AI agents, and OPC-UA integration for mid-market manufacturers.",
-    images: ["/civops-logo-horizontal-2x.png"],
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: [
