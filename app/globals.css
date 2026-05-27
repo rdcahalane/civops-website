@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #0A0F14;
+  --foreground: #F7FAFC;
+  --border: rgba(37, 64, 74, 0.6);
+  --ring: #3DDC97;
+}
+
+/* ── CivOps brand tokens ── */
+:root {
+  --co-ink:        #0A0F14;   /* darkest — page background              */
+  --co-panel:      #111A20;   /* panel background                       */
+  --co-panel-2:    #162028;   /* alternate panel                        */
+  --co-grid:       #25404A;   /* borders, grid lines                    */
+  --co-text:       #F7FAFC;   /* primary text                           */
+  --co-muted:      #B6C8D1;   /* secondary text                         */
+  --co-enterprise: #3DDC97;   /* green — primary brand accent           */
+  --co-micro:      #00A7C8;   /* cyan  — integration / technical detail */
+  --co-warm:       #F4B942;   /* amber — CTA / highlight accent         */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+  body {
+    background: var(--co-ink);
+    color: var(--co-text);
+    @apply antialiased;
+  }
+}
+
+/* Grid dot/line pattern for hero backgrounds */
+.co-grid-bg {
+  background-image:
+    linear-gradient(rgba(37, 64, 74, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 64, 74, 0.35) 1px, transparent 1px);
+  background-size: 64px 64px;
+}

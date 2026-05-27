@@ -1,0 +1,24 @@
+<!-- CivOps LLC — Loop Mark (gradient/color version) — for hero use, icons, large treatments -->
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CivOps LLC">
+  <defs>
+    <linearGradient id="co-grad" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00C2E0"/>
+      <stop offset="52%"  stop-color="#0DD68F"/>
+      <stop offset="100%" stop-color="#F5A623"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Gradient arc -->
+  <path
+    d="M 38.73 57.11 A 26 26 0 1 1 57.11 38.73"
+    stroke="url(#co-grad)"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+
+  <!-- MICRO node -->
+  <circle cx="38.73" cy="57.11" r="4" fill="#00C2E0"/>
+
+  <!-- MACRO node -->
+  <circle cx="57.11" cy="38.73" r="4" fill="#F5A623"/>
+</svg>

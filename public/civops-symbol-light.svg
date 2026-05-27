@@ -1,0 +1,16 @@
+<!-- CivOps LLC — Loop Mark (light background) — same geometry, ink arc -->
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CivOps LLC">
+  <!-- Main arc — ink on light backgrounds -->
+  <path
+    d="M 38.73 57.11 A 26 26 0 1 1 57.11 38.73"
+    stroke="#0A1018"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+
+  <!-- MICRO node — slightly deeper cyan for legibility on light bg -->
+  <circle cx="38.73" cy="57.11" r="4" fill="#0097B2"/>
+
+  <!-- MACRO node — amber, works on light -->
+  <circle cx="57.11" cy="38.73" r="4" fill="#D4891A"/>
+</svg>

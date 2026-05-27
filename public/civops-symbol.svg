@@ -1,0 +1,38 @@
+<!--
+  CivOps LLC — Loop Mark (dark background)
+  The 300° arc with 60° gap at 4:30 tells the brand story:
+    • Cyan dot (lower, 5 o'clock)  = micro / plant-floor layer — grounded, real
+    • Amber dot (right, 3:30)      = macro / intelligence layer — forward, signal
+    • The gap between them         = where intelligence feeds back into execution
+    • The arc                      = the closed loop connecting them
+
+  Geometry: ViewBox 64×64, center (32,32), radius 26, stroke 5
+  Gap: 60° centered at SVG 45° (4:30 clock)
+    Arc start (MICRO): SVG 75°  → (38.73, 57.11)
+    Arc end   (MACRO): SVG 15°  → (57.11, 38.73)
+    Path: M 38.73 57.11  A 26 26 0 1 1 57.11 38.73   (CW, large arc = 300°)
+-->
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CivOps LLC">
+  <defs>
+    <!-- Full 3-stop gradient for color/gradient version usage -->
+    <linearGradient id="co-grad" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00C2E0"/>
+      <stop offset="52%"  stop-color="#0DD68F"/>
+      <stop offset="100%" stop-color="#F5A623"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main arc — white on dark backgrounds -->
+  <path
+    d="M 38.73 57.11 A 26 26 0 1 1 57.11 38.73"
+    stroke="#EDF4F8"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+
+  <!-- MICRO node — plant-floor / edge layer (cyan) -->
+  <circle cx="38.73" cy="57.11" r="4" fill="#00C2E0"/>
+
+  <!-- MACRO node — intelligence / Genome signal (amber) -->
+  <circle cx="57.11" cy="38.73" r="4" fill="#F5A623"/>
+</svg>

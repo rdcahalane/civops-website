@@ -1,0 +1,44 @@
+<!--
+  CivOps LLC — App Icon (1024×1024)
+  The Loop Mark centered with generous padding, gradient arc version for impact at large size.
+  Geometry scaled from 64×64 viewBox × 16:
+    Center: (512, 512), Radius: 416
+    Gap: 60° at 4:30 (SVG 45°)
+    Arc start (MICRO): SVG 75°  → (619.7, 913.8)
+    Arc end   (MACRO): SVG 15°  → (913.8, 619.7)
+    Path: M 619.7 913.8 A 416 416 0 1 1 913.8 619.7
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-label="CivOps app icon">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#0F1C28"/>
+      <stop offset="100%" stop-color="#060C12"/>
+    </linearGradient>
+    <linearGradient id="arc-grad" x1="128" y1="896" x2="896" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00C2E0"/>
+      <stop offset="52%"  stop-color="#0DD68F"/>
+      <stop offset="100%" stop-color="#F5A623"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background with slight gradient -->
+  <rect width="1024" height="1024" rx="232" fill="url(#bg-grad)"/>
+
+  <!-- Loop arc — gradient version for large format -->
+  <path
+    d="M 619.7 913.8 A 416 416 0 1 1 913.8 619.7"
+    stroke="url(#arc-grad)"
+    stroke-width="72"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- MICRO node (cyan) — plant-floor layer -->
+  <circle cx="619.7" cy="913.8" r="56" fill="#00C2E0"/>
+
+  <!-- MACRO node (amber) — intelligence layer -->
+  <circle cx="913.8" cy="619.7" r="56" fill="#F5A623"/>
+
+  <!-- Subtle inner ring for depth — very low opacity -->
+  <circle cx="512" cy="512" r="280" stroke="#EDF4F8" stroke-width="1" fill="none" opacity="0.06"/>
+</svg>

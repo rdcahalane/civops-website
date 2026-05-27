@@ -1,0 +1,48 @@
+<!--
+  CivOps LLC — Horizontal Logo (dark background)
+  Symbol (64×64) + Wordmark, no background rect (transparent)
+  viewBox: 0 0 248 64
+  Symbol: 0–64 (64px wide)
+  Text start: x=76
+  "CivOps" at 30px Inter 800, ~95px wide → ends at ~171
+  "LLC" at 14px, ~30px → ends at ~205
+  Total used: ~205px, viewBox 248 gives breathing room
+-->
+<svg viewBox="0 0 248 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CivOps LLC">
+
+  <!-- ── Symbol ── -->
+  <path
+    d="M 38.73 57.11 A 26 26 0 1 1 57.11 38.73"
+    stroke="#EDF4F8"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <circle cx="38.73" cy="57.11" r="4" fill="#00C2E0"/>
+  <circle cx="57.11" cy="38.73" r="4" fill="#F5A623"/>
+
+  <!-- ── Wordmark ── -->
+  <!-- "CivOps" — primary weight -->
+  <text
+    x="76" y="42"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-size="30"
+    font-weight="800"
+    fill="#EDF4F8"
+    letter-spacing="-0.5"
+  >CivOps</text>
+
+  <!-- "LLC" — secondary, muted, offset up from baseline -->
+  <text
+    x="184" y="24"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-size="11"
+    font-weight="500"
+    fill="#7A9BAB"
+    letter-spacing="2"
+  >LLC</text>
+
+  <!-- Three-layer indicator line under wordmark -->
+  <rect x="76"  y="52" width="35" height="3" rx="1.5" fill="#00C2E0" opacity="0.85"/>
+  <rect x="114" y="52" width="35" height="3" rx="1.5" fill="#0DD68F" opacity="0.85"/>
+  <rect x="152" y="52" width="35" height="3" rx="1.5" fill="#F5A623" opacity="0.85"/>
+</svg>

@@ -1,0 +1,37 @@
+<!-- CivOps LLC — Horizontal Logo (light background) -->
+<svg viewBox="0 0 248 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CivOps LLC">
+
+  <!-- Symbol (ink arc for light bg) -->
+  <path
+    d="M 38.73 57.11 A 26 26 0 1 1 57.11 38.73"
+    stroke="#0A1018"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <circle cx="38.73" cy="57.11" r="4" fill="#0097B2"/>
+  <circle cx="57.11" cy="38.73" r="4" fill="#D4891A"/>
+
+  <!-- Wordmark (ink) -->
+  <text
+    x="76" y="42"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-size="30"
+    font-weight="800"
+    fill="#0A1018"
+    letter-spacing="-0.5"
+  >CivOps</text>
+
+  <text
+    x="184" y="24"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-size="11"
+    font-weight="500"
+    fill="#4A6A7A"
+    letter-spacing="2"
+  >LLC</text>
+
+  <!-- Three-layer indicator line -->
+  <rect x="76"  y="52" width="35" height="3" rx="1.5" fill="#0097B2" opacity="0.85"/>
+  <rect x="114" y="52" width="35" height="3" rx="1.5" fill="#0BB87A" opacity="0.85"/>
+  <rect x="152" y="52" width="35" height="3" rx="1.5" fill="#D4891A" opacity="0.85"/>
+</svg>
