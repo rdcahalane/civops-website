@@ -23,6 +23,9 @@ export default function Nav() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--co-muted)]">
+          <Link href="/#path" className="hover:text-[var(--co-text)] transition-colors">
+            Approach
+          </Link>
           <Link href="/#platform" className="hover:text-[var(--co-text)] transition-colors">
             Platform
           </Link>
@@ -78,6 +81,7 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-[var(--co-grid)]/60 bg-[var(--co-panel)] px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+          <Link href="/#path" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Approach</Link>
           <Link href="/#platform" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Platform</Link>
           <Link href="/#product" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Product</Link>
           <Link href="/#how-it-works" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">How It Works</Link>

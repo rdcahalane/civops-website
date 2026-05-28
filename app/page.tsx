@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import ProductTour from "@/components/product-tour";
+import Journey from "@/components/journey";
 
 // ── Demo request form ────────────────────────────────────────────────────────
 
@@ -261,6 +262,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── The CivOps Path (narrative spine: Need → Assess → Pilot → Platform) ── */}
+      <Journey />
 
       {/* ── Platform capabilities ─────────────────────────────────────────── */}
       <section id="platform" className="mx-auto max-w-7xl px-6 py-24">
