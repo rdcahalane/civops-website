@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
+import ProductTour from "@/components/product-tour";
 
 // ── Demo request form ────────────────────────────────────────────────────────
 
@@ -328,6 +329,9 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* ── Product tour (show, don't tell) ──────────────────────────────── */}
+      <ProductTour />
 
       {/* ── How it works ─────────────────────────────────────────────────── */}
       <section id="how-it-works" className="bg-[var(--co-panel)] border-y border-[var(--co-grid)]/60">

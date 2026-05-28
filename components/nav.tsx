@@ -26,6 +26,9 @@ export default function Nav() {
           <Link href="/#platform" className="hover:text-[var(--co-text)] transition-colors">
             Platform
           </Link>
+          <Link href="/#product" className="hover:text-[var(--co-text)] transition-colors">
+            Product
+          </Link>
           <Link href="/#how-it-works" className="hover:text-[var(--co-text)] transition-colors">
             How It Works
           </Link>
@@ -76,6 +79,7 @@ export default function Nav() {
       {open && (
         <div className="md:hidden border-t border-[var(--co-grid)]/60 bg-[var(--co-panel)] px-6 py-4 flex flex-col gap-4 text-sm font-medium">
           <Link href="/#platform" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Platform</Link>
+          <Link href="/#product" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Product</Link>
           <Link href="/#how-it-works" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">How It Works</Link>
           <Link href="/#who" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Who It&apos;s For</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">About</Link>
