@@ -213,9 +213,9 @@ export default function Home() {
           </h1>
 
           <p className="text-lg sm:text-xl text-[var(--co-muted)] max-w-2xl leading-relaxed">
-            CivOps replaces fragmented OT systems, paper-based work orders, and tribal knowledge
-            with a unified operations platform — built for mid-market manufacturers, deployed in
-            weeks, not years.
+            CivOps replaces fragmented OT systems, paper-based work orders, and tribal knowledge with
+            a unified operations platform for mid-market manufacturers — adopted at your own pace, one
+            proven step at a time.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
@@ -227,10 +227,10 @@ export default function Home() {
               Request a demo
             </Link>
             <Link
-              href="/#platform"
+              href="/#path"
               className="rounded-md border border-[var(--co-grid)] px-7 py-3.5 text-sm font-semibold text-[var(--co-muted)] hover:border-[var(--co-enterprise)] hover:text-[var(--co-enterprise)] transition-colors"
             >
-              See the platform →
+              See the approach →
             </Link>
           </div>
         </div>

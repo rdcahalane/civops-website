@@ -63,12 +63,14 @@ export default function Journey() {
           The CivOps Path
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold text-[var(--co-text)] mb-4">
-          Start where you are. Grow into the platform.
+          Start where you are. Move at your own pace.
         </h2>
         <p className="text-[var(--co-muted)] leading-relaxed">
-          You don&apos;t buy a platform on day one — you earn your way to it. CivOps meets you at the
-          need and de-risks every step: a clear-eyed assessment, a pilot that proves value in your own
-          plant, then a platform rollout built on everything you&apos;ve already validated.
+          No rip-and-replace, no all-or-nothing leap. CivOps gives you a structured path you walk at
+          your own speed — a clear-eyed assessment to find where digital pays off first, a focused
+          pilot that proves it in your own plant, then a platform that expands only as fast as it
+          solves real problems for your team. Each step earns the next; you stay in control of the
+          pace.
         </p>
       </div>
 
