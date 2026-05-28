@@ -399,12 +399,13 @@ export default function Home() {
             </div>
             <div>
               <p className="font-semibold text-[var(--co-text)] mb-1">
-                Single enterprise license — multi-site capable
+                Simple, predictable pricing
               </p>
               <p className="text-sm text-[var(--co-muted)] leading-relaxed">
-                CivOps is licensed per enterprise, not per seat or per site. One deployment covers
-                your full footprint — from a single flagship facility to a multi-site operation with
-                dozens of buildings and thousands of assets. Your data stays in your environment.
+                CivOps isn&apos;t priced per employee, per workstation, or per piece of equipment. Your
+                operation is complex enough — your software pricing shouldn&apos;t add to it. Add
+                operators, lines, and assets without watching a meter, and your data stays in your
+                environment.
               </p>
             </div>
           </div>
@@ -476,7 +477,7 @@ export default function Home() {
           {[
             ["Industry", "Discrete, process, batch, mixed-mode manufacturing"],
             ["Company size", "150 – 2,000 employees"],
-            ["Site footprint", "1 – 20+ facilities under one enterprise license"],
+            ["Site footprint", "1 – 20+ facilities"],
             ["OT environment", "Any — Rockwell, Siemens, legacy PLCs, or greenfield"],
           ].map(([label, value]) => (
             <div key={label} className="flex flex-col gap-1">
