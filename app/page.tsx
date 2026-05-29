@@ -204,7 +204,7 @@ export default function Home() {
             width={440}
             height={227}
             priority
-            className="w-[300px] sm:w-[400px] lg:w-[440px] h-auto rounded-xl"
+            className="w-[300px] sm:w-[400px] lg:w-[440px] h-auto"
           />
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--co-text)] leading-[1.06]">
