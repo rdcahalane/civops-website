@@ -13,10 +13,10 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/civops-logo-horizontal.svg"
+            src="/civops-wordmark.png"
             alt="CivOps"
-            width={140}
-            height={32}
+            width={132}
+            height={45}
             priority
           />
         </Link>

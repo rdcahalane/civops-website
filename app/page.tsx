@@ -199,12 +199,12 @@ export default function Home() {
 
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto gap-8">
           <Image
-            src="/civops-logo-horizontal.svg"
-            alt="CivOps"
-            width={200}
-            height={46}
+            src="/civops-logo.png"
+            alt="CivOps — The synaptic platform"
+            width={440}
+            height={227}
             priority
-            className="opacity-90"
+            className="w-[300px] sm:w-[400px] lg:w-[440px] h-auto rounded-xl"
           />
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--co-text)] leading-[1.06]">
