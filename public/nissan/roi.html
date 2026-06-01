@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | ROI and Justification</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Options</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="journey.html" class="">Journey</a>
+<a href="cockpit.html" class="">Cockpit</a>
+<a href="technology.html" class="">Tech Stack</a>
+<a href="roi.html" class="current">ROI</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / ROI and justification</div>
+    <h1 class="page-title">ROI and justification should stand on its own</h1>
+    <p class="page-deck">This page separates value justification from the cockpit demo. The numbers are intentionally placeholders until Nissan provides baseline downtime, MTTR, repeat-failure, labor, throughput, and quality assumptions.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Business case</span><h2>Where value is expected to come from</h2></div>
+      <p class="section-copy">The strongest near-term value case is not abstract AI. It is faster response, fewer repeat failures, cleaner closure data, and reduced friction between operators, maintenance, Control Room, reliability, and engineering.</p>
+    </div>
+    <div class="value-stack">
+      <div class="value-row"><strong>Downtime recovery</strong><small>Reduce time lost to slow diagnosis, unclear ownership, repeated information hunting, and delayed escalation.</small></div>
+      <div class="value-row"><strong>MTTR / response time</strong><small>Give the technician likely cause, prior incidents, SOPs, parts context, and escalation support from one event record.</small></div>
+      <div class="value-row"><strong>Repeat-failure reduction</strong><small>Capture reason, fix, parts, recurrence flag, and evidence so chronic issues are visible and can be addressed structurally.</small></div>
+      <div class="value-row"><strong>Data quality for future AI</strong><small>Use CESMII SM Profiles + i3X-inspired data standards so analytics and AI are trained on contextualized events instead of raw system exhaust.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container roi-layout">
+    <div class="panel">
+      <span class="eyebrow">ROI placeholder</span>
+      <h2 style="font-size:32px">Illustrative ROI conversation</h2>
+      <p class="section-copy" style="max-width:none;margin-bottom:18px">Use this as a discussion aid only. Replace the assumptions with Nissan baseline downtime, MTTR, repeat-failure, quality, and labor data when available.</p>
+      <div class="calc-row"><label for="downtime">Downtime reduction</label><div class="calc-val" data-output="downtime">6%</div></div>
+      <input id="downtime" type="range" min="2" max="14" value="6" />
+      <div class="calc-row"><label for="response">Faster response / MTTR improvement</label><div class="calc-val" data-output="response">18%</div></div>
+      <input id="response" type="range" min="5" max="35" value="18" />
+      <div class="calc-row"><label for="repeat">Repeat-failure reduction</label><div class="calc-val" data-output="repeat">14%</div></div>
+      <input id="repeat" type="range" min="4" max="30" value="14" />
+    </div>
+    <div class="panel dark" style="display:grid;align-content:center">
+      <small style="letter-spacing:.08em;text-transform:uppercase;font-weight:900;color:#c9dde7">Illustrative annual value</small>
+      <div style="font-size:46px;font-weight:950;letter-spacing:-.05em;margin:10px 0 6px" id="roiAnnual">$0</div>
+      <div style="font-size:18px;font-weight:800;color:white" id="roiPayback">0 months</div>
+      <p style="color:#d6e8f0;line-height:1.45;margin-top:12px">Treat this as an order-of-magnitude placeholder until actual baseline and implementation-cost assumptions are available.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Assumption placeholders</span><h2>Inputs Nissan should provide before finalizing the business case</h2></div>
+      <p class="section-copy">These inputs turn the story from directional value to a defensible implementation case.</p>
+    </div>
+    <div class="assumption-grid">
+      <div class="assumption-card"><b>Baseline loss</b><small>Downtime by area, incidents per month, MTTR, repeat failure rate, scrap / rework, and quality holds tied to maintenance events.</small></div>
+      <div class="assumption-card"><b>Operational cost</b><small>Labor hours spent diagnosing, searching for information, re-keying data, waiting for parts, and escalating to L2 / L3 support.</small></div>
+      <div class="assumption-card"><b>Implementation cost</b><small>Software, integration, infrastructure, training, support, change management, and follow-on data standardization work.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Value narrative</span>
+      <h2 style="font-size:30px">What leadership should hear</h2>
+      <ul>
+        <li>This is not a speculative AI project.</li>
+        <li>The first value comes from reducing maintenance friction and repeat events.</li>
+        <li>The data foundation improves every future analytics and AI use case.</li>
+        <li>The paint-shop pilot provides a high-impact proving ground before scaling across the plant.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <span class="eyebrow">Decision link</span>
+      <h2 style="font-size:30px">Connect ROI back to Good / Better / Best</h2>
+      <p class="section-copy" style="max-width:none">Good can improve visibility. Better should create the strongest near-term operating value. Best creates the long-term data and AI foundation. The recommendation remains: implement Better now, designed to evolve into Best.</p>
+      <div style="margin-top:18px"><a class="btn primary" href="decision.html">Review options</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

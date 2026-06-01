@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Maintenance Cockpit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Options</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="journey.html" class="">Journey</a>
+<a href="cockpit.html" class="current">Cockpit</a>
+<a href="technology.html" class="">Tech Stack</a>
+<a href="roi.html" class="">ROI</a></nav>
+  </div>
+</header>
+
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Maintenance cockpit</div>
+    <h1 class="page-title">Show the maintenance UI as a tool, not a screenshot</h1>
+    <p class="page-deck">The sample UI should look like something a Nissan maintenance technician would actually use on the floor. That means presenting it as a rugged tablet experience with role-specific logic, root-cause support, and one shared event record.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container tablet-layout">
+    <div class="tablet-shell">
+      <div class="tablet-frame">
+        <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM • Shift B • Wi-Fi strong</span></div>
+        <div class="cockpit-header">
+          <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#ffffff">Maintenance cockpit</div>
+          <h3>Cell 022 • Roof-ditch seal event</h3>
+          <p>One event record for operator, maintenance, Control Room, and reliability</p>
+          <div class="cockpit-chips"><span class="cockpit-chip">Paint shop</span><span class="cockpit-chip">P1</span><span class="cockpit-chip">Likely quality impact</span></div>
+        </div>
+        <div class="cockpit-body">
+          <div class="alert-card"><strong>Line stop at 10:42</strong><small>Likely cause chain: photo-eye contamination + bracket drift. Similar issue occurred twice in the last 14 days.</small></div>
+          <div class="mini-stats">
+            <div class="mini-stat"><b>18m</b><span>elapsed downtime</span></div>
+            <div class="mini-stat"><b>3</b><span>similar incidents</span></div>
+            <div class="mini-stat"><b>92%</b><span>match confidence</span></div>
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step"><div class="num">1</div><div><strong>Check lens and bracket</strong><small>Suggested from similar incidents and PM history.</small></div></div>
+            <div class="flow-step"><div class="num">2</div><div><strong>Open SOP page 7</strong><small>Guided sensor alignment procedure.</small></div></div>
+            <div class="flow-step"><div class="num">3</div><div><strong>Verify spare stock</strong><small>One unit on hand. Auto-check Stores before escalation.</small></div></div>
+            <div class="flow-step"><div class="num">4</div><div><strong>Escalate if unresolved</strong><small>Controls + quality + Control Room join the same case.</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:14px">
+        <div class="section-title"><span class="eyebrow">Role views</span><h2 style="font-size:34px">Same record, different role emphasis</h2></div>
+      </div>
+      <div class="role-row">
+        <button class="role-btn active" data-role-btn="operator">Operator</button>
+        <button class="role-btn" data-role-btn="maintenance">Maintenance</button>
+        <button class="role-btn" data-role-btn="control">Control Room</button>
+        <button class="role-btn" data-role-btn="reliability">Reliability</button>
+      </div>
+      <div class="role-pane active" data-role-pane="operator">
+        <h3>Operator view</h3>
+        <p>Show the simplest useful action first. If the issue is minor, let the operator self-serve. If not, turn one tap into a clean handoff.</p>
+        <ul><li>Status, safe action, and call-for-help trigger.</li><li>Watch / inspect / intervene logic for pre-fault conditions.</li><li>No need to choose between multiple disconnected systems.</li></ul>
+      </div>
+      <div class="role-pane" data-role-pane="maintenance">
+        <h3>Maintenance view</h3>
+        <p>This is the primary working view: live alarms, similar failures, parts, manuals, PM history, and closure tools in one place.</p>
+        <ul><li>Best-next-action guidance for faster diagnosis.</li><li>Asset hierarchy, parts, and evidence side-by-side.</li><li>Closure fields that enforce better data quality.</li></ul>
+      </div>
+      <div class="role-pane" data-role-pane="control">
+        <h3>Control Room view</h3>
+        <p>The Control Room sees the same event record but with fleet-level context, escalations, and cross-area coordination.</p>
+        <ul><li>Line / area / cell hierarchy and impact view.</li><li>Escalation queue and ownership logic.</li><li>Shared notes with maintenance, quality, and controls.</li></ul>
+      </div>
+      <div class="role-pane" data-role-pane="reliability">
+        <h3>Reliability view</h3>
+        <p>Reliability needs the trend and pattern view: bad actors, repeat failures, and root-cause patterns, not just the active incident.</p>
+        <ul><li>Repeat-failure detector and recurrence windows.</li><li>Bad-actor ranking and chronic loss themes.</li><li>Richer data for future predictive models.</li></ul>
+      </div>
+
+      <div class="root-layout" style="margin-top:18px">
+        <div class="fishbone">
+          <div class="tag blue">Root-cause workbench</div>
+          <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+            <path d="M80 132h220" stroke="#0d2236" stroke-width="4" stroke-linecap="round"/>
+            <path d="M300 132l34-12v24z" fill="#0d2236"/>
+            <text x="338" y="138" font-size="14" font-weight="800" fill="#0d2236">Stop event</text>
+            <path d="M128 132l-50-42" stroke="#0d2236" stroke-width="3"/><path d="M160 132l-56 44" stroke="#0d2236" stroke-width="3"/><path d="M212 132l-58-44" stroke="#0d2236" stroke-width="3"/><path d="M244 132l-56 44" stroke="#0d2236" stroke-width="3"/>
+            <rect x="28" y="60" width="90" height="34" rx="14" fill="#edf8fc" stroke="#cfe9f4"/><text x="48" y="81" font-size="13" font-weight="700" fill="#0a77a9">Material</text>
+            <rect x="48" y="174" width="90" height="34" rx="14" fill="#fff4e8" stroke="#ffd9b3"/><text x="70" y="195" font-size="13" font-weight="700" fill="#a95000">Method</text>
+            <rect x="104" y="42" width="90" height="34" rx="14" fill="#effaf5" stroke="#c8eadc"/><text x="131" y="63" font-size="13" font-weight="700" fill="#0f6d49">Machine</text>
+            <rect x="124" y="190" width="90" height="34" rx="14" fill="#edf8fc" stroke="#cfe9f4"/><text x="154" y="211" font-size="13" font-weight="700" fill="#0a77a9">People</text>
+            <rect x="184" y="60" width="94" height="34" rx="14" fill="#fff4e8" stroke="#ffd9b3"/><text x="208" y="81" font-size="13" font-weight="700" fill="#a95000">Environment</text>
+            <rect x="204" y="174" width="94" height="34" rx="14" fill="#effaf5" stroke="#c8eadc"/><text x="235" y="195" font-size="13" font-weight="700" fill="#0f6d49">Measurement</text>
+          </svg>
+        </div>
+        <div class="panel">
+          <div class="tag orange">Evidence sidecar</div>
+          <h3 style="margin-top:0">The context panel should be as useful as the main alert</h3>
+          <ul>
+            <li>Similar incidents with time-to-repair and corrective actions.</li>
+            <li>Attached SOPs, drawings, PM history, and parts availability.</li>
+            <li>Control Room / L2 / L3 escalation feed with live notes.</li>
+            <li>Closure-quality meter so the plant learns from each event.</li>
+          </ul>
+          <div class="callout" style="margin-top:14px"><strong>Design principle:</strong> the cockpit should feel like a maintenance tool wrapped around the event record, not a dashboard with tickets bolted on.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Next discussion</span>
+      <h2 style="font-size:30px">Keep value justification separate from the UI demo</h2>
+      <p class="section-copy" style="max-width:none">The cockpit page is focused on user experience. The business case is handled separately so leadership can review value assumptions without mixing them into the tablet walkthrough.</p>
+    </div>
+    <div class="panel">
+      <span class="eyebrow">Continue</span>
+      <h2 style="font-size:30px">Review ROI and implementation justification</h2>
+      <div style="margin-top:16px"><a class="btn primary" href="roi.html">Open ROI page</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+function ready(fn){ if(document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+ready(function(){
+  document.querySelectorAll('[data-build-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var step = btn.dataset.buildBtn;
+      document.querySelectorAll('[data-build-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-build-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.buildPane === step); });
+      document.querySelectorAll('[data-stage]').forEach(function(el){
+        var stages = (el.dataset.stage || '').split(',');
+        var visible = stages.indexOf(step) >= 0 || stages.indexOf('all') >= 0;
+        el.classList.toggle('gone', !visible && !el.dataset.persist);
+        el.classList.toggle('hide', !visible && !!el.dataset.persist);
+        el.classList.toggle('highlight', visible);
+      });
+    });
+  });
+  document.querySelectorAll('[data-role-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var role = btn.dataset.roleBtn;
+      document.querySelectorAll('[data-role-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-role-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.rolePane === role); });
+    });
+  });
+});
+})();
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>
