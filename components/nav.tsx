@@ -38,9 +38,6 @@ export default function Nav() {
           <Link href="/#who" className="hover:text-[var(--co-text)] transition-colors">
             Who It&apos;s For
           </Link>
-          <Link href="/about" className="hover:text-[var(--co-text)] transition-colors">
-            About
-          </Link>
         </nav>
 
         {/* Desktop CTA */}
@@ -86,7 +83,6 @@ export default function Nav() {
           <Link href="/#product" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Product</Link>
           <Link href="/#how-it-works" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">How It Works</Link>
           <Link href="/#who" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Who It&apos;s For</Link>
-          <Link href="/about" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">About</Link>
           <div className="pt-2">
             <Link
               href="/#demo"
