@@ -117,27 +117,61 @@
         <tr><td><strong>CESMII / i3X role</strong></td><td>Reference</td><td>Design center</td><td>Full operating contract</td></tr>
         <tr><td><strong>Cloud / AI readiness</strong></td><td>Low</td><td>Good</td><td>Excellent</td></tr>
         <tr><td><strong>Brooksource view</strong></td><td>Acceptable first step</td><td>Recommended path</td><td>North star</td></tr>
+        <tr><td><strong>Relative investment level</strong><br><small style="color:#7a9aad;font-weight:400">Configuration + integration scope</small></td><td><span style="font-weight:900;color:#16865a">Lower</span><br><small>Dashboard config, structured fault entry, limited integration work. Mostly internal effort.</small></td><td><span style="font-weight:900;color:#006394">Moderate</span><br><small>Historian + context layer + cockpit build. Integration scoping with CIMPLICITY, FAULT, and CMMS required.</small></td><td><span style="font-weight:900;color:#cc5500">Significant</span><br><small>Full data layer, SM Profiles governance, frontline UI, cloud lakehouse. Program-level commitment.</small></td></tr>
+        <tr><td><strong>Time to first value</strong><br><small style="color:#7a9aad;font-weight:400">Directional; depends on integration complexity</small></td><td>8–14 weeks<br><small>Visibility improvements are early; data quality gains take longer.</small></td><td>Pilot in 10–16 weeks<br><small>Full operating capability at 5–9 months. Designed so Good is not a prerequisite.</small></td><td>Phased over 12–24+ months<br><small>Starts with Better; each phase adds interoperability and scale.</small></td></tr>
       </tbody>
     </table>
+    <div class="callout" style="margin-top:14px"><strong>On investment sizing:</strong> these are directional indicators, not proposals. Hard numbers depend on Nissan's integration complexity, licensing position, internal IT capacity, and pilot scope. The right place to anchor cost is after the current-state mapping workstream confirms what is actually connected and owned.</div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container grid-2">
-    <div class="panel">
-      <span class="eyebrow">Placeholder economics</span>
-      <h2 style="font-size:30px">What the ROI discussion should sound like</h2>
-      <ul>
-        <li>How much unplanned downtime can the first pilot realistically reduce?</li>
-        <li>How much faster can the plant diagnose and close repeat issues?</li>
-        <li>How much administrative waste disappears when the same event record is reused instead of re-entered?</li>
-        <li>How much value does Nissan create by making paint-shop learning portable across the site?</li>
-      </ul>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Investment direction</span><h2>Sizing guidance before the numbers are confirmed</h2></div>
+      <p class="section-copy">Hard cost depends on Nissan's integration complexity, licensing position, and pilot scope — none of which are confirmed yet. What can be said now: each option represents a meaningfully different level of organizational commitment, and the jump from Better to Best is larger than the jump from Good to Better.</p>
     </div>
-    <div class="panel">
-      <h3 style="margin-top:0">Recommended leadership sound bite</h3>
+    <div class="comparison">
+      <div class="score-card">
+        <div class="tag">Good</div>
+        <b>Lower investment, faster start</b>
+        <small>Primarily configuration, structured data entry, and light dashboard work. Most of the effort is internal. Limited integration work required. Value arrives quickly; ceiling is also lower.</small>
+        <div class="scorebar" style="margin-top:12px"><span style="width:28%"></span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Light — mostly config</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>8–14 weeks</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Small — IT + maintenance</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Low</div>
+        </div>
+      </div>
+      <div class="score-card" style="border:2px solid var(--brook-blue)">
+        <div class="tag blue">Better — Recommended</div>
+        <b>Moderate investment, strongest ROI profile</b>
+        <small>Historian + context layer + cockpit build. Integration work with CIMPLICITY, FAULT, and CMMS is required and needs scoping. The pilot is designed to stand alone — Good is not a prerequisite.</small>
+        <div class="scorebar" style="margin-top:12px"><span style="width:58%"></span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Moderate — historian + context + cockpit</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Pilot 10–16 wks; full 5–9 mo</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Cross-functional: maint, IT, ops</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Moderate</div>
+        </div>
+      </div>
+      <div class="score-card">
+        <div class="tag green">Best</div>
+        <b>Significant investment, long-horizon program</b>
+        <small>Full data layer, SM Profiles governance, frontline UI, cloud lakehouse. Phased over 12–24+ months. Starts with Better — the jump to Best adds interoperability, AI-readiness, and plant-wide scale.</small>
+        <div class="scorebar" style="margin-top:12px"><span style="width:88%"></span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Full — data layer + cloud + AI</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Phased, 12–24+ months</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Program-level commitment</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Highest</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px">
       <div class="callout"><strong>Brooksource recommendation:</strong> retain the existing control-layer investments, add a purpose-built historian and context layer, use CESMII SM Profiles + i3X as the interoperability centerpoint, and deliver one frontline maintenance cockpit as the new operational experience.</div>
-      <div style="margin-top:18px"><a class="btn primary" href="architecture.html">Next: see the architecture build</a></div>
+      <div style="margin-top:18px"><a class="btn primary" href="architecture.html">Next: see the architecture build</a> <a class="btn secondary" href="roi.html" style="margin-left:10px">See the ROI and benchmarks</a></div>
     </div>
   </div>
 </section>
