@@ -287,6 +287,25 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 @media (max-width:680px){.product-gallery{grid-template-columns:1fr}.tech-matrix{font-size:12px}.tech-matrix th,.tech-matrix td{padding:10px}}
 
 
+/* Dual-lens persona view */
+.dual-lens-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.lens-timeline{display:grid;gap:0}
+.lens-step{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line-2)}
+.lens-step:last-child{border-bottom:none}
+.lens-time{font-size:11px;font-weight:900;color:var(--brook-blue);letter-spacing:.06em;padding-top:2px;white-space:nowrap}
+.lens-step-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:2px}
+.lens-step b{display:block;font-size:13px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.lens-step p{margin:0;font-size:12px;color:var(--muted);line-height:1.45}
+.lens-data{display:grid;gap:12px;align-content:start}
+.data-card{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.data-card-head{padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.data-card-head svg{flex-shrink:0}
+.data-card.gap .data-card-head{background:#fdf2f2;color:#8b2020;border-bottom:1px solid #f5c8c8}
+.data-card.transform .data-card-head{background:#edf8fc;color:#0a5c7a;border-bottom:1px solid #c0e4f4}
+.data-card-body{padding:12px 14px;font-size:13px;line-height:1.5;color:var(--muted);background:white}
+.data-card-body strong{color:var(--navy);display:block;margin-bottom:4px;font-size:13px}
+@media(max-width:860px){.dual-lens-layout{grid-template-columns:1fr}}
+
 /* Drill-down screens */
 .drill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
 .drill-card{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:white}
