@@ -46,6 +46,7 @@
           <li>Improve structured fault entry and reason coding.</li>
           <li>Use SQL where it already works.</li>
         </ul>
+        <button class="peek-btn" onclick="openModal('good')">▶ See what this looks like →</button>
       </div>
       <div class="card">
         <div class="tag blue">Better</div>
@@ -57,6 +58,7 @@
           <li>Use one maintenance cockpit for faults, RCA, parts, and escalation.</li>
           <li>Publish curated operational context to cloud analytics.</li>
         </ul>
+        <button class="peek-btn" onclick="openModal('better')" style="color:var(--brook-blue)">▶ See what this looks like →</button>
       </div>
       <div class="card">
         <div class="tag green">Best</div>
@@ -68,6 +70,7 @@
           <li>Feed Databricks or Snowflake with clean contextualized events.</li>
           <li>Scale the operating model across body, paint, and assembly.</li>
         </ul>
+        <button class="peek-btn" onclick="openModal('best')" style="color:var(--green)">▶ See what this looks like →</button>
       </div>
     </div>
     <div class="callout" style="margin-top:18px"><strong>Beyond Smyrna:</strong> Better and Best are designed to scale. The data model, event identity, and CESMII SM Profiles approach used at Smyrna should be portable to other Nissan North America plants — Canton, Decherd, and beyond — without rebuilding the architecture from scratch each time. Smyrna is the proof point; the operating model is the asset.</div>
@@ -189,6 +192,115 @@
   </div>
 </footer>
 
+<!-- Options modal -->
+<div class="modal-overlay hidden" id="optionsModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div id="modalTag" class="tag" style="margin-bottom:6px">Good</div>
+        <h3 id="modalTitle">Stabilize and simplify</h3>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="onsite-badge">🏭 Content being added with the team onsite — placeholders shown below</div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchModalTab(this,'screenshots')">Screenshots</button>
+        <button class="modal-tab" onclick="switchModalTab(this,'video')">Video / demo</button>
+        <button class="modal-tab" onclick="switchModalTab(this,'examples')">Reference examples</button>
+      </div>
+
+      <!-- Screenshots pane -->
+      <div class="modal-pane active" id="mpane-screenshots">
+        <div id="modal-shots-good">
+          <div class="modal-shot-grid">
+            <div class="modal-shot">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.gevernova.com%2Fsoftware%2Fproducts%2Fhmi-scada%2Foperations-hub?w=900" alt="Proficy Operations Hub" loading="lazy"/>
+              <div class="modal-shot-label">Proficy Operations Hub — centralized visibility layer</div>
+            </div>
+            <div class="modal-placeholder"><strong>Dashboard screenshot</strong>Add a screenshot of what a centralized fault dashboard looks like at a comparable plant. To be added onsite or after vendor demo.</div>
+          </div>
+        </div>
+        <div id="modal-shots-better" style="display:none">
+          <div class="modal-shot-grid">
+            <div class="modal-shot">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.highbyte.com%2Fintelligence-hub?w=900" alt="HighByte Intelligence Hub" loading="lazy"/>
+              <div class="modal-shot-label">HighByte Intelligence Hub — context layer</div>
+            </div>
+            <div class="modal-shot">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.gevernova.com%2Fsoftware%2Fproducts%2Fproficy%2Fhistorian?w=900" alt="Proficy Historian" loading="lazy"/>
+              <div class="modal-shot-label">Proficy Historian — OT time-series record</div>
+            </div>
+            <div class="modal-placeholder"><strong>Maintenance cockpit screenshot</strong>To be added — see the Cockpit page for the concept mockup.</div>
+            <div class="modal-placeholder"><strong>Event record example</strong>Add a screenshot showing one structured event record with asset, fault, and action in one view. To be added onsite.</div>
+          </div>
+        </div>
+        <div id="modal-shots-best" style="display:none">
+          <div class="modal-shot-grid">
+            <div class="modal-shot">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.twinthread.com%2Fplatform%2Findustrial-ai?w=900" alt="TwinThread" loading="lazy"/>
+              <div class="modal-shot-label">TwinThread — industrial AI and digital twin layer</div>
+            </div>
+            <div class="modal-shot">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.cesmii.org%2Ftechnology%2Fsm-profiles%2F?w=900" alt="CESMII SM Profiles" loading="lazy"/>
+              <div class="modal-shot-label">CESMII SM Profiles — interoperability spine</div>
+            </div>
+            <div class="modal-placeholder"><strong>Fleet-level analytics view</strong>Add a screenshot showing multi-plant or enterprise-level maintenance analytics. To be added after vendor sessions.</div>
+            <div class="modal-placeholder"><strong>Cloud lakehouse integration</strong>Databricks / Snowflake dashboard example. To be added onsite.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video pane -->
+      <div class="modal-pane" id="mpane-video">
+        <div class="modal-video-embed">▶ &nbsp; Video or demo link to be added — paste a YouTube, Vimeo, or vendor demo URL here</div>
+        <div class="modal-placeholder" style="margin-top:0"><strong>How to add a video</strong>Replace the placeholder above with an &lt;iframe&gt; embed from YouTube, Vimeo, or a vendor demo recording. Vendor product walkthroughs, reference customer videos, or a recording of the cockpit demo work well here.</div>
+      </div>
+
+      <!-- Examples pane -->
+      <div class="modal-pane" id="mpane-examples">
+        <div class="modal-placeholder"><strong>Reference customer examples</strong>Add links or screenshots from comparable plant implementations — automotive OEMs, process manufacturers, or published case studies. To be identified and added during or after the onsite session.</div>
+        <div class="modal-placeholder" style="margin-top:12px"><strong>Vendor case studies</strong>Request case studies from GE Vernova, HighByte, or CESMII that match the Smyrna profile. Paste links or screenshots here once available.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var modalData={
+  good:{tag:'Good',tagClass:'',title:'Stabilize and simplify — what it looks like'},
+  better:{tag:'Better',tagClass:'blue',title:'Build the missing middle — what it looks like'},
+  best:{tag:'Best',tagClass:'green',title:'Standardize for scale — what it looks like'}
+};
+function openModal(type){
+  var d=modalData[type];
+  document.getElementById('modalTag').textContent=d.tag;
+  document.getElementById('modalTag').className='tag '+(d.tagClass||'');
+  document.getElementById('modalTitle').textContent=d.title;
+  ['good','better','best'].forEach(function(k){
+    var el=document.getElementById('modal-shots-'+k);
+    if(el) el.style.display=k===type?'block':'none';
+  });
+  // reset tabs
+  document.querySelectorAll('.modal-tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.modal-pane').forEach(function(p){p.classList.remove('active');});
+  document.querySelector('.modal-tab').classList.add('active');
+  document.getElementById('mpane-screenshots').classList.add('active');
+  document.getElementById('optionsModal').classList.remove('hidden');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('optionsModal').classList.add('hidden');
+  document.body.style.overflow='';
+}
+function switchModalTab(btn,pane){
+  document.querySelectorAll('.modal-tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.modal-pane').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('mpane-'+pane).classList.add('active');
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
 <script src="main.js"></script>
 </body>
 </html>

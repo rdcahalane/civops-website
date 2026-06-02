@@ -308,6 +308,113 @@
   </div>
 </section>
 
+<section class="section" id="fivewhy">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">5-Why root cause walkthrough</span><h2>Walk the scenario together — live</h2></div>
+      <p class="section-copy">Pre-seeded with Cell 022 data. Edit any answer onsite, or clear it and build from scratch with the team. The cause chain on the right builds as you go.</p>
+    </div>
+    <div class="onsite-badge" style="margin-bottom:20px;display:inline-flex">🏭 Designed to fill in live during the onsite session — pre-populated suggestions are editable</div>
+    <div class="fivewhy-layout">
+      <div class="why-steps" id="whySteps">
+        <div class="why-step active" data-why="0">
+          <div class="why-step-head" onclick="toggleWhy(0)">
+            <div class="why-num">1</div>
+            <strong>Why did the line stop?</strong>
+            <small id="why-preview-0"></small>
+          </div>
+          <div class="why-body">
+            <div class="why-hint">What was the immediate observable event? (pre-seeded from Cell 022 event record)</div>
+            <textarea class="why-input" id="why-input-0" placeholder="The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.">The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.</textarea>
+            <div class="why-actions">
+              <button class="why-next" onclick="advanceWhy(0)">Next Why →</button>
+              <button class="why-use-hint" onclick="useHint(0)">Use suggestion</button>
+            </div>
+          </div>
+        </div>
+        <div class="why-step" data-why="1">
+          <div class="why-step-head" onclick="toggleWhy(1)">
+            <div class="why-num">2</div>
+            <strong>Why did the photo-eye fault?</strong>
+            <small id="why-preview-1"></small>
+          </div>
+          <div class="why-body">
+            <div class="why-hint">What condition caused the sensor to fail? (edit to match what the team identifies onsite)</div>
+            <textarea class="why-input" id="why-input-1" placeholder="The lens was contaminated with overspray from the booth — a recurring condition on this cell."></textarea>
+            <div class="why-actions">
+              <button class="why-next" onclick="advanceWhy(1)">Next Why →</button>
+              <button class="why-use-hint" onclick="useHint(1)">Use suggestion</button>
+            </div>
+          </div>
+        </div>
+        <div class="why-step" data-why="2">
+          <div class="why-step-head" onclick="toggleWhy(2)">
+            <div class="why-num">3</div>
+            <strong>Why was the lens contaminated?</strong>
+            <small id="why-preview-2"></small>
+          </div>
+          <div class="why-body">
+            <div class="why-hint">What allowed this condition to develop? Was it preventable?</div>
+            <textarea class="why-input" id="why-input-2" placeholder="The protective shield was missing and the PM schedule had not flagged a cleaning interval for this sensor."></textarea>
+            <div class="why-actions">
+              <button class="why-next" onclick="advanceWhy(2)">Next Why →</button>
+              <button class="why-use-hint" onclick="useHint(2)">Use suggestion</button>
+            </div>
+          </div>
+        </div>
+        <div class="why-step" data-why="3">
+          <div class="why-step-head" onclick="toggleWhy(3)">
+            <div class="why-num">4</div>
+            <strong>Why was the PM not current?</strong>
+            <small id="why-preview-3"></small>
+          </div>
+          <div class="why-body">
+            <div class="why-hint">What system or process gap allowed the maintenance interval to slip?</div>
+            <textarea class="why-input" id="why-input-3" placeholder="There is no system link between fault history and PM scheduling — they are tracked in separate, disconnected systems."></textarea>
+            <div class="why-actions">
+              <button class="why-next" onclick="advanceWhy(3)">Next Why →</button>
+              <button class="why-use-hint" onclick="useHint(3)">Use suggestion</button>
+            </div>
+          </div>
+        </div>
+        <div class="why-step" data-why="4">
+          <div class="why-step-head" onclick="toggleWhy(4)">
+            <div class="why-num">5</div>
+            <strong>Why are those systems disconnected?</strong>
+            <small id="why-preview-4"></small>
+          </div>
+          <div class="why-body">
+            <div class="why-hint">What is the root architectural or organizational cause?</div>
+            <textarea class="why-input" id="why-input-4" placeholder="No unified data layer exists to correlate fault events with maintenance schedules — this is exactly the gap the historian + context layer addresses."></textarea>
+            <div class="why-actions">
+              <button class="why-next" onclick="advanceWhy(4)">Complete analysis ✓</button>
+              <button class="why-use-hint" onclick="useHint(4)">Use suggestion</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-map">
+        <div class="why-map-inner">
+          <h4>Cause chain — building as you go</h4>
+          <div class="why-chain" id="whyChain">
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-0"></div><div class="why-node-content"><div class="why-node-label">Why 1 — Immediate event</div><div class="why-node-text empty" id="node-0">Answer Why 1 to start building the chain</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-1"></div><div class="why-node-content"><div class="why-node-label">Why 2 — Proximate cause</div><div class="why-node-text empty" id="node-1">Waiting…</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-2"></div><div class="why-node-content"><div class="why-node-label">Why 3 — Contributing condition</div><div class="why-node-text empty" id="node-2">Waiting…</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-3"></div><div class="why-node-content"><div class="why-node-label">Why 4 — System gap</div><div class="why-node-text empty" id="node-3">Waiting…</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-4"></div><div class="why-node-content"><div class="why-node-label">Why 5 — Root cause</div><div class="why-node-text empty root-candidate" id="node-4">Waiting…</div></div></div>
+          </div>
+          <button class="why-reset" onclick="resetWhy()">↺ Reset and start over</button>
+          <div class="why-complete-banner" id="whyComplete">
+            <strong>Root cause identified ✓</strong>
+            <p>The cause chain is complete. Use this as the basis for the corrective action plan and to demonstrate where the unified data architecture closes the gap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container grid-2">
     <div class="panel">
@@ -364,6 +471,65 @@ ready(function(){
 </script>
 
 <script>
+// 5-Why wizard
+var hints=[
+  "The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.",
+  "The lens was contaminated with overspray from the booth — a recurring condition on this cell.",
+  "The protective shield was missing and the PM schedule had not flagged a cleaning interval for this sensor.",
+  "There is no system link between fault history and PM scheduling — they are tracked in separate, disconnected systems.",
+  "No unified data layer exists to correlate fault events with maintenance schedules — this is exactly the gap the historian + context layer addresses."
+];
+function toggleWhy(n){
+  document.querySelectorAll('.why-step').forEach(function(s,i){
+    if(i===n) s.classList.add('active');
+  });
+}
+function useHint(n){
+  document.getElementById('why-input-'+n).value=hints[n];
+  updateChain(n,hints[n]);
+}
+function advanceWhy(n){
+  var val=(document.getElementById('why-input-'+n).value||'').trim();
+  if(!val){useHint(n);val=hints[n];}
+  updateChain(n,val);
+  var step=document.querySelector('[data-why="'+n+'"]');
+  step.classList.remove('active');
+  step.classList.add('answered');
+  var preview=document.getElementById('why-preview-'+n);
+  if(preview) preview.textContent=val.substring(0,40)+(val.length>40?'…':'');
+  if(n<4){
+    var next=document.querySelector('[data-why="'+(n+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  } else {
+    document.getElementById('whyComplete').classList.add('show');
+    var last=document.getElementById('node-4');
+    if(last){last.classList.add('root');last.classList.remove('empty');}
+  }
+}
+function updateChain(n,val){
+  var node=document.getElementById('node-'+n);
+  if(node){node.textContent=val.substring(0,80)+(val.length>80?'…':'');node.classList.remove('empty');node.classList.add('filled');}
+  var bar=document.getElementById('bar-'+n);
+  if(bar) bar.classList.add('filled');
+}
+function resetWhy(){
+  document.querySelectorAll('.why-step').forEach(function(s,i){
+    s.classList.remove('active','answered');
+    if(i===0) s.classList.add('active');
+    var inp=document.getElementById('why-input-'+i);
+    if(inp && i>0) inp.value='';
+    var pre=document.getElementById('why-preview-'+i);
+    if(pre) pre.textContent='';
+  });
+  for(var i=0;i<5;i++){
+    var node=document.getElementById('node-'+i);
+    if(node){node.classList.add('empty');node.classList.remove('filled','root');node.textContent=i===0?'Answer Why 1 to start building the chain':'Waiting…';}
+    var bar=document.getElementById('bar-'+i);
+    if(bar) bar.classList.remove('filled');
+  }
+  document.getElementById('whyComplete').classList.remove('show');
+}
+
 (function(){
   // Animate the stop clock on the drill-down screen
   var el = document.getElementById('stopClock');
