@@ -123,6 +123,191 @@
   </div>
 </section>
 
+<section class="section" id="drilldowns">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Drill-down screens</span><h2>What opens when you tap into an event</h2></div>
+      <p class="section-copy">The event record is the entry point. Every relevant context is one tap away — no system switching. Asset timeline, PM history, emergency ticket log, spare parts availability, and the live work execution guide are all part of the same record.</p>
+    </div>
+
+    <!-- Stop timer + production impact -->
+    <div class="tablet-layout" style="margin-bottom:28px">
+      <div class="tablet-shell">
+        <div class="tablet-frame">
+          <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM • Shift B</span></div>
+          <div class="cockpit-header">
+            <div class="cockpit-chips"><span class="cockpit-chip" style="background:rgba(191,63,63,.18);border-color:rgba(191,63,63,.35);color:#ffaaaa">ASSET STOPPED</span><span class="cockpit-chip">Cell 022</span></div>
+            <h3 style="margin:8px 0 2px">Asset timeline &amp; production impact</h3>
+            <p style="margin:0;font-size:12px;opacity:.75">Live elapsed stop time + downstream queue status</p>
+          </div>
+          <div class="cockpit-body">
+            <div style="text-align:center;padding:10px 0 6px">
+              <div style="font-size:11px;font-weight:900;letter-spacing:.1em;color:#ffaaaa;margin-bottom:4px">STOPPED FOR</div>
+              <div class="stop-clock" id="stopClock">23:41</div>
+              <div style="font-size:11px;color:#8fb0c8">Cell 022 • Photo-eye fault</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0">
+              <div style="background:rgba(199,119,0,.12);border:1px solid rgba(199,119,0,.3);border-radius:14px;padding:10px;text-align:center">
+                <div style="font-size:10px;font-weight:900;color:#ffcc77;letter-spacing:.08em">NEXT SCHEDULED RUN</div>
+                <div style="font-size:22px;font-weight:950;color:white;margin:4px 0" id="nextRun">11:54</div>
+                <div style="font-size:10px;color:#d4a66a">in <span id="nextRunMins">12</span> min</div>
+              </div>
+              <div style="background:rgba(10,119,169,.12);border:1px solid rgba(10,119,169,.3);border-radius:14px;padding:10px;text-align:center">
+                <div style="font-size:10px;font-weight:900;color:#7dd0f0;letter-spacing:.08em">MAIN ASSEMBLY FEED</div>
+                <div style="font-size:22px;font-weight:950;color:white;margin:4px 0">~18 min</div>
+                <div style="font-size:10px;color:#89c4de">buffer before queue impact</div>
+              </div>
+            </div>
+            <div style="font-size:11px;font-weight:900;color:#8fb0c8;letter-spacing:.06em;margin-bottom:6px">DOWNSTREAM QUEUE BUILD</div>
+            <div style="margin-bottom:5px;font-size:11px;color:#c8dbe8">Body shop station 4 <span style="float:right;color:#ff8300">building</span></div>
+            <div class="impact-bar"><span style="width:68%;background:linear-gradient(90deg,#006394,#ff8300)"></span></div>
+            <div style="margin-bottom:5px;font-size:11px;color:#c8dbe8">Trim feed buffer <span style="float:right;color:#16865a">OK</span></div>
+            <div class="impact-bar"><span style="width:24%;background:#16865a"></span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag blue" style="margin-bottom:12px">Asset timeline</div>
+        <h3 style="margin-top:0">Two clocks that matter to every decision in the room</h3>
+        <p>The stop clock tells the technician how urgent this is. The production context tells the Control Room and maintenance supervisor whether to escalate now or give the tech another few minutes. Both run from the same event record.</p>
+        <div class="value-stack" style="margin-top:16px">
+          <div class="value-row"><strong>Stop clock</strong><small>Elapsed time since the asset entered a stop state, continuously updated. Feeds the escalation logic — the cockpit can trigger L2 notification automatically after a threshold.</small></div>
+          <div class="value-row"><strong>Next scheduled run</strong><small>Pulled from the production schedule. Tells the technician exactly how much time they have before this stop becomes a missed target.</small></div>
+          <div class="value-row"><strong>Assembly feed buffer</strong><small>How long before the downstream main assembly line starts feeling this stop. Gives the Control Room a forward-looking impact window, not just a current status.</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-up drill cards: PM history, ticket history, spare parts -->
+    <div class="drill-grid">
+
+      <!-- PM History -->
+      <div class="drill-card">
+        <div class="drill-top"><span>PM HISTORY — Cell 022</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-title"><h4>Preventive maintenance log</h4><span class="drill-badge amber">Due in 8 days</span></div>
+        <div class="drill-body">
+          <div class="drill-row"><b>Last PM</b><small>34 days ago — photo-eye cleaning, sensor alignment. Tech: JR. No issues found at time of service.</small></div>
+          <div class="drill-row"><b>PM before</b><small>68 days ago — bracket torque check + lens swap. Tech: MW. Lens showed wear.</small></div>
+          <div class="drill-row"><b>PM before</b><small>102 days ago — full cell inspection. Tech: JR. Noted bracket drift starting.</small></div>
+          <div class="drill-row"><b>Avg interval</b><small>34 days • 3 PMs in last 120 days</small></div>
+          <div class="drill-row"><b>Note</b><small style="color:#8a5500">Bracket drift noted at 102-day PM was not escalated. Pattern visible in hindsight.</small></div>
+          <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2);font-size:11px;color:var(--muted)">PM records pulled from CMMS. Technician notes attached to each record.</div>
+        </div>
+      </div>
+
+      <!-- Emergency Ticket History -->
+      <div class="drill-card">
+        <div class="drill-top"><span>TICKET HISTORY — Cell 022</span><span><span class="drill-dot r"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-title"><h4>Emergency maintenance tickets</h4><span class="drill-badge red">3 in 30 days</span></div>
+        <div class="drill-body">
+          <div class="drill-row">
+            <b>Today</b>
+            <small><span class="drill-badge amber">Open</span> Photo-eye fault — bracket drift + contamination. 23m elapsed. This ticket.</small>
+          </div>
+          <div class="drill-row">
+            <b>Jun 18</b>
+            <small><span class="drill-badge green">Closed</span> Photo-eye contamination — cleaned lens, re-aligned. MTTR: 31m. Tech: JR.</small>
+          </div>
+          <div class="drill-row">
+            <b>Jun 9</b>
+            <small><span class="drill-badge green">Closed</span> Intermittent signal loss — bracket re-torqued. MTTR: 44m. Tech: MW. Recurrence noted.</small>
+          </div>
+          <div class="drill-row">
+            <b>May 28</b>
+            <small><span class="drill-badge green">Closed</span> False trip — lens dirty. Cleaned. MTTR: 18m. Tech: JR. No root cause captured.</small>
+          </div>
+          <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2);font-size:11px;color:#9b2020;font-weight:700">⚠ Same root cause family. Bracket drift was not addressed at closure on Jun 9 or May 28.</div>
+        </div>
+      </div>
+
+      <!-- Spare Parts -->
+      <div class="drill-card">
+        <div class="drill-top"><span>PARTS — Cell 022 / Photo-eye</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-title"><h4>Spare parts availability</h4><span class="drill-badge blue">Stores checked</span></div>
+        <div class="drill-body">
+          <div class="parts-row">
+            <div><b>Photo-eye lens assy</b><small>Part #PE-4402 • Bin 7C</small></div>
+            <span class="drill-badge green">1 in stock</span>
+          </div>
+          <div class="parts-row">
+            <div><b>Mounting bracket</b><small>Part #MB-7731 • Bin 12A</small></div>
+            <span class="drill-badge amber">Low — 1 left</span>
+          </div>
+          <div class="parts-row">
+            <div><b>Sensor cable 2m</b><small>Part #SC-220 • Bin 7C</small></div>
+            <span class="drill-badge green">3 in stock</span>
+          </div>
+          <div class="parts-row">
+            <div><b>Alignment jig</b><small>Part #AJ-088 • Tool crib</small></div>
+            <span class="drill-badge blue">Shared tool</span>
+          </div>
+          <div class="parts-row">
+            <div><b>Bracket kit (spare)</b><small>Part #MB-7731K • Reorder</small></div>
+            <span class="drill-badge red">Order needed</span>
+          </div>
+          <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2)">
+            <a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:10px;background:#006394;color:white;font-size:11px;font-weight:900;text-decoration:none">&#43; Reorder MB-7731K via CMMS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work execution / performing the maintenance -->
+    <div class="tablet-layout">
+      <div class="tablet-shell">
+        <div class="tablet-frame">
+          <div class="tablet-status"><span>Brooksource concept</span><span>10:44 AM • Shift B</span></div>
+          <div class="cockpit-header">
+            <div class="cockpit-chips"><span class="cockpit-chip">Step 1 of 5</span><span class="cockpit-chip">Est. 12 min</span></div>
+            <h3 style="margin:8px 0 2px">Performing maintenance</h3>
+            <p style="margin:0;font-size:12px;opacity:.75">Cell 022 • Photo-eye contamination + bracket drift</p>
+          </div>
+          <div class="cockpit-body">
+            <div class="work-step">
+              <div class="step-check done"></div>
+              <div class="work-step-body"><b>Lock out / tag out Cell 022</b><small>Confirm with Control Room before proceeding. LOTO completed at 10:43.</small></div>
+            </div>
+            <div class="work-step">
+              <div class="step-check done"></div>
+              <div class="work-step-body"><b>Clean photo-eye lens (SOP p.7)</b><small>Use lint-free cloth + IPA. Check for surface scratches. Replace if lens shows wear.</small></div>
+            </div>
+            <div class="work-step" style="background:rgba(10,119,169,.06);border-radius:12px;padding:8px 10px;margin:0 -10px">
+              <div class="step-check" style="border-color:var(--brook-blue)"></div>
+              <div class="work-step-body"><b style="color:var(--brook-blue)">Inspect and re-torque mounting bracket ← Active</b><small>Check for drift. Torque spec: 8 Nm. If bracket shows cracks, replace (Part #MB-7731, Bin 12A).</small></div>
+            </div>
+            <div class="work-step">
+              <div class="step-check"></div>
+              <div class="work-step-body"><b>Re-align sensor per jig</b><small>Alignment jig in tool crib. Target beam: center ±2mm. Test with Control Room before releasing.</small></div>
+            </div>
+            <div class="work-step">
+              <div class="step-check"></div>
+              <div class="work-step-body"><b>Close out and release to production</b><small>Capture fix, parts used, and recurrence flag before closing. Control Room releases line.</small></div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <a href="#" onclick="return false" class="manual-btn">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M1 1h7l3 3v9H1V1z" stroke="#9b2020" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 1v3h3" stroke="#9b2020" stroke-width="1.5"/><path d="M3 7h6M3 9.5h4" stroke="#9b2020" stroke-width="1.3" stroke-linecap="round"/></svg>
+                Cell 022 Equipment Manual (PDF)
+              </a>
+              <a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:12px;background:#edf8fc;color:#0a5c7a;font-size:12px;font-weight:900;text-decoration:none;border:1px solid #c0e4f4">📷 Add photo evidence</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag green" style="margin-bottom:12px">Work execution</div>
+        <h3 style="margin-top:0">The screen the technician actually works from</h3>
+        <p>Once the diagnosis is confirmed, the cockpit shifts into guided execution mode. Each step is pre-populated from the event type and PM history — the tech doesn't start from a blank form. Steps are checked off as they go, building the closure record automatically.</p>
+        <div class="value-stack" style="margin-top:16px">
+          <div class="value-row"><strong>Equipment manual link</strong><small>One tap opens the correct manual section for the asset. No hunting through a shared drive or paper binder on the floor. PDF opens in-app or downloads to the device.</small></div>
+          <div class="value-row"><strong>Photo evidence capture</strong><small>Technician photos attach directly to the event record. Available to reliability, Control Room, and future technicians on the same asset.</small></div>
+          <div class="value-row"><strong>Auto-populated closure</strong><small>Parts used, time elapsed, and steps completed are already filled in. The tech confirms and adds the root cause — one structured entry, not a blank notes field.</small></div>
+          <div class="value-row"><strong>LOTO + Control Room handshake</strong><small>Lockout/tagout confirmation and line-release happen inside the same record. No verbal-only handoffs that get lost.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container grid-2">
     <div class="panel">
@@ -178,6 +363,24 @@ ready(function(){
 })();
 </script>
 
+<script>
+(function(){
+  // Animate the stop clock on the drill-down screen
+  var el = document.getElementById('stopClock');
+  var mins = document.getElementById('nextRunMins');
+  if(!el) return;
+  var secs = 23*60+41;
+  var buffer = 12;
+  setInterval(function(){
+    secs++;
+    var m = Math.floor(secs/60), s = secs%60;
+    el.textContent = m + ':' + (s<10?'0':'')+s;
+    // count down the "next run" buffer
+    var remaining = Math.max(0, buffer*60 - secs);
+    if(mins) mins.textContent = Math.ceil(remaining/60);
+  }, 1000);
+})();
+</script>
 <script src="main.js"></script>
 </body>
 </html>
