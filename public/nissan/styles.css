@@ -287,6 +287,17 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 @media (max-width:680px){.product-gallery{grid-template-columns:1fr}.tech-matrix{font-size:12px}.tech-matrix th,.tech-matrix td{padding:10px}}
 
 
+/* Table category separators */
+.tech-matrix .cat-row td{padding:10px 14px;background:#f1f8fb;border-bottom:1px solid var(--line-2);border-top:2px solid var(--brook-blue)}
+.tech-matrix .cat-row.orange td{border-top-color:var(--brook-orange);background:#fff8f3}
+.tech-matrix .cat-row.green td{border-top-color:#16865a;background:#f2faf6}
+.tech-matrix .cat-row td .cat-label{display:inline-flex;align-items:center;gap:8px}
+.tech-matrix .cat-row td .cat-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--brook-blue);color:white;font-size:10px;font-weight:900;flex-shrink:0}
+.tech-matrix .cat-row.orange td .cat-num{background:var(--brook-orange)}
+.tech-matrix .cat-row.green td .cat-num{background:#16865a}
+.tech-matrix .cat-row td strong{font-size:12px;font-weight:900;color:#0d2236;letter-spacing:.02em}
+.tech-matrix .cat-row td small{font-size:11px;color:#6a8a9a;margin-left:6px}
+
 /* V10 fixes */
 .build-canvas{overflow:hidden}
 .build-svg text{paint-order:stroke;stroke:rgba(13,34,54,.16);stroke-width:.25px;stroke-linejoin:round}
