@@ -9,10 +9,10 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-2 flex flex-col gap-4">
           <Image
-            src="/civops-logo-horizontal.svg"
+            src="/civops-wordmark.png"
             alt="CivOps"
-            width={140}
-            height={32}
+            width={150}
+            height={51}
           />
           <p className="text-sm leading-6 text-[var(--co-muted)] max-w-xs">
             The enterprise operations platform built for mid-market manufacturers — from the plant floor up.

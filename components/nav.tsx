@@ -13,27 +13,30 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/civops-logo-horizontal.svg"
+            src="/civops-wordmark.png"
             alt="CivOps"
-            width={140}
-            height={32}
+            width={132}
+            height={45}
             priority
           />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--co-muted)]">
+          <Link href="/#path" className="hover:text-[var(--co-text)] transition-colors">
+            Approach
+          </Link>
           <Link href="/#platform" className="hover:text-[var(--co-text)] transition-colors">
             Platform
+          </Link>
+          <Link href="/#product" className="hover:text-[var(--co-text)] transition-colors">
+            Product
           </Link>
           <Link href="/#how-it-works" className="hover:text-[var(--co-text)] transition-colors">
             How It Works
           </Link>
           <Link href="/#who" className="hover:text-[var(--co-text)] transition-colors">
             Who It&apos;s For
-          </Link>
-          <Link href="/about" className="hover:text-[var(--co-text)] transition-colors">
-            About
           </Link>
         </nav>
 
@@ -75,10 +78,11 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-[var(--co-grid)]/60 bg-[var(--co-panel)] px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+          <Link href="/#path" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Approach</Link>
           <Link href="/#platform" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Platform</Link>
+          <Link href="/#product" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Product</Link>
           <Link href="/#how-it-works" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">How It Works</Link>
           <Link href="/#who" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">Who It&apos;s For</Link>
-          <Link href="/about" onClick={() => setOpen(false)} className="text-[var(--co-muted)] hover:text-[var(--co-text)]">About</Link>
           <div className="pt-2">
             <Link
               href="/#demo"
