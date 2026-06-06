@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissan Smyrna - Maintenance Systems Recommendation</title>
+<style>
+  :root{
+    --bg:#07101c;
+    --panel:#0d1727;
+    --panel2:#122033;
+    --text:#eef5ff;
+    --muted:#9bb0c8;
+    --line:#22405f;
+    --accent:#66d5ff;
+    --accent2:#88e28a;
+    --warn:#ffbf5b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(102,213,255,.12), transparent 25%),
+      radial-gradient(circle at 85% 18%, rgba(136,226,138,.1), transparent 22%),
+      linear-gradient(135deg, #06101b 0%, #091423 54%, #0d1a2e 100%);
+    color:var(--text);
+  }
+  .wrap{max-width:1500px;margin:0 auto;padding:24px}
+  .hero{
+    background:linear-gradient(180deg, rgba(18,32,51,.96), rgba(13,23,39,.92));
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 24px 70px rgba(0,0,0,.28);
+  }
+  h1{margin:0 0 8px;font-size:34px;line-height:1.05}
+  .sub{color:var(--muted);font-size:15px;max-width:1100px;line-height:1.55}
+  .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .pill{
+    padding:7px 10px;border-radius:999px;
+    background:rgba(102,213,255,.12); border:1px solid rgba(102,213,255,.2);
+    color:var(--accent); font-size:12px; font-weight:600;
+  }
+  .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+  .panel{
+    background:rgba(13,23,39,.94);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 18px 55px rgba(0,0,0,.22);
+  }
+  h2{margin:0 0 12px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#cfe5ff}
+  h3{margin:18px 0 8px;font-size:16px;color:#dff2ff}
+  p,li{color:var(--text);line-height:1.55}
+  ul{margin:10px 0 0 18px;padding:0}
+  li{margin:8px 0;color:#d8e6f8}
+  .muted{color:var(--muted)}
+  .callout{
+    margin-top:12px;padding:14px 16px;border-radius:16px;
+    background:rgba(255,191,91,.1);border:1px solid rgba(255,191,91,.18);
+    color:#ffe3b4;
+  }
+  .good{
+    background:rgba(136,226,138,.1);border-color:rgba(136,226,138,.18);
+    color:#dbffd9;
+  }
+  .matrix{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px
+  }
+  .card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;padding:12px
+  }
+  .card strong{display:block;margin-bottom:6px}
+  .card small{color:var(--muted);line-height:1.45;display:block}
+  .diagram{
+    margin-top:16px;
+    background:rgba(9,18,30,.9);
+    border:1px solid rgba(102,213,255,.18);
+    border-radius:20px;
+    padding:18px;
+    overflow:auto;
+  }
+  code{
+    background:rgba(255,255,255,.06);
+    padding:2px 6px;border-radius:6px;
+  }
+  .footer{
+    margin:16px 0 0;color:var(--muted);font-size:12px
+  }
+  .toolbar{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    margin:0 0 14px;padding:12px 14px;border-radius:16px;
+    background:rgba(13,23,39,.9);border:1px solid rgba(102,213,255,.18);
+  }
+  .toolbar .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .action{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:8px 10px;border-radius:999px;text-decoration:none;
+    background:rgba(102,213,255,.12);border:1px solid rgba(102,213,255,.2);color:var(--text);
+    font-size:12px;font-weight:700;
+  }
+  .action.secondary{
+    background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:var(--muted);
+  }
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .toc a{
+    color:var(--text);text-decoration:none;font-size:12px;font-weight:700;
+    padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08)
+  }
+  .journey{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:12px
+  }
+  .journey-step{
+    position:relative;
+    min-height:136px;
+    padding:14px;
+    border-radius:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .journey-step::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:-14px;
+    width:18px;
+    height:2px;
+    background:rgba(102,213,255,.45);
+  }
+  .journey-step:last-child::after{display:none}
+  .journey-step .time{
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:999px;
+    background:rgba(102,213,255,.12);
+    border:1px solid rgba(102,213,255,.2);
+    color:var(--accent);
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:10px
+  }
+  .journey-step strong{display:block;font-size:14px;margin-bottom:6px}
+  .journey-step small{color:var(--muted);line-height:1.45;display:block}
+  .journey-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:12px
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .toolbar,.footer{display:none}
+    .wrap{max-width:none;padding:0}
+    .hero,.panel,.diagram{box-shadow:none}
+    .hero,.panel,.diagram{break-inside:avoid}
+    .hero,.panel,.diagram,.card{border-color:#cfd8e3}
+    h1,h2,h3,p,li,small,code{color:#111 !important}
+    .callout,.good{color:#111;background:#f7f7f7;border-color:#d8d8d8}
+  }
+  @media (max-width: 1100px){.grid,.two,.matrix,.journey,.journey-summary{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar">
+      <div>
+        <strong>Nissan Smyrna working draft</strong>
+        <div class="muted" style="font-size:12px">HTML mini-site + downloadable PDF companion from the same content.</div>
+        <div class="toc">
+          <a href="#exec">Executive</a>
+          <a href="#ux">UX</a>
+          <a href="#gbb">Good/Better/Best</a>
+          <a href="#tools">Tools</a>
+          <a href="#arch">Architecture</a>
+          <a href="#roi">ROI</a>
+          <a href="#optimization">Optimization</a>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="action" href="./nissan_smyrna_master_recommendation.pdf" download>Download PDF</a>
+        <a class="action secondary" href="./nissan_smyrna_maintenance_ui_mockup.html" target="_blank" rel="noreferrer">Open UI mockup</a>
+        <a class="action secondary" href="#" onclick="window.print(); return false;">Print / Save PDF</a>
+      </div>
+    </div>
+    <section class="hero" id="exec">
+      <h1>Nissan Smyrna<br>Maintenance Systems Recommendation</h1>
+      <div class="sub">
+        This working recommendation focuses on what to keep, what to add, and how to get to a true single pane of glass
+        without forcing maintenance, operators, and the Control Center into multiple disconnected tools.
+      </div>
+      <div class="callout good" style="margin-top:14px">
+        <b>In one sentence:</b> keep the current control stack, add a purpose-built data and context layer, give people one maintenance cockpit, and make the plant feel like a 24/7 remote operations center with maintenance intelligence.
+      </div>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
+        <div class="card"><strong>1. One cockpit</strong><small>Operators, maintenance, Control Room, and experts all work from the same event record.</small></div>
+        <div class="card"><strong>2. Better data</strong><small>Historian + HighByte turn local islands into usable operational context.</small></div>
+        <div class="card"><strong>3. Future-ready</strong><small>Curated data flows to Databricks / Snowflake for analytics, AI, and fleet learning.</small></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Executive Recommendation</h2>
+        <div class="callout good" style="margin-top:0">
+          Recommended path: keep <code>CIMPLICITY</code> in place, add <code>Historian</code> + <code>HighByte</code>,
+          use one frontline maintenance cockpit, and publish curated data to <code>Databricks</code> or <code>Snowflake</code>.
+          If Nissan wants a broader human-performance layer, shortlist <code>Murray Mentor</code>, <code>DeepHow</code>, or <code>Dozuki</code> for the knowledge / training gap.
+        </div>
+        <p>
+          If Nissan wants the best practical architecture, keep <code>CIMPLICITY</code> as the live control layer,
+          add a historian if they want an efficient operational record beyond SQL, add a contextualization layer
+          such as <code>HighByte</code>, and present everything through one maintenance/operations interface.
+        </p>
+        <div class="callout good">
+          Best-fit pattern: <b>control at the edge</b>, <b>context in the middle</b>, <b>single pane for users</b>,
+          <b>cloud lakehouse for analytics and AI</b>.
+        </div>
+
+        <h3>Recommended stack by layer</h3>
+        <div class="matrix">
+          <div class="card">
+            <strong>Plant Control</strong>
+            <small><code>CIMPLICITY</code> remains the HMI/SCADA backbone for live plant operations.</small>
+          </div>
+          <div class="card">
+            <strong>Operational History</strong>
+            <small>Add <code>Proficy Historian</code> if they want fast, efficient time-series and alarm/event storage beyond SQL.</small>
+          </div>
+          <div class="card">
+            <strong>Context / UNS</strong>
+            <small><code>HighByte</code> standardizes assets, tags, and event models so data becomes reusable across systems.</small>
+          </div>
+          <div class="card">
+            <strong>Frontline UI</strong>
+            <small><code>Operations Hub</code>, <code>Workflow</code>, Tulip, or a custom app can give users one screen for faults, RCA, parts, and escalation.</small>
+          </div>
+          <div class="card">
+            <strong>Cloud Analytics</strong>
+            <small><code>Databricks</code> or <code>Snowflake</code> can serve as the enterprise analytics / AI layer once the data is contextualized.</small>
+          </div>
+          <div class="card">
+            <strong>Standards</strong>
+            <small><code>CESMII</code> SM Profiles and <code>i3X</code> are the interoperability contract worth aligning to.</small>
+          </div>
+        </div>
+
+        <h3>Why historian is worth paying for</h3>
+        <ul>
+          <li>SQL is fine for records, downtime logs, and work orders, but it is not the best long-term home for dense machine signals.</li>
+          <li>Historian is purpose-built for high-speed time-series and alarm/event data.</li>
+          <li>It gives faster retrieval, better compression, and cleaner trending for bad-actor analysis and AI feature generation.</li>
+          <li>It lets SQL stay focused on transactional data instead of becoming the catch-all for everything.</li>
+        </ul>
+
+        <h3>Best option paths</h3>
+        <ul>
+          <li><b>Proficy-first:</b> CIMPLICITY + Historian + Operations Hub + Workflow + Plant Applications.</li>
+          <li><b>Hybrid:</b> CIMPLICITY + HighByte + cloud lakehouse + single front-end app.</li>
+          <li><b>Open app stack:</b> Ignition + HighByte + historian or SQL + cloud lakehouse.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Key Talking Points</h2>
+        <h3>What stays</h3>
+        <ul>
+          <li>CIMPLICITY as the plant control backbone.</li>
+          <li>SQL for transactional and reference data.</li>
+          <li>Existing local systems where they are already stable and fit for purpose.</li>
+        </ul>
+
+        <h3>What gets added</h3>
+        <ul>
+          <li>Historian for operational data retention and fast retrieval.</li>
+          <li>HighByte or equivalent for normalization, asset modeling, and UNS.</li>
+          <li>A single maintenance cockpit for alarms, faults, guidance, parts, and escalation.</li>
+          <li>Databricks or Snowflake for enterprise analytics and AI.</li>
+        </ul>
+
+        <h3>What CESMII / i3X means here</h3>
+        <p class="muted">
+          CESMII SM Profiles define the semantic model. i3X defines the open API style for interacting with those contextualized
+          manufacturing objects. They are not the full solution, but they are the interoperability layer that makes the rest of the stack portable.
+        </p>
+
+        <div class="callout">
+          For Nissan, treat <b>SM Profiles</b> as the common language and <b>i3X</b> as the open interface strategy.
+          That is especially useful if they want to mix Proficy, HighByte, Ignition, and cloud platforms without hard-locking into one vendor.
+        </div>
+
+        <h3>Suggested recommendation sentence</h3>
+        <div class="card">
+          <small>
+            “Nissan Smyrna should retain its existing control-layer investments, add a purpose-built historian for OT data,
+            insert a contextualization layer such as HighByte, present users with a single frontline maintenance cockpit,
+            and publish curated data to a cloud lakehouse such as Databricks or Snowflake for analytics and AI.”
+          </small>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top:16px" id="ux">
+      <h2>Ideal Maintenance Troubleshooting UX</h2>
+      <p class="muted">
+        The user experience should behave like a decision tree that starts simple and only adds complexity when needed.
+        The operator should not have to know which system owns which data. The interface should guide the next best step.
+      </p>
+
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="card">
+          <strong>1. Operator resolves independently</strong>
+          <small>
+            The UI shows the likely issue, a safe first action, a short SOP, and a confirmation step.
+            The operator can clear a minor fault, document the action, and continue without opening a maintenance ticket.
+          </small>
+        </div>
+        <div class="card">
+          <strong>2. Operator requests help</strong>
+          <small>
+            If the operator cannot clear the issue, the UI captures a structured fault report, starts the downtime clock,
+            attaches context automatically, and alerts frontline maintenance with the relevant asset, symptom, and history.
+          </small>
+        </div>
+        <div class="card">
+          <strong>3. Frontline maintenance resolves it</strong>
+          <small>
+            Maintenance sees live alarms, similar failures, parts availability, drawings, procedures, and the most likely root cause.
+            They can resolve, annotate, and close with standardized codes without needing L2 intervention.
+          </small>
+        </div>
+        <div class="card">
+          <strong>4. L2 / Control Room / remote expert escalation</strong>
+          <small>
+            If the issue is outside frontline scope, the UI creates a collaborative escalation case with live notes, photos,
+            event history, and ownership. The remote expert should see the same context the tech sees, not a stripped-down ticket.
+          </small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">Recommended state model for the interface</h3>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card">
+          <strong>Green</strong>
+          <small>Normal operation, no action needed.</small>
+        </div>
+        <div class="card">
+          <strong>Amber</strong>
+          <small>Developing issue or degraded condition, but not yet a stop.</small>
+        </div>
+        <div class="card">
+          <strong>Red</strong>
+          <small>Active downtime or fault requiring action.</small>
+        </div>
+        <div class="card">
+          <strong>Blue</strong>
+          <small>Predictive alert, recommended inspection, or maintenance window action.</small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">What the screen should show at every stage</h3>
+      <ul>
+        <li><b>Top:</b> plant, line, asset, shift, and event status.</li>
+        <li><b>Center:</b> current condition, recommended action, and fault workflow.</li>
+        <li><b>Right:</b> related incidents, manuals, PM history, parts, and expert chat.</li>
+        <li><b>Bottom:</b> event timeline, handoff notes, and closure / follow-up actions.</li>
+      </ul>
+
+      <h3>Predictive / pre-fault experience</h3>
+      <p class="muted">
+        When there is no actual stop, the user interface should still surface the issue as a developing condition.
+        This lets operators and maintenance act before the asset fails. The best pattern is a “watch list” or “degrading asset” lane
+        that ranks issues by risk, confidence, and time-to-failure estimate.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card">
+          <strong>Watch</strong>
+          <small>Potential issue detected. Monitor and log if it worsens.</small>
+        </div>
+        <div class="card">
+          <strong>Inspect</strong>
+          <small>Action recommended during the next available window.</small>
+        </div>
+        <div class="card">
+          <strong>Intervene</strong>
+          <small>High-confidence developing failure requiring immediate response.</small>
+        </div>
+      </div>
+
+      <div class="callout good" style="margin-top:14px">
+        The key UX principle is progressive disclosure: show the simplest useful action first, then expand context only when the user needs help.
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px" id="journey">
+      <h2>Day In The Life / Journey Map</h2>
+      <p class="muted">
+        This is the full operating journey I would show senior maintenance leadership. It makes the experience concrete from start to finish.
+      </p>
+      <div class="journey-summary">
+        <div class="card"><strong>Pre-shift</strong><small>Review bad actors, predictive alerts, open work, staffing, and parts constraints before the line starts.</small></div>
+        <div class="card"><strong>Run time</strong><small>Operator sees current state, self-resolves minor issues, or calls for help with one tap.</small></div>
+        <div class="card"><strong>Active incident</strong><small>Frontline maintenance sees the same fault record, context, similar cases, and guided actions without re-entry.</small></div>
+        <div class="card"><strong>Escalation / closure</strong><small>Control Room / L2 / remote expert joins if needed; closure captures reason, fix, parts, follow-up, and recurrence flags.</small></div>
+      </div>
+      <div class="journey">
+        <div class="journey-step"><span class="time">05:30</span><strong>Shift review</strong><small>Priority handoff, staffing check, and watch-list review before the first units move.</small></div>
+        <div class="journey-step"><span class="time">07:00</span><strong>Watch / Inspect</strong><small>Operator sees a developing issue or a live alert and knows whether to continue, inspect, or call for help.</small></div>
+        <div class="journey-step"><span class="time">09:15</span><strong>Self-serve or escalate</strong><small>Minor fault is cleared on the spot, or a structured help request goes to frontline maintenance.</small></div>
+        <div class="journey-step"><span class="time">13:40</span><strong>Collaborative fix</strong><small>Maintenance works with Control Room / L2 / remote experts using the same asset context and history.</small></div>
+        <div class="journey-step"><span class="time">17:00</span><strong>Closure & learning</strong><small>Reason, fix, parts, recurrence flag, and lessons learned are captured for the next shift.</small></div>
+      </div>
+      <div class="callout">
+        Use this journey map to show that the target state is not just a dashboard. It is a full operating loop from prediction to response to learning.
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px" id="gbb">
+      <h2>Role-By-Role Flow</h2>
+      <p class="muted">
+        Each role gets a clean lane, but they all see the same underlying event record and asset context.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Operator</strong>
+          <small>Sees current status, safe first actions, guided troubleshooting, and when to call for help.</small>
+        </div>
+        <div class="card">
+          <strong>Frontline Maintenance</strong>
+          <small>Sees alarms, assets, similar failures, drawings, parts, PM history, and closure tools.</small>
+        </div>
+        <div class="card">
+          <strong>Control Room / L2</strong>
+          <small>Sees escalations, fleet patterns, coordinated incidents, and remote support queues.</small>
+        </div>
+        <div class="card">
+          <strong>Reliability / L3</strong>
+          <small>Sees bad actors, repeat failures, predictive signals, and root-cause trends across assets.</small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">Presentation flow</h3>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card">
+          <strong>1. Current pain</strong>
+          <small>Multiple systems, fragmented data, hard-to-find context, and too much re-keying.</small>
+        </div>
+        <div class="card">
+          <strong>2. Target state</strong>
+          <small>One interface, one event record, one asset model, and one escalation pathway.</small>
+        </div>
+        <div class="card">
+          <strong>3. Adoption path</strong>
+          <small>Start with the highest-value lines / cells, prove the workflow, then expand.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>Good / Better / Best</h2>
+      <p class="muted">
+        This framing keeps the decision practical and lets us leave placeholders for ROI until Nissan can provide the baseline numbers.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Good</strong>
+          <small>
+            Keep the current Proficy / CIMPLICITY stack, centralize access through one dashboard, and improve structured fault entry.
+            Use SQL where it is already working and add light integration only where the gaps are obvious.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Better</strong>
+          <small>
+            Add a historian, add a contextualization layer like HighByte, and use Operations Hub or a similar app as the maintenance command center.
+            This creates a true single pane of glass with better data quality and better troubleshooting flow.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Best</strong>
+          <small>
+            Combine historian + HighByte + modern frontline UI + cloud lakehouse + CESMII/i3X-aligned data models.
+            This is the most future-proof route for AI, remote experts, and cross-system portability.
+          </small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">Best-practice examples we are drawing from</h3>
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr)">
+        <div class="card">
+          <strong>Remote monitoring / diagnostics center pattern</strong>
+          <small>
+            GE Vernova has described a Performance & Reliability Center pattern using Historian, Workflow, CIMPLICITY, and SOA to monitor a large fleet,
+            surface impending failures, and manage performance remotely.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Control room + remote visibility pattern</strong>
+          <small>
+            Proficy customer stories describe inspection and control in one facility, with remote production monitoring and centralized reporting.
+            That aligns closely with Nissan’s need for a central control room and escalation hub.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Operator workstation pattern</strong>
+          <small>
+            Mature Proficy implementations show supervisor screens and operator screens with work instructions, alarms, notifications, and downtime capture.
+            That is the right model for guided troubleshooting and cleaner data entry.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Centralized collaboration pattern</strong>
+          <small>
+            Remote access and web visualization patterns show how managers and experts can view plant data without full control access.
+            This is a useful model for L2 / L3 support and Control Room collaboration.
+          </small>
+        </div>
+      </div>
+
+      <h3 id="roi" style="margin-top:18px">ROI placeholder framework</h3>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card">
+          <strong>Current baseline</strong>
+          <small>__% downtime, __ incidents/month, __ MTTR, __ repeat failures</small>
+        </div>
+        <div class="card">
+          <strong>Expected improvement</strong>
+          <small>__% less downtime, __% faster response, __% fewer repeats, __ hours saved</small>
+        </div>
+        <div class="card">
+          <strong>Cost buckets</strong>
+          <small>Software, integration, hardware, training, support, change management</small>
+        </div>
+        <div class="card">
+          <strong>Value buckets</strong>
+          <small>Labor saved, throughput recovered, quality improvement, avoided scrap, avoided outage</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px" id="tools">
+        <h2>Out-Of-The-Box Tools</h2>
+        <p class="muted">
+          These are worth comparing if Nissan wants more than a dashboard and more than a historian. The goal is to help people act, not just look at data.
+        </p>
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Murray Mentor</strong>
+          <small>Best fit when the biggest gap is tacit knowledge capture and on-the-job voice guidance.</small>
+        </div>
+        <div class="card">
+          <strong>DeepHow</strong>
+          <small>Best fit when the biggest gap is video SOPs, standard work, and searchable mentoring.</small>
+        </div>
+        <div class="card">
+          <strong>Dozuki</strong>
+          <small>Best fit when the biggest gap is process control, work instructions, and training governance.</small>
+        </div>
+        <div class="card">
+          <strong>Poka / Augmentir</strong>
+          <small>Best fit when the biggest gap is frontline execution, issue capture, and connected-worker collaboration.</small>
+        </div>
+      </div>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr);margin-top:12px">
+        <div class="card"><strong>Knowledge loss</strong><small>Murray Mentor</small></div>
+        <div class="card"><strong>Video SOPs</strong><small>DeepHow</small></div>
+        <div class="card"><strong>Work instructions</strong><small>Dozuki</small></div>
+        <div class="card"><strong>Frontline execution</strong><small>Poka / Augmentir</small></div>
+      </div>
+      <h3 style="margin-top:18px">How to position them</h3>
+      <ul>
+        <li><b>If the pain is knowledge loss:</b> prioritize Murray Mentor or DeepHow.</li>
+        <li><b>If the pain is standard work and training control:</b> prioritize Dozuki.</li>
+        <li><b>If the pain is frontline execution and issue management:</b> prioritize Poka or Augmentir.</li>
+        <li><b>If the pain is plantwide visibility:</b> keep Proficy / CIMPLICITY as the backbone and add one of these as a guided-work layer.</li>
+      </ul>
+      <div class="callout">
+        Automotive-relevant examples from the market include Bosch automotive using Poka for issue management, and Dozuki highlighting automotive use cases for standardization and onboarding.
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>What Advanced O&amp;G Remote Operations Centers Do</h2>
+      <p class="muted">
+        If you want this to feel world-class, borrow the operating model from high-maturity remote operations centers in energy and oil &amp; gas:
+        centralized experts, fleet-level visibility, remote diagnostics, OT/cyber coordination, and a disciplined escalation path.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="card">
+          <strong>24/7 centralized expertise</strong>
+          <small>Permanent watch desk with specialists monitoring assets, dispatch, and health instead of waiting for local teams to discover issues first.</small>
+        </div>
+        <div class="card">
+          <strong>Fleet / site / machine hierarchy</strong>
+          <small>Dashboards roll up from machine to train to site to fleet so leadership can see the business impact, not just raw alarms.</small>
+        </div>
+        <div class="card">
+          <strong>Remote diagnostics + performance analytics</strong>
+          <small>Condition monitoring, predictive algorithms, event diagnostics, and weekly or daily summaries that point directly to the likely cause.</small>
+        </div>
+        <div class="card">
+          <strong>OT / cyber coordination</strong>
+          <small>Remote expert centers often bridge IT and OT so issues are handled safely, with clear access control and compliance guardrails.</small>
+        </div>
+        <div class="card">
+          <strong>Standard playbooks</strong>
+          <small>When an alarm fires, the response path is standardized: triage, isolate, inspect, escalate, repair, verify, learn.</small>
+        </div>
+        <div class="card">
+          <strong>Centralized reporting</strong>
+          <small>Executives and operators get the same truth with real-time KPIs, trend summaries, and documented follow-up actions.</small>
+        </div>
+      </div>
+      <h3 style="margin-top:18px">How that maps to Nissan</h3>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card"><strong>Watch desk</strong><small>Control Room + reliability + maintenance support</small></div>
+        <div class="card"><strong>Fleet view</strong><small>Line / area / cell / asset / sub-asset hierarchy</small></div>
+        <div class="card"><strong>Remote experts</strong><small>L2 / L3 / vendor specialists on call</small></div>
+        <div class="card"><strong>Health summaries</strong><small>Shift, day, week, and chronic bad-actor reporting</small></div>
+      </div>
+      <div class="callout good">
+        To impress senior leadership, make the target state look like a 24/7 operations center with a maintenance lens, not like a static dashboard with tickets attached.
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>Public OEM Alignment</h2>
+      <p class="muted">
+        Public information suggests the direction we are recommending is consistent with what other major manufacturers already value: centralized maintenance operations, predictive maintenance, and connected health reporting.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Ford</strong>
+          <small>
+            Public Ford career postings reference a <b>Maintenance Control Center</b> and <b>Business Control Center</b> model,
+            along with IIoT for predictive maintenance and Maximo as a maintenance system standard.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Toyota</strong>
+          <small>
+            Toyota’s public connected-services materials emphasize vehicle health reports, maintenance alerts, and remote-connected services,
+            showing how a major OEM turns health data into action and customer value.
+          </small>
+        </div>
+      </div>
+      <div class="callout">
+        The practical takeaway: major OEMs are moving toward centralized visibility, maintenance intelligence, and connected health. Nissan Smyrna should feel like the plant-side version of that pattern.
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>Optional Appendix: Signal Over Noise</h2>
+      <p class="muted">
+        If you want a subtle personal touch for the champion, the astro-photography analogy can work well as a design metaphor without becoming the main theme.
+      </p>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Long exposure</strong>
+          <small>The system gathers many faint signals over time so the real pattern becomes visible.</small>
+        </div>
+        <div class="card">
+          <strong>Guiding / tracking</strong>
+          <small>The operations center keeps assets “on target” by continuously correcting drift before it becomes downtime.</small>
+        </div>
+        <div class="card">
+          <strong>Noise reduction</strong>
+          <small>The data model filters clutter so leaders see signal, not alarm spam.</small>
+        </div>
+      </div>
+      <div class="callout">
+        Use this only as a light metaphor or visual accent. The main product should stay grounded in maintenance outcomes, not hobby references.
+      </div>
+    </section>
+
+    <section class="diagram">
+      <h2 id="arch">Target Architecture</h2>
+      <div class="muted" style="margin-bottom:12px">Share this as the working target-state view and invite Nissan to correct the assumptions.</div>
+      <pre style="white-space:pre-wrap;margin:0;color:#dbe9f8;font-family:Consolas, Monaco, monospace;font-size:13px;line-height:1.6">
+Plant Floor
+  ├─ CIMPLICITY / controls / alarms
+  ├─ CMMS / downtime / work orders
+  ├─ robot utilities / vision / PdM / documents
+  ↓
+Edge / Context Layer
+  ├─ HighByte or equivalent for asset model + UNS
+  ├─ historian for high-speed OT time series and alarms
+  ├─ normalization for local MSSQL islands and isolated devices
+  ↓
+Frontline Apps
+  ├─ Operations Hub / Workflow / custom UI
+  ├─ single pane of glass for maintenance, operators, control center
+  └─ guided fault capture, RCA, parts, escalation, handoff
+  ↓
+Cloud
+  ├─ Databricks or Snowflake
+  ├─ AI, analytics, predictive maintenance, reporting
+  └─ enterprise sharing and model training
+  ↓
+Optimization Layer  ◀ quantum-ready
+  ├─ maintenance scheduling optimizer (asset × crew × window × constraint)
+  ├─ spare parts inventory allocation (failure probability × lead time × location)
+  └─ production resequencing engine (minimize throughput loss after unplanned stops)
+      </pre>
+    </section>
+
+    <section class="panel" style="margin-top:16px" id="optimization">
+      <h2>Quantum-Ready Optimization</h2>
+      <p class="muted">
+        Once the data layer is live — historian feeding Databricks or Snowflake with clean, contextualized asset and event records —
+        three high-value optimization problems become solvable that classical schedulers handle poorly at Smyrna's scale.
+        These are not AI prediction problems. They are combinatorial decision problems: given a set of constraints, find the optimal
+        assignment. That class of problem maps directly to quantum computing, and the formulation can run today on classical hardware
+        with a drop-in quantum path when the problem scale warrants it.
+      </p>
+
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
+        <div class="card">
+          <strong>Maintenance scheduling</strong>
+          <small>
+            Given N assets, M maintenance windows, K technicians, parts availability, and production schedule constraints —
+            find the optimal preventive maintenance assignment. The paint shop is the highest-value target: paint line downtime
+            is disproportionately expensive and scheduling PM there requires balancing multiple interdependencies simultaneously.
+            Classical schedulers find local optima. This finds the global one.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Spare parts inventory</strong>
+          <small>
+            Given failure probability distributions from the historian, parts lead times, and storage locations across the plant —
+            find the optimal safety stock allocation per location. Currently solved with gut feel or simple reorder rules.
+            With clean historian data, failure rates become calculable. The allocation problem is a stochastic knapsack —
+            the exact problem class quantum annealing solves natively.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Production resequencing</strong>
+          <small>
+            When an asset goes down mid-shift, resequencing production across downstream stations to minimize throughput loss
+            is a real-time assignment problem. At Smyrna's line complexity, this is computationally hard.
+            The optimizer produces a resequencing plan in milliseconds so the Control Room acts on math, not instinct.
+          </small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">How it works with the stack being built</h3>
+      <div class="matrix" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card">
+          <strong>Data feeds in</strong>
+          <small>Historian + CMMS provide asset health scores, PM history, failure rates, and parts usage — the optimizer's inputs.</small>
+        </div>
+        <div class="card">
+          <strong>Constraints are encoded</strong>
+          <small>Production schedule, crew availability, budget, and downtime risk are expressed as a quadratic constraint problem (QUBO).</small>
+        </div>
+        <div class="card">
+          <strong>Optimizer runs</strong>
+          <small>Simulated annealing today (~5ms, runs anywhere). D-Wave quantum annealing when asset count exceeds ~50 with full constraint sets.</small>
+        </div>
+        <div class="card">
+          <strong>Plan surfaces in cockpit</strong>
+          <small>The optimal maintenance schedule and resequencing plan appear in the same frontline UI — no separate tool, no re-entry.</small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">Why this is different from predictive maintenance AI</h3>
+      <div class="matrix" style="grid-template-columns:repeat(2,1fr)">
+        <div class="card">
+          <strong>Predictive maintenance (what you already get from Databricks)</strong>
+          <small>
+            Tells you <em>which asset is likely to fail</em> and <em>when</em>. Output is a probability and a recommended inspection window.
+            Every major vendor sells this. It is a necessary capability but not a differentiator.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Quantum-ready optimization (what this adds)</strong>
+          <small>
+            Takes the predictive output as an input and answers: <em>given everything we know about failure risk, crew, parts,
+            and production schedule, what is the mathematically optimal plan?</em> No other integrator in this space is formulating this today.
+          </small>
+        </div>
+      </div>
+
+      <div class="callout good" style="margin-top:14px">
+        <b>Positioning for Nissan:</b> the data layer being proposed in phases 1–4 is exactly the prerequisite this needs.
+        Every dollar invested in historian quality and contextualization directly improves the optimizer's output.
+        The optimization layer is the return on that investment — and it is available the day the data is clean enough to feed it.
+      </div>
+
+      <h3 style="margin-top:18px">Quantum technology status — honest framing</h3>
+      <div class="matrix" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card">
+          <strong>Today (classical SA)</strong>
+          <small>
+            Simulated annealing solves the same QUBO formulation on standard hardware. Runs in milliseconds for ≤50 assets.
+            Available now, no special infrastructure, no vendor lock-in.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Near-term (D-Wave cloud)</strong>
+          <small>
+            D-Wave Advantage2 handles ~5,000 binary variables natively. For Smyrna's full asset network with real constraints,
+            this is where classical SA starts to find local optima and quantum annealing finds better solutions.
+            D-Wave Leap API available today via cloud — no hardware on-site required.
+          </small>
+        </div>
+        <div class="card">
+          <strong>Future (fault-tolerant QPU)</strong>
+          <small>
+            Gate-based quantum computers (IBM, IonQ) will unlock additional problem classes — multi-period scheduling,
+            stochastic supply chain, and fleet-level optimization across multiple Nissan plants.
+            Expected meaningful capability: 5–10 years. The formulation built today runs unchanged on future hardware.
+          </small>
+        </div>
+      </div>
+    </section>
+
+    <div class="two" style="margin-top:16px">
+      <section class="panel">
+        <h2>Alternatives</h2>
+        <ul>
+          <li><b>Stay Proficy-centric:</b> best if they want minimum disruption and the cleanest path inside the existing ecosystem.</li>
+          <li><b>Introduce Ignition:</b> best if they want a flexible application layer and broader openness at the edge.</li>
+          <li><b>Introduce HighByte:</b> best if the main pain is inconsistent naming, siloed MSSQL stores, and AI-readiness.</li>
+          <li><b>Go cloud-first analytics:</b> best if the goal is to make plant data usable in enterprise AI and reporting quickly.</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>Bottom Line</h2>
+        <p>
+          The best recommendation is not “replace everything.” It is to create a layered architecture:
+          keep the good control systems, add a historian where the OT data volume warrants it, normalize the data with HighByte or similar,
+          give users one operational interface, and send curated data to Databricks or Snowflake for AI.
+        </p>
+        <p class="muted">
+          That gives Nissan a stronger near-term maintenance experience and a better long-term data foundation.
+        </p>
+        <p class="muted">
+          Placeholder: estimated annual benefit $_____; placeholder: implementation cost $_____; placeholder: payback period ____ months.
+        </p>
+      </section>
+    </div>
+
+    <div class="footer">
+      Draft master recommendation for Nissan Smyrna. Intended as a discussion document, not a final design freeze.
+    </div>
+  </div>
+</body>
+</html>
