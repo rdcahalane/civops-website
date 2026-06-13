@@ -30,7 +30,7 @@ export default function About() {
           {
             name: "Ryan Cahalane",
             title: "Co-Founder & Technology",
-            bio: "Ryan has spent his career at the intersection of industrial operations and enterprise technology — from GE and Rockwell to OSIsoft and Axiom Manufacturing Systems. He leads the AI, data infrastructure, and integration architecture at CivOps.",
+            bio: "Ryan has spent his career at the intersection of industrial operations and enterprise technology — from GE and Rockwell to OSIsoft and LNS Research. He leads the AI, data infrastructure, and integration architecture at CivOps.",
           },
           {
             name: "Hans",
