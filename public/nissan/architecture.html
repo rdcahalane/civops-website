@@ -150,11 +150,23 @@
     <path d="M226 270h42" stroke="#71bfdf" stroke-width="9" stroke-linecap="round"/><polygon points="270,270 254,258 254,282" fill="#71bfdf"/>
     <path d="M466 270h42" stroke="#71bfdf" stroke-width="9" stroke-linecap="round"/><polygon points="510,270 494,258 494,282" fill="#71bfdf"/>
     <path d="M708 270h42" stroke="#71bfdf" stroke-width="9" stroke-linecap="round"/><polygon points="752,270 736,258 736,282" fill="#71bfdf"/>
+    <!-- connectivity / protocol tier (southbound, between plant floor and context) -->
+    <path d="M133 350v34" stroke="#9fd2ea" stroke-width="3" stroke-dasharray="6,4" stroke-linecap="round"/>
+    <polygon points="133,392 126,378 140,378" fill="#9fd2ea"/>
+    <rect x="48" y="392" width="410" height="100" rx="20" fill="rgba(116,198,229,.10)" stroke="#3d7494" stroke-dasharray="6,5"/>
+    <text x="68" y="418" fill="#9fd2ea" font-size="12" font-weight="900" letter-spacing="0.06em">CONNECTIVITY / PROTOCOL LAYER</text>
+    <rect x="68" y="430" width="176" height="50" rx="13" fill="#0a2740" stroke="#377394"/>
+    <text x="86" y="452" class="arch-small">FT Gateway</text>
+    <text x="86" y="470" fill="#9fb6c6" font-size="10">Rockwell / AB estate</text>
+    <rect x="260" y="430" width="182" height="50" rx="13" fill="#10324a" stroke="#74c6e5"/>
+    <text x="278" y="452" class="arch-small">Kepware · already owned</text>
+    <text x="278" y="470" fill="#9fb6c6" font-size="10">GE • Mitsubishi • Fanuc • Modbus → MQTT</text>
+    <path d="M250 455h6" stroke="#9fd2ea" stroke-width="2" opacity=".6"/>
   </g>
 
   <g class="layer gone" data-stage="detailed">
-    <text x="38" y="52" class="stage-title">4. Detailed Architecture: placeholder for design work</text>
-    <text x="38" y="76" class="stage-sub">The next pass should validate sources, owners, network zones, latency, retention, and support assumptions.</text>
+    <text x="38" y="52" class="stage-title">4. Detailed Architecture: source-grounded working draft</text>
+    <text x="38" y="76" class="stage-sub">Connectivity tier, network zones, source matrix, latency tiers, and the Cell 022 pilot reality are detailed below the graphic. Draft from engineering notes — validate with Nissan controls / IT.</text>
     <g filter="url(#archShadow)">
       <rect x="56" y="120" width="848" height="322" rx="28" fill="#132f49" stroke="#3b7494"/>
       <rect x="86" y="154" width="152" height="236" rx="20" fill="#173b59"/><text x="112" y="188" class="arch-card-title">Sources</text><text x="112" y="226" class="arch-small">CIMPLICITY</text><text x="112" y="252" class="arch-small">CMMS / Maximo</text><text x="112" y="278" class="arch-small">FAULT / DRS</text><text x="112" y="304" class="arch-small">Senseye</text><text x="112" y="330" class="arch-small">RobView / ISRA</text>
@@ -163,6 +175,12 @@
       <rect x="662" y="154" width="192" height="236" rx="20" fill="#174766"/><text x="690" y="188" class="arch-card-title">Apps + analytics</text><text x="690" y="226" class="arch-small">Cockpit / tablet</text><text x="690" y="252" class="arch-small">Control Room console</text><text x="690" y="278" class="arch-small">Databricks / Snowflake</text><text x="690" y="304" class="arch-small">AI + reliability models</text>
       <path d="M244 272h24M436 272h24M628 272h24" stroke="#80c6e3" stroke-width="8" stroke-linecap="round"/><polygon points="270,272 256,262 256,282" fill="#80c6e3"/><polygon points="462,272 448,262 448,282" fill="#80c6e3"/><polygon points="654,272 640,262 640,282" fill="#80c6e3"/>
     </g>
+    <!-- connectivity / protocol tier: how source data leaves the controllers -->
+    <rect x="56" y="452" width="848" height="74" rx="18" fill="rgba(116,198,229,.08)" stroke="#3d7494" stroke-dasharray="6,5"/>
+    <text x="84" y="478" fill="#9fd2ea" font-size="12" font-weight="900" letter-spacing="0.05em">CONNECTIVITY / PROTOCOL TIER — how source data leaves the controllers</text>
+    <text x="84" y="502" class="arch-small">FT Gateway → Rockwell / AB estate</text>
+    <text x="372" y="502" class="arch-small">Kepware (owned) → GE • Mitsubishi • Fanuc • Modbus • ABB</text>
+    <text x="792" y="502" fill="#9fb6c6" font-size="11">→ MQTT / Sparkplug</text>
   </g>
 
   <g class="layer gone" data-stage="optimization">
@@ -247,8 +265,8 @@
   </g>
 
   <g class="layer gone" data-stage="standards">
-    <text x="38" y="52" class="stage-title">5. Data Standardization: placeholder for the data contract</text>
-    <text x="38" y="76" class="stage-sub">This is where Nissan defines the naming, event, action, and API rules that make the cockpit and AI trustworthy.</text>
+    <text x="38" y="52" class="stage-title">5. Data Standardization: the data contract, grounded in real tags</text>
+    <text x="38" y="76" class="stage-sub">Smyrna's existing fault-tag and IP conventions, turned into a portable event object. Worked example and deliverables below the graphic.</text>
     <g filter="url(#archShadow)">
       <rect x="70" y="126" width="190" height="238" rx="26" fill="#16334f" stroke="#377394"/>
       <text x="104" y="166" class="arch-card-title">Asset model</text><text x="104" y="204" class="arch-small">site</text><text x="104" y="230" class="arch-small">area</text><text x="104" y="256" class="arch-small">line / cell</text><text x="104" y="282" class="arch-small">asset / subasset</text>
@@ -300,26 +318,26 @@
           <div class="build-note"><strong>Management message:</strong> this is how Nissan gets one asset model, one event record, and one escalation path.</div>
         </div>
         <div class="build-pane" data-build-pane="detailed">
-          <h3>Detailed Architecture: follow-on work to complete</h3>
-          <p>This tab intentionally marks the work still needed before build. It gives Nissan a clear place to capture source-by-source design detail once owners, access paths, latency needs, and security rules are confirmed.</p>
+          <h3>Detailed Architecture: the connectivity reality</h3>
+          <p>The As-Is story jumps from the plant floor straight to the context layer — it never shows <em>how</em> data leaves the controllers. The detail below the graphic fills that gap, source-grounded from engineering notes.</p>
           <ul>
-            <li>Validate each source: CIMPLICITY, CMMS / Maximo, FAULT, DRS, Senseye, RobView, ISRA vision PCs, drawings, and SOP repositories.</li>
-            <li>Define the OT / DMZ / IS data path, including what is read-only, what can be written back, and what must remain isolated.</li>
-            <li>Document latency targets: live alarms, event history, work orders, predictive exceptions, and cloud publishing cadence.</li>
-            <li>Specify integration ownership, support model, cybersecurity constraints, and fallback behavior for the paint-shop pilot.</li>
+            <li>Two connectors, not one: FT Gateway (Rockwell) + Kepware (multi-vendor, already owned).</li>
+            <li>Three network tiers + DMZ, and which sources reach IS today.</li>
+            <li>Latency tiers that decide whether "predictive" is credible.</li>
+            <li>Cell 022 pilot reality — one of the harder cases, not the easiest.</li>
           </ul>
-          <div class="build-note"><strong>Placeholder deliverable:</strong> detailed interface map, data-flow diagram, read/write matrix, ownership matrix, and pilot architecture for Cell 022 / paint shop.</div>
+          <div class="build-note"><strong>Management message:</strong> the zone separation is sound; the gap is that most floor context never crosses the DMZ to where analytics live. <em>Full detail below&nbsp;↓</em></div>
         </div>
         <div class="build-pane" data-build-pane="standards">
-          <h3>Data Standardization: follow-on work to complete</h3>
-          <p>This tab marks the standards work needed to make the architecture useful. The goal is not just moving data; it is moving trusted, reusable data-in-context.</p>
+          <h3>Data Standardization: capture what already exists</h3>
+          <p>Smyrna already uses consistent fault-tag and IP conventions — they just aren't modeled into reusable context yet. The detail below turns one raw PLC tag into a portable event object.</p>
           <ul>
-            <li>Define asset hierarchy: site, area, line, cell, asset, subasset, robot, vision unit, tool, and utility asset.</li>
-            <li>Define event model: fault event, alarm event, downtime event, work order, maintenance action, quality event, robot event, vision event, and PdM signal.</li>
-            <li>Standardize reason codes, symptom codes, closure codes, recurrence flags, ownership fields, and required evidence.</li>
-            <li>Map the plant model to CESMII SM Profiles and i3X-style interfaces so the model can travel across systems.</li>
+            <li>The existing fault-tag taxonomy (conveyor, cell rollup, robot).</li>
+            <li>A worked example: raw PLC tag → structured <code>fault_event</code>.</li>
+            <li>The IP-octet asset-identity convention already in use.</li>
+            <li>The four standardization deliverables.</li>
           </ul>
-          <div class="build-note"><strong>Placeholder deliverable:</strong> Nissan Smyrna event dictionary, asset naming standard, minimum closure-data rules, data-quality checks, and i3X mapping workbook.</div>
+          <div class="build-note"><strong>Nissan-friendly translation:</strong> one naming scheme, one event contract — built on conventions Smyrna already follows. <em>Worked example below&nbsp;↓</em></div>
         </div>
         <div class="build-pane" data-build-pane="optimization">
           <h3>Optimization Layer: quantum-ready decisions on top of clean data</h3>
@@ -346,14 +364,137 @@
         </div>
       </div>
     </div>
+
+    <!-- ── Tab-linked technical detail (swaps with the active build tab) ── -->
+    <div class="tech-detail" data-detail-pane="detailed">
+      <div class="detail-head"><span class="eyebrow">Detailed architecture</span><h3>How floor data actually leaves the controllers — and where it gets stuck</h3></div>
+      <p class="lead">The staged graphic shows the connectivity tier the As-Is story skips over. Here is the source-grounded detail behind it: the two connectors Nissan needs, the network zones they live in, what each source system can and cannot reach today, and the latency reality that makes "predictive" credible or not. Drafted from engineering working notes — to be validated with Nissan controls / IT.</p>
+
+      <h4 style="margin:6px 0 4px;color:#102130">Connectivity / protocol layer — two connectors, not one</h4>
+      <div class="conn-grid">
+        <div class="conn-card">
+          <h4><span class="term" data-tip="FactoryTalk Linx Gateway — a Rockwell product built on FactoryTalk Linx (formerly RSLinx Enterprise). An OPC DA/UA server endpoint oriented to the Allen-Bradley / Rockwell estate.">FT Gateway</span> — the Rockwell path</h4>
+          <p>Native connector for the Allen-Bradley / Rockwell estate. At Smyrna it is deployed as numerous per-cell instances (each ABB cell has its own; ≤5 CIMPLICITY projects per instance), so per-instance throughput is not a concern.</p>
+        </div>
+        <div class="conn-card owned">
+          <h4><span class="term" data-tip="KEPServerEX / ThingWorx Kepware — a PTC product. A multi-vendor protocol hub with 150+ drivers that also publishes natively to MQTT / Sparkplug B.">Kepware</span> — the multi-vendor path <span class="mask">already owned</span></h4>
+          <p>Covers GE Emerson PACSystems, Mitsubishi, Fanuc Focas, Modbus, and ABB that FT Gateway does not reach natively — and can publish directly to an MQTT / Sparkplug broker.</p>
+        </div>
+      </div>
+      <p style="color:var(--text);font-size:14px;line-height:1.55;margin:12px 0 0"><strong>Together, not instead of each other:</strong> FT Gateway stays as the efficient Rockwell connector; Kepware becomes the normalization + publishing layer for everything else. They overlap only in the "act as an OPC server" role — they are <strong>complementary, not redundant.</strong></p>
+      <div class="build-note"><strong>Management message:</strong> Nissan does not need a single universal gateway. It needs the right connector per protocol family — and it already owns the multi-vendor one.</div>
+
+      <h4 style="margin:22px 0 4px;color:#102130">Network zones</h4>
+      <ul class="zone-list">
+        <li><b>Plant network <span class="mask">4.3x.x.x</span></b> — CIMPLICITY, database access, plant-level traffic.</li>
+        <li><b>Cell I/O network <span class="mask">4.33.x.x</span></b> — control devices, localized per cell.</li>
+        <li><b>Safety P2P network <span class="mask">4.33.199.x</span></b> — PLC peer-to-peer safety signal exchange.</li>
+        <li><b>DMZ</b> — consolidated logging server (<span class="mask">paint-db</span>); single landing point today — a single point of failure and a segmentation consideration for scale.</li>
+        <li><b>IS / enterprise</b> — replicated CMMS and FAULT data on MSSQL.</li>
+      </ul>
+      <p style="color:var(--muted);font-size:13.5px;line-height:1.5;margin:10px 0 0">Robots sit on both the plant and I/O networks; each also carries an I/O adapter on the cell network. Asset identity is encoded in the third IP octet (cell number) — see the Data Standardization tab.</p>
+      <div class="build-note"><strong>Management message:</strong> the zone separation is sound; the gap is that most floor context never crosses the DMZ to where analytics live.</div>
+
+      <h4 style="margin:22px 0 8px;color:#102130">Read / write / replicate — what each source can reach today</h4>
+      <table class="tech-matrix">
+        <thead><tr><th>Source system</th><th>Resides on</th><th>Data landing</th><th>Crosses to IS today?</th><th>Access mode</th><th>Freshness</th></tr></thead>
+        <tbody>
+          <tr><td>CIMPLICITY (alarms/states)</td><td class="small-cell">Plant net</td><td class="small-cell">Local project MSSQL + DMZ logging server</td><td class="small-cell">Partial</td><td class="small-cell">SQL / historian</td><td class="small-cell">Near-real-time on floor; batch to IS</td></tr>
+          <tr><td>RobView (ABB robot data)</td><td class="small-cell">Plant net (MFG side)</td><td class="small-cell">MSSQL, MFG only</td><td class="small-cell">No</td><td class="small-cell">SQL</td><td class="small-cell">Batch; <strong>not present in Cell 022</strong> (see pilot note)</td></tr>
+          <tr><td>ISRA vision (×3)</td><td class="small-cell">Cell I/O net only (air-gapped)</td><td class="small-cell">Local MSSQL per PC</td><td class="small-cell">No</td><td class="small-cell">None yet — needs replication</td><td class="small-cell">n/a until bridged</td></tr>
+          <tr><td>CMMS (Maintenance Connect → Maximo, Dec)</td><td class="small-cell">IS side</td><td class="small-cell">MSSQL replica</td><td class="small-cell">Yes</td><td class="small-cell">DB / API</td><td class="small-cell">Periodic</td></tr>
+          <tr><td>FAULT (OEE/DRS rollup)</td><td class="small-cell">Plant net → IS</td><td class="small-cell">Rolls up to plant FAULT project</td><td class="small-cell">Yes</td><td class="small-cell">DB</td><td class="small-cell">Periodic</td></tr>
+          <tr><td>DRS (body shop)</td><td class="small-cell">Plant net (VMs)</td><td class="small-cell">Dedicated DRS DB</td><td class="small-cell">No</td><td class="small-cell">DB</td><td class="small-cell">Stays in MFG</td></tr>
+          <tr><td>Senseye (PdM)</td><td class="small-cell">Cloud / API</td><td class="small-cell">Vendor platform</td><td class="small-cell">Via API</td><td class="small-cell">API — no bulk reads</td><td class="small-cell"><strong>Several hours stale</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="redact-note"><b>Note:</b> Maintenance Connect migrates to Maximo in December — build integrations against Maximo, not the system being retired.</p>
+
+      <h4 style="margin:22px 0 8px;color:#102130">Latency tiers — why "predictive" is not yet credible</h4>
+      <div class="tier-strip">
+        <div class="tier t0"><div class="t-name">Tier 0 — live</div><div class="t-desc">Live control / alarm (CIMPLICITY on floor): <strong>sub-second</strong>.</div></div>
+        <div class="tier t1"><div class="t-name">Tier 1 — historized</div><div class="t-desc">Historized OT (Proficy Historian target): <strong>seconds</strong>.</div></div>
+        <div class="tier t2"><div class="t-name">Tier 2 — replica</div><div class="t-desc">Cross-DMZ replica to IS: <strong>batch / periodic</strong>.</div></div>
+        <div class="tier t3"><div class="t-name">Tier 3 — PdM API</div><div class="t-desc">Senseye PdM API: <strong>hours</strong>.</div></div>
+      </div>
+      <p style="color:var(--text);font-size:14px;line-height:1.55;margin:12px 0 0">A live command center needs Tier 0–1. Today much of the valuable signal sits at Tier 2–3 — which is why "predictive" cannot be credible until the data path is rebuilt.</p>
+
+      <details class="tech-accordion">
+        <summary>Cell 022 (Paint Line 1, Sealer Automation) — pilot reality <span class="sub">why the pilot cell is one of the harder cases</span></summary>
+        <div class="acc-body">
+          <ul style="margin:0;padding-left:18px;color:var(--text);line-height:1.55;font-size:14px">
+            <li><strong>ABB robots, not Fanuc.</strong> RobView (not Fanuc Utilities) is the robot tool here — but it is connected to only <strong>2 of 8 robots</strong>; the other <strong>6 are visible through CIMPLICITY alarms only.</strong></li>
+            <li><strong>No RobView→SQL logging in 022</strong> (only spray-booth cells do that); the sealer cell's robot history comes from CIMPLICITY SQL alarm logging.</li>
+            <li><strong>Three ISRA vision systems</strong>, each logging to local MSSQL, deliberately kept on the cell I/O network and off the plant network to stop Windows updates from breaking the fragile vision software. Body-relevant data is dropped to the PLC. <strong>A replication mechanism does not exist yet</strong> and must be designed.</li>
+            <li>Elsewhere, <strong>Fanuc Utilities is antiquated and flagged for replacement.</strong></li>
+          </ul>
+          <div class="build-note"><strong>Management message:</strong> the pilot cell is one of the <em>harder</em> connectivity cases, not the easiest — which makes it a strong proof point if the layer is built right.</div>
+        </div>
+      </details>
+
+      <p class="redact-note"><b>Draft to validate.</b> Network, server, fault-tag, and Cell 022 specifics come from Nissan engineering working notes. Infrastructure identifiers are masked on this public site (IP patterns and generic hostnames only); the fully accurate internal version belongs in an access-controlled detailed-design document, not here.</p>
+    </div>
+
+    <div class="tech-detail" data-detail-pane="standards">
+      <div class="detail-head"><span class="eyebrow">Data standardization</span><h3>From a raw PLC tag to a portable, reusable event object</h3></div>
+      <p class="lead">Smyrna already uses consistent fault-tag and IP conventions — they just are not modeled into reusable context yet. Standardization is not a from-scratch exercise; it is capturing what exists and giving it one shared grammar. The clearest illustration is a single fault tag, named once, landed once, with a history and an escalation path.</p>
+
+      <h4 style="margin:6px 0 8px;color:#102130">The existing fault taxonomy (the raw input)</h4>
+      <ul class="zone-list">
+        <li><b>Conveyor faults:</b> <span class="raw-tag">A.{project}.FLTxxxx</span> &nbsp;e.g. <span class="raw-tag">A.SLR_105.FLT0001</span></li>
+        <li><b>Cell rollup faults:</b> <span class="raw-tag">PLC_CELL_MAJORFLT_xx_xx</span> / <span class="raw-tag">PLC_CELL_MINORFLT_xx_xx</span> &nbsp;(the <span class="mask">xx_xx</span> is fault-word and bit)</li>
+        <li><b>Robot-specific faults:</b> <span class="raw-tag">PLC_SLxxxx_MAJORFLT_xx_xx</span> / <span class="raw-tag">_MINORFLT_xx_xx</span></li>
+        <li><b>Rollup:</b> all CIMPLICITY projects roll up to a single plant FAULT project.</li>
+      </ul>
+
+      <h4 style="margin:22px 0 8px;color:#102130">Worked example — raw tag to portable event object</h4>
+      <p style="margin:0 0 10px"><span class="raw-tag">PLC_SL2202_MAJORFLT_02_05</span> &nbsp;becomes a structured <strong>fault_event</strong>:</p>
+      <pre class="fault-code"><span class="k">asset:</span>
+  site:        Nissan Smyrna
+  area:        Paint
+  line:        Paint Line 1
+  cell:        022 (Sealer Automation)
+  asset:       Robot SL2202 (ABB)
+  network_id:  4.3x.22.202        <span class="c"># masked on public site</span>
+<span class="k">event:</span>
+  type:        fault
+  severity:    major
+  source_tag:  PLC_SL2202_MAJORFLT_02_05
+  fault_word:  02
+  fault_bit:   05
+  source_sys:  CIMPLICITY (plant FAULT rollup)
+  timestamp:   &lt;iso8601&gt;
+<span class="k">action:</span>
+  owner:        &lt;role&gt;
+  reason_code:  &lt;std code&gt;
+  resolution:   &lt;fix / part&gt;
+  verification: &lt;closure evidence&gt;</pre>
+      <p style="color:var(--text);font-size:14px;line-height:1.55;margin:12px 0 0">Same fault — now named once, landed once, with a history and an escalation path. The SM Profile / i3X promise made concrete.</p>
+
+      <details class="tech-accordion">
+        <summary>Asset identity convention — already in use <span class="sub">the IP scheme is a head start on the naming standard</span></summary>
+        <div class="acc-body">
+          <p style="color:var(--text);font-size:14px;line-height:1.55;margin:0">Asset identity is encoded in the IP scheme: the <strong>third octet is the cell number</strong>, and the device number carries through both networks. A robot in cell 022 appears as <span class="mask">4.3x.22.2nn</span> on the plant net and <span class="mask">4.33.22.2nn</span> on the I/O net; the cell PLC carries the same cell octet. This existing convention is a head start on a formal asset-naming standard — capture it, do not reinvent it.</p>
+        </div>
+      </details>
+
+      <h4 style="margin:22px 0 8px;color:#102130">The four standardization deliverables</h4>
+      <div class="grid-2">
+        <div class="panel"><div class="tag blue">Asset hierarchy</div><p style="margin:0;color:var(--muted);font-size:14px;line-height:1.5">site → area → line → cell → asset → subasset. Anchored on the IP-octet convention already in use.</p></div>
+        <div class="panel"><div class="tag orange">Event dictionary</div><p style="margin:0;color:var(--muted);font-size:14px;line-height:1.5">fault / alarm / downtime / work-order / quality / robot / vision / PdM — one record shape per event class.</p></div>
+        <div class="panel"><div class="tag green">Action taxonomy</div><p style="margin:0;color:var(--muted);font-size:14px;line-height:1.5">owner / reason / closure / evidence — the minimum fields that make a fault closeable and auditable.</p></div>
+        <div class="panel"><div class="tag blue">SM Profile + i3X workbook</div><p style="margin:0;color:var(--muted);font-size:14px;line-height:1.5">the mapping that lets the model travel across systems instead of being welded to one product.</p></div>
+      </div>
+      <div class="build-note"><strong>Nissan-friendly translation:</strong> one naming scheme, one event contract, one action record — built on conventions Smyrna already follows, so the cockpit and AI can finally trust the data.</div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Work still to complete</span><h2>Two placeholder workstreams for the next design pass</h2></div>
-      <p class="section-copy">These are intentionally not final answers. They show Nissan where follow-on architecture and data-standardization work needs to be completed before implementation.</p>
+      <div class="section-title"><span class="eyebrow">Work still to complete</span><h2>Two workstreams now drafted — and what Nissan still needs to validate</h2></div>
+      <p class="section-copy">The Detailed Architecture and Data Standardization tabs above are now populated with source-grounded working drafts. These are not final answers — they are the starting point. Below is what each workstream still needs validated with Nissan controls / IT before implementation.</p>
     </div>
     <div class="grid-2">
       <div class="panel">
@@ -419,6 +560,7 @@ ready(function(){
       var step = btn.dataset.buildBtn;
       document.querySelectorAll('[data-build-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
       document.querySelectorAll('[data-build-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.buildPane === step); });
+      document.querySelectorAll('[data-detail-pane]').forEach(function(d){ d.classList.toggle('active', d.dataset.detailPane === step); });
       document.querySelectorAll('[data-stage]').forEach(function(el){
         var stages = (el.dataset.stage || '').split(',');
         var visible = stages.indexOf(step) >= 0 || stages.indexOf('all') >= 0;
