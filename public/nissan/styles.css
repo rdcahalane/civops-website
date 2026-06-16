@@ -430,3 +430,7 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 .platform-figure figcaption{padding:12px 16px;font-size:13px;color:var(--muted);line-height:1.5;border-top:1px solid var(--line-2)}
 .platform-figure figcaption b{color:#102130}
 .platform-figure figcaption a{color:var(--brook-blue);font-weight:800;text-decoration:none;white-space:nowrap}
+
+/* ── Enhancement: tap-to-zoom on platform figures ── */
+.platform-figure a.pf-zoom{display:block;line-height:0}
+.platform-figure a.pf-zoom img{cursor:zoom-in}
