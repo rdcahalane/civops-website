@@ -338,21 +338,37 @@
         ↓ instantiate ×6
    SL2201 … SL2206  (cell 022)
   └─ Robot — Fanuc (stub)    ← from cell-56 / base-coat export</div>
-      <div class="dd-h3">Target import shape (HighByte model JSON — illustrative)</div>
+      <div class="dd-h3">Generated model (real — from <code>ISS_022_POINTS</code>)</div>
+      <p class="section-copy" style="max-width:none">A generator (<code>gen-highbyte-model.py</code>) reads the Cimplicity export and emits HighByte models + one instance per robot, bound to the real point addresses. Output follows HighByte's documented model schema (<code>name · description · groupAs · attributes[]</code>; attribute <code>type</code> = Simple / Modeled / Object). Excerpt:</p>
       <div class="dd-code">{
-  "name": "Robot_ABB_Sealer",
-  "attributes": [
-    { "name": "controllerState", "dataType": "Integer",
-      "source": "SL2201.ControllerState" },
-    { "name": "programIndex", "dataType": "Integer",
-      "source": "SL2201.RAPID.T_ROB1.pntloop.nProgramIndex" },
-    { "name": "axisTorque", "dataType": "Object", "array": 7,
-      "source": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_{i}_Torque_Value" },
-    { "name": "applicatorEnabled", "dataType": "Boolean",
-      "source": "SL2201.IOSYSTEM.IOSIGNALS.AppEnabled" }
+  "models": [
+    { "name": "Paint4_AxisTorque", "groupAs": "Nissan/Paint4",
+      "attributes": [
+        { "name": "torqueValue",  "type": "Simple", "simpleType": "Real32" },
+        { "name": "torqueMin",     "type": "Simple", "simpleType": "Real32" },
+        { "name": "torqueMax",     "type": "Simple", "simpleType": "Real32" },
+        { "name": "torqueM1Mean",  "type": "Simple", "simpleType": "Real32" },
+        { "name": "torqueM2Mean",  "type": "Simple", "simpleType": "Real32" } ] },
+    { "name": "Robot_ABB_Sealer", "groupAs": "Nissan/Paint4",
+      "attributes": [
+        { "name": "controllerState", "type": "Simple",  "simpleType": "Int" },
+        { "name": "programIndex",    "type": "Simple",  "simpleType": "Int" },
+        { "name": "appEnabled",      "type": "Simple",  "simpleType": "Boolean" },
+        { "name": "hvDisable",       "type": "Simple",  "simpleType": "Boolean" },
+        { "name": "gun1On",          "type": "Simple",  "simpleType": "Boolean" },
+        { "name": "axis", "type": "Modeled", "model": "Paint4_AxisTorque", "array": true } ] }
+  ],
+  "instances": [
+    { "name": "P4SL2201", "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "attributeSources": {
+        "controllerState": "SL2201.ControllerState",
+        "axis": [ { "torqueValue":
+          "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value" }, "… ×7" ] } }
   ]
 }</div>
-      <div class="dd-stub"><b>Build step (next):</b> a generator script reads <code>ISS_022_POINTS</code> + the <code>Paint4</code> schema and emits the HighByte-importable model + an instance for each <code>SL220x</code> — so the UNS is auto-configured from the convention rather than hand-built. Format to be validated against an actual HighByte model export before generation.</div>
+      <p class="section-copy" style="max-width:none">Full output: 2 models, 17 parent attributes, 6 instances (<code>P4SL2201–P4SL2206</code>), each bound to its real point addresses. Import via <code>POST /v1/project/partial/import</code> (merge by name).</p>
+      <div class="dd-stub"><b>Validate before import:</b> the model / attribute shape matches HighByte's documented schema, but the project <em>wrapper</em> and instance-binding shape aren't public — confirm against a real <code>GET /v1/project/export</code> from the target hub, then the generator aligns 1:1. Cell 56 / base-coat &amp; any Fanuc cells get a <code>Robot_Fanuc_*</code> variant from their export.</div>
     </div>
   </div>
 </section>
