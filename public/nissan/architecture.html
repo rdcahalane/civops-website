@@ -199,6 +199,164 @@
   </div>
 </section>
 
+<section class="section" id="detail-design">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Detailed design</span><h2>Asset model spec — grounded in the live Cimplicity / SQL exports</h2></div>
+      <p class="section-copy">Source-grounded working spec, derived from the real Nissan Smyrna point exports (<code>ISS_022_POINTS</code>, <code>SLR_105_POINTS</code>), the <code>Paint4</code> SQL schema, the Senseye PMx asset list, and the FAULT downtime app. The goal of this section is a precise, repeatable convention that lets us generate a HighByte-importable model + instance set to auto-configure the UNS. Cell 022 (ABB sealer) is the fully worked example; cell 56 / base-coat and any Fanuc cells are stubbed pending their exports.</p>
+    </div>
+
+    <style>
+      .dd-pane{display:none}
+      .dd-pane.active{display:block}
+      .dd-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+      .dd-tbl th,.dd-tbl td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+      .dd-tbl th{background:#f3f6f9;font-weight:900;color:#27384a}
+      .dd-tbl code{font-size:12px;background:#eef3f7;padding:1px 4px;border-radius:4px}
+      .dd-code{background:#0e2236;color:#dbe8f1;border-radius:10px;padding:16px 18px;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;overflow-x:auto;white-space:pre}
+      .dd-tree{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;color:#27384a;background:#f7fafc;border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto}
+      .dd-stub{border-left:3px solid #d9a441;background:#fbf6ec;padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
+      .dd-h3{font-size:16px;font-weight:900;color:#27384a;margin:18px 0 6px}
+    </style>
+
+    <div class="tab-row" role="tablist">
+      <button class="tab-btn active" data-dd-btn="naming">Naming convention</button>
+      <button class="tab-btn" data-dd-btn="hierarchy">Asset hierarchy</button>
+      <button class="tab-btn" data-dd-btn="abb">ABB sealer template</button>
+      <button class="tab-btn" data-dd-btn="fault">Fault &amp; DB model</button>
+      <button class="tab-btn" data-dd-btn="import">HighByte import</button>
+    </div>
+
+    <div class="dd-pane active" data-dd-pane="naming">
+      <p class="section-copy">Every asset, point, and fault in Paint 4 already follows a consistent code. Decoding it is what lets us template once and instantiate many — and map cleanly to ISA-95.</p>
+
+      <div class="dd-h3">1 · Equipment asset code</div>
+      <p class="section-copy" style="max-width:none"><code>P4</code> + <code>&lt;area&gt;</code> + <code>&lt;equipment&gt;</code> + <code>&lt;sub-component&gt;</code> — e.g. <code>P4SL220101MR01</code> = Plant 4 · area 022 · sealer robot 01 · Mastic Regulator 01.</p>
+      <table class="dd-tbl">
+        <tr><th>Token</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td><code>P4</code></td><td>Plant 4 (Paint)</td><td><code>P4…</code></td></tr>
+        <tr><td><code>022</code></td><td>Area / process cell — Sealer Automation (seam seal). Base coat = <code>56</code>.</td><td><code>P4022MP</code> (cell main control panel)</td></tr>
+        <tr><td><code>SL220x</code></td><td>Sealer robot 1–6 in cell 022 (work unit)</td><td><code>P4SL2201</code> … <code>P4SL2206</code></td></tr>
+        <tr><td><code>RC</code></td><td>Robot Controller</td><td><code>P4SL2201RC</code></td></tr>
+        <tr><td><code>ACV</code></td><td>Applicator Control Valve</td><td><code>P4SL2201ACV</code></td></tr>
+        <tr><td><code>IDFP</code></td><td>Integrated dispense / fluid panel</td><td><code>P4SL2206IDFP</code></td></tr>
+        <tr><td><code>MR01</code></td><td>Mastic Regulator</td><td><code>P4SL220101MR01</code></td></tr>
+        <tr><td><code>FP1</code> · <code>MHS01</code> · <code>WHS01</code></td><td>Material fluid plate · material hose swivel · whip hose swivel</td><td><code>P4SL220201FP1</code></td></tr>
+        <tr><td><code>RP0x</code> · <code>MP</code> · <code>PDP</code> · <code>FIL01</code></td><td>Safety interface panel · main control panel · power distribution · material filters</td><td><code>P4022RP02</code>, <code>P4022PDP</code></td></tr>
+        <tr><td><code>RAMn</code> · <code>PUMPn</code></td><td>Sealer material ram assembly + pumps</td><td><code>P4RAM3PUMP1</code></td></tr>
+      </table>
+
+      <div class="dd-h3">2 · Cimplicity point address (maps to ABB)</div>
+      <p class="section-copy" style="max-width:none">Robot points (device <code>ABB_ROBOT</code>) address the controller directly: <code>&lt;RobotId&gt;.&lt;subsystem&gt;.&lt;…&gt;</code></p>
+      <table class="dd-tbl">
+        <tr><th>Subsystem</th><th>Address pattern</th><th>Holds</th></tr>
+        <tr><td>Controller</td><td><code>SL2201.ControllerState</code></td><td>Run / stop state (DINT)</td></tr>
+        <tr><td>RAPID (program)</td><td><code>SL2201.RAPID.T_ROB1.pntloop.nProgramIndex</code></td><td>Current program / job (DINT)</td></tr>
+        <tr><td>RAPID (PdM)</td><td><code>SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_<i>N</i>_Torque_Value</code></td><td>Per-axis torque, 7 axes (REAL)</td></tr>
+        <tr><td>I/O signals</td><td><code>SL2201.IOSYSTEM.IOSIGNALS.<i>signal</i></code></td><td>Applicator, command, safety (BOOL/WORD)</td></tr>
+      </table>
+      <p class="section-copy" style="max-width:none">Cimplicity <code>PT_ID</code> is descriptive uppercase with a function prefix (<code>ABB_ROBOT_CURRENT_PROGRAM_INDEX_RW6</code>); cell-master points use <code>M0x_&lt;SIGNAL&gt;</code> where <code>M0x</code> is the robot index (<code>M05_CURRENT_PROGRAM</code>). RAPID variables carry Hungarian prefixes: <code>n</code> numeric, <code>do_</code> digital output, <code>b</code> bool.</p>
+
+      <div class="dd-h3">3 · Data types &amp; fault coding</div>
+      <p class="section-copy" style="max-width:none">Cimplicity <code>PT_TYPE</code>: <code>BOOL · INT · DINT · REAL · WORD · SINT · UINT · STRING_8/20/80</code>. Faults are PLC bit-arrays <code>FAULT[word].bit</code> mapped to text (<code>FAULT[0].4 = SEALER AUTOMATION BLOCKED</code>); downtime rolls up to categories <em>Manufacturing · Starved · Blocked · Modified Schedule · ADC · Reorder · Lunch/Break · Between Shifts</em>, tagged by Responsibility + Category per Area / Shift.</p>
+
+      <div class="dd-h3">4 · ISA-95 mapping &amp; proposed UNS path</div>
+      <table class="dd-tbl">
+        <tr><th>ISA-95 level</th><th>Nissan code</th></tr>
+        <tr><td>Enterprise</td><td>Nissan</td></tr>
+        <tr><td>Site</td><td>Smyrna</td></tr>
+        <tr><td>Area</td><td>Paint 4 (<code>P4</code>)</td></tr>
+        <tr><td>Work center / process cell</td><td><code>022</code> Sealer Automation</td></tr>
+        <tr><td>Work unit (equipment)</td><td><code>SL220x</code> robot</td></tr>
+        <tr><td>Equipment module</td><td>RC · ACV · MR01 · FP1 · …</td></tr>
+      </table>
+      <p class="section-copy" style="max-width:none">Proposed UNS namespace (HighByte publish path), derived directly from the code:</p>
+      <div class="dd-code">Nissan/Smyrna/Paint4/022-SealerAutomation/SL2201/
+    ├─ State/ControllerState
+    ├─ Program/Index
+    ├─ Axis/{1..7}/Torque   ← Senseye PdM
+    ├─ Applicator/{Enabled,Error,HV,Gun1}
+    └─ Fault/...            ← from Paint4.ALARM_LOG</div>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="hierarchy">
+      <p class="section-copy">Cell 022 Sealer Automation, as it exists today (from the live asset tree). Senseye PMx already carries 159 paint-shop assets across sealer, base coat, top coat, clear coat, fans and pretreat using this same code.</p>
+      <div class="dd-tree">022 SEALER AUTOMATION
+├─ Entrance Safety Interface Panel        P4022RP01
+├─ Exit Safety Interface Panel + Tote Rams P4022RP02
+│   └─ Material Ram 3–6 Assembly           P4022RP02-R3..R6
+│       └─ Pump 1 / Pump 2                 P4RAM3PUMP1 / 2
+├─ Main Control Panel                      P4022MP
+├─ Material Filters                        P4022FIL01
+├─ Power Distribution Panel                P4022PDP
+└─ Sealer Robot SL2201–SL2206 (ABB)        P4SL2201 …
+    ├─ Cable &amp; Hose Cat Track             P4SL220103
+    ├─ Material Fluid Delivery System 1
+    │   ├─ Mastic Regulator 1              P4SL220101MR01
+    │   ├─ Material Fluid Plate            P4SL220201FP1
+    │   ├─ Material Hose Swivel            P4SL220201MHS01
+    │   └─ Whip Hose Swivel                P4SL220201WHS01
+    ├─ Robot ACV                           P4SL2201ACV
+    ├─ Robot IDFP                          P4SL2206IDFP
+    └─ Robot Controller                    P4SL2201RC</div>
+      <p class="section-copy" style="max-width:none">This tree <em>is</em> the ISA-95 instance hierarchy — it becomes the HighByte instance set, one per <code>SL220x</code>, each composed from the ABB sealer-robot model.</p>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="abb">
+      <p class="section-copy">Derived from the 953 real <code>ABB_ROBOT</code> points in <code>ISS_022</code> (~159 tags per robot, repeating identically across SL2201–SL2206). This is the base of the "Sealer robot — ABB" HighByte model. Robots address the ABB controller via RAPID + IOSYSTEM; aligns to the OPC UA for Robotics model (<code>MotionDevice → Axis</code>).</p>
+      <table class="dd-tbl">
+        <tr><th>Group</th><th>Real tag path (per robot)</th><th>Type</th><th>Feeds</th></tr>
+        <tr><td>Controller state</td><td><code>ControllerState</code></td><td>DINT</td><td>Availability / run-state</td></tr>
+        <tr><td>Program</td><td><code>RAPID.T_ROB1.pntloop.nProgramIndex</code></td><td>DINT</td><td>Cycle / job context</td></tr>
+        <tr><td>Axis torque (PdM)</td><td><code>RAPID.Monitor1Tsk.TorqueData.nAxis_<i>N</i>_Torque_Value</code> + min/max <code>{N,1|2}</code> + <code>user.nAxis_<i>N</i>_Torque_M1/M2_Mean</code> (7 axes)</td><td>REAL</td><td><b>Senseye PdM (MaxTorque/axis)</b></td></tr>
+        <tr><td>Applicator / process</td><td><code>IOSIGNALS.AppEnabled / AppError</code>, <code>HVDisable</code> (electrostatic), <code>do_GrcGun1On</code> (sealer gun), <code>CBSMotorOn</code></td><td>BOOL</td><td>Process / fault</td></tr>
+        <tr><td>Command handshake</td><td><code>IOSIGNALS.Command / CommandToggle / CommandAck / CommandError / CommandExecuting</code>, <code>InParam1–3</code>, <code>ParamToggle</code></td><td>BOOL / WORD</td><td>Cycle / state</td></tr>
+        <tr><td>Cell I/O &amp; safety</td><td><code>IOSIGNALS.LiftGateOpen/Req</code>, <code>ConveyorHoldReq</code>, <code>AutoMode</code>, <code>GhostMode</code>, <code>StopSignal</code></td><td>BOOL</td><td>Availability / safety</td></tr>
+      </table>
+      <div class="dd-stub"><b>Stub — cell 56 / base coat &amp; Fanuc:</b> Senseye shows base-coat / top-coat / clear-coat robots, but their Cimplicity export isn't in hand and vendor is unconfirmed (possibly Fanuc). The base "Robot" model + this ABB variant carry over; a "Fanuc" variant gets added from that cell's export.</div>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="fault">
+      <p class="section-copy">Faults originate as PLC bit-arrays, are logged by Cimplicity, mirrored to SQL Server <code>Paint4</code>, and surfaced in the FAULT downtime app for OEE/availability. HighByte reads the mirror DB — not the plant-floor PLC.</p>
+      <div class="dd-h3">Alarm model</div>
+      <p class="section-copy" style="max-width:none"><code>SLR_105</code> carries ~6,400 alarm bits as <code>FAULT[word].bit → description</code> (e.g. <code>FAULT[0].4 SEALER AUTOMATION BLOCKED</code>, <code>.5 STARVED</code>). The FAULT app (<code>npsm-intranet/Downtime/…</code>) categorizes each by Responsibility + Category per Area / Shift.</p>
+      <div class="dd-h3">Mirror DB — SQL Server <code>Paint4</code></div>
+      <table class="dd-tbl">
+        <tr><th>Object</th><th>Key columns</th></tr>
+        <tr><td><code>dbo.ALARM_LOG</code></td><td><code>timestamp_utc</code> + <code>sequence_number</code> (PK), <code>alarm_id</code>, <code>alarm_class</code>, <code>resource</code>, <code>reference</code>, <code>prev_state</code>, <code>log_action</code>, <code>final_state</code>, <code>alarm_message</code>, <code>generation_time</code>, <code>project</code></td></tr>
+        <tr><td><code>config.WorkStation</code></td><td>Workstation registry</td></tr>
+        <tr><td><code>config.Zone</code></td><td>Zone registry</td></tr>
+      </table>
+      <p class="section-copy" style="max-width:none">The <code>reference</code> column carries the asset/point path (e.g. <code>SL2201.…</code>), so alarms join back to the asset model on the naming convention above — letting HighByte attach fault context to each robot instance.</p>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="import">
+      <p class="section-copy">End goal: a properly formatted file that imports into HighByte to auto-configure the UNS — one <b>base model</b>, vendor <b>variant models</b>, and a generated <b>instance per asset</b>, sourced from the Cimplicity points and the <code>Paint4</code> DB.</p>
+      <div class="dd-h3">Model structure</div>
+      <div class="dd-code">Robot (base)                ← identity, state, axis, fault (OPC 40010/40001 aligned)
+  └─ Sealer robot — ABB      ← ControllerState, 7-axis TorqueData, applicator I/O, handshake
+        ↓ instantiate ×6
+   SL2201 … SL2206  (cell 022)
+  └─ Robot — Fanuc (stub)    ← from cell-56 / base-coat export</div>
+      <div class="dd-h3">Target import shape (HighByte model JSON — illustrative)</div>
+      <div class="dd-code">{
+  "name": "Robot_ABB_Sealer",
+  "attributes": [
+    { "name": "controllerState", "dataType": "Integer",
+      "source": "SL2201.ControllerState" },
+    { "name": "programIndex", "dataType": "Integer",
+      "source": "SL2201.RAPID.T_ROB1.pntloop.nProgramIndex" },
+    { "name": "axisTorque", "dataType": "Object", "array": 7,
+      "source": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_{i}_Torque_Value" },
+    { "name": "applicatorEnabled", "dataType": "Boolean",
+      "source": "SL2201.IOSYSTEM.IOSIGNALS.AppEnabled" }
+  ]
+}</div>
+      <div class="dd-stub"><b>Build step (next):</b> a generator script reads <code>ISS_022_POINTS</code> + the <code>Paint4</code> schema and emits the HighByte-importable model + an instance for each <code>SL220x</code> — so the UNS is auto-configured from the convention rather than hand-built. Format to be validated against an actual HighByte model export before generation.</div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="tab-row">
@@ -746,6 +904,15 @@ ready(function(){
 })();
 </script>
 
+<script>
+  document.querySelectorAll('[data-dd-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.dataset.ddBtn;
+      document.querySelectorAll('[data-dd-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-dd-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.ddPane === key); });
+    });
+  });
+</script>
 <script src="main.js"></script>
 </body>
 </html>
