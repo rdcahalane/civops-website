@@ -156,6 +156,8 @@
       .fo-zone{background:#102a44;border:1px solid #2f5066;border-radius:10px;padding:12px;text-align:center}
       .fo-zone b{display:block;font-size:26px;font-weight:950;color:#fff}
       .fo-zone span{font-size:11px;color:#9fb6c6}
+      .fo-wipt td:not(:first-child),.fo-wipt th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+      .fo-wipt tr:last-child td,.fo-wipt tr:last-child th{color:#fff;font-weight:900;border-top:1px solid #2f5066}
       .fo-front{display:block}.fo-rear{display:none}
       .fo-screen[data-fr="rear"] .fo-front{display:none}.fo-screen[data-fr="rear"] .fo-rear{display:block}
       @media(max-width:760px){.fo-grid{grid-template-columns:1fr}.fo-wip{grid-template-columns:repeat(2,1fr)}}
@@ -224,13 +226,15 @@
           </div>
           <div class="fo-q"><h4>WIP layout — painted fascia ahead of punch</h4>
             <div class="fo-big">27 <span style="font-size:13px;color:#9fb6c6;font-weight:600">units</span></div>
-            <div class="fo-wip">
-              <div class="fo-zone"><b>8</b><span>Lane A</span></div>
-              <div class="fo-zone"><b>7</b><span>Lane B</span></div>
-              <div class="fo-zone"><b>6</b><span>Lane C</span></div>
-              <div class="fo-zone"><b>6</b><span>Buffer</span></div>
-            </div>
-            <div class="fo-sub" style="margin-top:10px;color:#ffb15b">Count derivation TBD — sensed vs computed (paint-out − punch-in). Confirm with Jay.</div>
+            <div class="fo-tblw"><table class="fo-tbl fo-wipt">
+              <tr><th>Model</th><th>Front</th><th>Rear</th><th>Total</th></tr>
+              <tr><td>Rogue</td><td>5</td><td>4</td><td>9</td></tr>
+              <tr><td>Pathfinder</td><td>4</td><td>3</td><td>7</td></tr>
+              <tr><td>Murano</td><td>4</td><td>2</td><td>6</td></tr>
+              <tr><td>QX60</td><td>3</td><td>2</td><td>5</td></tr>
+              <tr><th>Total</th><td>16</td><td>11</td><td>27</td></tr>
+            </table></div>
+            <div class="fo-sub" style="margin-top:10px;color:#ffb15b">Count derivation TBD — sensed vs computed (paint-out − punch-in). Confirm with Jay. Models representative.</div>
           </div>
         </div>
       </div>
