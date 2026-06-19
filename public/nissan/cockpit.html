@@ -147,6 +147,12 @@
       .fo-kv{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;border-bottom:1px solid #1c3a56}
       .fo-kv:last-child{border-bottom:0}.fo-kv .t{color:#cfe0ec}.fo-kv .v{font-weight:800;color:#fff;white-space:nowrap}
       .fo-up{color:#49bd8d}.fo-down{color:#ffb15b}.fo-bad{color:#ef6a5b}
+      .fo-bars{display:grid;gap:8px;margin-top:4px}
+      .fo-prow .lab{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:3px}
+      .fo-prow .lab .t{color:#cfe0ec}.fo-prow .lab .v{color:#fff;font-weight:800;white-space:nowrap}
+      .fo-prow .track{height:8px;background:#102a44;border-radius:999px;overflow:hidden}
+      .fo-prow .fill{display:block;height:100%;border-radius:999px;background:#ffb15b}
+      .fo-prow.q .fill{background:#74c6e5}
       .fo-tblw{overflow-x:auto}
       .fo-tbl{width:100%;border-collapse:collapse;font-size:13px}
       .fo-tbl th,.fo-tbl td{text-align:left;padding:6px 8px;border-bottom:1px solid #1c3a56}
@@ -193,13 +199,37 @@
             <div class="fo-front"><div class="fo-big fo-up">91.4%</div><div class="fo-sub">downtime 8.6% · 14 microstops · 22 min major</div></div>
             <div class="fo-rear"><div class="fo-big fo-up">93.2%</div><div class="fo-sub">downtime 6.8% · 9 microstops · 12 min major</div></div>
           </div>
-          <div class="fo-q"><h4>Top 3 downtime (# · time)</h4>
-            <div class="fo-front"><div class="fo-kv"><span class="t">Sealer line plug</span><span class="v">3 · 18m</span></div><div class="fo-kv"><span class="t">Conveyor hold</span><span class="v">5 · 11m</span></div><div class="fo-kv"><span class="t">Color-change overrun</span><span class="v">2 · 7m</span></div></div>
-            <div class="fo-rear"><div class="fo-kv"><span class="t">Robot fault</span><span class="v">2 · 9m</span></div><div class="fo-kv"><span class="t">Conveyor hold</span><span class="v">4 · 8m</span></div><div class="fo-kv"><span class="t">Bell speed</span><span class="v">2 · 5m</span></div></div>
+          <div class="fo-q"><h4>Top 5 downtime — pareto (# · time)</h4>
+            <div class="fo-front"><div class="fo-bars">
+              <div class="fo-prow"><div class="lab"><span class="t">Sealer line plug</span><span class="v">3 · 18m</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Conveyor hold</span><span class="v">5 · 11m</span></div><div class="track"><span class="fill" style="width:61%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Color-change overrun</span><span class="v">2 · 7m</span></div><div class="track"><span class="fill" style="width:39%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Robot fault</span><span class="v">2 · 5m</span></div><div class="track"><span class="fill" style="width:28%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Photo-eye / sensor</span><span class="v">3 · 4m</span></div><div class="track"><span class="fill" style="width:22%"></span></div></div>
+            </div></div>
+            <div class="fo-rear"><div class="fo-bars">
+              <div class="fo-prow"><div class="lab"><span class="t">Robot fault</span><span class="v">2 · 9m</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Conveyor hold</span><span class="v">4 · 8m</span></div><div class="track"><span class="fill" style="width:89%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Bell speed</span><span class="v">2 · 5m</span></div><div class="track"><span class="fill" style="width:56%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Color-change overrun</span><span class="v">1 · 4m</span></div><div class="track"><span class="fill" style="width:44%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Sealer line plug</span><span class="v">1 · 3m</span></div><div class="track"><span class="fill" style="width:33%"></span></div></div>
+            </div></div>
           </div>
-          <div class="fo-q"><h4>Top 3 quality (#)</h4>
-            <div class="fo-front"><div class="fo-kv"><span class="t">Orange peel</span><span class="v">9</span></div><div class="fo-kv"><span class="t">Dirt / seed</span><span class="v">6</span></div><div class="fo-kv"><span class="t">Run / sag</span><span class="v">3</span></div></div>
-            <div class="fo-rear"><div class="fo-kv"><span class="t">Orange peel</span><span class="v">5</span></div><div class="fo-kv"><span class="t">Dirt / seed</span><span class="v">4</span></div><div class="fo-kv"><span class="t">Thin film</span><span class="v">2</span></div></div>
+          <div class="fo-q"><h4>Top 5 quality — pareto (#)</h4>
+            <div class="fo-front"><div class="fo-bars">
+              <div class="fo-prow q"><div class="lab"><span class="t">Orange peel</span><span class="v">9</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Dirt / seed</span><span class="v">6</span></div><div class="track"><span class="fill" style="width:67%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Run / sag</span><span class="v">3</span></div><div class="track"><span class="fill" style="width:33%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Thin film</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:22%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Solvent pop</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:11%"></span></div></div>
+            </div></div>
+            <div class="fo-rear"><div class="fo-bars">
+              <div class="fo-prow q"><div class="lab"><span class="t">Orange peel</span><span class="v">5</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Dirt / seed</span><span class="v">4</span></div><div class="track"><span class="fill" style="width:80%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Thin film</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:40%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Run / sag</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:40%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Solvent pop</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:20%"></span></div></div>
+            </div></div>
           </div>
         </div>
       </div>
@@ -257,15 +287,23 @@
             <div class="fo-kv"><span class="t">PM3</span><span class="v fo-up">96%</span></div>
             <div class="fo-kv"><span class="t">PM4</span><span class="v fo-bad">82%</span></div>
           </div>
-          <div class="fo-q"><h4>Top 3 downtime causes (# · time)</h4>
-            <div class="fo-kv"><span class="t">Tool change</span><span class="v">6 · 14m</span></div>
-            <div class="fo-kv"><span class="t">Jam clear</span><span class="v">4 · 9m</span></div>
-            <div class="fo-kv"><span class="t">Air pressure</span><span class="v">2 · 4m</span></div>
+          <div class="fo-q"><h4>Top 5 downtime causes — pareto (# · time)</h4>
+            <div class="fo-bars">
+              <div class="fo-prow"><div class="lab"><span class="t">Tool change</span><span class="v">6 · 14m</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Jam clear</span><span class="v">4 · 9m</span></div><div class="track"><span class="fill" style="width:64%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Air pressure</span><span class="v">2 · 4m</span></div><div class="track"><span class="fill" style="width:29%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Material misfeed</span><span class="v">3 · 3m</span></div><div class="track"><span class="fill" style="width:21%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">E-stop reset</span><span class="v">1 · 2m</span></div><div class="track"><span class="fill" style="width:14%"></span></div></div>
+            </div>
           </div>
-          <div class="fo-q"><h4>Top 3 quality issues (#)</h4>
-            <div class="fo-kv"><span class="t">Burr</span><span class="v">7</span></div>
-            <div class="fo-kv"><span class="t">Misalignment</span><span class="v">4</span></div>
-            <div class="fo-kv"><span class="t">Hole position</span><span class="v">3</span></div>
+          <div class="fo-q"><h4>Top 5 quality issues — pareto (#)</h4>
+            <div class="fo-bars">
+              <div class="fo-prow q"><div class="lab"><span class="t">Burr</span><span class="v">7</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Misalignment</span><span class="v">4</span></div><div class="track"><span class="fill" style="width:57%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Hole position</span><span class="v">3</span></div><div class="track"><span class="fill" style="width:43%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Edge crack</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:29%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Slug pull</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:14%"></span></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -290,13 +328,37 @@
             <div class="fo-front"><div class="fo-big fo-up">89.7%</div><div class="fo-sub">downtime 10.3% · 11 microstops</div></div>
             <div class="fo-rear"><div class="fo-big fo-up">91.1%</div><div class="fo-sub">downtime 8.9% · 8 microstops</div></div>
           </div>
-          <div class="fo-q"><h4>Top 3 downtime (# · time)</h4>
-            <div class="fo-front"><div class="fo-kv"><span class="t">Fastener feed</span><span class="v">4 · 12m</span></div><div class="fo-kv"><span class="t">Clip shortage</span><span class="v">3 · 8m</span></div><div class="fo-kv"><span class="t">Fixture</span><span class="v">2 · 5m</span></div></div>
-            <div class="fo-rear"><div class="fo-kv"><span class="t">Fastener feed</span><span class="v">3 · 9m</span></div><div class="fo-kv"><span class="t">Fixture</span><span class="v">2 · 6m</span></div><div class="fo-kv"><span class="t">Tool change</span><span class="v">2 · 4m</span></div></div>
+          <div class="fo-q"><h4>Top 5 downtime — pareto (# · time)</h4>
+            <div class="fo-front"><div class="fo-bars">
+              <div class="fo-prow"><div class="lab"><span class="t">Fastener feed</span><span class="v">4 · 12m</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Clip shortage</span><span class="v">3 · 8m</span></div><div class="track"><span class="fill" style="width:67%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Fixture</span><span class="v">2 · 5m</span></div><div class="track"><span class="fill" style="width:42%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Tool change</span><span class="v">2 · 4m</span></div><div class="track"><span class="fill" style="width:33%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Part orientation</span><span class="v">1 · 3m</span></div><div class="track"><span class="fill" style="width:25%"></span></div></div>
+            </div></div>
+            <div class="fo-rear"><div class="fo-bars">
+              <div class="fo-prow"><div class="lab"><span class="t">Fastener feed</span><span class="v">3 · 9m</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Fixture</span><span class="v">2 · 6m</span></div><div class="track"><span class="fill" style="width:67%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Tool change</span><span class="v">2 · 4m</span></div><div class="track"><span class="fill" style="width:44%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Clip shortage</span><span class="v">1 · 3m</span></div><div class="track"><span class="fill" style="width:33%"></span></div></div>
+              <div class="fo-prow"><div class="lab"><span class="t">Part orientation</span><span class="v">1 · 2m</span></div><div class="track"><span class="fill" style="width:22%"></span></div></div>
+            </div></div>
           </div>
-          <div class="fo-q"><h4>Top 3 quality (#)</h4>
-            <div class="fo-front"><div class="fo-kv"><span class="t">Gap / flush</span><span class="v">6</span></div><div class="fo-kv"><span class="t">Missing clip</span><span class="v">4</span></div><div class="fo-kv"><span class="t">Scratch</span><span class="v">3</span></div></div>
-            <div class="fo-rear"><div class="fo-kv"><span class="t">Gap / flush</span><span class="v">4</span></div><div class="fo-kv"><span class="t">Missing clip</span><span class="v">3</span></div><div class="fo-kv"><span class="t">Scratch</span><span class="v">2</span></div></div>
+          <div class="fo-q"><h4>Top 5 quality — pareto (#)</h4>
+            <div class="fo-front"><div class="fo-bars">
+              <div class="fo-prow q"><div class="lab"><span class="t">Gap / flush</span><span class="v">6</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Missing clip</span><span class="v">4</span></div><div class="track"><span class="fill" style="width:67%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Scratch</span><span class="v">3</span></div><div class="track"><span class="fill" style="width:50%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Fastener torque</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:33%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Trim fit</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:17%"></span></div></div>
+            </div></div>
+            <div class="fo-rear"><div class="fo-bars">
+              <div class="fo-prow q"><div class="lab"><span class="t">Gap / flush</span><span class="v">4</span></div><div class="track"><span class="fill" style="width:100%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Missing clip</span><span class="v">3</span></div><div class="track"><span class="fill" style="width:75%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Scratch</span><span class="v">2</span></div><div class="track"><span class="fill" style="width:50%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Fastener torque</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:25%"></span></div></div>
+              <div class="fo-prow q"><div class="lab"><span class="t">Trim fit</span><span class="v">1</span></div><div class="track"><span class="fill" style="width:25%"></span></div></div>
+            </div></div>
           </div>
         </div>
       </div>
