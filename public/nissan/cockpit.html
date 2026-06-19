@@ -153,6 +153,7 @@
       .fo-prow .track{height:8px;background:#102a44;border-radius:999px;overflow:hidden}
       .fo-prow .fill{display:block;height:100%;border-radius:999px;background:#ffb15b}
       .fo-prow.q .fill{background:#74c6e5}
+      .fo-tgt{font-size:13px;font-weight:700;color:#9fb6c6;margin-left:10px}
       .fo-tblw{overflow-x:auto}
       .fo-tbl{width:100%;border-collapse:collapse;font-size:13px}
       .fo-tbl th,.fo-tbl td{text-align:left;padding:6px 8px;border-bottom:1px solid #1c3a56}
@@ -192,12 +193,12 @@
         </div>
         <div class="fo-grid">
           <div class="fo-q"><h4>Cycle time (through area)</h4>
-            <div class="fo-front"><div class="fo-big fo-down">52<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span></div><div class="fo-sub">target 58 JPH · cycle 252s (target 230s) · span off-paint → sub-assembly</div></div>
-            <div class="fo-rear"><div class="fo-big fo-down">55<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span></div><div class="fo-sub">target 58 JPH · cycle 241s (target 230s) · span off-paint → sub-assembly</div></div>
+            <div class="fo-front"><div class="fo-big fo-down">52<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span><span class="fo-tgt">/ 58 target</span></div><div class="fo-sub">cycle 252s (target 230s) · span off-paint → sub-assembly</div></div>
+            <div class="fo-rear"><div class="fo-big fo-down">55<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span><span class="fo-tgt">/ 58 target</span></div><div class="fo-sub">cycle 241s (target 230s) · span off-paint → sub-assembly</div></div>
           </div>
           <div class="fo-q"><h4>Uptime / downtime</h4>
-            <div class="fo-front"><div class="fo-big fo-up">91.4%</div><div class="fo-sub">downtime 8.6% · 14 microstops · 22 min major</div></div>
-            <div class="fo-rear"><div class="fo-big fo-up">93.2%</div><div class="fo-sub">downtime 6.8% · 9 microstops · 12 min major</div></div>
+            <div class="fo-front"><div class="fo-big fo-up">91.4%<span class="fo-tgt">/ 95% target</span></div><div class="fo-sub">downtime 8.6% · 14 microstops · 22 min major</div></div>
+            <div class="fo-rear"><div class="fo-big fo-up">93.2%<span class="fo-tgt">/ 95% target</span></div><div class="fo-sub">downtime 6.8% · 9 microstops · 12 min major</div></div>
           </div>
           <div class="fo-q"><h4>Top 5 downtime — pareto (# · time)</h4>
             <div class="fo-front"><div class="fo-bars">
@@ -281,7 +282,7 @@
             <div class="fo-kv"><span class="t">PM3</span><span class="v fo-up">100 JPH · 36s</span></div>
             <div class="fo-kv"><span class="t">PM4</span><span class="v fo-bad">82 JPH · 44s</span></div>
           </div>
-          <div class="fo-q"><h4>Uptime / downtime</h4>
+          <div class="fo-q"><h4>Uptime / downtime (target 95%)</h4>
             <div class="fo-kv"><span class="t">PM1</span><span class="v fo-up">94%</span></div>
             <div class="fo-kv"><span class="t">PM2</span><span class="v fo-down">88%</span></div>
             <div class="fo-kv"><span class="t">PM3</span><span class="v fo-up">96%</span></div>
@@ -321,12 +322,12 @@
         </div>
         <div class="fo-grid">
           <div class="fo-q"><h4>Effective cycle time</h4>
-            <div class="fo-front"><div class="fo-big fo-down">54<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span></div><div class="fo-sub">target 58 JPH · effective cycle 228s (target 210s) · not at target</div></div>
-            <div class="fo-rear"><div class="fo-big fo-down">56<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span></div><div class="fo-sub">target 58 JPH · effective cycle 216s (target 210s) · near target</div></div>
+            <div class="fo-front"><div class="fo-big fo-down">54<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span><span class="fo-tgt">/ 58 target</span></div><div class="fo-sub">effective cycle 228s (target 210s) · not at target</div></div>
+            <div class="fo-rear"><div class="fo-big fo-down">56<span style="font-size:13px;color:#9fb6c6;font-weight:700"> JPH</span><span class="fo-tgt">/ 58 target</span></div><div class="fo-sub">effective cycle 216s (target 210s) · near target</div></div>
           </div>
           <div class="fo-q"><h4>Uptime / downtime</h4>
-            <div class="fo-front"><div class="fo-big fo-up">89.7%</div><div class="fo-sub">downtime 10.3% · 11 microstops</div></div>
-            <div class="fo-rear"><div class="fo-big fo-up">91.1%</div><div class="fo-sub">downtime 8.9% · 8 microstops</div></div>
+            <div class="fo-front"><div class="fo-big fo-up">89.7%<span class="fo-tgt">/ 95% target</span></div><div class="fo-sub">downtime 10.3% · 11 microstops</div></div>
+            <div class="fo-rear"><div class="fo-big fo-up">91.1%<span class="fo-tgt">/ 95% target</span></div><div class="fo-sub">downtime 8.9% · 8 microstops</div></div>
           </div>
           <div class="fo-q"><h4>Top 5 downtime — pareto (# · time)</h4>
             <div class="fo-front"><div class="fo-bars">
