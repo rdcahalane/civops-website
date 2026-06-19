@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Asset Health Index</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Options</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="detail-design.html" class="">Detail Design</a>
+<a href="journey.html" class="">Journey</a>
+<a href="cockpit.html" class="">Cockpit</a>
+<a href="asset-health.html" class="current">Asset Health Index</a>
+<a href="technology.html" class="">Tech Options</a>
+<a href="roi.html" class="">ROI</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Asset Health Index</div>
+    <h1 class="page-title">Asset Health Index — one score, four pillars</h1>
+    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0–100% score per asset. The database layer — fed by Cimplicity and HighByte — computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell 056.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <style>
+      .ahi-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+      .ahi-pill{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}
+      .ahi-pill .w{font-size:30px;font-weight:950;color:var(--navy);letter-spacing:-.03em}
+      .ahi-pill h3{margin:6px 0 4px;font-size:15px}
+      .ahi-pill small{color:var(--muted);font-size:12.5px;line-height:1.5;display:block}
+      .ahi-src{margin-top:10px;font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#0a77a9}
+      .ahi-banner{display:flex;align-items:center;gap:24px;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff7ed}
+      .ahi-score{font-size:62px;font-weight:950;letter-spacing:-.04em;color:#c2410c;line-height:1}
+      .ahi-score small{display:block;font-size:14px;font-weight:900;letter-spacing:.08em;color:#c2410c}
+      .ahi-ex{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+      .ahi-card{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}
+      .ahi-card .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+      .ahi-card .hd b{font-size:15px}
+      .ahi-card .sc{font-size:18px;font-weight:950;color:var(--navy);white-space:nowrap}
+      .ahi-card ul{margin:0;padding-left:18px}
+      .ahi-card li{font-size:13px;color:#3b4a59;line-height:1.55;margin-bottom:4px}
+      .ahi-calc{background:#0e2236;color:#dbe8f1;border-radius:12px;padding:18px 20px;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.8;overflow-x:auto;white-space:pre}
+      .ahi-calc b{color:#ffb15b}
+      @media(max-width:760px){.ahi-pillars,.ahi-ex{grid-template-columns:1fr}}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The weighting blueprint</span><h2>Four pillars, one weighted score</h2></div>
+      <p class="section-copy">Weights are tuned for heavy, asset-intensive manufacturing — condition carries the most signal, financial and age temper it. Pillar 1 is fed by the real OT telemetry templated on the Detail Design tab; pillars 2–4 draw on MES, EAM, and ERP / Maximo.</p>
+    </div>
+    <div class="ahi-pillars">
+      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry — motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity → HighByte</div></div>
+      <div class="ahi-pill"><div class="w">25%</div><h3>Operational reliability</h3><small>Availability, MTBF trend, micro-stoppage frequency.</small><div class="ahi-src">DRS / MES</div></div>
+      <div class="ahi-pill"><div class="w">20%</div><h3>Lifecycle age</h3><small>Runtime hours consumed vs. manufacturer rated life.</small><div class="ahi-src">EAM registry</div></div>
+      <div class="ahi-pill"><div class="w">20%</div><h3>Financial risk</h3><small>Life-to-date repair cost vs. asset replacement value.</small><div class="ahi-src">ERP / Maximo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 — Robot 6405, Paint Cell 056 (base coat)</h2></div>
+      <p class="section-copy">Applying the base color coat under continuous high-stress cycle paths within the 55–60 second Takt time. Here is how today's raw metrics compile into a single AHI score.</p>
+    </div>
+    <div class="ahi-banner">
+      <div class="ahi-score">54%<small>ALERT</small></div>
+      <div>
+        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 54.06%.</strong> Condition and reliability are degraded but functional; the score is dragged down hard by lifecycle age (92% consumed) and financial risk (77% of replacement value already spent on repairs). The asset is functional today but economically and mechanically near end-of-life.</p>
+      </div>
+    </div>
+    <div class="ahi-ex">
+      <div class="ahi-card">
+        <div class="hd"><b>1 · Condition monitoring</b><span class="sc">S₁ = 78.3%</span></div>
+        <ul>
+          <li><b>Axis 3 motor temperature:</b> 172°F (baseline 140°F; warning at 165°F) → 65%</li>
+          <li><b>Axis 2 gearbox vibration (RMS velocity):</b> 4.2 mm/s (normal &lt; 3.0) → 80%</li>
+          <li><b>Axis 1 dynamic joint torque:</b> 104% of nominal curve → 90%</li>
+          <li><em>Composite = average of the three = 78.3%</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>2 · Operational reliability</b><span class="sc">S₂ = 82.0%</span></div>
+        <ul>
+          <li><b>Availability (trailing 30 days):</b> 94.5% (target 98.5%)</li>
+          <li><b>MTBF trend:</b> shortening — 3 flow / sequence micro-stoppages this week</li>
+          <li><em>Composite from OEE availability &amp; MTBF drift = 82.0%</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>3 · Lifecycle age</b><span class="sc">S₃ = 8.0%</span></div>
+        <ul>
+          <li><b>Current runtime:</b> 46,000 operational hours</li>
+          <li><b>Rated useful life:</b> 50,000 hours (high-velocity paint config)</li>
+          <li><em>92% of intended life consumed → 8.0% health remaining</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>4 · Financial risk</b><span class="sc">S₄ = 22.8%</span></div>
+        <ul>
+          <li><b>Life-to-date repair cost:</b> $85,000 (overhauls, harnesses, PM labor)</li>
+          <li><b>Asset replacement value:</b> $110,000</li>
+          <li><em>Maintenance cost ratio = 77.2% → score = 100% − 77.2% = 22.8%</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The calculation</span><h2>Weighted moving average</h2></div>
+    </div>
+    <div class="ahi-calc">AHI = (S₁ × W₁) + (S₂ × W₂) + (S₃ × W₃) + (S₄ × W₄)
+
+AHI = (78.3 × 0.35) + (82.0 × 0.25) + (8.0 × 0.20) + (22.8 × 0.20)
+
+AHI = 27.40 + 20.50 + 1.60 + 4.56
+
+AHI = <b>54.06%</b></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Reading the score</span>
+      <h2 style="font-size:28px">What 54% means at the Control Tower</h2>
+      <p class="section-copy" style="max-width:none">A single number lets the COO and FDA triage hundreds of assets at a glance, then drill into the pillars. 54% is a clear ALERT band: not a breakdown today, but an asset whose age and repair economics now outweigh its remaining condition headroom — a planned-replacement decision, not a repair-again reflex.</p>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">Recommended action playbook</h3>
+      <p style="color:#ffd9b0;font-weight:900;margin:0 0 8px">⚠ Critical path warning — asset is on the final-assembly critical path.</p>
+      <ul>
+        <li>Restrict further heavy capital component overhauls.</li>
+        <li>Defer restoration spend — repair economics no longer justify it.</li>
+        <li>Flag the asset registry for full CapEx replacement during the next shutdown.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → HighByte). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / Maximo (cost ledger) feeds — the integration points to confirm with Nissan controls / IT before the score goes live.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="detail-design.html">Detail Design</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
