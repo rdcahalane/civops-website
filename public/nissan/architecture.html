@@ -217,6 +217,9 @@
       .dd-tree{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;color:#27384a;background:#f7fafc;border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto}
       .dd-stub{border-left:3px solid #d9a441;background:#fbf6ec;padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
       .dd-h3{font-size:16px;font-weight:900;color:#27384a;margin:18px 0 6px}
+      .dd-dl{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+      .dd-dl a{display:inline-block;border:1px solid var(--navy);background:var(--navy);color:#fff;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:900;text-decoration:none}
+      .dd-dl a:hover{opacity:.9}
     </style>
 
     <div class="tab-row" role="tablist">
@@ -368,6 +371,13 @@
   ]
 }</div>
       <p class="section-copy" style="max-width:none">Full output: 2 models, 17 parent attributes, 6 instances (<code>P4SL2201–P4SL2206</code>), each bound to its real point addresses. Import via <code>POST /v1/project/partial/import</code> (merge by name).</p>
+      <div class="dd-h3">Download artifacts</div>
+      <p class="dd-dl">
+        <a href="downloads/highbyte-paint4-sealer-model.json" download>Model + instances (JSON)</a>
+        <a href="downloads/gen-highbyte-model.py" download>Generator (Python)</a>
+        <a href="downloads/highbyte-import-README.md" download>Import README</a>
+      </p>
+      <p class="section-copy" style="max-width:none;font-size:12px">These are behind the same access gate as the rest of the site; the JSON and generator contain real plant point addresses, so keep them inside the access-controlled scope.</p>
       <div class="dd-stub"><b>Validate before import:</b> the model / attribute shape matches HighByte's documented schema, but the project <em>wrapper</em> and instance-binding shape aren't public — confirm against a real <code>GET /v1/project/export</code> from the target hub, then the generator aligns 1:1. Cell 56 / base-coat &amp; any Fanuc cells get a <code>Robot_Fanuc_*</code> variant from their export.</div>
     </div>
   </div>

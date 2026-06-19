@@ -1,0 +1,662 @@
+{
+  "models": [
+    {
+      "name": "Paint4_AxisTorque",
+      "description": "Per-axis torque (ABB RAPID Monitor1Tsk.TorqueData) \u2014 Senseye PdM input",
+      "groupAs": "Nissan/Paint4",
+      "attributes": [
+        {
+          "name": "torqueValue",
+          "type": "Simple",
+          "simpleType": "Real32",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB sealer robot per-axis torqueValue"
+        },
+        {
+          "name": "torqueMin",
+          "type": "Simple",
+          "simpleType": "Real32",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB sealer robot per-axis torqueMin"
+        },
+        {
+          "name": "torqueMax",
+          "type": "Simple",
+          "simpleType": "Real32",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB sealer robot per-axis torqueMax"
+        },
+        {
+          "name": "torqueM1Mean",
+          "type": "Simple",
+          "simpleType": "Real32",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB sealer robot per-axis torqueM1Mean"
+        },
+        {
+          "name": "torqueM2Mean",
+          "type": "Simple",
+          "simpleType": "Real32",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB sealer robot per-axis torqueM2Mean"
+        }
+      ]
+    },
+    {
+      "name": "Robot_ABB_Sealer",
+      "description": "ABB sealer robot (cell 022), derived from ISS_022 ABB_ROBOT points. Aligns to OPC UA for Robotics MotionDevice->Axis.",
+      "groupAs": "Nissan/Paint4",
+      "attributes": [
+        {
+          "name": "controllerState",
+          "type": "Simple",
+          "simpleType": "Int",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB SL2201 Controller State"
+        },
+        {
+          "name": "programIndex",
+          "type": "Simple",
+          "simpleType": "Int",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201 Current Program Index"
+        },
+        {
+          "name": "appEnabled",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Applicator Enabled"
+        },
+        {
+          "name": "appError",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Applicator Error"
+        },
+        {
+          "name": "hvDisable",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot High Voltage Disable"
+        },
+        {
+          "name": "gun1On",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Applicator Gun1 On"
+        },
+        {
+          "name": "cbsMotorOn",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot CBS Motor On"
+        },
+        {
+          "name": "command",
+          "type": "Simple",
+          "simpleType": "Int",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201 Robot Command"
+        },
+        {
+          "name": "commandAck",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Command Acknowledged"
+        },
+        {
+          "name": "commandError",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Command Error"
+        },
+        {
+          "name": "commandExecuting",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Command Executing"
+        },
+        {
+          "name": "autoMode",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Auto Mode"
+        },
+        {
+          "name": "ghostMode",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot GhostMode"
+        },
+        {
+          "name": "stopSignal",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2202  Robot Stop SIgnal"
+        },
+        {
+          "name": "liftGateOpenReq",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Lift Gate Open Req"
+        },
+        {
+          "name": "conveyorHoldReq",
+          "type": "Simple",
+          "simpleType": "Boolean",
+          "array": false,
+          "required": false,
+          "nullable": true,
+          "description": "ABB Robot SL2201  Robot Conveyor Hold Request"
+        },
+        {
+          "name": "axis",
+          "type": "Modeled",
+          "model": "Paint4_AxisTorque",
+          "array": true,
+          "required": false,
+          "nullable": true,
+          "description": "7 robot axes (index 1-7)"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "P4SL2201",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2201.ControllerState",
+        "programIndex": "SL2201.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2201.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2201.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2201.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2201.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2201.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2201.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2201.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2201.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2201.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2201.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2201.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2201.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2201.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2201.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2201.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4SL2202",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2202.ControllerState",
+        "programIndex": "SL2202.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2202.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2202.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2202.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2202.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2202.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2202.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2202.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2202.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2202.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2202.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2202.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2202.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2202.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2202.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2202.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2202.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4SL2203",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2203.ControllerState",
+        "programIndex": "SL2203.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2203.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2203.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2203.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2203.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2203.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2203.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2203.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2203.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2203.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2203.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2203.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2203.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2203.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2203.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2203.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2203.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4SL2204",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2204.ControllerState",
+        "programIndex": "SL2204.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2204.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2204.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2204.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2204.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2204.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2204.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2204.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2204.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2204.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2204.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2204.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2204.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2204.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2204.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2204.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2204.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4SL2205",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2205.ControllerState",
+        "programIndex": "SL2205.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2205.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2205.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2205.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2205.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2205.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2205.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2205.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2205.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2205.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2205.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2205.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2205.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2205.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2205.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2205.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2205.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4SL2206",
+      "model": "Robot_ABB_Sealer",
+      "groupAs": "Nissan/Smyrna/Paint4/022-SealerAutomation",
+      "sourceConnection": "Cimplicity_ISS_022",
+      "attributeSources": {
+        "controllerState": "SL2206.ControllerState",
+        "programIndex": "SL2206.RAPID.T_ROB1.pntloop.nProgramIndex",
+        "appEnabled": "SL2206.IOSYSTEM.IOSIGNALS.AppEnabled",
+        "appError": "SL2206.IOSYSTEM.IOSIGNALS.AppError",
+        "hvDisable": "SL2206.IOSYSTEM.IOSIGNALS.HVDisable",
+        "gun1On": "SL2206.IOSYSTEM.IOSIGNALS.do_GrcGun1On",
+        "cbsMotorOn": "SL2206.IOSYSTEM.IOSIGNALS.CBSMotorOn",
+        "command": "SL2206.IOSYSTEM.IOSIGNALS.Command",
+        "commandAck": "SL2206.IOSYSTEM.IOSIGNALS.CommandAck",
+        "commandError": "SL2206.IOSYSTEM.IOSIGNALS.CommandError",
+        "commandExecuting": "SL2206.IOSYSTEM.IOSIGNALS.CommandExecuting",
+        "autoMode": "SL2206.IOSYSTEM.IOSIGNALS.doAutoMode",
+        "ghostMode": "SL2206.IOSYSTEM.IOSIGNALS.GhostMode",
+        "stopSignal": "SL2206.IOSYSTEM.IOSIGNALS.StopSignal",
+        "liftGateOpenReq": "SL2206.IOSYSTEM.IOSIGNALS.LiftGateOpenReq",
+        "conveyorHoldReq": "SL2206.IOSYSTEM.IOSIGNALS.ConveyorHoldReq",
+        "axis": [
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{1,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_1_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_2_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{2,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_2_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_3_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{3,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_3_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_4_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{4,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_4_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_5_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{5,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_5_Torque_M2_Mean"
+          },
+          {
+            "torqueValue": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_6_Torque_Value",
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{6,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_6_Torque_M2_Mean"
+          },
+          {
+            "torqueMin": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,1}",
+            "torqueMax": "SL2206.RAPID.Monitor1Tsk.TorqueData.nAxis_Torque_Data{7,2}",
+            "torqueM1Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M1_Mean",
+            "torqueM2Mean": "SL2206.RAPID.Monitor1Tsk.user.nAxis_7_Torque_M2_Mean"
+          }
+        ]
+      }
+    }
+  ]
+}
