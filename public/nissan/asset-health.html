@@ -292,6 +292,48 @@ AHI = <b>54.06%</b></div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Standards basis</span><h2>Grounded in established health-index practice</h2></div>
+      <p class="section-copy">The AHI approach — compressing condition, reliability, age, and risk into one banded 0–100 score — is consistent with recognized asset-management standards and decades of published prior art. The closest precedents come from regulated, asset-intensive industries that have done exactly this for years.</p>
+    </div>
+
+    <table class="ahi-tbl">
+      <tr><th>What we do</th><th>Recognized basis</th></tr>
+      <tr><td>Single 0–100 score, banded into health levels</td><td>CIGRE/IEEE transformer Health Index (0–100%, 100 = healthy, &lt;25 = poor); Ofgem <strong>CNAIM</strong> bands HI1–HI5 mapped to Probability of Failure</td></tr>
+      <tr><td>Combining condition + reliability + age into one composite</td><td>CNAIM: <em>Health Score = Initial (age) × Health-Score Factor (condition) × Reliability Factor</em></td></tr>
+      <tr><td>Weighted aggregation of heterogeneous factors</td><td><strong>Weighted Sum Model</strong> — the named method behind most published Health Indices (Naderian &amp; Jahromi, IEEE 2008)</td></tr>
+      <tr><td>Pillar 1 · Condition monitoring</td><td><strong>ISO 13374</strong> “Health Assessment” functional block; implemented by <strong>MIMOSA OSA-CBM</strong></td></tr>
+      <tr><td>Pillar 2 · Operational reliability</td><td>CNAIM Reliability Factor; ISO 14224 reliability/maintenance data (MTBF/MTTR); SMRP metrics</td></tr>
+      <tr><td>Pillar 3 · Lifecycle age</td><td>CNAIM age-based Initial Health Score (an <em>initial proxy</em> — see caution); ISO 13381 remaining-useful-life prognostics</td></tr>
+      <tr><td>Pillar 4 · Financial risk</td><td>No condition-monitoring HI precedent — maps to asset-management criticality / consequence-of-failure (ISO 55000, ISO 31000). Our extension.</td></tr>
+    </table>
+
+    <div class="grid-2" style="margin-top:18px">
+      <div class="panel">
+        <span class="eyebrow">Precedents</span>
+        <h3 style="margin-top:6px">Published methodologies this follows</h3>
+        <ul>
+          <li><strong>Ofgem CNAIM v2.1</strong> — the UK electricity-network regulator's Health Index / Probability-of-Failure methodology. <a href="https://www.ofgem.gov.uk/sites/default/files/docs/2021/04/dno_common_network_asset_indices_methodology_v2.1_final_01-04-2021.pdf" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>CIGRE / IEEE transformer Health Index</strong> — recognized industry technical methodology (CIGRE TB 761; Naderian &amp; Jahromi, IEEE 2008). <a href="https://ieeexplore.ieee.org/document/4570308/" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>ISO 13374 + MIMOSA OSA-CBM</strong> — the standard condition-monitoring processing chain with a formal Health Assessment block. <a href="https://www.mimosa.org/mimosa-osa-cbm/" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>Process-pump fleet AHI</strong> — a non-transformer, rotating-equipment precedent. <a href="https://omaintec.org/journal/index.php/docs/asset-health-index-method-a-case-study-for-process-pumps-fleet/" target="_blank" rel="noreferrer">source →</a></li>
+        </ul>
+      </div>
+      <div class="panel" style="border-left:3px solid #d9a441;background:#fbf6ec">
+        <span class="eyebrow">What is engineering judgment — disclosed</span>
+        <h3 style="margin-top:6px">What the standards don't mandate</h3>
+        <ul>
+          <li><strong>The 35/25/20/20 weights, the four-pillar set, and the weighted-average math are our engineering judgment</strong> — no standard mandates them. Composite-indicator guidance (OECD/JRC) treats weights as value judgments that change the verdict, so they're tuned and validated with Nissan.</li>
+          <li><strong>Age ≠ condition.</strong> Lifecycle age is only a starting proxy; observed condition must be able to override it (as CNAIM does with caps &amp; collars).</li>
+          <li><strong>Normalization matters.</strong> A simple weighted average can mask a single urgent failure mode; we calibrate the scale (and consider a hard condition override) so one critical signal can't be diluted, and tie each band to an action and timescale.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container inner">
     <div>
