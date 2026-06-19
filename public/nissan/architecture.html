@@ -377,8 +377,28 @@
         <a href="downloads/gen-highbyte-model.py.txt" download="gen-highbyte-model.py">Generator (Python)</a>
         <a href="downloads/highbyte-import-README.md" download>Import README</a>
       </p>
-      <p class="section-copy" style="max-width:none;font-size:12px">These are behind the same access gate as the rest of the site; the JSON and generator contain real plant point addresses, so keep them inside the access-controlled scope.</p>
-      <div class="dd-stub"><b>Validate before import:</b> the model / attribute shape matches HighByte's documented schema, but the project <em>wrapper</em> and instance-binding shape aren't public — confirm against a real <code>GET /v1/project/export</code> from the target hub, then the generator aligns 1:1. Cell 56 / base-coat &amp; any Fanuc cells get a <code>Robot_Fanuc_*</code> variant from their export.</div>
+      <table class="dd-tbl">
+        <tr><th>File</th><th>What it is</th></tr>
+        <tr><td><code>highbyte-paint4-sealer-model.json</code></td><td>The deliverable: 2 models (<code>Paint4_AxisTorque</code> child + <code>Robot_ABB_Sealer</code> parent) and 6 instances (<code>P4SL2201–P4SL2206</code>), each attribute bound to its real Cimplicity point address. This is what you import into HighByte.</td></tr>
+        <tr><td><code>gen-highbyte-model.py</code></td><td>The generator that produced the JSON — reads <code>ISS_022_POINTS</code> and emits the models + instances. Re-run it whenever the point export changes, or point it at another cell's export.</td></tr>
+        <tr><td><code>highbyte-import-README.md</code></td><td>Step-by-step import instructions, the data-type mapping, and the validation caveats below.</td></tr>
+      </table>
+      <p class="section-copy" style="max-width:none;font-size:12px">Behind the same access gate as the rest of the site — the JSON and generator carry real plant point addresses, so keep them inside the access-controlled scope.</p>
+
+      <div class="dd-h3">How to import</div>
+      <div class="dd-code">## 1 · get a token from the target hub
+curl -s -X POST http://&lt;hub&gt;:45245/login \
+     -d '{"username":"...","password":"..."}'
+
+## 2 · partial import (merges by name — safe to re-run)
+curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
+     -H "Authorization: Bearer &lt;token&gt;" \
+     -H "Content-Type: application/json" \
+     --data @highbyte-paint4-sealer-model.json</div>
+
+      <div class="dd-h3">What works today, and the one limitation</div>
+      <div class="dd-stub"><b>Models will import; the instance section is best-effort.</b> The <b>models / attributes</b> match HighByte's documented schema, so they import cleanly. What is <em>not</em> published is the exact <b>project wrapper keys</b> and the precise <b>instance-binding JSON</b> — so the per-robot binding is a best-effort mapping (attribute → Cimplicity address) rather than a guaranteed-valid instance.
+      <br><br><b>The fix is one real export.</b> A single <code>GET /v1/project/export</code> from your hub — or one hand-built instance exported — lets us align the generator <b>1:1</b> with the real format. After that it auto-configures all six sealer robots, and the same pattern extends to <b>cell 56 / base coat</b> and any <b>Fanuc</b> cells straight from their Cimplicity exports.</div>
     </div>
   </div>
 </section>
