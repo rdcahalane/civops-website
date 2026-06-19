@@ -123,6 +123,114 @@
 
 <section class="section">
   <div class="container">
+    <style>
+      .ahi-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+      .ahi-tbl th,.ahi-tbl td{border:1px solid var(--line);padding:7px 10px;text-align:left}
+      .ahi-tbl th{background:#f3f6f9;font-weight:900;color:#27384a}
+      .ahi-chip{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:900;color:#fff}
+      .ahi-tbl tr.hl td{background:#fff7ed}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Representative cell view</span><h2>Cell 056 at a glance — 8 robots + conveyor</h2></div>
+      <p class="section-copy">How the cell reads in the cockpit: one rolled-up cell AHI, and a per-asset score on each of the 8 ABB robots and the conveyor. Color flags the band so the COO triages the cell in one look, then drills into the asset dragging it down — here, Robot 6405 at 54%.</p>
+    </div>
+    <figure class="platform-figure">
+      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>civops cockpit — Cell 056 asset health<span class="pf-badge">Representative view</span></div>
+      <svg width="100%" viewBox="0 0 680 424" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        <title>Cell 056 base coat asset health — 8 ABB robots around a conveyor with per-asset AHI</title>
+        <desc>Eight ABB IRB 6600 robots, four above and four below a central conveyor, each showing an Asset Health Index score; the conveyor and the rolled-up cell AHI are also shown. Robot 6405 is in the alert band at 54 percent.</desc>
+        <style>
+          .cvt{font-size:13px;fill:#e6eef5}.cvscore{font-size:20px;font-weight:800}
+          .cvnode{fill:#15324c;stroke-width:1.5}.cvconv{fill:#16314c;stroke:#3f627d;stroke-width:1.5}
+          .cvstem{stroke:#3f627d;stroke-width:2}.cvhd{font-size:15px;font-weight:600;fill:#ffffff}
+          .cvsub{font-size:11px;fill:#9fb6c6}.cvlegend{font-size:11px;fill:#9fb6c6}
+          .cvbadgenum{font-size:18px;font-weight:800;fill:#ffb15b}
+        </style>
+        <rect x="2" y="2" width="676" height="420" rx="16" fill="#0e2236" stroke="#1f587a"/>
+        <text class="cvhd" x="24" y="32">Cell 056 — Base Coat</text>
+        <text class="cvsub" x="24" y="49">ABB IRB 6600 · 8 robots + conveyor</text>
+        <rect x="494" y="14" width="162" height="48" rx="10" fill="#241a06" stroke="#ffb15b"/>
+        <text class="cvsub" x="508" y="33">CELL AHI · roll-up</text>
+        <text class="cvbadgenum" x="508" y="54">77%<tspan class="cvsub" dx="6" fill="#ffb15b"> · WATCH</tspan></text>
+
+        <rect class="cvconv" x="40" y="188" width="600" height="48" rx="10"/>
+        <text class="cvt" x="56" y="218" text-anchor="start">Conveyor 056</text>
+        <path d="M300 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M330 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M360 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M390 212 l10 -6 v12 z" fill="#3f627d"/>
+        <circle cx="600" cy="200" r="4" fill="#49bd8d"/>
+        <text class="cvscore" x="624" y="219" text-anchor="end" fill="#49bd8d">83%</text>
+
+        <line class="cvstem" x1="91" y1="142" x2="91" y2="188"/>
+        <line class="cvstem" x1="257" y1="142" x2="257" y2="188"/>
+        <line class="cvstem" x1="423" y1="142" x2="423" y2="188"/>
+        <line class="cvstem" x1="589" y1="142" x2="589" y2="188"/>
+        <line class="cvstem" x1="91" y1="236" x2="91" y2="300"/>
+        <line class="cvstem" x1="257" y1="236" x2="257" y2="300"/>
+        <line class="cvstem" x1="423" y1="236" x2="423" y2="300"/>
+        <line class="cvstem" x1="589" y1="236" x2="589" y2="300"/>
+
+        <rect class="cvnode" x="26" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="141" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="91" y="108" text-anchor="middle">Robot 6401</text>
+        <text class="cvscore" x="91" y="131" text-anchor="middle" fill="#49bd8d">88%</text>
+        <rect class="cvnode" x="192" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="307" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="257" y="108" text-anchor="middle">Robot 6402</text>
+        <text class="cvscore" x="257" y="131" text-anchor="middle" fill="#49bd8d">81%</text>
+        <rect class="cvnode" x="358" y="84" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="473" cy="98" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="423" y="108" text-anchor="middle">Robot 6403</text>
+        <text class="cvscore" x="423" y="131" text-anchor="middle" fill="#ffb15b">69%</text>
+        <rect class="cvnode" x="524" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="639" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="589" y="108" text-anchor="middle">Robot 6404</text>
+        <text class="cvscore" x="589" y="131" text-anchor="middle" fill="#49bd8d">90%</text>
+
+        <rect class="cvnode" x="26" y="300" width="130" height="58" rx="10" stroke="#ef6a5b" stroke-width="2.5"/>
+        <circle cx="141" cy="314" r="4" fill="#ef6a5b"/>
+        <text class="cvt" x="91" y="324" text-anchor="middle">Robot 6405</text>
+        <text class="cvscore" x="91" y="347" text-anchor="middle" fill="#ef6a5b">54%</text>
+        <text class="cvsub" x="91" y="374" text-anchor="middle" fill="#ef6a5b">◀ worked example</text>
+        <rect class="cvnode" x="192" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="307" cy="314" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="257" y="324" text-anchor="middle">Robot 6406</text>
+        <text class="cvscore" x="257" y="347" text-anchor="middle" fill="#ffb15b">77%</text>
+        <rect class="cvnode" x="358" y="300" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="473" cy="314" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="423" y="324" text-anchor="middle">Robot 6407</text>
+        <text class="cvscore" x="423" y="347" text-anchor="middle" fill="#49bd8d">85%</text>
+        <rect class="cvnode" x="524" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="639" cy="314" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="589" y="324" text-anchor="middle">Robot 6408</text>
+        <text class="cvscore" x="589" y="347" text-anchor="middle" fill="#ffb15b">63%</text>
+
+        <circle cx="206" cy="400" r="5" fill="#49bd8d"/><text class="cvlegend" x="216" y="404">Healthy ≥ 80</text>
+        <circle cx="330" cy="400" r="5" fill="#ffb15b"/><text class="cvlegend" x="340" y="404">Watch 60–79</text>
+        <circle cx="452" cy="400" r="5" fill="#ef6a5b"/><text class="cvlegend" x="462" y="404">Alert &lt; 60</text>
+      </svg>
+      <figcaption><b>Cell 056 asset health.</b> Representative scores — cell roll-up 77% (Watch), driven down by Robot 6405 (54%, Alert). Robots flank the conveyor 4 + 4; the conveyor carries its own AHI.</figcaption>
+    </figure>
+    <table class="ahi-tbl">
+      <tr><th>Asset</th><th>Model</th><th>AHI</th><th>Band</th></tr>
+      <tr><td>Cell 056 (roll-up)</td><td>Base coat cell</td><td><b>77%</b></td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot 6401</td><td>ABB IRB 6600</td><td>88%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot 6402</td><td>ABB IRB 6600</td><td>81%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot 6403</td><td>ABB IRB 6600</td><td>69%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot 6404</td><td>ABB IRB 6600</td><td>90%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr class="hl"><td>Robot 6405 <em>(worked example)</em></td><td>ABB IRB 6600</td><td>54%</td><td><span class="ahi-chip" style="background:#d1453a">Alert</span></td></tr>
+      <tr><td>Robot 6406</td><td>ABB IRB 6600</td><td>77%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot 6407</td><td>ABB IRB 6600</td><td>85%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot 6408</td><td>ABB IRB 6600</td><td>63%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Conveyor 056</td><td>Cell conveyor</td><td>83%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+    </table>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">Scores are representative for layout review, not live Nissan data. Cell roll-up shown as the weighted asset average; the production roll-up rule (worst-of vs. weighted) is a config decision to confirm.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">The calculation</span><h2>Weighted moving average</h2></div>
     </div>
