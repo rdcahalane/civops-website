@@ -126,7 +126,7 @@
 <script>
   (function(){
     var a = new URLSearchParams(location.search).get('asset') || '6405';
-    var label = /^\d+$/.test(a) ? ('Robot ' + a) : (a === 'conv' ? 'Conveyor 056' : a);
+    var label = /^\d+$/.test(a) ? ('Robot ' + a) : (a === 'conv' ? 'Conveyor 056' : (/^BC\d+$/.test(a) ? ('Robot ' + a) : a));
     var t = document.getElementById('asset-title'); if (t) t.textContent = label;
     var bc = document.getElementById('bc-asset'); if (bc) bc.textContent = label;
     document.title = 'Nissan Smyrna | Source Data — ' + label;
