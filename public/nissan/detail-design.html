@@ -230,6 +230,7 @@
       <button class="tab-btn" data-dd-btn="abb">ABB sealer template</button>
       <button class="tab-btn" data-dd-btn="fault">Fault &amp; DB model</button>
       <button class="tab-btn" data-dd-btn="import">HighByte import</button>
+      <button class="tab-btn" data-dd-btn="data">Data &amp; validation</button>
     </div>
 
     <div class="dd-pane active" data-dd-pane="naming">
@@ -401,6 +402,36 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
       <div class="dd-h3">What works today, and the one limitation</div>
       <div class="dd-stub"><b>Models will import; the instance section is best-effort.</b> The <b>models / attributes</b> match HighByte's documented schema, so they import cleanly. What is <em>not</em> published is the exact <b>project wrapper keys</b> and the precise <b>instance-binding JSON</b> — so the per-robot binding is a best-effort mapping (attribute → Cimplicity address) rather than a guaranteed-valid instance.
       <br><br><b>The fix is one real export.</b> A single <code>GET /v1/project/export</code> from your hub — or one hand-built instance exported — lets us align the generator <b>1:1</b> with the real format. After that it auto-configures all six sealer robots, and the same pattern extends to <b>cell 56 / base coat</b> and any <b>Fanuc</b> cells straight from their Cimplicity exports.</div>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="data">
+      <p class="section-copy">Moving from <em>representative</em> screens to a <em>validated</em> program. Phase 1 — real screens on the extracts Nissan provided — is done. Phase 2 is the data still needed to trust the AHI score and the KPI targets, not just render them.</p>
+
+      <div class="dd-h3">Phase 1 — what we received (shift of 21–22 Jun) and what it powers</div>
+      <table class="dd-tbl">
+        <tr><th>Extract (real)</th><th>Now drives</th></tr>
+        <tr><td><code>FAULT.csv</code> — 52 downtime events, Topcoat 5</td><td>Live downtime Pareto by responsibility &amp; cause (Cockpit)</td></tr>
+        <tr><td><code>Robot_Fault_Detail</code> + <code>ABB_Robot_056</code> / <code>TC_107</code> ALARM_LOG</td><td>Cascading-fault RCA — 24V dip → 7-robot A1HV cascade → booth starved (Cockpit)</td></tr>
+        <tr><td><code>BC56_Torques.csv</code> — per-axis torque, BC5601–BC5610</td><td>AHI Pillar 1 condition · real BC5605 torque envelope (Asset Health Index)</td></tr>
+        <tr><td><code>ReportOutput</code> — Maximo work orders</td><td>Maintenance history (downtime min, labor hrs, RCA notes)</td></tr>
+        <tr><td><code>ABB_Events_List</code> (1,000) + <code>ABB_Alarm_Groups</code> (15)</td><td>Event dictionary / category taxonomy for Pareto grouping</td></tr>
+        <tr><td>Config — <code>ISS_022</code>, <code>SLR_105</code>, <code>Paint4</code> schema</td><td>HighByte asset model + naming convention</td></tr>
+      </table>
+
+      <div class="dd-h3">Phase 2 — what's still needed to validate</div>
+      <table class="dd-tbl">
+        <tr><th>#</th><th>Gap</th><th>Unblocks (currently representative)</th><th>Source</th></tr>
+        <tr><td>1</td><td><b>Time depth — 30–90 days</b> (not one shift)</td><td>Trending, MTBF / drift, and validating the 35/25/20/20 weights against a real population</td><td>Historian export or repeated daily DB pulls</td></tr>
+        <tr><td>2</td><td><b>Per-axis torque baselines / limits</b></td><td>AHI Pillar 1 — converts real torque values into a 0–100 condition score</td><td>ABB supervision limits (CustKernel) or derive from population</td></tr>
+        <tr><td>3</td><td><b>EAM runtime hours + commissioning dates</b></td><td>AHI Pillar 3 (lifecycle age)</td><td>EAM registry</td></tr>
+        <tr><td>4</td><td><b>Maximo $ cost + replacement value (CRV)</b></td><td>AHI Pillar 4 (financial) — WO export has minutes/labor but no $ or CRV</td><td>ERP / Maximo</td></tr>
+        <tr><td>5</td><td><b>Inspect / Autis defect export</b></td><td>Quality Pareto on the Off-paint / Punch / Sub-assembly dashboards</td><td>Inspect + Autis</td></tr>
+        <tr><td>6</td><td><b>WIP / sequence data</b> (Jay item)</td><td>Cockpit Punch-queue + WIP-by-model view</td><td>Sequence/AVI; sensed or derived (paint-out − punch-in)</td></tr>
+        <tr><td>7</td><td><b>Clock sync / offsets across systems</b></td><td>Cascading-fault RCA generalizing beyond one example</td><td>NTP/PTP confirm; ms-resolution SOE</td></tr>
+        <tr><td>8</td><td><b>JPH / takt targets + "last station" trigger</b></td><td>Cockpit cycle-time targets (90 JPH etc.)</td><td>MES / DRS</td></tr>
+      </table>
+
+      <div class="dd-stub"><b>Minimum to validate one cell end-to-end:</b> items 1–4 for the <b>cell-056 basecoat robots (BC5601–BC5610)</b> → the first defensible AHI. A 30-day re-pull of the four files we already received (same format) covers most of it; read-only exports are fine, and a read-only Historian/SQL account would also enable the live HighByte pilot. Quality (5) and WIP (6) extend the ops dashboards from representative to live.</div>
     </div>
   </div>
 </section>
