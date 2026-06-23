@@ -96,6 +96,106 @@
   </div>
 </section>
 
+<section class="section" id="day-in-the-life">
+  <div class="container">
+    <style>
+      .dil-step{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+      .dil-time{font-weight:900;color:var(--brook-blue);font-size:14px}
+      .dil-step h3{margin:0 0 4px;font-size:17px;color:#111b25}
+      .dil-moment{color:var(--muted);font-size:14px;margin:0 0 10px;line-height:1.5}
+      .dil-ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      .dil-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.5;color:#33424f}
+      .dil-card .lbl{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+      .dil-today{background:var(--soft)} .dil-today .lbl{color:var(--muted)}
+      .dil-civ{background:#fff7ed;border-color:#ffd9b3} .dil-civ .lbl{color:var(--brook-orange)}
+      @media(max-width:760px){.dil-step{grid-template-columns:1fr}.dil-ba{grid-template-columns:1fr}}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Day in the life</span><h2>A shift on Paint 4 — same events, different outcome</h2></div>
+      <p class="section-copy">The same real events from one night shift, played two ways. The data already exists — it's just trapped in separate systems, on separate clocks, attributed to the wrong thing. The operating layer puts it in one place so the right person sees the real problem first.</p>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">05:45</div>
+      <div><h3>Shift start — line comes up wet</h3>
+        <p class="dil-moment">Process Lead walks the line; first units enter the booth.</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>OEE sits in the low-30s%. No one can say <em>why</em> in the moment — the answer is spread across Cimplicity, the FAULT app, the robot pendants, and Maximo.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>The area opens on one screen — <a href="cockpit.html">off-paint cycle time &amp; uptime vs. target</a>, JPH-first. The number is honest and live; the gaps are already attributed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">06:30</div>
+      <div><h3>Spray booth starves</h3>
+        <p class="dil-moment">Topcoat 5 booth goes STARVED — the biggest downtime bucket this shift (34 min over 22 events).</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>Logged as "Starved" — one of dozens of look-alike entries. The upstream reason (a cell not keeping pace) is lost.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>STARVED shows next to the upstream cell state and conveyor block/starve signals on one timeline. The Control Room rebalances before it repeats.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">08:08</div>
+      <div><h3>A robot fault that isn't seven faults</h3>
+        <p class="dil-moment">A 24V power dip hits the basecoat cell — 7 robots throw <code>A1HV/24VoltPower:Val lo</code> within 27 seconds; supervisory alarms trip 12 min later; the booth records "Cell NOT Ready."</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>The downtime log blames the booth/cell. Maintenance chases robot-by-robot symptoms — the events look unrelated because they're minutes apart and coded differently across systems.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>The <a href="cockpit.html#real-data">cascading-fault view</a> puts the robot sequence-of-events, conveyor state, and downtime entry on one clock. <strong>One shared 24V supply dip — not seven faults.</strong> Go to the supply, not the manipulators.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">10:42</div>
+      <div><h3>Guided triage at the cell</h3>
+        <p class="dil-moment">A unit stops on a likely lens/bracket issue.</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>The tender hunts across SOPs, prior incidents, parts, and escalation by hand.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>The <a href="cockpit.html">cockpit</a> opens one event record — likely cause, the SOP page, parts-on-hand, and a one-tap escalation that brings controls + quality + Control Room into the same case.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">13:00</div>
+      <div><h3>The 1 PM CCR — a score crosses threshold</h3>
+        <p class="dil-moment">The daily Control Center Review. A basecoat robot's predictive score has dropped past threshold.</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>A spreadsheet recap of yesterday; predictive signals live only in Senseye, untied to cost or age.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>The <a href="asset-health.html">Asset Health Index</a> shows Robot BC5605 in ALERT — condition slipping, 92% of life consumed, 77% of replacement value already spent on repairs. The verdict isn't "repair again" — it's a planned-replacement call, evidence on one screen.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">15:30</div>
+      <div><h3>Reliability — the pattern, not the incident</h3>
+        <p class="dil-moment">Reliability reviews bad actors and repeat failures.</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>Repeat-failure detection is manual; chronic losses hide inside the "Manufacturing / Starved" buckets.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>The Top-5 Pareto (count <em>and</em> time) and the cross-asset health view surface the chronic themes — and the cleaner event data becomes the training set for the next predictive use case.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dil-step">
+      <div class="dil-time">End</div>
+      <div><h3>End of shift — the compounding effect</h3>
+        <p class="dil-moment">Handoff to the next team.</p>
+        <div class="dil-ba">
+          <div class="dil-card dil-today"><div class="lbl">Today</div>The shift's data scatters back into five systems; the next shift starts blind.</div>
+          <div class="dil-card dil-civ"><div class="lbl">With civops</div>Every event landed once, in context, on the UNS — feeding the cockpit, the AHI, the CCR, and (read-only in phase 1) the Humble agent layer. Tomorrow starts with a trend, not a blank page.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted);margin-top:16px">Phase 1 is read-only. The events, the cascade, the torque, and the asset model in this story are <strong>real</strong> (one shift); the KPI math is representative pending the data in <a href="detail-design.html">Detail Design → Data &amp; validation</a>.</p>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="container inner">
