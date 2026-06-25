@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
@@ -19,7 +19,7 @@
 <a href="decision.html" class="">Approach</a>
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
-<a href="cockpit.html" class="">Cockpit</a>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
 <a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
 <a href="asset-health.html" class="current">Asset Health<br>Index</a>
 <a href="detail-design.html" class="">Detail<br>Design</a>
@@ -31,8 +31,8 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="asset-health.html">Asset Health Index</a> / <span id="bc-asset">Source data</span></div>
-    <h1 class="page-title">Source data — <span id="asset-title">asset</span></h1>
-    <p class="page-deck">The raw inputs behind the Asset Health Index, by pillar — what the score is computed from, and where each feed originates. This is the drill-down a maintenance planner or reliability engineer opens from the cell view.</p>
+    <h1 class="page-title">Source data â€” <span id="asset-title">asset</span></h1>
+    <p class="page-deck">The raw inputs behind the Asset Health Index, by pillar â€” what the score is computed from, and where each feed originates. This is the drill-down a maintenance planner or reliability engineer opens from the cell view.</p>
     <div class="callout" style="border-left:3px solid #d9a441;background:#fbf6ec"><strong>Representative / dummy data.</strong> Values shown illustrate the drill-down pattern, not live Nissan readings. Live data flows from Cimplicity / HighByte, DRS / MES, the EAM registry, and ERP / Maximo.</div>
   </div>
 </section>
@@ -50,11 +50,11 @@
     </style>
 
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Pillar 1 · Condition monitoring</span><h2>Real-time OT telemetry (Cimplicity → HighByte)</h2></div>
-      <p class="section-copy">Recent per-axis readings. Source tags follow the Detail Design naming convention — e.g. <span class="sd-mono">&lt;robot&gt;.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value</span>.</p>
+      <div class="section-title"><span class="eyebrow">Pillar 1 Â· Condition monitoring</span><h2>Real-time OT telemetry (Cimplicity â†’ HighByte)</h2></div>
+      <p class="section-copy">Recent per-axis readings. Source tags follow the Detail Design naming convention â€” e.g. <span class="sd-mono">&lt;robot&gt;.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value</span>.</p>
     </div>
     <table class="sd-tbl">
-      <tr><th>Timestamp</th><th>Axis 3 motor temp (°F)</th><th>Axis 2 gearbox vib (mm/s RMS)</th><th>Axis 1 joint torque (% nominal)</th></tr>
+      <tr><th>Timestamp</th><th>Axis 3 motor temp (Â°F)</th><th>Axis 2 gearbox vib (mm/s RMS)</th><th>Axis 1 joint torque (% nominal)</th></tr>
       <tr><td>06:00</td><td class="n">158</td><td class="n">3.4</td><td class="n">99</td></tr>
       <tr><td>06:30</td><td class="n">161</td><td class="n">3.6</td><td class="n">100</td></tr>
       <tr><td>07:00</td><td class="n">164</td><td class="n">3.8</td><td class="n">101</td></tr>
@@ -63,14 +63,14 @@
       <tr class="warn"><td>08:30</td><td class="n">171</td><td class="n">4.1</td><td class="n">104</td></tr>
       <tr class="warn"><td>09:00</td><td class="n">172</td><td class="n">4.2</td><td class="n">104</td></tr>
     </table>
-    <p class="sd-src">Baselines: motor temp 140°F (warn 165°F) → 65% · vibration normal &lt; 3.0 mm/s → 80% · torque nominal curve → 90%. <strong>Composite S₁ = 78.3%.</strong></p>
+    <p class="sd-src">Baselines: motor temp 140Â°F (warn 165Â°F) â†’ 65% Â· vibration normal &lt; 3.0 mm/s â†’ 80% Â· torque nominal curve â†’ 90%. <strong>Composite Sâ‚ = 78.3%.</strong></p>
   </div>
 </section>
 
 <section class="section">
   <div class="container grid-2">
     <div class="panel">
-      <span class="eyebrow">Pillar 2 · Operational reliability</span>
+      <span class="eyebrow">Pillar 2 Â· Operational reliability</span>
       <h3 style="margin-top:6px">DRS / MES</h3>
       <table class="sd-tbl">
         <tr><th>Metric</th><th>Value</th></tr>
@@ -79,10 +79,10 @@
         <tr><td>Micro-stoppages (this week)</td><td class="n">3</td></tr>
         <tr><td>MTBF trend</td><td class="n">shortening</td></tr>
       </table>
-      <p class="sd-src">Composite S₂ = 82.0% (OEE availability &amp; MTBF drift).</p>
+      <p class="sd-src">Composite Sâ‚‚ = 82.0% (OEE availability &amp; MTBF drift).</p>
     </div>
     <div class="panel">
-      <span class="eyebrow">Pillar 3 · Lifecycle age</span>
+      <span class="eyebrow">Pillar 3 Â· Lifecycle age</span>
       <h3 style="margin-top:6px">EAM registry</h3>
       <table class="sd-tbl">
         <tr><th>Metric</th><th>Value</th></tr>
@@ -90,7 +90,7 @@
         <tr><td>Rated useful life</td><td class="n">50,000 h</td></tr>
         <tr><td>Life consumed</td><td class="n">92%</td></tr>
       </table>
-      <p class="sd-src">Composite S₃ = 8.0% (health remaining).</p>
+      <p class="sd-src">Composite Sâ‚ƒ = 8.0% (health remaining).</p>
     </div>
   </div>
 </section>
@@ -98,7 +98,7 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Pillar 4 · Financial risk</span><h2>Cost ledger (ERP / Maximo)</h2></div>
+      <div class="section-title"><span class="eyebrow">Pillar 4 Â· Financial risk</span><h2>Cost ledger (ERP / Maximo)</h2></div>
     </div>
     <table class="sd-tbl">
       <tr><th>Work order / item</th><th>Type</th><th>Cost</th></tr>
@@ -109,8 +109,8 @@
       <tr><th>Life-to-date repair total</th><th></th><th class="n">$85,000</th></tr>
       <tr><td>Asset replacement value (CRV)</td><td></td><td class="n">$110,000</td></tr>
     </table>
-    <p class="sd-src">Maintenance cost ratio = 77.2% → Composite S₄ = 22.8%.</p>
-    <div style="margin-top:18px"><a class="btn primary" href="asset-health.html">← Back to cell view</a></div>
+    <p class="sd-src">Maintenance cost ratio = 77.2% â†’ Composite Sâ‚„ = 22.8%.</p>
+    <div style="margin-top:18px"><a class="btn primary" href="asset-health.html">â† Back to cell view</a></div>
   </div>
 </section>
 
@@ -120,7 +120,7 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
 <a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
@@ -131,7 +131,7 @@
     var label = /^\d+$/.test(a) ? ('Robot ' + a) : (a === 'conv' ? 'Conveyor 056' : (/^BC\d+$/.test(a) ? ('Robot ' + a) : a));
     var t = document.getElementById('asset-title'); if (t) t.textContent = label;
     var bc = document.getElementById('bc-asset'); if (bc) bc.textContent = label;
-    document.title = 'Nissan Smyrna | Source Data — ' + label;
+    document.title = 'Nissan Smyrna | Source Data â€” ' + label;
   })();
 </script>
 <script src="main.js"></script>
