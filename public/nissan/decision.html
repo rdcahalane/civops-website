@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,6 +19,7 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey</a>
 <a href="cockpit.html" class="">Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
 <a href="technology.html" class="">Tech Stack</a>
 <a href="roi.html" class="">ROI</a></nav>
   </div>
@@ -27,9 +28,9 @@
 
 <section class="page-intro">
   <div class="container">
-    <div class="breadcrumbs"><a href="index.html">Overview</a> / Good • Better • Best</div>
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Good â€¢ Better â€¢ Best</div>
     <h1 class="page-title">A decision page that makes the tradeoffs easy</h1>
-    <p class="page-deck">For Nissan Smyrna, the right answer is not simply “more software.” It is a clear operating choice: how much change to take on now, what capability to unlock next, and where CESMII i3X anchors the data strategy.</p>
+    <p class="page-deck">For Nissan Smyrna, the right answer is not simply â€œmore software.â€ It is a clear operating choice: how much change to take on now, what capability to unlock next, and where CESMII i3X anchors the data strategy.</p>
   </div>
 </section>
 
@@ -46,7 +47,7 @@
           <li>Improve structured fault entry and reason coding.</li>
           <li>Use SQL where it already works.</li>
         </ul>
-        <button class="peek-btn" onclick="openModal('good')">▶ See what this looks like →</button>
+        <button class="peek-btn" onclick="openModal('good')">â–¶ See what this looks like â†’</button>
       </div>
       <div class="card">
         <div class="tag blue">Better</div>
@@ -58,7 +59,7 @@
           <li>Use one maintenance cockpit for faults, RCA, parts, and escalation.</li>
           <li>Publish curated operational context to cloud analytics.</li>
         </ul>
-        <button class="peek-btn" onclick="openModal('better')" style="color:var(--brook-blue)">▶ See what this looks like →</button>
+        <button class="peek-btn" onclick="openModal('better')" style="color:var(--brook-blue)">â–¶ See what this looks like â†’</button>
       </div>
       <div class="card">
         <div class="tag green">Best</div>
@@ -70,10 +71,10 @@
           <li>Feed Databricks or Snowflake with clean contextualized events.</li>
           <li>Scale the operating model across body, paint, and assembly.</li>
         </ul>
-        <button class="peek-btn" onclick="openModal('best')" style="color:var(--green)">▶ See what this looks like →</button>
+        <button class="peek-btn" onclick="openModal('best')" style="color:var(--green)">â–¶ See what this looks like â†’</button>
       </div>
     </div>
-    <div class="callout" style="margin-top:18px"><strong>Beyond Smyrna:</strong> Better and Best are designed to scale. The data model, event identity, and CESMII SM Profiles approach used at Smyrna should be portable to other Nissan North America plants — Canton, Decherd, and beyond — without rebuilding the architecture from scratch each time. Smyrna is the proof point; the operating model is the asset.</div>
+    <div class="callout" style="margin-top:18px"><strong>Beyond Smyrna:</strong> Better and Best are designed to scale. The data model, event identity, and CESMII SM Profiles approach used at Smyrna should be portable to other Nissan North America plants â€” Canton, Decherd, and beyond â€” without rebuilding the architecture from scratch each time. Smyrna is the proof point; the operating model is the asset.</div>
   </div>
 </section>
 
@@ -89,7 +90,7 @@
         <ul>
           <li>It improves maintenance performance in a visible way without destabilizing the current control stack.</li>
           <li>It fixes the most important gap: the missing context layer between plant systems and enterprise analytics.</li>
-          <li>It gives Nissan a real operating experience — one cockpit, one event record, one escalation pathway.</li>
+          <li>It gives Nissan a real operating experience â€” one cockpit, one event record, one escalation pathway.</li>
           <li>It creates the conditions for AI to be useful later instead of speculative now.</li>
         </ul>
       </div>
@@ -109,7 +110,7 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Comparison</span><h2>Compare the three options on the dimensions management will care about</h2></div>
-      <p class="section-copy">This is the “Plant-floor decision package” page: simple, direct, and useful in a room with plant leadership.</p>
+      <p class="section-copy">This is the â€œPlant-floor decision packageâ€ page: simple, direct, and useful in a room with plant leadership.</p>
     </div>
     <table class="table-like">
       <thead><tr><th>Dimension</th><th>Good</th><th>Better</th><th>Best</th></tr></thead>
@@ -123,7 +124,7 @@
         <tr><td><strong>Brooksource view</strong></td><td>Acceptable first step</td><td>Recommended path</td><td>North star</td></tr>
         <tr><td><strong>Plant portability</strong><br><small style="color:#7a9aad;font-weight:400">Reuse at Canton, Decherd, other NNA plants</small></td><td>Limited<br><small>Smyrna-specific config; limited reuse without rework.</small></td><td><span style="font-weight:900;color:#006394">Designed to scale</span><br><small>Data model and event identity are portable. Next plant starts from a template, not scratch.</small></td><td><span style="font-weight:900;color:#16865a">Fleet-ready</span><br><small>CESMII SM Profiles + i3X creates a Nissan-wide interoperability contract reusable across all plants.</small></td></tr>
         <tr><td><strong>Relative investment level</strong><br><small style="color:#7a9aad;font-weight:400">Configuration + integration scope</small></td><td><span style="font-weight:900;color:#16865a">Lower</span><br><small>Dashboard config, structured fault entry, limited integration work. Mostly internal effort.</small></td><td><span style="font-weight:900;color:#006394">Moderate</span><br><small>Historian + context layer + cockpit build. Integration scoping with CIMPLICITY, FAULT, and CMMS required.</small></td><td><span style="font-weight:900;color:#cc5500">Significant</span><br><small>Full data layer, SM Profiles governance, frontline UI, cloud lakehouse. Program-level commitment.</small></td></tr>
-        <tr><td><strong>Time to first value</strong><br><small style="color:#7a9aad;font-weight:400">Directional; depends on integration complexity</small></td><td>8–14 weeks<br><small>Visibility improvements are early; data quality gains take longer.</small></td><td>Pilot in 10–16 weeks<br><small>Full operating capability at 5–9 months. Designed so Good is not a prerequisite.</small></td><td>Phased over 12–24+ months<br><small>Starts with Better; each phase adds interoperability and scale.</small></td></tr>
+        <tr><td><strong>Time to first value</strong><br><small style="color:#7a9aad;font-weight:400">Directional; depends on integration complexity</small></td><td>8â€“14 weeks<br><small>Visibility improvements are early; data quality gains take longer.</small></td><td>Pilot in 10â€“16 weeks<br><small>Full operating capability at 5â€“9 months. Designed so Good is not a prerequisite.</small></td><td>Phased over 12â€“24+ months<br><small>Starts with Better; each phase adds interoperability and scale.</small></td></tr>
       </tbody>
     </table>
     <div class="callout" style="margin-top:14px"><strong>On investment sizing:</strong> these are directional indicators, not proposals. Hard numbers depend on Nissan's integration complexity, licensing position, internal IT capacity, and pilot scope. The right place to anchor cost is after the current-state mapping workstream confirms what is actually connected and owned.</div>
@@ -134,7 +135,7 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Investment direction</span><h2>Sizing guidance before the numbers are confirmed</h2></div>
-      <p class="section-copy">Hard cost depends on Nissan's integration complexity, licensing position, and pilot scope — none of which are confirmed yet. What can be said now: each option represents a meaningfully different level of organizational commitment, and the jump from Better to Best is larger than the jump from Good to Better.</p>
+      <p class="section-copy">Hard cost depends on Nissan's integration complexity, licensing position, and pilot scope â€” none of which are confirmed yet. What can be said now: each option represents a meaningfully different level of organizational commitment, and the jump from Better to Best is larger than the jump from Good to Better.</p>
     </div>
     <div class="comparison">
       <div class="score-card">
@@ -143,20 +144,20 @@
         <small>Primarily configuration, structured data entry, and light dashboard work. Most of the effort is internal. Limited integration work required. Value arrives quickly; ceiling is also lower.</small>
         <div class="scorebar" style="margin-top:12px"><span style="width:28%"></span></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Light — mostly config</div>
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>8–14 weeks</div>
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Small — IT + maintenance</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Light â€” mostly config</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>8â€“14 weeks</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Small â€” IT + maintenance</div>
           <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Low</div>
         </div>
       </div>
       <div class="score-card" style="border:2px solid var(--brook-blue)">
-        <div class="tag blue">Better — Recommended</div>
+        <div class="tag blue">Better â€” Recommended</div>
         <b>Moderate investment, strongest ROI profile</b>
-        <small>Historian + context layer + cockpit build. Integration work with CIMPLICITY, FAULT, and CMMS is required and needs scoping. The pilot is designed to stand alone — Good is not a prerequisite.</small>
+        <small>Historian + context layer + cockpit build. Integration work with CIMPLICITY, FAULT, and CMMS is required and needs scoping. The pilot is designed to stand alone â€” Good is not a prerequisite.</small>
         <div class="scorebar" style="margin-top:12px"><span style="width:58%"></span></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Moderate — historian + context + cockpit</div>
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Pilot 10–16 wks; full 5–9 mo</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Moderate â€” historian + context + cockpit</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Pilot 10â€“16 wks; full 5â€“9 mo</div>
           <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Cross-functional: maint, IT, ops</div>
           <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Moderate</div>
         </div>
@@ -164,11 +165,11 @@
       <div class="score-card">
         <div class="tag green">Best</div>
         <b>Significant investment, long-horizon program</b>
-        <small>Full data layer, SM Profiles governance, frontline UI, cloud lakehouse. Phased over 12–24+ months. Starts with Better — the jump to Best adds interoperability, AI-readiness, and plant-wide scale.</small>
+        <small>Full data layer, SM Profiles governance, frontline UI, cloud lakehouse. Phased over 12â€“24+ months. Starts with Better â€” the jump to Best adds interoperability, AI-readiness, and plant-wide scale.</small>
         <div class="scorebar" style="margin-top:12px"><span style="width:88%"></span></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Full — data layer + cloud + AI</div>
-          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Phased, 12–24+ months</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Integration scope</strong>Full â€” data layer + cloud + AI</div>
+          <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">First value</strong>Phased, 12â€“24+ months</div>
           <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Team footprint</strong>Program-level commitment</div>
           <div style="font-size:12px;color:#506170"><strong style="display:block;color:#152434">Change load</strong>Highest</div>
         </div>
@@ -188,7 +189,8 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 
@@ -200,10 +202,10 @@
         <div id="modalTag" class="tag" style="margin-bottom:6px">Good</div>
         <h3 id="modalTitle">Stabilize and simplify</h3>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">âœ•</button>
     </div>
     <div class="modal-body">
-      <div class="onsite-badge">🏭 Content being added with the team onsite — placeholders shown below</div>
+      <div class="onsite-badge">ðŸ­ Content being added with the team onsite â€” placeholders shown below</div>
       <div class="modal-tabs">
         <button class="modal-tab active" onclick="switchModalTab(this,'screenshots')">Screenshots</button>
         <button class="modal-tab" onclick="switchModalTab(this,'video')">Video / demo</button>
@@ -216,7 +218,7 @@
           <div class="modal-shot-grid">
             <div class="modal-shot">
               <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.gevernova.com%2Fsoftware%2Fproducts%2Fhmi-scada%2Foperations-hub?w=900" alt="Proficy Operations Hub" loading="lazy"/>
-              <div class="modal-shot-label">Proficy Operations Hub — centralized visibility layer</div>
+              <div class="modal-shot-label">Proficy Operations Hub â€” centralized visibility layer</div>
             </div>
             <div class="modal-placeholder"><strong>Dashboard screenshot</strong>Add a screenshot of what a centralized fault dashboard looks like at a comparable plant. To be added onsite or after vendor demo.</div>
           </div>
@@ -225,13 +227,13 @@
           <div class="modal-shot-grid">
             <div class="modal-shot">
               <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.highbyte.com%2Fintelligence-hub?w=900" alt="HighByte Intelligence Hub" loading="lazy"/>
-              <div class="modal-shot-label">HighByte Intelligence Hub — context layer</div>
+              <div class="modal-shot-label">HighByte Intelligence Hub â€” context layer</div>
             </div>
             <div class="modal-shot">
               <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.gevernova.com%2Fsoftware%2Fproducts%2Fproficy%2Fhistorian?w=900" alt="Proficy Historian" loading="lazy"/>
-              <div class="modal-shot-label">Proficy Historian — OT time-series record</div>
+              <div class="modal-shot-label">Proficy Historian â€” OT time-series record</div>
             </div>
-            <div class="modal-placeholder"><strong>Maintenance cockpit screenshot</strong>To be added — see the Cockpit page for the concept mockup.</div>
+            <div class="modal-placeholder"><strong>Maintenance cockpit screenshot</strong>To be added â€” see the Cockpit page for the concept mockup.</div>
             <div class="modal-placeholder"><strong>Event record example</strong>Add a screenshot showing one structured event record with asset, fault, and action in one view. To be added onsite.</div>
           </div>
         </div>
@@ -239,11 +241,11 @@
           <div class="modal-shot-grid">
             <div class="modal-shot">
               <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.twinthread.com%2Fplatform%2Findustrial-ai?w=900" alt="TwinThread" loading="lazy"/>
-              <div class="modal-shot-label">TwinThread — industrial AI and digital twin layer</div>
+              <div class="modal-shot-label">TwinThread â€” industrial AI and digital twin layer</div>
             </div>
             <div class="modal-shot">
               <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.cesmii.org%2Ftechnology%2Fsm-profiles%2F?w=900" alt="CESMII SM Profiles" loading="lazy"/>
-              <div class="modal-shot-label">CESMII SM Profiles — interoperability spine</div>
+              <div class="modal-shot-label">CESMII SM Profiles â€” interoperability spine</div>
             </div>
             <div class="modal-placeholder"><strong>Fleet-level analytics view</strong>Add a screenshot showing multi-plant or enterprise-level maintenance analytics. To be added after vendor sessions.</div>
             <div class="modal-placeholder"><strong>Cloud lakehouse integration</strong>Databricks / Snowflake dashboard example. To be added onsite.</div>
@@ -253,13 +255,13 @@
 
       <!-- Video pane -->
       <div class="modal-pane" id="mpane-video">
-        <div class="modal-video-embed">▶ &nbsp; Video or demo link to be added — paste a YouTube, Vimeo, or vendor demo URL here</div>
+        <div class="modal-video-embed">â–¶ &nbsp; Video or demo link to be added â€” paste a YouTube, Vimeo, or vendor demo URL here</div>
         <div class="modal-placeholder" style="margin-top:0"><strong>How to add a video</strong>Replace the placeholder above with an &lt;iframe&gt; embed from YouTube, Vimeo, or a vendor demo recording. Vendor product walkthroughs, reference customer videos, or a recording of the cockpit demo work well here.</div>
       </div>
 
       <!-- Examples pane -->
       <div class="modal-pane" id="mpane-examples">
-        <div class="modal-placeholder"><strong>Reference customer examples</strong>Add links or screenshots from comparable plant implementations — automotive OEMs, process manufacturers, or published case studies. To be identified and added during or after the onsite session.</div>
+        <div class="modal-placeholder"><strong>Reference customer examples</strong>Add links or screenshots from comparable plant implementations â€” automotive OEMs, process manufacturers, or published case studies. To be identified and added during or after the onsite session.</div>
         <div class="modal-placeholder" style="margin-top:12px"><strong>Vendor case studies</strong>Request case studies from GE Vernova, HighByte, or CESMII that match the Smyrna profile. Paste links or screenshots here once available.</div>
       </div>
     </div>
@@ -268,9 +270,9 @@
 
 <script>
 var modalData={
-  good:{tag:'Good',tagClass:'',title:'Stabilize and simplify — what it looks like'},
-  better:{tag:'Better',tagClass:'blue',title:'Build the missing middle — what it looks like'},
-  best:{tag:'Best',tagClass:'green',title:'Standardize for scale — what it looks like'}
+  good:{tag:'Good',tagClass:'',title:'Stabilize and simplify â€” what it looks like'},
+  better:{tag:'Better',tagClass:'blue',title:'Build the missing middle â€” what it looks like'},
+  best:{tag:'Best',tagClass:'green',title:'Standardize for scale â€” what it looks like'}
 };
 function openModal(type){
   var d=modalData[type];

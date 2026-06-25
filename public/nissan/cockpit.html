@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,6 +19,7 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey</a>
 <a href="cockpit.html" class="current">Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
 <a href="technology.html" class="">Tech Stack</a>
 <a href="roi.html" class="">ROI</a></nav>
   </div>
@@ -37,10 +38,10 @@
   <div class="container tablet-layout">
     <div class="tablet-shell">
       <div class="tablet-frame">
-        <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM • Shift B • Wi-Fi strong</span></div>
+        <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM â€¢ Shift B â€¢ Wi-Fi strong</span></div>
         <div class="cockpit-header">
           <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#ffffff">Maintenance cockpit</div>
-          <h3>Cell 022 • Roof-ditch seal event</h3>
+          <h3>Cell 022 â€¢ Roof-ditch seal event</h3>
           <p>One event record for operator, maintenance, Control Room, and reliability</p>
           <div class="cockpit-chips"><span class="cockpit-chip">Paint shop</span><span class="cockpit-chip">P1</span><span class="cockpit-chip">Likely quality impact</span></div>
         </div>
@@ -127,14 +128,14 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Drill-down screens</span><h2>What opens when you tap into an event</h2></div>
-      <p class="section-copy">The event record is the entry point. Every relevant context is one tap away — no system switching. Asset timeline, PM history, emergency ticket log, spare parts availability, and the live work execution guide are all part of the same record.</p>
+      <p class="section-copy">The event record is the entry point. Every relevant context is one tap away â€” no system switching. Asset timeline, PM history, emergency ticket log, spare parts availability, and the live work execution guide are all part of the same record.</p>
     </div>
 
     <!-- Stop timer + production impact -->
     <div class="tablet-layout" style="margin-bottom:28px">
       <div class="tablet-shell">
         <div class="tablet-frame">
-          <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM • Shift B</span></div>
+          <div class="tablet-status"><span>Brooksource concept</span><span>10:42 AM â€¢ Shift B</span></div>
           <div class="cockpit-header">
             <div class="cockpit-chips"><span class="cockpit-chip" style="background:rgba(191,63,63,.18);border-color:rgba(191,63,63,.35);color:#ffaaaa">ASSET STOPPED</span><span class="cockpit-chip">Cell 022</span></div>
             <h3 style="margin:8px 0 2px">Asset timeline &amp; production impact</h3>
@@ -144,7 +145,7 @@
             <div style="text-align:center;padding:10px 0 6px">
               <div style="font-size:11px;font-weight:900;letter-spacing:.1em;color:#ffaaaa;margin-bottom:4px">STOPPED FOR</div>
               <div class="stop-clock" id="stopClock">23:41</div>
-              <div style="font-size:11px;color:#8fb0c8">Cell 022 • Photo-eye fault</div>
+              <div style="font-size:11px;color:#8fb0c8">Cell 022 â€¢ Photo-eye fault</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0">
               <div style="background:rgba(199,119,0,.12);border:1px solid rgba(199,119,0,.3);border-radius:14px;padding:10px;text-align:center">
@@ -171,7 +172,7 @@
         <h3 style="margin-top:0">Two clocks that matter to every decision in the room</h3>
         <p>The stop clock tells the technician how urgent this is. The production context tells the Control Room and maintenance supervisor whether to escalate now or give the tech another few minutes. Both run from the same event record.</p>
         <div class="value-stack" style="margin-top:16px">
-          <div class="value-row"><strong>Stop clock</strong><small>Elapsed time since the asset entered a stop state, continuously updated. Feeds the escalation logic — the cockpit can trigger L2 notification automatically after a threshold.</small></div>
+          <div class="value-row"><strong>Stop clock</strong><small>Elapsed time since the asset entered a stop state, continuously updated. Feeds the escalation logic â€” the cockpit can trigger L2 notification automatically after a threshold.</small></div>
           <div class="value-row"><strong>Next scheduled run</strong><small>Pulled from the production schedule. Tells the technician exactly how much time they have before this stop becomes a missed target.</small></div>
           <div class="value-row"><strong>Assembly feed buffer</strong><small>How long before the downstream main assembly line starts feeling this stop. Gives the Control Room a forward-looking impact window, not just a current status.</small></div>
         </div>
@@ -183,13 +184,13 @@
 
       <!-- PM History -->
       <div class="drill-card">
-        <div class="drill-top"><span>PM HISTORY — Cell 022</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-top"><span>PM HISTORY â€” Cell 022</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
         <div class="drill-title"><h4>Preventive maintenance log</h4><span class="drill-badge amber">Due in 8 days</span></div>
         <div class="drill-body">
-          <div class="drill-row"><b>Last PM</b><small>34 days ago — photo-eye cleaning, sensor alignment. Tech: JR. No issues found at time of service.</small></div>
-          <div class="drill-row"><b>PM before</b><small>68 days ago — bracket torque check + lens swap. Tech: MW. Lens showed wear.</small></div>
-          <div class="drill-row"><b>PM before</b><small>102 days ago — full cell inspection. Tech: JR. Noted bracket drift starting.</small></div>
-          <div class="drill-row"><b>Avg interval</b><small>34 days • 3 PMs in last 120 days</small></div>
+          <div class="drill-row"><b>Last PM</b><small>34 days ago â€” photo-eye cleaning, sensor alignment. Tech: JR. No issues found at time of service.</small></div>
+          <div class="drill-row"><b>PM before</b><small>68 days ago â€” bracket torque check + lens swap. Tech: MW. Lens showed wear.</small></div>
+          <div class="drill-row"><b>PM before</b><small>102 days ago â€” full cell inspection. Tech: JR. Noted bracket drift starting.</small></div>
+          <div class="drill-row"><b>Avg interval</b><small>34 days â€¢ 3 PMs in last 120 days</small></div>
           <div class="drill-row"><b>Note</b><small style="color:#8a5500">Bracket drift noted at 102-day PM was not escalated. Pattern visible in hindsight.</small></div>
           <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2);font-size:11px;color:var(--muted)">PM records pulled from CMMS. Technician notes attached to each record.</div>
         </div>
@@ -197,52 +198,52 @@
 
       <!-- Emergency Ticket History -->
       <div class="drill-card">
-        <div class="drill-top"><span>TICKET HISTORY — Cell 022</span><span><span class="drill-dot r"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-top"><span>TICKET HISTORY â€” Cell 022</span><span><span class="drill-dot r"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
         <div class="drill-title"><h4>Emergency maintenance tickets</h4><span class="drill-badge red">3 in 30 days</span></div>
         <div class="drill-body">
           <div class="drill-row">
             <b>Today</b>
-            <small><span class="drill-badge amber">Open</span> Photo-eye fault — bracket drift + contamination. 23m elapsed. This ticket.</small>
+            <small><span class="drill-badge amber">Open</span> Photo-eye fault â€” bracket drift + contamination. 23m elapsed. This ticket.</small>
           </div>
           <div class="drill-row">
             <b>Jun 18</b>
-            <small><span class="drill-badge green">Closed</span> Photo-eye contamination — cleaned lens, re-aligned. MTTR: 31m. Tech: JR.</small>
+            <small><span class="drill-badge green">Closed</span> Photo-eye contamination â€” cleaned lens, re-aligned. MTTR: 31m. Tech: JR.</small>
           </div>
           <div class="drill-row">
             <b>Jun 9</b>
-            <small><span class="drill-badge green">Closed</span> Intermittent signal loss — bracket re-torqued. MTTR: 44m. Tech: MW. Recurrence noted.</small>
+            <small><span class="drill-badge green">Closed</span> Intermittent signal loss â€” bracket re-torqued. MTTR: 44m. Tech: MW. Recurrence noted.</small>
           </div>
           <div class="drill-row">
             <b>May 28</b>
-            <small><span class="drill-badge green">Closed</span> False trip — lens dirty. Cleaned. MTTR: 18m. Tech: JR. No root cause captured.</small>
+            <small><span class="drill-badge green">Closed</span> False trip â€” lens dirty. Cleaned. MTTR: 18m. Tech: JR. No root cause captured.</small>
           </div>
-          <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2);font-size:11px;color:#9b2020;font-weight:700">⚠ Same root cause family. Bracket drift was not addressed at closure on Jun 9 or May 28.</div>
+          <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2);font-size:11px;color:#9b2020;font-weight:700">âš  Same root cause family. Bracket drift was not addressed at closure on Jun 9 or May 28.</div>
         </div>
       </div>
 
       <!-- Spare Parts -->
       <div class="drill-card">
-        <div class="drill-top"><span>PARTS — Cell 022 / Photo-eye</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
+        <div class="drill-top"><span>PARTS â€” Cell 022 / Photo-eye</span><span><span class="drill-dot g"></span><span class="drill-dot"></span><span class="drill-dot"></span></span></div>
         <div class="drill-title"><h4>Spare parts availability</h4><span class="drill-badge blue">Stores checked</span></div>
         <div class="drill-body">
           <div class="parts-row">
-            <div><b>Photo-eye lens assy</b><small>Part #PE-4402 • Bin 7C</small></div>
+            <div><b>Photo-eye lens assy</b><small>Part #PE-4402 â€¢ Bin 7C</small></div>
             <span class="drill-badge green">1 in stock</span>
           </div>
           <div class="parts-row">
-            <div><b>Mounting bracket</b><small>Part #MB-7731 • Bin 12A</small></div>
-            <span class="drill-badge amber">Low — 1 left</span>
+            <div><b>Mounting bracket</b><small>Part #MB-7731 â€¢ Bin 12A</small></div>
+            <span class="drill-badge amber">Low â€” 1 left</span>
           </div>
           <div class="parts-row">
-            <div><b>Sensor cable 2m</b><small>Part #SC-220 • Bin 7C</small></div>
+            <div><b>Sensor cable 2m</b><small>Part #SC-220 â€¢ Bin 7C</small></div>
             <span class="drill-badge green">3 in stock</span>
           </div>
           <div class="parts-row">
-            <div><b>Alignment jig</b><small>Part #AJ-088 • Tool crib</small></div>
+            <div><b>Alignment jig</b><small>Part #AJ-088 â€¢ Tool crib</small></div>
             <span class="drill-badge blue">Shared tool</span>
           </div>
           <div class="parts-row">
-            <div><b>Bracket kit (spare)</b><small>Part #MB-7731K • Reorder</small></div>
+            <div><b>Bracket kit (spare)</b><small>Part #MB-7731K â€¢ Reorder</small></div>
             <span class="drill-badge red">Order needed</span>
           </div>
           <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2)">
@@ -256,11 +257,11 @@
     <div class="tablet-layout">
       <div class="tablet-shell">
         <div class="tablet-frame">
-          <div class="tablet-status"><span>Brooksource concept</span><span>10:44 AM • Shift B</span></div>
+          <div class="tablet-status"><span>Brooksource concept</span><span>10:44 AM â€¢ Shift B</span></div>
           <div class="cockpit-header">
             <div class="cockpit-chips"><span class="cockpit-chip">Step 1 of 5</span><span class="cockpit-chip">Est. 12 min</span></div>
             <h3 style="margin:8px 0 2px">Performing maintenance</h3>
-            <p style="margin:0;font-size:12px;opacity:.75">Cell 022 • Photo-eye contamination + bracket drift</p>
+            <p style="margin:0;font-size:12px;opacity:.75">Cell 022 â€¢ Photo-eye contamination + bracket drift</p>
           </div>
           <div class="cockpit-body">
             <div class="work-step">
@@ -273,11 +274,11 @@
             </div>
             <div class="work-step" style="background:rgba(10,119,169,.06);border-radius:12px;padding:8px 10px;margin:0 -10px">
               <div class="step-check" style="border-color:var(--brook-blue)"></div>
-              <div class="work-step-body"><b style="color:var(--brook-blue)">Inspect and re-torque mounting bracket ← Active</b><small>Check for drift. Torque spec: 8 Nm. If bracket shows cracks, replace (Part #MB-7731, Bin 12A).</small></div>
+              <div class="work-step-body"><b style="color:var(--brook-blue)">Inspect and re-torque mounting bracket â† Active</b><small>Check for drift. Torque spec: 8 Nm. If bracket shows cracks, replace (Part #MB-7731, Bin 12A).</small></div>
             </div>
             <div class="work-step">
               <div class="step-check"></div>
-              <div class="work-step-body"><b>Re-align sensor per jig</b><small>Alignment jig in tool crib. Target beam: center ±2mm. Test with Control Room before releasing.</small></div>
+              <div class="work-step-body"><b>Re-align sensor per jig</b><small>Alignment jig in tool crib. Target beam: center Â±2mm. Test with Control Room before releasing.</small></div>
             </div>
             <div class="work-step">
               <div class="step-check"></div>
@@ -288,7 +289,7 @@
                 <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M1 1h7l3 3v9H1V1z" stroke="#9b2020" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 1v3h3" stroke="#9b2020" stroke-width="1.5"/><path d="M3 7h6M3 9.5h4" stroke="#9b2020" stroke-width="1.3" stroke-linecap="round"/></svg>
                 Cell 022 Equipment Manual (PDF)
               </a>
-              <a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:12px;background:#edf8fc;color:#0a5c7a;font-size:12px;font-weight:900;text-decoration:none;border:1px solid #c0e4f4">📷 Add photo evidence</a>
+              <a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:12px;background:#edf8fc;color:#0a5c7a;font-size:12px;font-weight:900;text-decoration:none;border:1px solid #c0e4f4">ðŸ“· Add photo evidence</a>
             </div>
           </div>
         </div>
@@ -296,11 +297,11 @@
       <div>
         <div class="tag green" style="margin-bottom:12px">Work execution</div>
         <h3 style="margin-top:0">The screen the technician actually works from</h3>
-        <p>Once the diagnosis is confirmed, the cockpit shifts into guided execution mode. Each step is pre-populated from the event type and PM history — the tech doesn't start from a blank form. Steps are checked off as they go, building the closure record automatically.</p>
+        <p>Once the diagnosis is confirmed, the cockpit shifts into guided execution mode. Each step is pre-populated from the event type and PM history â€” the tech doesn't start from a blank form. Steps are checked off as they go, building the closure record automatically.</p>
         <div class="value-stack" style="margin-top:16px">
           <div class="value-row"><strong>Equipment manual link</strong><small>One tap opens the correct manual section for the asset. No hunting through a shared drive or paper binder on the floor. PDF opens in-app or downloads to the device.</small></div>
           <div class="value-row"><strong>Photo evidence capture</strong><small>Technician photos attach directly to the event record. Available to reliability, Control Room, and future technicians on the same asset.</small></div>
-          <div class="value-row"><strong>Auto-populated closure</strong><small>Parts used, time elapsed, and steps completed are already filled in. The tech confirms and adds the root cause — one structured entry, not a blank notes field.</small></div>
+          <div class="value-row"><strong>Auto-populated closure</strong><small>Parts used, time elapsed, and steps completed are already filled in. The tech confirms and adds the root cause â€” one structured entry, not a blank notes field.</small></div>
           <div class="value-row"><strong>LOTO + Control Room handshake</strong><small>Lockout/tagout confirmation and line-release happen inside the same record. No verbal-only handoffs that get lost.</small></div>
         </div>
       </div>
@@ -311,10 +312,10 @@
 <section class="section" id="fivewhy">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">5-Why root cause walkthrough</span><h2>Walk the scenario together — live</h2></div>
+      <div class="section-title"><span class="eyebrow">5-Why root cause walkthrough</span><h2>Walk the scenario together â€” live</h2></div>
       <p class="section-copy">Pre-seeded with Cell 022 data. Edit any answer onsite, or clear it and build from scratch with the team. The cause chain on the right builds as you go.</p>
     </div>
-    <div class="onsite-badge" style="margin-bottom:20px;display:inline-flex">🏭 Designed to fill in live during the onsite session — pre-populated suggestions are editable</div>
+    <div class="onsite-badge" style="margin-bottom:20px;display:inline-flex">ðŸ­ Designed to fill in live during the onsite session â€” pre-populated suggestions are editable</div>
     <div class="fivewhy-layout">
       <div class="why-steps" id="whySteps">
         <div class="why-step active" data-why="0">
@@ -327,7 +328,7 @@
             <div class="why-hint">What was the immediate observable event? (pre-seeded from Cell 022 event record)</div>
             <textarea class="why-input" id="why-input-0" placeholder="The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.">The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.</textarea>
             <div class="why-actions">
-              <button class="why-next" onclick="advanceWhy(0)">Next Why →</button>
+              <button class="why-next" onclick="advanceWhy(0)">Next Why â†’</button>
               <button class="why-use-hint" onclick="useHint(0)">Use suggestion</button>
             </div>
           </div>
@@ -340,9 +341,9 @@
           </div>
           <div class="why-body">
             <div class="why-hint">What condition caused the sensor to fail? (edit to match what the team identifies onsite)</div>
-            <textarea class="why-input" id="why-input-1" placeholder="The lens was contaminated with overspray from the booth — a recurring condition on this cell."></textarea>
+            <textarea class="why-input" id="why-input-1" placeholder="The lens was contaminated with overspray from the booth â€” a recurring condition on this cell."></textarea>
             <div class="why-actions">
-              <button class="why-next" onclick="advanceWhy(1)">Next Why →</button>
+              <button class="why-next" onclick="advanceWhy(1)">Next Why â†’</button>
               <button class="why-use-hint" onclick="useHint(1)">Use suggestion</button>
             </div>
           </div>
@@ -357,7 +358,7 @@
             <div class="why-hint">What allowed this condition to develop? Was it preventable?</div>
             <textarea class="why-input" id="why-input-2" placeholder="The protective shield was missing and the PM schedule had not flagged a cleaning interval for this sensor."></textarea>
             <div class="why-actions">
-              <button class="why-next" onclick="advanceWhy(2)">Next Why →</button>
+              <button class="why-next" onclick="advanceWhy(2)">Next Why â†’</button>
               <button class="why-use-hint" onclick="useHint(2)">Use suggestion</button>
             </div>
           </div>
@@ -370,9 +371,9 @@
           </div>
           <div class="why-body">
             <div class="why-hint">What system or process gap allowed the maintenance interval to slip?</div>
-            <textarea class="why-input" id="why-input-3" placeholder="There is no system link between fault history and PM scheduling — they are tracked in separate, disconnected systems."></textarea>
+            <textarea class="why-input" id="why-input-3" placeholder="There is no system link between fault history and PM scheduling â€” they are tracked in separate, disconnected systems."></textarea>
             <div class="why-actions">
-              <button class="why-next" onclick="advanceWhy(3)">Next Why →</button>
+              <button class="why-next" onclick="advanceWhy(3)">Next Why â†’</button>
               <button class="why-use-hint" onclick="useHint(3)">Use suggestion</button>
             </div>
           </div>
@@ -385,9 +386,9 @@
           </div>
           <div class="why-body">
             <div class="why-hint">What is the root architectural or organizational cause?</div>
-            <textarea class="why-input" id="why-input-4" placeholder="No unified data layer exists to correlate fault events with maintenance schedules — this is exactly the gap the historian + context layer addresses."></textarea>
+            <textarea class="why-input" id="why-input-4" placeholder="No unified data layer exists to correlate fault events with maintenance schedules â€” this is exactly the gap the historian + context layer addresses."></textarea>
             <div class="why-actions">
-              <button class="why-next" onclick="advanceWhy(4)">Complete analysis ✓</button>
+              <button class="why-next" onclick="advanceWhy(4)">Complete analysis âœ“</button>
               <button class="why-use-hint" onclick="useHint(4)">Use suggestion</button>
             </div>
           </div>
@@ -396,17 +397,17 @@
 
       <div class="why-map">
         <div class="why-map-inner">
-          <h4>Cause chain — building as you go</h4>
+          <h4>Cause chain â€” building as you go</h4>
           <div class="why-chain" id="whyChain">
-            <div class="why-chain-node"><div class="why-node-bar" id="bar-0"></div><div class="why-node-content"><div class="why-node-label">Why 1 — Immediate event</div><div class="why-node-text empty" id="node-0">Answer Why 1 to start building the chain</div></div></div>
-            <div class="why-chain-node"><div class="why-node-bar" id="bar-1"></div><div class="why-node-content"><div class="why-node-label">Why 2 — Proximate cause</div><div class="why-node-text empty" id="node-1">Waiting…</div></div></div>
-            <div class="why-chain-node"><div class="why-node-bar" id="bar-2"></div><div class="why-node-content"><div class="why-node-label">Why 3 — Contributing condition</div><div class="why-node-text empty" id="node-2">Waiting…</div></div></div>
-            <div class="why-chain-node"><div class="why-node-bar" id="bar-3"></div><div class="why-node-content"><div class="why-node-label">Why 4 — System gap</div><div class="why-node-text empty" id="node-3">Waiting…</div></div></div>
-            <div class="why-chain-node"><div class="why-node-bar" id="bar-4"></div><div class="why-node-content"><div class="why-node-label">Why 5 — Root cause</div><div class="why-node-text empty root-candidate" id="node-4">Waiting…</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-0"></div><div class="why-node-content"><div class="why-node-label">Why 1 â€” Immediate event</div><div class="why-node-text empty" id="node-0">Answer Why 1 to start building the chain</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-1"></div><div class="why-node-content"><div class="why-node-label">Why 2 â€” Proximate cause</div><div class="why-node-text empty" id="node-1">Waitingâ€¦</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-2"></div><div class="why-node-content"><div class="why-node-label">Why 3 â€” Contributing condition</div><div class="why-node-text empty" id="node-2">Waitingâ€¦</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-3"></div><div class="why-node-content"><div class="why-node-label">Why 4 â€” System gap</div><div class="why-node-text empty" id="node-3">Waitingâ€¦</div></div></div>
+            <div class="why-chain-node"><div class="why-node-bar" id="bar-4"></div><div class="why-node-content"><div class="why-node-label">Why 5 â€” Root cause</div><div class="why-node-text empty root-candidate" id="node-4">Waitingâ€¦</div></div></div>
           </div>
-          <button class="why-reset" onclick="resetWhy()">↺ Reset and start over</button>
+          <button class="why-reset" onclick="resetWhy()">â†º Reset and start over</button>
           <div class="why-complete-banner" id="whyComplete">
-            <strong>Root cause identified ✓</strong>
+            <strong>Root cause identified âœ“</strong>
             <p>The cause chain is complete. Use this as the basis for the corrective action plan and to demonstrate where the unified data architecture closes the gap.</p>
           </div>
         </div>
@@ -436,7 +437,8 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 
@@ -474,10 +476,10 @@ ready(function(){
 // 5-Why wizard
 var hints=[
   "The photo-eye sensor on Cell 022 triggered a fault signal at 10:42, stopping the line.",
-  "The lens was contaminated with overspray from the booth — a recurring condition on this cell.",
+  "The lens was contaminated with overspray from the booth â€” a recurring condition on this cell.",
   "The protective shield was missing and the PM schedule had not flagged a cleaning interval for this sensor.",
-  "There is no system link between fault history and PM scheduling — they are tracked in separate, disconnected systems.",
-  "No unified data layer exists to correlate fault events with maintenance schedules — this is exactly the gap the historian + context layer addresses."
+  "There is no system link between fault history and PM scheduling â€” they are tracked in separate, disconnected systems.",
+  "No unified data layer exists to correlate fault events with maintenance schedules â€” this is exactly the gap the historian + context layer addresses."
 ];
 function toggleWhy(n){
   document.querySelectorAll('.why-step').forEach(function(s,i){
@@ -496,7 +498,7 @@ function advanceWhy(n){
   step.classList.remove('active');
   step.classList.add('answered');
   var preview=document.getElementById('why-preview-'+n);
-  if(preview) preview.textContent=val.substring(0,40)+(val.length>40?'…':'');
+  if(preview) preview.textContent=val.substring(0,40)+(val.length>40?'â€¦':'');
   if(n<4){
     var next=document.querySelector('[data-why="'+(n+1)+'"]');
     if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'nearest'});}
@@ -508,7 +510,7 @@ function advanceWhy(n){
 }
 function updateChain(n,val){
   var node=document.getElementById('node-'+n);
-  if(node){node.textContent=val.substring(0,80)+(val.length>80?'…':'');node.classList.remove('empty');node.classList.add('filled');}
+  if(node){node.textContent=val.substring(0,80)+(val.length>80?'â€¦':'');node.classList.remove('empty');node.classList.add('filled');}
   var bar=document.getElementById('bar-'+n);
   if(bar) bar.classList.add('filled');
 }
@@ -523,7 +525,7 @@ function resetWhy(){
   });
   for(var i=0;i<5;i++){
     var node=document.getElementById('node-'+i);
-    if(node){node.classList.add('empty');node.classList.remove('filled','root');node.textContent=i===0?'Answer Why 1 to start building the chain':'Waiting…';}
+    if(node){node.classList.add('empty');node.classList.remove('filled','root');node.textContent=i===0?'Answer Why 1 to start building the chain':'Waitingâ€¦';}
     var bar=document.getElementById('bar-'+i);
     if(bar) bar.classList.remove('filled');
   }

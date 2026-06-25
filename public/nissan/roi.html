@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,6 +18,7 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey</a>
 <a href="cockpit.html" class="">Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
 <a href="technology.html" class="">Tech Stack</a>
 <a href="roi.html" class="current">ROI</a></nav>
   </div>
@@ -44,10 +45,10 @@
       <div class="value-row"><strong>Data quality for future AI</strong><small>Use CESMII SM Profiles + i3X-inspired data standards so analytics and AI are trained on contextualized events instead of raw system exhaust.</small></div>
     </div>
     <div class="add-goal-row">
-      <input type="text" id="goalInput" placeholder="Add a goal identified onsite — e.g. &quot;Spare parts visibility&quot; or &quot;Shift handoff quality&quot;" />
+      <input type="text" id="goalInput" placeholder="Add a goal identified onsite â€” e.g. &quot;Spare parts visibility&quot; or &quot;Shift handoff quality&quot;" />
       <button class="add-goal-btn" onclick="addGoal()">+ Add goal</button>
     </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:8px">Goals added here are session-only — use them to capture what the team identifies during the meeting.</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px">Goals added here are session-only â€” use them to capture what the team identifies during the meeting.</p>
   </div>
 </section>
 
@@ -55,7 +56,7 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Industry benchmarks</span><h2>What comparable programs have delivered</h2></div>
-      <p class="section-copy">These are publicly reported outcomes from digital maintenance and connected-operations programs at automotive OEMs and capital-intensive industries with similar equipment complexity. Use them to frame the Nissan conversation — not as guarantees, but as a credible ceiling and floor.</p>
+      <p class="section-copy">These are publicly reported outcomes from digital maintenance and connected-operations programs at automotive OEMs and capital-intensive industries with similar equipment complexity. Use them to frame the Nissan conversation â€” not as guarantees, but as a credible ceiling and floor.</p>
     </div>
     <table class="table-like" style="margin-bottom:20px">
       <thead>
@@ -69,48 +70,48 @@
       <tbody>
         <tr>
           <td><strong>Unplanned downtime reduction</strong><span style="display:block;font-size:12px;color:#7a9aad;margin-top:2px">After structured maintenance data program</span></td>
-          <td>15–25%<br><small>Ford Dearborn: 20% reduction after predictive maintenance rollout (2022). Toyota world-class plants target &lt;2% unplanned loss rate.</small></td>
-          <td>35–45%<br><small>McKinsey (2017): broadest documented range across O&amp;G capital assets. Shell Smart Fields program confirmed upper end.</small></td>
-          <td>20–30%<br><small>EPRI / Deloitte benchmark for transmission and generation assets. Duke Energy reported 25% forced outage reduction.</small></td>
+          <td>15â€“25%<br><small>Ford Dearborn: 20% reduction after predictive maintenance rollout (2022). Toyota world-class plants target &lt;2% unplanned loss rate.</small></td>
+          <td>35â€“45%<br><small>McKinsey (2017): broadest documented range across O&amp;G capital assets. Shell Smart Fields program confirmed upper end.</small></td>
+          <td>20â€“30%<br><small>EPRI / Deloitte benchmark for transmission and generation assets. Duke Energy reported 25% forced outage reduction.</small></td>
         </tr>
         <tr>
           <td><strong>MTTR improvement</strong><span style="display:block;font-size:12px;color:#7a9aad;margin-top:2px">Mean time to repair, with structured event records</span></td>
-          <td>25–40%<br><small>Aberdeen Group: best-in-class automotive plants achieve MTTR of 2–4 hours vs. 8–12 hours for average. Connected worker guidance drives the lower end.</small></td>
-          <td>20–35%<br><small>ARC Advisory Group: guided troubleshooting with prior-incident context reduces diagnostic time by 30%+ in upstream O&amp;G.</small></td>
-          <td>15–25%<br><small>NERC reliability data: utilities with structured RCA workflows close maintenance events faster and show fewer repeat events within 60 days.</small></td>
+          <td>25â€“40%<br><small>Aberdeen Group: best-in-class automotive plants achieve MTTR of 2â€“4 hours vs. 8â€“12 hours for average. Connected worker guidance drives the lower end.</small></td>
+          <td>20â€“35%<br><small>ARC Advisory Group: guided troubleshooting with prior-incident context reduces diagnostic time by 30%+ in upstream O&amp;G.</small></td>
+          <td>15â€“25%<br><small>NERC reliability data: utilities with structured RCA workflows close maintenance events faster and show fewer repeat events within 60 days.</small></td>
         </tr>
         <tr>
           <td><strong>Repeat-failure reduction</strong><span style="display:block;font-size:12px;color:#7a9aad;margin-top:2px">Chronic failures captured, classified, and addressed</span></td>
-          <td>30–50%<br><small>LNS Research: Connected Worker programs that capture reason, fix, and recurrence flag reduce repeat failures by 35–50% within 12 months of adoption.</small></td>
-          <td>25–40%<br><small>BP Project Lighthouse: structured RCFA with digital close-out reduced repeat pump and compressor failures by ~38% over 18 months.</small></td>
-          <td>20–35%<br><small>Xcel Energy: PM schedule optimization with event-level feedback cut transformer repeat failures by 28% over 24 months.</small></td>
+          <td>30â€“50%<br><small>LNS Research: Connected Worker programs that capture reason, fix, and recurrence flag reduce repeat failures by 35â€“50% within 12 months of adoption.</small></td>
+          <td>25â€“40%<br><small>BP Project Lighthouse: structured RCFA with digital close-out reduced repeat pump and compressor failures by ~38% over 18 months.</small></td>
+          <td>20â€“35%<br><small>Xcel Energy: PM schedule optimization with event-level feedback cut transformer repeat failures by 28% over 24 months.</small></td>
         </tr>
         <tr>
           <td><strong>OEE improvement</strong><span style="display:block;font-size:12px;color:#7a9aad;margin-top:2px">Availability + performance + quality rate</span></td>
-          <td>+8–15 pts<br><small>Aberdeen: world-class automotive OEE is 82–88%. Typical is 60–68%. A structured data and event layer is the common enabler — not the equipment itself.</small></td>
-          <td>+5–12 pts<br><small>Primarily availability-driven in O&amp;G. Quality component less relevant but uptime and throughput improvements are well-documented.</small></td>
-          <td>+6–10 pts<br><small>Capacity factor improvement at generation assets. EPRI benchmark: digital maintenance programs add 6–10 pts to effective availability factor.</small></td>
+          <td>+8â€“15 pts<br><small>Aberdeen: world-class automotive OEE is 82â€“88%. Typical is 60â€“68%. A structured data and event layer is the common enabler â€” not the equipment itself.</small></td>
+          <td>+5â€“12 pts<br><small>Primarily availability-driven in O&amp;G. Quality component less relevant but uptime and throughput improvements are well-documented.</small></td>
+          <td>+6â€“10 pts<br><small>Capacity factor improvement at generation assets. EPRI benchmark: digital maintenance programs add 6â€“10 pts to effective availability factor.</small></td>
         </tr>
       </tbody>
     </table>
     <div class="proof-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:8px">
       <div class="proof-card">
-        <h3>Ford — Dearborn assembly, 2022</h3>
+        <h3>Ford â€” Dearborn assembly, 2022</h3>
         <p>Deployed predictive maintenance with structured event records across body and stamping lines. Result: 20% reduction in unplanned downtime within 14 months. Key enabler: one event record per fault with prior-incident context attached before the technician arrived.</p>
         <div class="proof-link">Source: Ford Q4 2022 operations briefing / Reuters (Nov 2022)</div>
       </div>
       <div class="proof-card">
-        <h3>Toyota — TNGA plant standard</h3>
-        <p>World-class Toyota plants running TNGA architecture target MTTR under 3 hours and repeat-failure rate under 5%. The discipline is not the equipment — it is the structured maintenance event language and RCA close-out that creates institutional memory.</p>
-        <div class="proof-link">Source: Toyota Production System — Maintenance Excellence framework (public TPS documentation)</div>
+        <h3>Toyota â€” TNGA plant standard</h3>
+        <p>World-class Toyota plants running TNGA architecture target MTTR under 3 hours and repeat-failure rate under 5%. The discipline is not the equipment â€” it is the structured maintenance event language and RCA close-out that creates institutional memory.</p>
+        <div class="proof-link">Source: Toyota Production System â€” Maintenance Excellence framework (public TPS documentation)</div>
       </div>
       <div class="proof-card">
-        <h3>Shell — Smart Fields program</h3>
-        <p>Shell's multi-year connected-operations program across upstream assets reduced unplanned downtime by up to 45% and cut maintenance cost per asset by 15–20%. The core move: contextualized event records replacing verbal and paper-based escalation.</p>
+        <h3>Shell â€” Smart Fields program</h3>
+        <p>Shell's multi-year connected-operations program across upstream assets reduced unplanned downtime by up to 45% and cut maintenance cost per asset by 15â€“20%. The core move: contextualized event records replacing verbal and paper-based escalation.</p>
         <div class="proof-link">Source: Shell Sustainability / Operations Report; McKinsey "Predictive Maintenance" (2017)</div>
       </div>
     </div>
-    <div class="callout"><strong>What the benchmarks say about Nissan:</strong> the outcomes are available. The gap between world-class and average performers is not equipment — it is whether maintenance events are captured, classified, and acted on from one shared record. That is exactly what this program addresses.</div>
+    <div class="callout"><strong>What the benchmarks say about Nissan:</strong> the outcomes are available. The gap between world-class and average performers is not equipment â€” it is whether maintenance events are captured, classified, and acted on from one shared record. That is exactly what this program addresses.</div>
   </div>
 </section>
 
@@ -177,7 +178,8 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Options</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey</a> <a href="cockpit.html">Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="technology.html">Tech Stack</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 <script>
@@ -189,7 +191,7 @@ function addGoal(){
   row.className='value-row user-added';
   row.style.display='grid';
   row.style.gridTemplateColumns='170px 1fr auto';
-  row.innerHTML='<strong>'+text+'</strong><small>Added onsite — description to be captured with the team.</small><button class="remove-goal" onclick="this.closest(\'.value-row\').remove()" title="Remove">×</button>';
+  row.innerHTML='<strong>'+text+'</strong><small>Added onsite â€” description to be captured with the team.</small><button class="remove-goal" onclick="this.closest(\'.value-row\').remove()" title="Remove">Ã—</button>';
   document.getElementById('goalStack').appendChild(row);
   input.value='';
   input.focus();
