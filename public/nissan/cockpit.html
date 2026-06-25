@@ -172,7 +172,7 @@
         <div class="rd-tl">
           <div class="rd-step cause"><div class="ts">20:08:32 – 20:08:59</div><div class="d"><strong>24V power dip (root cause).</strong> <code style="color:#ffd9b0">A1HV/24VoltPower:Val lo</code> on 7 basecoat robots — BC5607, 5609, 5602, 5610, 5601, 5604, 5608 — within 27 seconds.</div></div>
           <div class="rd-step"><div class="ts">20:20:06 – 20:20:34</div><div class="d"><strong>Supervisory trip.</strong> <code style="color:#ffd9b0">A1HV:Sprv. alarm</code> fleet-wide ~12 minutes later — the consequence, not the cause.</div></div>
-          <div class="rd-step effect"><div class="ts">night shift · downtime log</div><div class="d"><strong>Line effect.</strong> TC#5 Basecoat / Clearcoat “Automation Cell NOT Ready” + spray-booth STARVED — recorded against the cell/booth.</div></div>
+          <div class="rd-step effect"><div class="ts">night shift · downtime log</div><div class="d"><strong>Line effect.</strong> TC#5 Basecoat / Clearcoat "Automation Cell NOT Ready" + spray-booth STARVED — recorded against the cell/booth.</div></div>
         </div>
         <div class="rd-payoff">The downtime app attributes the stop to the booth/cell. The robot sequence-of-events reveals the real root cause: <strong>one shared 24V / HV supply dip hit all seven robots at once — not seven faults, one.</strong> Seconds apart in the SOE, minutes apart and differently attributed in the downtime log. That gap is the case for time-aligned, contextualized events over isolated alarm screens.</div>
       </div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
@@ -58,7 +58,7 @@
         <span class="eyebrow">Category 1</span>
         <h2>Proficy ecosystem add-ons</h2>
       </div>
-      <p class="section-copy">Best fit when Nissan wants to build from the current Proficy / CIMPLICITY footprint and reduce disruption while improving history, visibility, production context, and guided response. <strong>Recommended stance:</strong> extend the existing GE estate (CIMPLICITY / Proficy, Kepware, Fanuc) rather than rip-and-replace it with an alternative platform â€” the modernization should ride on current investment, not a platform swap. For predictive analytics inside this family, the in-suite option is <strong>Proficy CSense</strong> â€” process/operations prediction that builds empirical models on Historian data to forecast quality and process outcomes, run soft sensors, and feed predicted setpoints back into operations. Note the scope line: CSense predicts <em>process</em> outcomes; predictive maintenance on <em>equipment</em> (asset-failure early warning) is GE Vernova's APM / SmartSignal and the multi-vendor condition-monitoring layer covered under Category 3 â€” not Proficy.</p>
+      <p class="section-copy">Best fit when Nissan wants to build from the current Proficy / CIMPLICITY footprint and reduce disruption while improving history, visibility, production context, and guided response. <strong>Recommended stance:</strong> extend the existing GE estate (CIMPLICITY / Proficy, Kepware, Fanuc) rather than rip-and-replace it with an alternative platform — the modernization should ride on current investment, not a platform swap. For predictive analytics inside this family, the in-suite option is <strong>Proficy CSense</strong> — process/operations prediction that builds empirical models on Historian data to forecast quality and process outcomes, run soft sensors, and feed predicted setpoints back into operations. Note the scope line: CSense predicts <em>process</em> outcomes; predictive maintenance on <em>equipment</em> (asset-failure early warning) is GE Vernova's APM / SmartSignal and the multi-vendor condition-monitoring layer covered under Category 3 — not Proficy.</p>
     </div>
     <div class="category-chips"><span class="badge-mini">Proficy Historian</span><span class="badge-mini">Proficy CSense</span><span class="badge-mini">Proficy Operations Hub</span><span class="badge-mini">Proficy Plant Applications</span><span class="badge-mini">Proficy Workflow</span></div>
     <div class="vendor-grid">
@@ -126,7 +126,7 @@
         <span class="eyebrow">Category 2</span>
         <h2>UNS / DataOps / interoperability</h2>
       </div>
-      <p class="section-copy">Best fit when the core issue is not a single app but the missing-middle layer: common asset identity, event identity, context, governance, and cloud-ready operational truth. This category spans <strong>two tiers that are often confused</strong>: the <strong>transport / UNS backbone</strong> (how data moves â€” a broker) and the <strong>semantic layer</strong> (what data means â€” modeling + standards). A complete design needs both.</p>
+      <p class="section-copy">Best fit when the core issue is not a single app but the missing-middle layer: common asset identity, event identity, context, governance, and cloud-ready operational truth. This category spans <strong>two tiers that are often confused</strong>: the <strong>transport / UNS backbone</strong> (how data moves — a broker) and the <strong>semantic layer</strong> (what data means — modeling + standards). A complete design needs both.</p>
     </div>
     <div class="category-chips"><span class="badge-mini">HiveMQ</span><span class="badge-mini">HighByte Intelligence Hub</span><span class="badge-mini">MaestroHub</span></div>
     <div class="vendor-grid">
@@ -138,7 +138,7 @@
         <div class="vendor-copy">
           <div class="vendor-name-row"><h3>HiveMQ</h3><a class="source-link" href="https://www.hivemq.com/" target="_blank" rel="noreferrer">Source</a></div>
           <p><strong>Capability:</strong> Enterprise MQTT broker with Sparkplug B, clustering / HA, security and observability; HiveMQ Edge adds OPC UA / Modbus protocol adapters on the southbound side.</p>
-          <p><strong>Smyrna fit:</strong> The COTS transport spine for a Unified Namespace â€” Kepware and FT Gateway publish to it; HighByte and the cockpit subscribe. Vendor-neutral and decoupled.</p>
+          <p><strong>Smyrna fit:</strong> The COTS transport spine for a Unified Namespace — Kepware and FT Gateway publish to it; HighByte and the cockpit subscribe. Vendor-neutral and decoupled.</p>
           <p><strong>Pilot question:</strong> Can a Sparkplug topic namespace carry Cell 022 fault and robot data with report-by-exception, feeding both Historian and the cockpit from one publish?</p>
           <p class="caveat"><strong>Caveat:</strong> A broker moves data; it does not model it. Pair with the semantic layer (HighByte / SM Profiles) or the contextualization gap reappears as inconsistent topic names. Alternates: EMQX, Cirrus Link / Ignition MQTT modules.</p>
         </div>
@@ -179,23 +179,23 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Interoperability path</span><h2>Good / better / best â€” and nothing gets thrown away</h2></div>
-      <p class="section-copy">The transport and semantic tiers are not competing choices â€” they stack. Each rung keeps the one below it, so Nissan can start fast and deepen without re-integrating.</p>
+      <div class="section-title"><span class="eyebrow">Interoperability path</span><h2>Good / better / best — and nothing gets thrown away</h2></div>
+      <p class="section-copy">The transport and semantic tiers are not competing choices — they stack. Each rung keeps the one below it, so Nissan can start fast and deepen without re-integrating.</p>
     </div>
     <div class="gbb-ladder">
       <div class="gbb-rung good">
-        <span class="rung-tag">Good â€” transport spine</span>
+        <span class="rung-tag">Good — transport spine</span>
         <h4>COTS broker + Sparkplug B</h4>
         <p>Stand up a vendor-neutral MQTT broker (HiveMQ) + Sparkplug B as the UNS backbone. Fast, low-disruption, decoupled. Contextualization lives in topic-naming discipline.</p>
         <p class="tradeoff">Trade-off: if naming discipline slips, today's island problem returns in topic form.</p>
       </div>
       <div class="gbb-rung better">
-        <span class="rung-tag">Better â€” add modeling</span>
+        <span class="rung-tag">Better — add modeling</span>
         <h4>Industrial DataOps over the broker</h4>
-        <p>Layer HighByte or MaestroHub over the broker to produce governed, reusable event objects with metadata and source confidence â€” not just moving tags.</p>
+        <p>Layer HighByte or MaestroHub over the broker to produce governed, reusable event objects with metadata and source confidence — not just moving tags.</p>
       </div>
       <div class="gbb-rung best">
-        <span class="rung-tag">Best â€” open standards</span>
+        <span class="rung-tag">Best — open standards</span>
         <h4>CESMII SM Profiles + i3X</h4>
         <p>Align the model to SM Profiles (semantics) + i3X (open API) so context is portable, not welded to any one product, and the Databricks / Snowflake / AI path needs no re-integration.</p>
       </div>
@@ -213,7 +213,7 @@
         <span class="eyebrow">Category 3</span>
         <h2>Frontline AI, knowledge, and advanced analytics</h2>
       </div>
-      <p class="section-copy">Best fit when the data foundation is strong enough to help people act: knowledge capture, guided work, video SOPs, process observation, root-cause intelligence, and predictive / prescriptive support. <strong>Condition monitoring at Smyrna is a multi-vendor layer</strong> â€” vibration hardware, predictive software, and integrated third-party tools already coexist; treat it as a portfolio to integrate behind one event model, not a single product to select.</p>
+      <p class="section-copy">Best fit when the data foundation is strong enough to help people act: knowledge capture, guided work, video SOPs, process observation, root-cause intelligence, and predictive / prescriptive support. <strong>Condition monitoring at Smyrna is a multi-vendor layer</strong> — vibration hardware, predictive software, and integrated third-party tools already coexist; treat it as a portfolio to integrate behind one event model, not a single product to select.</p>
     </div>
     <div class="category-chips"><span class="badge-mini">Khenda</span><span class="badge-mini">Dozuki</span><span class="badge-mini">DeepHow</span><span class="badge-mini">TwinThread</span><span class="badge-mini">HumbleOps</span></div>
     <div class="vendor-grid">
@@ -280,10 +280,10 @@
         </a>
         <div class="vendor-copy">
           <div class="vendor-name-row"><h3>HumbleOps</h3><a class="source-link" href="https://humbleops.com/" target="_blank" rel="noreferrer">Source</a></div>
-          <p><strong>Capability:</strong> AI platform that auto-generates custom, real-time operational apps on top of existing ERP / MES â€” deployed in ~24 hours â€” surfacing scheduling, root-cause analysis, and tribal-knowledge capture.</p>
-          <p><strong>Smyrna fit:</strong> Candidate for a fast frontline operations layer over CIMPLICITY / CMMS data â€” give paint-shop operators and maintenance an interface that shows only what matters for the current fault, without an ERP / MES overhaul.</p>
+          <p><strong>Capability:</strong> AI platform that auto-generates custom, real-time operational apps on top of existing ERP / MES — deployed in ~24 hours — surfacing scheduling, root-cause analysis, and tribal-knowledge capture.</p>
+          <p><strong>Smyrna fit:</strong> Candidate for a fast frontline operations layer over CIMPLICITY / CMMS data — give paint-shop operators and maintenance an interface that shows only what matters for the current fault, without an ERP / MES overhaul.</p>
           <p><strong>Pilot question:</strong> Can it stand up a usable paint-shop fault / maintenance interface on top of existing systems within the pilot window, and feed the same event record?</p>
-          <p class="caveat"><strong>Caveat:</strong> Newer entrant aimed at 50â€“500-employee manufacturers; validate maturity, security, on-prem / data-residency fit, and how its AI-generated apps coexist with Nissan IT standards and the UNS / event-object strategy.</p>
+          <p class="caveat"><strong>Caveat:</strong> Newer entrant aimed at 50–500-employee manufacturers; validate maturity, security, on-prem / data-residency fit, and how its AI-generated apps coexist with Nissan IT standards and the UNS / event-object strategy.</p>
         </div>
       </article></div>
   </div>
@@ -301,14 +301,14 @@
 <tr><td>Proficy ecosystem add-ons</td><td>Proficy Operations Hub</td><td class="small-cell">Web-based industrial visualization and application layer.</td><td class="small-cell">Candidate for leadership, Control Room, and maintenance visibility when Nissan wants a Proficy-first cockpit path.</td><td class="small-cell">Avoid letting it become only a dashboard; the target experience needs guided action and closure quality.</td><td class="small-cell">Can it deliver the floor-ready maintenance cockpit experience, or should it be paired with a frontline/mobile layer?</td></tr>
 <tr><td>Proficy ecosystem add-ons</td><td>Proficy Plant Applications</td><td class="small-cell">MOM / MES layer for production, quality, and performance context.</td><td class="small-cell">Useful where downtime and maintenance prioritization should include production state, quality impact, and schedule context.</td><td class="small-cell">May be broader than the first maintenance pilot requires; scope carefully.</td><td class="small-cell">Which Plant Apps or MES events would materially improve fault prioritization and root cause?</td></tr>
 <tr><td>Proficy ecosystem add-ons</td><td>Proficy Workflow</td><td class="small-cell">Step-by-step work process, eSOP, and guided workflow layer.</td><td class="small-cell">Candidate for standard response playbooks, guided troubleshooting, and escalation paths tied to Proficy systems.</td><td class="small-cell">Needs clear procedure ownership and change-control so workflow content stays trusted.</td><td class="small-cell">Can standardized workflows reduce diagnostic variation on recurring Cell 022 faults?</td></tr>
-<tr><td>UNS / DataOps / interoperability</td><td>HiveMQ (alt: EMQX, Cirrus Link)</td><td class="small-cell">COTS MQTT broker / UNS transport with Sparkplug B.</td><td class="small-cell">Vendor-neutral spine connecting Kepware / FT Gateway publishers to Historian, cockpit, and cloud subscribers.</td><td class="small-cell">Transport only â€” must be paired with a modeling / semantic layer.</td><td class="small-cell">Can one Sparkplug publish feed Historian and cockpit for Cell 022?</td></tr>
+<tr><td>UNS / DataOps / interoperability</td><td>HiveMQ (alt: EMQX, Cirrus Link)</td><td class="small-cell">COTS MQTT broker / UNS transport with Sparkplug B.</td><td class="small-cell">Vendor-neutral spine connecting Kepware / FT Gateway publishers to Historian, cockpit, and cloud subscribers.</td><td class="small-cell">Transport only — must be paired with a modeling / semantic layer.</td><td class="small-cell">Can one Sparkplug publish feed Historian and cockpit for Cell 022?</td></tr>
 <tr><td>UNS / DataOps / interoperability</td><td>HighByte Intelligence Hub</td><td class="small-cell">Industrial DataOps for modeling, contextualization, orchestration, and governance.</td><td class="small-cell">Strong candidate for publishing clean paint-shop event objects from CIMPLICITY, CMMS, FAULT / DRS, Senseye, RobView, and ISRA sources.</td><td class="small-cell">The value depends on disciplined naming and data-model governance, not just connectors.</td><td class="small-cell">Can HighByte produce a reusable Nissan fault_event object with asset, event, action, and source confidence metadata?</td></tr>
 <tr><td>UNS / DataOps / interoperability</td><td>MaestroHub</td><td class="small-cell">Industrial context platform / UNS-oriented real-time source of truth.</td><td class="small-cell">Candidate to evaluate for governed, AI-ready plant context and UNS distribution across multi-source factory data.</td><td class="small-cell">Validate maturity, connector depth, support model, and fit against Nissan architecture standards.</td><td class="small-cell">Can it handle the MFG / IS boundary and isolated vision-data problem without adding operational risk?</td></tr>
 <tr><td>Frontline AI, knowledge, and advanced analytics</td><td>Khenda</td><td class="small-cell">AI-powered continuous improvement, video-based process capture, and production analysis.</td><td class="small-cell">Candidate where video evidence can reveal micro-stops, manual-work variation, or process waste not visible in OT data.</td><td class="small-cell">Requires careful review of camera use, privacy, workforce acceptance, cybersecurity, and deployment rules.</td><td class="small-cell">Can Khenda reveal hidden manual support losses around paint-shop fault response?</td></tr>
 <tr><td>Frontline AI, knowledge, and advanced analytics</td><td>Dozuki</td><td class="small-cell">Digital work instructions, standard work governance, QR-code access, and training control.</td><td class="small-cell">Candidate when Nissan needs controlled SOPs and standardized troubleshooting steps linked to the maintenance event.</td><td class="small-cell">Avoid creating another disconnected procedure library; it should plug into the cockpit experience.</td><td class="small-cell">Can a tech open the right approved SOP in one tap from the fault screen?</td></tr>
 <tr><td>Frontline AI, knowledge, and advanced analytics</td><td>DeepHow</td><td class="small-cell">Video SOPs, knowledge capture, onboarding, upskilling, visual job aids, and SOP verification.</td><td class="small-cell">Candidate when tribal knowledge is best captured through expert video and turned into searchable visual guidance.</td><td class="small-cell">Different from Dozuki; evaluate separately for video-first knowledge transfer versus controlled work-instruction governance.</td><td class="small-cell">Which paint-shop troubleshooting steps would benefit most from expert video capture?</td></tr>
 <tr><td>Frontline AI, knowledge, and advanced analytics</td><td>TwinThread</td><td class="small-cell">Industrial AI, digital twins, anomaly detection, generative diagnostics, and prescriptive support.</td><td class="small-cell">Candidate after Nissan has the governed data foundation needed to support credible predictive and prescriptive use cases.</td><td class="small-cell">Do not start with advanced AI before the event model and data quality are trusted.</td><td class="small-cell">Which failure pattern is mature enough for predictive / prescriptive modeling after the paint pilot?</td></tr>
-<tr><td>Frontline AI, knowledge, and advanced analytics</td><td>HumbleOps</td><td class="small-cell">AI that auto-generates real-time operational apps over existing ERP / MES (~24-hour deploy).</td><td class="small-cell">Fast frontline maintenance / fault interface over CIMPLICITY / CMMS that shows only what matters â€” no ERP / MES overhaul.</td><td class="small-cell">Newer entrant for 50â€“500-employee plants; validate maturity, security, data residency, and fit with Nissan IT standards and the event-object strategy.</td><td class="small-cell">Can it stand up a usable paint-shop fault interface on existing systems within the pilot and feed the shared event record?</td></tr></tbody>
+<tr><td>Frontline AI, knowledge, and advanced analytics</td><td>HumbleOps</td><td class="small-cell">AI that auto-generates real-time operational apps over existing ERP / MES (~24-hour deploy).</td><td class="small-cell">Fast frontline maintenance / fault interface over CIMPLICITY / CMMS that shows only what matters — no ERP / MES overhaul.</td><td class="small-cell">Newer entrant for 50–500-employee plants; validate maturity, security, data residency, and fit with Nissan IT standards and the event-object strategy.</td><td class="small-cell">Can it stand up a usable paint-shop fault interface on existing systems within the pilot and feed the shared event record?</td></tr></tbody>
     </table>
   </div>
 </section>
