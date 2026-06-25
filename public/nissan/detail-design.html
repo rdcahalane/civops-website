@@ -202,99 +202,6 @@
   </div>
 </section>
 
-<section class="section" id="humble-screens">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Live design reference</span><h2>Humble Factory OS — Nissan Smyrna demo</h2></div>
-      <p class="section-copy">Screenshots from the running Humble CCR instance connected to the Nissan Smyrna paint shop data. This is what operators and maintenance supervisors see today in the demo environment — and what the phase-1 build delivers.</p>
-    </div>
-
-    <style>
-      .humble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 24px; margin-top: 24px; }
-      .humble-card { border: 1px solid #e0e4ea; border-radius: 10px; overflow: hidden; background: #fff; }
-      .humble-card img { width: 100%; display: block; border-bottom: 1px solid #e0e4ea; }
-      .humble-card-body { padding: 12px 16px 14px; }
-      .humble-card-label { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8e9aab; margin-bottom: 4px; }
-      .humble-card-title { font-size: 14px; font-weight: 600; color: #1a2433; margin-bottom: 4px; }
-      .humble-card-desc { font-size: 12px; color: #5a6a7e; line-height: 1.5; }
-    </style>
-
-    <div class="humble-grid">
-      <div class="humble-card">
-        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Inbox · Eva AI</div>
-          <div class="humble-card-title">Morning briefing — causal chain + pending decisions</div>
-          <div class="humble-card-desc">Eva surfaces the two open decisions with urgency tags. The causal chain (Basecoat 56 → Conveyor Stop → Topcoat 5 Starved) is rendered inline so the operator sees root cause, not just symptoms.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Decision workflow · D-9</div>
-          <div class="humble-card-title">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 Starvation</div>
-          <div class="humble-card-desc">Decision detail shows why it matters, causal mechanism tabs, ranked options, and one-click "Act on this" — the full decision record in a single panel.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/04-decision-d10.png" alt="Decision D-10: BC5605 Asset Degradation and Joint Range Fault" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Decision workflow · D-10</div>
-          <div class="humble-card-title">BC5605 Asset Degradation and Joint Range Fault</div>
-          <div class="humble-card-desc">Two ranked intervention options — CapEx replacement vs. major mechanical overhaul — each with Description, Causal Mechanism, Outcome, Evidence, and Verification tabs. Robot AHI 38, 92% life consumed.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Control Center</div>
-          <div class="humble-card-title">Performance · Status · Anomalies — cross-operation view</div>
-          <div class="humble-card-desc">Eva-generated narrative of where we stand vs. peak — OEE availability gaps, asset health summary, and throughput/quality/labor status. Tabs for Operations, Processes, KPIs, Users, Triggers.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/05-operations.png" alt="Humble Operations section" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Operations</div>
-          <div class="humble-card-title">Paint shop operations — maintenance operations view</div>
-          <div class="humble-card-desc">Operations lists the active maintenance contexts (Paint Maintenance operation). Inside: Shift Updates, KPIs, and the decision/investigation queue for each operation.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/09-work-center-tasks.png" alt="Humble Work Center — Tasks tab" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Work Center · Tasks</div>
-          <div class="humble-card-title">Tasks — seeded asset model and onboarding checklist</div>
-          <div class="humble-card-desc">Work Center tracks onboarding tasks (e.g. "Seed Nissan Asset Model" 100% done), open decisions, and active investigations in three tabs — all scoped to the user's role and operation.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/10-work-center-decisions.png" alt="Humble Work Center — Decisions tab" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Work Center · Decisions</div>
-          <div class="humble-card-title">2 open decisions — D-9 Urgent, D-10 Soon</div>
-          <div class="humble-card-desc">Decision queue with urgency badges, assignee, and timestamps. Clicking opens the full decision panel without leaving the Work Center context.</div>
-        </div>
-      </div>
-
-      <div class="humble-card">
-        <img src="assets/humble/11-work-center-investigations.png" alt="Humble Work Center — Investigations tab" loading="lazy" />
-        <div class="humble-card-body">
-          <div class="humble-card-label">Work Center · Investigations</div>
-          <div class="humble-card-title">I-4: 24V Power Dip on Basecoat Robots</div>
-          <div class="humble-card-desc">Investigations are structured deep-dives on open causal questions. Private/Shared/Archived tabs let users manage their own vs. team investigations, with search and "New Investigation" inline.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="detail-design">
   <div class="container">
     <div class="section-head">
@@ -325,6 +232,7 @@
       <button class="tab-btn" data-dd-btn="fault">Fault &amp; DB model</button>
       <button class="tab-btn" data-dd-btn="import">HighByte import</button>
       <button class="tab-btn" data-dd-btn="data">Data &amp; validation</button>
+      <button class="tab-btn" data-dd-btn="pilot">Pilot</button>
     </div>
 
     <div class="dd-pane active" data-dd-pane="naming">
@@ -526,6 +434,94 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
       </table>
 
       <div class="dd-stub"><b>Minimum to validate one cell end-to-end:</b> items 1â€“4 for the <b>cell-056 basecoat robots (BC5601â€“BC5610)</b> â†’ the first defensible AHI. A 30-day re-pull of the four files we already received (same format) covers most of it; read-only exports are fine, and a read-only Historian/SQL account would also enable the live HighByte pilot. Quality (5) and WIP (6) extend the ops dashboards from representative to live.</div>
+    </div>
+
+    <div class="dd-pane" data-dd-pane="pilot">
+      <p class="section-copy">Screenshots from the running Humble CCR instance connected to the Nissan Smyrna paint shop data. This is what operators and maintenance supervisors see in the demo environment — and what the phase-1 build delivers.</p>
+
+      <style>
+        .humble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 24px; margin-top: 24px; }
+        .humble-card { border: 1px solid #e0e4ea; border-radius: 10px; overflow: hidden; background: #fff; }
+        .humble-card img { width: 100%; display: block; border-bottom: 1px solid #e0e4ea; }
+        .humble-card-body { padding: 12px 16px 14px; }
+        .humble-card-label { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8e9aab; margin-bottom: 4px; }
+        .humble-card-title { font-size: 14px; font-weight: 600; color: #1a2433; margin-bottom: 4px; }
+        .humble-card-desc { font-size: 12px; color: #5a6a7e; line-height: 1.5; }
+      </style>
+
+      <div class="humble-grid">
+        <div class="humble-card">
+          <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Inbox · Eva AI</div>
+            <div class="humble-card-title">Morning briefing — causal chain + pending decisions</div>
+            <div class="humble-card-desc">Eva surfaces the two open decisions with urgency tags. The causal chain (Basecoat 56 → Conveyor Stop → Topcoat 5 Starved) is rendered inline so the operator sees root cause, not just symptoms.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Decision workflow · D-9</div>
+            <div class="humble-card-title">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 Starvation</div>
+            <div class="humble-card-desc">Decision detail shows why it matters, causal mechanism tabs, ranked options, and one-click "Act on this" — the full decision record in a single panel.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/04-decision-d10.png" alt="Decision D-10: BC5605 Asset Degradation and Joint Range Fault" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Decision workflow · D-10</div>
+            <div class="humble-card-title">BC5605 Asset Degradation and Joint Range Fault</div>
+            <div class="humble-card-desc">Two ranked intervention options — CapEx replacement vs. major mechanical overhaul — each with Description, Causal Mechanism, Outcome, Evidence, and Verification tabs. Robot AHI 38, 92% life consumed.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Control Center</div>
+            <div class="humble-card-title">Performance · Status · Anomalies — cross-operation view</div>
+            <div class="humble-card-desc">Eva-generated narrative of where we stand vs. peak — OEE availability gaps, asset health summary, and throughput/quality/labor status. Tabs for Operations, Processes, KPIs, Users, Triggers.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/05-operations.png" alt="Humble Operations section" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Operations</div>
+            <div class="humble-card-title">Paint shop operations — maintenance operations view</div>
+            <div class="humble-card-desc">Operations lists the active maintenance contexts (Paint Maintenance operation). Inside: Shift Updates, KPIs, and the decision/investigation queue for each operation.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/09-work-center-tasks.png" alt="Humble Work Center — Tasks tab" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Work Center · Tasks</div>
+            <div class="humble-card-title">Tasks — seeded asset model and onboarding checklist</div>
+            <div class="humble-card-desc">Work Center tracks onboarding tasks (e.g. "Seed Nissan Asset Model" 100% done), open decisions, and active investigations in three tabs — all scoped to the user's role and operation.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/10-work-center-decisions.png" alt="Humble Work Center — Decisions tab" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Work Center · Decisions</div>
+            <div class="humble-card-title">2 open decisions — D-9 Urgent, D-10 Soon</div>
+            <div class="humble-card-desc">Decision queue with urgency badges, assignee, and timestamps. Clicking opens the full decision panel without leaving the Work Center context.</div>
+          </div>
+        </div>
+
+        <div class="humble-card">
+          <img src="assets/humble/11-work-center-investigations.png" alt="Humble Work Center — Investigations tab" loading="lazy" />
+          <div class="humble-card-body">
+            <div class="humble-card-label">Work Center · Investigations</div>
+            <div class="humble-card-title">I-4: 24V Power Dip on Basecoat Robots</div>
+            <div class="humble-card-desc">Investigations are structured deep-dives on open causal questions. Private/Shared/Archived tabs let users manage their own vs. team investigations, with search and "New Investigation" inline.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
