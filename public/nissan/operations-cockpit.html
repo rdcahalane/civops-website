@@ -184,17 +184,25 @@
       <div class="fo-screen">
         <div class="fo-bar"><div class="fo-title">Punch machines<small>4 punch cells · effective cycle, uptime, downtime, quality</small></div></div>
         <div class="fo-grid">
-          <div class="fo-q"><h4>Effective cycle time (target 90 JPH · 40s)</h4>
-            <div class="fo-kv"><span class="t">PM1</span><span class="v st-ok">95 JPH · 38s</span></div>
-            <div class="fo-kv"><span class="t">PM2</span><span class="v st-warn">88 JPH · 41s</span></div>
-            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok">100 JPH · 36s</span></div>
-            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">82 JPH · 44s</span></div>
+          <div class="fo-q"><h4>Effective cycle time (target 60 JPH · 60s)</h4>
+            <div class="fo-kv"><span class="t">PM1</span><span class="v st-ok">62 JPH · 58s</span></div>
+            <div class="fo-kv"><span class="t">PM2</span><span class="v st-warn">57 JPH · 63s</span></div>
+            <div class="fo-kv"><span class="t">PM3</span><span class="v st-warn">61 JPH · 59s</span></div>
+            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">50 JPH · 72s</span></div>
           </div>
           <div class="fo-q"><h4>Uptime / downtime (target 95%)</h4>
-            <div class="fo-kv"><span class="t">PM1</span><span class="v st-warn">94%</span></div>
-            <div class="fo-kv"><span class="t">PM2</span><span class="v st-bad">88%</span></div>
-            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok">96%</span></div>
-            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">82%</span></div>
+            <style>
+              .dt-tip{position:relative;cursor:default}
+              .dt-tip .dt-bubble{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#0e2236;border:1px solid #2f5066;border-radius:10px;padding:10px 12px;white-space:nowrap;font-size:11px;font-weight:600;color:#cfe0ec;z-index:99;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+              .dt-tip:hover .dt-bubble{display:block}
+              .dt-bubble b{display:block;color:#9fb6c6;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+              .dt-bubble span{display:flex;justify-content:space-between;gap:20px;padding:2px 0}
+              .dt-bubble span em{font-style:normal;color:#fff}
+            </style>
+            <div class="fo-kv"><span class="t">PM1</span><span class="v st-warn dt-tip">94%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM2</span><span class="v st-bad dt-tip">88%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok dt-tip">96%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad dt-tip">82%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
           </div>
           <div class="fo-q"><h4>Top 5 downtime causes — pareto (# · time)</h4>
             <div class="fo-bars">
