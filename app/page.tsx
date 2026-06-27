@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
+import ProductTour from "@/components/product-tour";
+import Journey from "@/components/journey";
 
 // ── Demo request form ────────────────────────────────────────────────────────
 
@@ -197,12 +199,12 @@ export default function Home() {
 
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto gap-8">
           <Image
-            src="/civops-logo-horizontal.svg"
-            alt="CivOps"
-            width={200}
-            height={46}
+            src="/civops-logo.png"
+            alt="CivOps — The synaptic platform"
+            width={440}
+            height={227}
             priority
-            className="opacity-90"
+            className="w-[320px] sm:w-[420px] lg:w-[460px] h-auto"
           />
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--co-text)] leading-[1.06]">
@@ -211,9 +213,9 @@ export default function Home() {
           </h1>
 
           <p className="text-lg sm:text-xl text-[var(--co-muted)] max-w-2xl leading-relaxed">
-            CivOps replaces fragmented OT systems, paper-based work orders, and tribal knowledge
-            with a unified operations platform — built for mid-market manufacturers, deployed in
-            weeks, not years.
+            CivOps replaces fragmented OT systems, paper-based work orders, and tribal knowledge with
+            a unified operations platform for mid-market manufacturers — adopted at your own pace, one
+            proven step at a time.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
@@ -225,10 +227,10 @@ export default function Home() {
               Request a demo
             </Link>
             <Link
-              href="/#platform"
+              href="/#path"
               className="rounded-md border border-[var(--co-grid)] px-7 py-3.5 text-sm font-semibold text-[var(--co-muted)] hover:border-[var(--co-enterprise)] hover:text-[var(--co-enterprise)] transition-colors"
             >
-              See the platform →
+              See the approach →
             </Link>
           </div>
         </div>
@@ -260,6 +262,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── The CivOps Path (narrative spine: Need → Assess → Pilot → Platform) ── */}
+      <Journey />
 
       {/* ── Platform capabilities ─────────────────────────────────────────── */}
       <section id="platform" className="mx-auto max-w-7xl px-6 py-24">
@@ -329,6 +334,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Product tour (show, don't tell) ──────────────────────────────── */}
+      <ProductTour />
+
       {/* ── How it works ─────────────────────────────────────────────────── */}
       <section id="how-it-works" className="bg-[var(--co-panel)] border-y border-[var(--co-grid)]/60">
         <div className="mx-auto max-w-7xl px-6 py-24">
@@ -391,12 +399,13 @@ export default function Home() {
             </div>
             <div>
               <p className="font-semibold text-[var(--co-text)] mb-1">
-                Single enterprise license — multi-site capable
+                Simple, predictable pricing
               </p>
               <p className="text-sm text-[var(--co-muted)] leading-relaxed">
-                CivOps is licensed per enterprise, not per seat or per site. One deployment covers
-                your full footprint — from a single flagship facility to a multi-site operation with
-                dozens of buildings and thousands of assets. Your data stays in your environment.
+                CivOps isn&apos;t priced per employee, per workstation, or per piece of equipment. Your
+                operation is complex enough — your software pricing shouldn&apos;t add to it. Add
+                operators, lines, and assets without watching a meter, and your data stays in your
+                environment.
               </p>
             </div>
           </div>
@@ -468,7 +477,7 @@ export default function Home() {
           {[
             ["Industry", "Discrete, process, batch, mixed-mode manufacturing"],
             ["Company size", "150 – 2,000 employees"],
-            ["Site footprint", "1 – 20+ facilities under one enterprise license"],
+            ["Site footprint", "1 – 20+ facilities"],
             ["OT environment", "Any — Rockwell, Siemens, legacy PLCs, or greenfield"],
           ].map(([label, value]) => (
             <div key={label} className="flex flex-col gap-1">
