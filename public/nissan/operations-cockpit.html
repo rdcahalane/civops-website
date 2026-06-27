@@ -4,7 +4,7 @@
   <base href="/nissan/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nissan Smyrna | Operations Cockpit</title>
+  <title>Nissan Smyrna | Fascia Operations Cockpit</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,7 +20,7 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
 <a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
-<a href="operations-cockpit.html" class="current">Operations<br>Cockpit</a>
+<a href="operations-cockpit.html" class="current">Fascia Operations<br>Cockpit</a>
 <a href="asset-health.html" class="">Asset Health<br>Index</a>
 <a href="detail-design.html" class="">Detail<br>Design</a>
 <a href="technology.html" class="">Tech<br>Options</a>
@@ -148,34 +148,97 @@
     <div class="fo-pane" data-fo-pane="queue">
       <div class="fo-screen">
         <div class="fo-bar"><div class="fo-title">Punch-area entry · sequence start<small>next in queue + WIP ahead of punch</small></div></div>
-        <div class="fo-grid">
-          <div class="fo-q" style="grid-row:span 1"><h4>Next 10 in queue</h4>
-            <div class="fo-tblw"><table class="fo-tbl"><tr><th>Seq</th><th>Model</th><th>Color</th></tr>
-              <tr><td>1042</td><td>Rogue</td><td>Gun Metallic</td></tr>
-              <tr><td>1043</td><td>Pathfinder</td><td>Pearl White</td></tr>
-              <tr><td>1044</td><td>Rogue</td><td>Boulder Gray</td></tr>
-              <tr><td>1045</td><td>Murano</td><td>Super Black</td></tr>
-              <tr><td>1046</td><td>Rogue</td><td>Pearl White</td></tr>
-              <tr><td>1047</td><td>Pathfinder</td><td>Scarlet Ember</td></tr>
-              <tr><td>1048</td><td>Rogue</td><td>Gun Metallic</td></tr>
-              <tr><td>1049</td><td>Murano</td><td>Boulder Gray</td></tr>
-              <tr><td>1050</td><td>Rogue</td><td>Super Black</td></tr>
-              <tr><td>1051</td><td>Pathfinder</td><td>Pearl White</td></tr>
-            </table></div>
-          </div>
-          <div class="fo-q"><h4>WIP layout — painted fascia ahead of punch</h4>
-            <div class="fo-big">27 <span style="font-size:13px;color:#9fb6c6;font-weight:600">units</span></div>
-            <div class="fo-tblw"><table class="fo-tbl fo-wipt">
-              <tr><th>Model</th><th>Front</th><th>Rear</th><th>Total</th></tr>
-              <tr><td>Rogue</td><td>5</td><td>4</td><td>9</td></tr>
-              <tr><td>Pathfinder</td><td>4</td><td>3</td><td>7</td></tr>
-              <tr><td>Murano</td><td>4</td><td>2</td><td>6</td></tr>
-              <tr><td>QX60</td><td>3</td><td>2</td><td>5</td></tr>
-              <tr><th>Total</th><td>16</td><td>11</td><td>27</td></tr>
-            </table></div>
-            <div class="fo-sub" style="margin-top:10px;color:#ffb15b">Count derivation TBD — sensed vs computed (paint-out − punch-in). Confirm with Jay. Models representative.</div>
-          </div>
+
+        <!-- Next 10 in queue — full width -->
+        <div class="fo-q" style="margin-bottom:12px"><h4>Next 10 in queue</h4>
+          <div class="fo-tblw"><table class="fo-tbl"><tr><th>Seq</th><th>Model</th><th>Color</th></tr>
+            <tr><td>1042</td><td>Rogue</td><td>Gun Metallic</td></tr>
+            <tr><td>1043</td><td>Pathfinder</td><td>Pearl White</td></tr>
+            <tr><td>1044</td><td>Rogue</td><td>Boulder Gray</td></tr>
+            <tr><td>1045</td><td>Murano</td><td>Super Black</td></tr>
+            <tr><td>1046</td><td>Rogue</td><td>Pearl White</td></tr>
+            <tr><td>1047</td><td>Pathfinder</td><td>Scarlet Ember</td></tr>
+            <tr><td>1048</td><td>Rogue</td><td>Gun Metallic</td></tr>
+            <tr><td>1049</td><td>Murano</td><td>Boulder Gray</td></tr>
+            <tr><td>1050</td><td>Rogue</td><td>Super Black</td></tr>
+            <tr><td>1051</td><td>Pathfinder</td><td>Pearl White</td></tr>
+          </table></div>
         </div>
+
+        <!-- WIP layout — card grid -->
+        <div class="fo-q">
+          <h4>WIP layout — painted fascia ahead of punch <span style="font-weight:600;color:#fff;margin-left:8px">27 units</span></h4>
+          <style>
+            .wip-section{margin-bottom:14px}
+            .wip-model-label{font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:#9fb6c6;margin-bottom:6px}
+            .wip-cards{display:flex;flex-wrap:wrap;gap:8px}
+            .wip-card{background:#0e2236;border:2px solid #2f5066;border-radius:10px;padding:10px 12px;min-width:80px;text-align:center;flex:0 0 auto}
+            .wip-card .wip-n{font-size:36px;font-weight:950;line-height:1;margin-bottom:4px}
+            .wip-card .wip-n.st-ok{color:#49bd8d}.wip-card .wip-n.st-warn{color:#ffd23f}.wip-card .wip-n.st-bad{color:#ef6a5b}
+            .wip-card .wip-face{font-size:10px;font-weight:800;color:#9fb6c6;text-transform:uppercase;letter-spacing:.05em}
+            .wip-card .wip-color{font-size:11px;font-weight:700;color:#cfe0ec;margin-top:2px}
+            .wip-card .wip-color.c-ember{color:#ef6a5b}
+            .wip-card{border-color:#2f5066}
+            .wip-card:has(.wip-n.st-ok){border-color:#49bd8d44}
+            .wip-card:has(.wip-n.st-warn){border-color:#ffd23f44}
+            .wip-card:has(.wip-n.st-bad){border-color:#ef6a5b55}
+          </style>
+
+          <!-- Rogue -->
+          <div class="wip-section">
+            <div class="wip-model-label">Rogue</div>
+            <div class="wip-cards">
+              <div class="wip-card"><div class="wip-n st-ok">5</div><div class="wip-face">Front</div><div class="wip-color c-ember">Scarlet Ember</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">6</div><div class="wip-face">Rear</div><div class="wip-color c-ember">Scarlet Ember</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">4</div><div class="wip-face">Front</div><div class="wip-color">Gun Metallic</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Rear</div><div class="wip-color">Gun Metallic</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Front</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">5</div><div class="wip-face">Rear</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">7</div><div class="wip-face">Front</div><div class="wip-color">Super Black</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">4</div><div class="wip-face">Rear</div><div class="wip-color">Super Black</div></div>
+            </div>
+          </div>
+
+          <!-- Pathfinder -->
+          <div class="wip-section">
+            <div class="wip-model-label">Pathfinder</div>
+            <div class="wip-cards">
+              <div class="wip-card"><div class="wip-n st-bad">2</div><div class="wip-face">Front</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Rear</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">5</div><div class="wip-face">Front</div><div class="wip-color">Gun Metallic</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">5</div><div class="wip-face">Rear</div><div class="wip-color">Gun Metallic</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Front</div><div class="wip-color">Super Black</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">7</div><div class="wip-face">Rear</div><div class="wip-color">Super Black</div></div>
+              <div class="wip-card"><div class="wip-n st-ok">5</div><div class="wip-face">Front</div><div class="wip-color c-ember">Scarlet Ember</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">4</div><div class="wip-face">Rear</div><div class="wip-color c-ember">Scarlet Ember</div></div>
+            </div>
+          </div>
+
+          <!-- Murano -->
+          <div class="wip-section">
+            <div class="wip-model-label">Murano</div>
+            <div class="wip-cards">
+              <div class="wip-card"><div class="wip-n st-ok">4</div><div class="wip-face">Front</div><div class="wip-color">Boulder Gray</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Rear</div><div class="wip-color">Boulder Gray</div></div>
+              <div class="wip-card"><div class="wip-n st-bad">2</div><div class="wip-face">Front</div><div class="wip-color">Super Black</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Rear</div><div class="wip-color">Super Black</div></div>
+            </div>
+          </div>
+
+          <!-- QX60 -->
+          <div class="wip-section" style="margin-bottom:4px">
+            <div class="wip-model-label">QX60</div>
+            <div class="wip-cards">
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Front</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-bad">2</div><div class="wip-face">Rear</div><div class="wip-color">Pearl White</div></div>
+              <div class="wip-card"><div class="wip-n st-warn">3</div><div class="wip-face">Front</div><div class="wip-color">Gun Metallic</div></div>
+              <div class="wip-card"><div class="wip-n st-bad">2</div><div class="wip-face">Rear</div><div class="wip-color">Gun Metallic</div></div>
+            </div>
+          </div>
+
+          <div class="fo-sub" style="margin-top:10px;color:#ffb15b">Count derivation TBD — sensed vs computed (paint-out &minus; punch-in). Confirm with Jay. Models representative.</div>
+        </div>
+
       </div>
     </div>
 
@@ -184,17 +247,25 @@
       <div class="fo-screen">
         <div class="fo-bar"><div class="fo-title">Punch machines<small>4 punch cells · effective cycle, uptime, downtime, quality</small></div></div>
         <div class="fo-grid">
-          <div class="fo-q"><h4>Effective cycle time (target 90 JPH · 40s)</h4>
-            <div class="fo-kv"><span class="t">PM1</span><span class="v st-ok">95 JPH · 38s</span></div>
-            <div class="fo-kv"><span class="t">PM2</span><span class="v st-warn">88 JPH · 41s</span></div>
-            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok">100 JPH · 36s</span></div>
-            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">82 JPH · 44s</span></div>
+          <div class="fo-q"><h4>Effective cycle time (target 60 JPH · 60s)</h4>
+            <div class="fo-kv"><span class="t">PM1</span><span class="v st-ok">62 JPH · 58s</span></div>
+            <div class="fo-kv"><span class="t">PM2</span><span class="v st-warn">57 JPH · 63s</span></div>
+            <div class="fo-kv"><span class="t">PM3</span><span class="v st-warn">61 JPH · 59s</span></div>
+            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">50 JPH · 72s</span></div>
           </div>
           <div class="fo-q"><h4>Uptime / downtime (target 95%)</h4>
-            <div class="fo-kv"><span class="t">PM1</span><span class="v st-warn">94%</span></div>
-            <div class="fo-kv"><span class="t">PM2</span><span class="v st-bad">88%</span></div>
-            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok">96%</span></div>
-            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad">82%</span></div>
+            <style>
+              .dt-tip{position:relative;cursor:default}
+              .dt-tip .dt-bubble{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#0e2236;border:1px solid #2f5066;border-radius:10px;padding:10px 12px;white-space:nowrap;font-size:11px;font-weight:600;color:#cfe0ec;z-index:99;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+              .dt-tip:hover .dt-bubble{display:block}
+              .dt-bubble b{display:block;color:#9fb6c6;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+              .dt-bubble span{display:flex;justify-content:space-between;gap:20px;padding:2px 0}
+              .dt-bubble span em{font-style:normal;color:#fff}
+            </style>
+            <div class="fo-kv"><span class="t">PM1</span><span class="v st-warn dt-tip">94%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM2</span><span class="v st-bad dt-tip">88%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM3</span><span class="v st-ok dt-tip">96%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
+            <div class="fo-kv"><span class="t">PM4</span><span class="v st-bad dt-tip">82%<span class="dt-bubble"><b>Top 3 downtime causes</b><span>Tool change <em>14m</em></span><span>Jam clear <em>9m</em></span><span>Air pressure <em>4m</em></span></span></span></div>
           </div>
           <div class="fo-q"><h4>Top 5 downtime causes — pareto (# · time)</h4>
             <div class="fo-bars">
@@ -281,7 +352,7 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Fascia Operations Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 

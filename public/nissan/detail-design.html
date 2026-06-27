@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
@@ -20,7 +20,7 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
 <a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
-<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
+<a href="operations-cockpit.html" class="">Fascia Operations<br>Cockpit</a>
 <a href="asset-health.html" class="">Asset Health<br>Index</a>
 <a href="detail-design.html" class="current">Detail<br>Design</a>
 <a href="technology.html" class="">Tech<br>Options</a>
@@ -94,111 +94,351 @@
       <figcaption><b>As-is.</b> PLC L73S → FTG (OPC-UA) → Cimplicity (SLR_10S, 022 cell) → DMZ SQL mirror, fault DBs and CMMS → Senseye in IS.</figcaption>
     </figure>
 
-    <figure class="platform-figure" style="margin-top:18px">
-      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>To-be — phase 1 (read-only)<span class="pf-badge">Working draft</span></div>
-      <svg width="100%" viewBox="0 0 680 548" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
-        <title>Nissan Smyrna to-be phase 1 with separate DMZ databases into HighByte</title>
-        <desc>Plant-floor PLC, FTG OPC-UA and Cimplicity server-DB replicate to a DMZ SQL mirror; plant-floor robots feed a parallel DMZ robots DB. Historian, fault, inspect, Autis and Maximo each have their own DMZ database. All seven DMZ databases tie separately into the HighByte Intelligence Hub, which holds the MQTT broker unified namespace, MCP server and i3X templates. The private-cloud tier of Humble, Senseye and analytics feeds the Paint CCR and Fascia dashboards. Phase 2 adds write-back.</desc>
-        <defs><marker id="txar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
-        <rect x="3" y="3" width="674" height="542" rx="16" fill="#0e2236" stroke="#1f587a"/>
-        <text class="azth" x="40" y="30">To-be — phase 1 (read-only)</text>
-        <text class="azts" x="40" y="48">Paint (CCR) + fascia · maintenance + operations</text>
-        <line class="azdv" x1="40" y1="256" x2="640" y2="256"/>
-        <line class="azdv" x1="40" y1="424" x2="640" y2="424"/>
-        <text class="azzn" x="46" y="68">Private cloud</text>
-        <text class="azzn" x="636" y="68" text-anchor="end">split day / night · web + mobile</text>
-        <text class="azzn" x="636" y="274" text-anchor="end">DMZ</text>
-        <text class="azzn" x="46" y="446">Manufacturing</text>
-        <rect class="azpn" x="56" y="80" width="288" height="110" rx="6"/>
-        <line class="azpn" x1="56" y1="106" x2="344" y2="106"/>
-        <text class="azth" x="68" y="99">CCR — paint / sealer</text>
-        <text class="azts" x="68" y="126">· cycle time — robot / body style</text>
-        <text class="azts" x="68" y="144">· top-3 breakdowns — WTD / MTD / hr</text>
-        <text class="azts" x="68" y="162">· uptime % — per shift</text>
-        <text class="azts" x="68" y="180">· Senseye PdM · inspection QC</text>
-        <rect class="azpn" x="352" y="80" width="288" height="110" rx="6"/>
-        <line class="azpn" x1="352" y1="106" x2="640" y2="106"/>
-        <text class="azth" x="364" y="99">Fascia — front / rear</text>
-        <text class="azts" x="364" y="126">· cycle time — front / rear fascia</text>
-        <text class="azts" x="364" y="144">· uptime % — per hour</text>
-        <text class="azts" x="364" y="162">· top-3 QC from inspection</text>
-        <text class="azts" x="364" y="180">· top-3 downtime — equip / operator</text>
-        <rect class="azbx" x="80" y="204" width="170" height="46" rx="6"/>
-        <text class="azt" x="165" y="224" text-anchor="middle">Humble</text>
-        <text class="azts" x="165" y="239" text-anchor="middle">Factory OS · MCP client</text>
-        <rect class="azbx" x="288" y="204" width="150" height="46" rx="6"/>
-        <text class="azt" x="363" y="224" text-anchor="middle">Senseye PdM</text>
-        <text class="azts" x="363" y="239" text-anchor="middle">Siemens</text>
-        <rect class="azbx" x="476" y="204" width="150" height="46" rx="6"/>
-        <text class="azt" x="551" y="231" text-anchor="middle">Analytics / AI</text>
-        <rect class="azhb" x="46" y="276" width="588" height="80" rx="8"/>
-        <text class="azth" x="62" y="298">HighByte Intelligence Hub</text>
-        <text class="azts" x="62" y="313">DataOps · i3X profiles · ISA-95</text>
-        <rect class="aznb" x="62" y="318" width="158" height="32" rx="5"/>
-        <text class="azt" x="141" y="338" text-anchor="middle">MQTT broker = UNS</text>
-        <rect class="aznb" x="232" y="318" width="148" height="32" rx="5"/>
-        <text class="azt" x="306" y="338" text-anchor="middle">MCP server</text>
-        <rect class="aznb" x="392" y="318" width="162" height="32" rx="5"/>
-        <text class="azt" x="473" y="338" text-anchor="middle">i3X templates · 56 / 22</text>
-        <rect class="azbx" x="46" y="368" width="78" height="46" rx="6"/>
-        <text class="azt" x="85" y="388" text-anchor="middle">Historian</text>
-        <text class="azts" x="85" y="403" text-anchor="middle">DMZ</text>
-        <rect class="azbx" x="130" y="368" width="66" height="46" rx="6"/>
-        <text class="azt" x="163" y="388" text-anchor="middle">Fault</text>
-        <text class="azts" x="163" y="403" text-anchor="middle">downtime</text>
-        <rect class="azbx" x="202" y="368" width="120" height="46" rx="6"/>
-        <text class="azt" x="262" y="388" text-anchor="middle">SQL mirror</text>
-        <text class="azts" x="262" y="403" text-anchor="middle">npsm-db-paint4</text>
-        <rect class="azbx" x="328" y="368" width="72" height="46" rx="6"/>
-        <text class="azt" x="364" y="388" text-anchor="middle">Inspect</text>
-        <text class="azts" x="364" y="403" text-anchor="middle">+ DB</text>
-        <rect class="azbx" x="406" y="368" width="92" height="46" rx="6"/>
-        <text class="azt" x="452" y="388" text-anchor="middle">Robots DB</text>
-        <text class="azts" x="452" y="403" text-anchor="middle">DMZ</text>
-        <rect class="azbx" x="504" y="368" width="64" height="46" rx="6"/>
-        <text class="azt" x="536" y="388" text-anchor="middle">Autis</text>
-        <text class="azts" x="536" y="403" text-anchor="middle">+ DB</text>
-        <rect class="azbx" x="574" y="368" width="64" height="46" rx="6"/>
-        <text class="azt" x="606" y="388" text-anchor="middle">Maximo</text>
-        <text class="azts" x="606" y="403" text-anchor="middle">CMMS</text>
-        <rect class="azbx" x="54" y="462" width="52" height="40" rx="6"/>
-        <text class="azt" x="80" y="478" text-anchor="middle">PLC</text>
-        <text class="azts" x="80" y="493" text-anchor="middle">L73S</text>
-        <rect class="azbx" x="118" y="462" width="64" height="40" rx="6"/>
-        <text class="azt" x="150" y="478" text-anchor="middle">FTG</text>
-        <text class="azts" x="150" y="493" text-anchor="middle">OPC-UA</text>
-        <rect class="azbx" x="187" y="454" width="150" height="62" rx="6"/>
-        <text class="azt" x="262" y="474" text-anchor="middle">Cimplicity (plant)</text>
-        <text class="azts" x="262" y="492" text-anchor="middle">server + DB · SLR_10S</text>
-        <text class="azts" x="262" y="507" text-anchor="middle">56 / 22 · fascia · Tracker</text>
-        <rect class="azbx" x="397" y="454" width="110" height="62" rx="6"/>
-        <text class="azt" x="452" y="480" text-anchor="middle">Robots</text>
-        <text class="azts" x="452" y="498" text-anchor="middle">plant-floor network</text>
-        <path class="azln" d="M106 482 L118 482" marker-end="url(#txar)"/>
-        <path class="azln" d="M182 476 L187 476" marker-end="url(#txar)"/>
-        <path class="azln" d="M262 454 L262 414" marker-end="url(#txar)"/>
-        <text class="azts" x="268" y="444">DB replication</text>
-        <path class="azln" d="M452 454 L452 414" marker-end="url(#txar)"/>
-        <text class="azts" x="458" y="444">parallel feed</text>
-        <path class="azln" d="M85 368 L85 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M163 368 L163 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M262 368 L262 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M364 368 L364 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M452 368 L452 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M536 368 L536 356" marker-end="url(#txar)"/>
-        <path class="azln" d="M606 368 L606 356" marker-end="url(#txar)"/>
-        <path class="azlp" d="M165 276 L165 250" marker-end="url(#txar)"/>
-        <path class="azlp" d="M551 276 L551 250" marker-end="url(#txar)"/>
-        <path class="azln" d="M202 392 L30 392 L30 197 L300 197 L300 204" marker-end="url(#txar)"/>
-        <path class="azlp" d="M165 204 L185 190" marker-end="url(#txar)"/>
-        <path class="azlp" d="M363 204 L320 190" marker-end="url(#txar)"/>
-        <path class="azlp" d="M551 204 L500 190" marker-end="url(#txar)"/>
-        <path class="azd2" d="M195 250 L285 318" marker-end="url(#txar)"/>
-        <text class="azts" x="200" y="296">phase 2: write-back</text>
-        <text class="azts" x="40" y="536">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · dashed = phase 2 write-back</text>
-      </svg>
-      <figcaption><b>To-be — phase 1.</b> Plant Cimplicity → DMZ SQL mirror; robots → parallel DMZ DB; historian, fault, inspect, Autis and Maximo each their own DMZ DB — all tie separately into HighByte (embedded UNS broker · MCP · i3X). Humble and analytics read via UNS / MCP; Senseye keeps its direct SQL-mirror feed (as today). Read-only in phase 1.</figcaption>
-    </figure>
+    <!-- Phased To-Be diagrams -->
+    <div style="margin-top:32px">
+      <div class="section-head" style="margin-bottom:16px">
+        <div class="section-title"><span class="eyebrow">Phased build</span><h2>Three phases of expansion — same architecture, wider scope</h2></div>
+        <p class="section-copy">Phase 1 pilots HighByte on a single asset. Each subsequent phase extends the same hub to cover more of the plant without rebuilding it.</p>
+      </div>
+
+      <style>
+        .phase-pane{display:none}.phase-pane.active{display:block}
+        .phase-svg{width:100%;border-radius:14px;display:block;margin-bottom:16px}
+        .phase-note{background:#f0f6fa;border-left:4px solid #0a77a9;padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;line-height:1.55;margin-top:8px;color:#1a2f3f}
+      </style>
+
+      <div class="tab-row" style="margin-bottom:20px">
+        <button class="tab-btn active" data-phase-btn="p1">Phase 1 — Cell 56 pilot</button>
+        <button class="tab-btn" data-phase-btn="p2">Phase 2 — Fascia operations</button>
+        <button class="tab-btn" data-phase-btn="p3">Phase 3 — Full Paint Line 1</button>
+      </div>
+
+      <div class="phase-pane active" data-phase-pane="p1">
+        <svg viewBox="0 0 940 700" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="700" rx="18" fill="#0a1928"/>
+          <rect x="788" y="12" width="140" height="26" rx="13" fill="none" stroke="#3b7494"/>
+          <text x="858" y="30" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.07em">WORKING DRAFT</text>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 1 (read-only)</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Paint (CCR) · Basecoat Automated Spray Cell 56 · maintenance + asset health pilot</text>
+          <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">Central Control Room View</text>
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — robot / body style</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">· top-3 breakdowns — WTD / MTD / hr</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">· uptime % — per shift</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">· Senseye PdM · inspection QC</text>
+          <!-- AHI mini — Cell 056 Base Coat pilot view -->
+          <rect x="458" y="96" width="467" height="172" rx="12" fill="#091827" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="470" y="114" fill="#9fb6c6" font-size="10" font-weight="700">Cell 056 — Base Coat · Asset Health Index</text>
+          <rect x="810" y="100" width="106" height="20" rx="10" fill="#2a1400" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="863" y="114" fill="#ff9b2e" font-size="10" font-weight="700" text-anchor="middle">77% · WATCH</text>
+          <!-- top row robots -->
+          <rect x="466" y="124" width="90" height="28" rx="6" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="511" y="135" fill="#7baac4" font-size="8" text-anchor="middle">BC5601</text>
+          <text x="511" y="148" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">88%</text>
+          <rect x="566" y="124" width="90" height="28" rx="6" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="611" y="135" fill="#7baac4" font-size="8" text-anchor="middle">BC5602</text>
+          <text x="611" y="148" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">81%</text>
+          <rect x="666" y="124" width="90" height="28" rx="6" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="711" y="135" fill="#7baac4" font-size="8" text-anchor="middle">BC5603</text>
+          <text x="711" y="148" fill="#ff9b2e" font-size="11" font-weight="700" text-anchor="middle">69%</text>
+          <rect x="766" y="124" width="90" height="28" rx="6" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="811" y="135" fill="#7baac4" font-size="8" text-anchor="middle">BC5604</text>
+          <text x="811" y="148" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">90%</text>
+          <!-- connector lines → conveyor -->
+          <line x1="511" y1="152" x2="511" y2="162" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="611" y1="152" x2="611" y2="162" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="711" y1="152" x2="711" y2="162" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="811" y1="152" x2="811" y2="162" stroke="#3b5a72" stroke-width="1.5"/>
+          <!-- conveyor bar -->
+          <rect x="466" y="162" width="394" height="12" rx="6" fill="#0e2236" stroke="#3b5a72" stroke-width="1.2"/>
+          <text x="534" y="172" fill="#7baac4" font-size="9">Conveyor 056</text>
+          <text x="848" y="172" fill="#49bd8d" font-size="9" font-weight="700" text-anchor="middle">83%</text>
+          <!-- connector lines → bottom robots -->
+          <line x1="511" y1="174" x2="511" y2="184" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="611" y1="174" x2="611" y2="184" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="711" y1="174" x2="711" y2="184" stroke="#3b5a72" stroke-width="1.5"/>
+          <line x1="811" y1="174" x2="811" y2="184" stroke="#3b5a72" stroke-width="1.5"/>
+          <!-- bottom row robots -->
+          <rect x="466" y="184" width="90" height="28" rx="6" fill="#0e2236" stroke="#ff5555" stroke-width="1.2"/>
+          <text x="511" y="195" fill="#7baac4" font-size="8" text-anchor="middle">BC5605</text>
+          <text x="511" y="208" fill="#ff5555" font-size="11" font-weight="700" text-anchor="middle">54%</text>
+          <rect x="566" y="184" width="90" height="28" rx="6" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="611" y="195" fill="#7baac4" font-size="8" text-anchor="middle">BC5606</text>
+          <text x="611" y="208" fill="#ff9b2e" font-size="11" font-weight="700" text-anchor="middle">77%</text>
+          <rect x="666" y="184" width="90" height="28" rx="6" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="711" y="195" fill="#7baac4" font-size="8" text-anchor="middle">BC5607</text>
+          <text x="711" y="208" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">85%</text>
+          <rect x="766" y="184" width="90" height="28" rx="6" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="811" y="195" fill="#7baac4" font-size="8" text-anchor="middle">BC5608</text>
+          <text x="811" y="208" fill="#ff9b2e" font-size="11" font-weight="700" text-anchor="middle">63%</text>
+          <!-- legend -->
+          <circle cx="470" cy="232" r="4" fill="#49bd8d"/>
+          <text x="478" y="236" fill="#7baac4" font-size="9">≥80 Healthy</text>
+          <circle cx="556" cy="232" r="4" fill="#ff9b2e"/>
+          <text x="564" y="236" fill="#7baac4" font-size="9">60–79 Watch</text>
+          <circle cx="646" cy="232" r="4" fill="#ff5555"/>
+          <text x="654" y="236" fill="#7baac4" font-size="9">&lt;60 Alert</text>
+          <text x="470" y="255" fill="#4a6a7a" font-size="9">representative pilot data · drives maintenance prioritisation in CCR</text>
+          <!-- data flow arrows from middle tier to consumer panels -->
+          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
+          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
+          <line x1="797" y1="288" x2="720" y2="270" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <polygon points="720,266 713,276 726,276" fill="#ff8300" opacity="0.7"/>
+          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
+          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95</text>
+          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="463" y="474" width="220" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="573" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · Cell 56</text>
+          <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
+          <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
+          <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
+          <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
+          <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
+          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="64" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
+          <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
+          <rect x="373" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="422" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Inspect</text><text x="422" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="481" y="548" width="108" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="535" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Robots DB</text><text x="535" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="599" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="648" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Autis</text><text x="648" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="707" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="756" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Maximo</text><text x="756" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">CMMS</text>
+          <text x="18" y="622" fill="#7baac4" font-size="12" font-weight="700">Manufacturing</text>
+          <rect x="15" y="630" width="78" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="54" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">PLC</text><text x="54" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">L73S</text>
+          <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
+          <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
+          <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
+          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 · SLR_10S · Tracker</text>
+          <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
+          <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
+          <rect x="490" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="564" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="564" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
+          <line x1="535" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
+          <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · dashed = phase 2 write-back</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 1 scope:</strong> Read-only pilot. HighByte Intelligence Hub connects to Cimplicity, Historian, FAULT, Inspect/Autis, Robots DB, and Maximo. Humble Factory OS and Analytics/AI consume data via UNS and MCP. Output: Maintenance Cockpit for CCR — cycle time, top-3 breakdowns, uptime, Senseye PdM, and inspection QC. Fascia is out of scope; the architecture is designed to extend to it in Phase 2 without rebuilding.</div>
+      </div>
+
+      <div class="phase-pane" data-phase-pane="p2">
+        <svg viewBox="0 0 940 700" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="700" rx="18" fill="#0a1928"/>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 2</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Extends Phase 1 · adds Fascia front &amp; rear · operations data focus</text>
+          <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <!-- Fascia moved to primary left slot -->
+          <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia — front / rear</text>
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — front / rear fascia</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">· uptime % — per hour</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">· top-3 QC from inspection</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">· top-3 downtime — equip / operator</text>
+          <rect x="288" y="234" width="140" height="24" rx="12" fill="#1a3a1a" stroke="#49bd8d"/>
+          <text x="358" y="250" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">New in Phase 2</text>
+          <!-- Off paint · ahead of punch — Fascia Operations Cockpit sample view -->
+          <rect x="458" y="96" width="467" height="172" rx="12" fill="#091827" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="470" y="112" fill="#ffffff" font-size="11" font-weight="900">Off paint · ahead of punch</text>
+          <text x="470" y="125" fill="#7baac4" font-size="9">painted fascia performance — front / rear</text>
+          <rect x="874" y="98" width="42" height="18" rx="9" fill="#ff8300"/>
+          <text x="895" y="111" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">Front</text>
+          <!-- KPI left: Cycle Time -->
+          <rect x="464" y="130" width="222" height="56" rx="7" fill="#0e2236" stroke="#1f3d55"/>
+          <text x="474" y="143" fill="#7baac4" font-size="8" font-weight="700">CYCLE TIME (THROUGH AREA)</text>
+          <text x="474" y="162" fill="#ff8300" font-size="18" font-weight="900">52</text>
+          <text x="508" y="162" fill="#7baac4" font-size="14" font-weight="700"> / 58</text>
+          <text x="548" y="162" fill="#7baac4" font-size="10"> JPH</text>
+          <text x="474" y="178" fill="#5a7a8a" font-size="8">cycle 252s · target 230s · off-paint → sub-assy</text>
+          <!-- KPI right: Uptime -->
+          <rect x="692" y="130" width="222" height="56" rx="7" fill="#0e2236" stroke="#1f3d55"/>
+          <text x="702" y="143" fill="#7baac4" font-size="8" font-weight="700">UPTIME / DOWNTIME</text>
+          <text x="702" y="162" fill="#ff8300" font-size="15" font-weight="900">91.4% / 95%</text>
+          <text x="702" y="178" fill="#5a7a8a" font-size="8">8.6% downtime · 14 microstops · 22 min major</text>
+          <!-- Pareto left: Downtime -->
+          <rect x="464" y="192" width="222" height="74" rx="7" fill="#0e2236" stroke="#1f3d55"/>
+          <text x="474" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 DOWNTIME — PARETO</text>
+          <text x="474" y="216" fill="#9fb6c6" font-size="8">Sealer line plug  3·18m</text>
+          <rect x="474" y="218" width="185" height="5" rx="2" fill="#ff8300"/>
+          <text x="474" y="230" fill="#9fb6c6" font-size="8">Conveyor hold  5·11m</text>
+          <rect x="474" y="232" width="113" height="5" rx="2" fill="#ff8300" opacity="0.75"/>
+          <text x="474" y="244" fill="#9fb6c6" font-size="8">Color-change overrun  2·7m</text>
+          <rect x="474" y="246" width="72" height="5" rx="2" fill="#ff8300" opacity="0.55"/>
+          <text x="474" y="258" fill="#9fb6c6" font-size="8">Robot fault  2·5m</text>
+          <rect x="474" y="260" width="51" height="5" rx="2" fill="#ff8300" opacity="0.4"/>
+          <!-- Pareto right: Quality -->
+          <rect x="692" y="192" width="222" height="74" rx="7" fill="#0e2236" stroke="#1f3d55"/>
+          <text x="702" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 QUALITY — PARETO</text>
+          <text x="702" y="216" fill="#9fb6c6" font-size="8">Orange peel  9</text>
+          <rect x="702" y="218" width="180" height="5" rx="2" fill="#49a9bd"/>
+          <text x="702" y="230" fill="#9fb6c6" font-size="8">Dirt / seed  6</text>
+          <rect x="702" y="232" width="120" height="5" rx="2" fill="#49a9bd" opacity="0.75"/>
+          <text x="702" y="244" fill="#9fb6c6" font-size="8">Run / sag  3</text>
+          <rect x="702" y="246" width="60" height="5" rx="2" fill="#49a9bd" opacity="0.55"/>
+          <text x="702" y="258" fill="#9fb6c6" font-size="8">Thin film  2</text>
+          <rect x="702" y="260" width="40" height="5" rx="2" fill="#49a9bd" opacity="0.4"/>
+          <!-- data flow arrows from middle tier -->
+          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
+          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
+          <line x1="800" y1="288" x2="750" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="750,266 743,276 756,276" fill="#ff8300"/>
+          <line x1="245" y1="288" x2="245" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <text x="254" y="284" fill="#ff8300" font-size="10" opacity="0.8">write-back</text>
+          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
+          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95</text>
+          <line x1="310" y1="410" x2="310" y2="386" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="463" y="474" width="240" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="583" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · 56 / front-rear</text>
+          <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
+          <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
+          <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
+          <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
+          <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
+          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="64" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
+          <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
+          <rect x="373" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="422" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Inspect</text><text x="422" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="481" y="548" width="108" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="535" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Robots DB</text><text x="535" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="599" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="648" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Autis</text><text x="648" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="707" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="756" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Maximo</text><text x="756" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">CMMS</text>
+          <text x="18" y="622" fill="#7baac4" font-size="12" font-weight="700">Manufacturing</text>
+          <rect x="15" y="630" width="78" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="54" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">PLC</text><text x="54" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">L73S</text>
+          <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
+          <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
+          <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
+          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 + fascia · SLR_10S · Tracker</text>
+          <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
+          <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
+          <rect x="490" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="564" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="564" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
+          <line x1="535" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
+          <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · dashed = write-back · green border = Phase 2 addition</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 2 scope:</strong> Extends the Phase 1 hub to cover Fascia front &amp; rear — a separate engagement focused on <em>operations</em> data, not maintenance and asset health. New outputs: Fascia Operations Cockpit (cycle time, uptime, QC, downtime by operator/equipment). The HighByte hub is already in place; Phase 2 adds the Fascia data path, i3X templates for front/rear fascia, and activates optional write-back capability.</div>
+      </div>
+
+      <div class="phase-pane" data-phase-pane="p3">
+        <svg viewBox="0 0 940 700" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="700" rx="18" fill="#0a1928"/>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 3</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Full Paint Line 1 · all areas on the HighByte hub · larger undertaking than Cell 56 alone</text>
+          <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">CCR — paint / sealer</text>
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — all cells / body styles</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">· top-3 breakdowns — WTD / MTD / hr</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">· uptime % — per shift · all cells</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">· Senseye PdM · inspection QC</text>
+          <rect x="458" y="96" width="467" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="478" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia — front / rear</text>
+          <text x="478" y="148" fill="#9fb6c6" font-size="12">· cycle time — front / rear fascia</text>
+          <text x="478" y="170" fill="#9fb6c6" font-size="12">· uptime % — per hour</text>
+          <text x="478" y="192" fill="#9fb6c6" font-size="12">· top-3 QC from inspection</text>
+          <text x="478" y="214" fill="#9fb6c6" font-size="12">· top-3 downtime — equip / operator</text>
+          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
+          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
+          <line x1="800" y1="288" x2="700" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="700,266 693,276 706,276" fill="#ff8300"/>
+          <line x1="245" y1="288" x2="245" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
+          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95 · full Paint Line 1</text>
+          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="463" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="595" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · all cells · 56 / 22 / fascia</text>
+          <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
+          <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
+          <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
+          <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
+          <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
+          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="64" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
+          <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
+          <rect x="373" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="422" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Inspect</text><text x="422" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="481" y="548" width="108" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="535" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Robots DB</text><text x="535" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">DMZ</text>
+          <rect x="599" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="648" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Autis</text><text x="648" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">+ DB</text>
+          <rect x="707" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="756" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Maximo</text><text x="756" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">CMMS</text>
+          <text x="18" y="622" fill="#7baac4" font-size="12" font-weight="700">Manufacturing</text>
+          <rect x="15" y="630" width="78" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="54" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">PLC</text><text x="54" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">L73S</text>
+          <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
+          <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
+          <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
+          <rect x="213" y="630" width="260" height="40" rx="7" fill="#0a1928" stroke="#49bd8d" stroke-width="1.5"/><text x="343" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant) — full Paint Line 1</text><text x="343" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">all cells · SLR_10S · 56 / 22 / fascia · Tracker</text>
+          <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
+          <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
+          <rect x="520" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="594" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="594" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
+          <line x1="560" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
+          <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · green border = Phase 3 expansion</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 3 scope:</strong> Extends the same HighByte architecture across all of Paint Line 1 — a significantly larger undertaking than the Cell 56 pilot. All cells, conveyors, and support systems connect to the UNS. i3X templates expand to cover the full cell and equipment inventory. Both the CCR and Fascia Operations cockpits are fully operational. This phase validates the architecture as the plant-wide data backbone.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -532,8 +772,8 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
-<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Fascia Operations Cockpit</a>
+<a href="operations-cockpit.html" class="">Fascia Operations<br>Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 
@@ -543,6 +783,13 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
       var key = btn.dataset.ddBtn;
       document.querySelectorAll('[data-dd-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
       document.querySelectorAll('[data-dd-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.ddPane === key); });
+    });
+  });
+  document.querySelectorAll('[data-phase-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var phase = btn.dataset.phaseBtn;
+      document.querySelectorAll('[data-phase-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-phase-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.phasePane === phase); });
     });
   });
 </script>
