@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="./" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Plant | Asset Health Index</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Example Plant senior management &amp; maintenance leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Approach</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="journey.html" class="">Journey<br>Map</a>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a>
+<a href="asset-health.html" class="current">Asset Health<br>Index</a>
+<a href="detail-design.html" class="">Detail<br>Design</a>
+<a href="technology.html" class="">Tech<br>Options</a>
+<a href="roi.html" class="">ROI</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Asset Health Index</div>
+    <h1 class="page-title">Asset Health Index — one score, four pillars</h1>
+    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0–100% score per asset. The database layer — fed by Cimplicity and HighByte — computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell 056.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <style>
+      .ahi-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+      .ahi-pill{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}
+      .ahi-pill .w{font-size:30px;font-weight:950;color:var(--navy);letter-spacing:-.03em}
+      .ahi-pill h3{margin:6px 0 4px;font-size:15px}
+      .ahi-pill small{color:var(--muted);font-size:12.5px;line-height:1.5;display:block}
+      .ahi-src{margin-top:10px;font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#0a77a9}
+      .ahi-banner{display:flex;align-items:center;gap:24px;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff7ed}
+      .ahi-score{font-size:62px;font-weight:950;letter-spacing:-.04em;color:#c2410c;line-height:1}
+      .ahi-score small{display:block;font-size:14px;font-weight:900;letter-spacing:.08em;color:#c2410c}
+      .ahi-ex{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+      .ahi-card{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}
+      .ahi-card .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+      .ahi-card .hd b{font-size:15px}
+      .ahi-card .sc{font-size:18px;font-weight:950;color:var(--navy);white-space:nowrap}
+      .ahi-card ul{margin:0;padding-left:18px}
+      .ahi-card li{font-size:13px;color:#3b4a59;line-height:1.55;margin-bottom:4px}
+      .ahi-calc{background:#0e2236;color:#dbe8f1;border-radius:12px;padding:18px 20px;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.8;overflow-x:auto;white-space:pre}
+      .ahi-calc b{color:#ffb15b}
+      @media(max-width:760px){.ahi-pillars,.ahi-ex{grid-template-columns:1fr}}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The weighting blueprint</span><h2>Four pillars, one weighted score</h2></div>
+      <p class="section-copy">Weights are tuned for heavy, asset-intensive manufacturing — condition carries the most signal, financial and age temper it. Pillar 1 is fed by the real OT telemetry templated on the Detail Design tab; pillars 2–4 draw on MES, EAM, and ERP / Maximo.</p>
+    </div>
+    <div class="ahi-pillars">
+      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry — motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity → HighByte</div></div>
+      <div class="ahi-pill"><div class="w">25%</div><h3>Operational reliability</h3><small>Availability, MTBF trend, micro-stoppage frequency.</small><div class="ahi-src">DRS / MES</div></div>
+      <div class="ahi-pill"><div class="w">20%</div><h3>Lifecycle age</h3><small>Runtime hours consumed vs. manufacturer rated life.</small><div class="ahi-src">EAM registry</div></div>
+      <div class="ahi-pill"><div class="w">20%</div><h3>Financial risk</h3><small>Life-to-date repair cost vs. asset replacement value.</small><div class="ahi-src">ERP / Maximo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 — Robot BC5605, Paint Cell 056 (base coat)</h2></div>
+      <p class="section-copy">Applying the base color coat under continuous high-stress cycle paths within the 55–60 second Takt time. Here is how today's raw metrics compile into a single AHI score.</p>
+    </div>
+    <div class="ahi-banner">
+      <div class="ahi-score">54%<small>ALERT</small></div>
+      <div>
+        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 54.06%.</strong> Condition and reliability are degraded but functional; the score is dragged down hard by lifecycle age (92% consumed) and financial risk (77% of replacement value already spent on repairs). The asset is functional today but economically and mechanically near end-of-life.</p>
+      </div>
+    </div>
+    <div class="ahi-ex">
+      <div class="ahi-card">
+        <div class="hd"><b>1 · Condition monitoring</b><span class="sc">S₁ = 78.3%</span></div>
+        <ul>
+          <li><b>Axis 3 motor temperature:</b> 172°F (baseline 140°F; warning at 165°F) → 65%</li>
+          <li><b>Axis 2 gearbox vibration (RMS velocity):</b> 4.2 mm/s (normal &lt; 3.0) → 80%</li>
+          <li><b>Axis 1 dynamic joint torque:</b> 104% of nominal curve → 90%</li>
+          <li><em>Composite = average of the three = 78.3%</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>2 · Operational reliability</b><span class="sc">S₂ = 82.0%</span></div>
+        <ul>
+          <li><b>Availability (trailing 30 days):</b> 94.5% (target 98.5%)</li>
+          <li><b>MTBF trend:</b> shortening — 3 flow / sequence micro-stoppages this week</li>
+          <li><em>Composite from OEE availability &amp; MTBF drift = 82.0%</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>3 · Lifecycle age</b><span class="sc">S₃ = 8.0%</span></div>
+        <ul>
+          <li><b>Current runtime:</b> 46,000 operational hours</li>
+          <li><b>Rated useful life:</b> 50,000 hours (high-velocity paint config)</li>
+          <li><em>92% of intended life consumed → 8.0% health remaining</em></li>
+        </ul>
+      </div>
+      <div class="ahi-card">
+        <div class="hd"><b>4 · Financial risk</b><span class="sc">S₄ = 22.8%</span></div>
+        <ul>
+          <li><b>Life-to-date repair cost:</b> $85,000 (overhauls, harnesses, PM labor)</li>
+          <li><b>Asset replacement value:</b> $110,000</li>
+          <li><em>Maintenance cost ratio = 77.2% → score = 100% − 77.2% = 22.8%</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <style>
+      .ahi-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+      .ahi-tbl th,.ahi-tbl td{border:1px solid var(--line);padding:7px 10px;text-align:left}
+      .ahi-tbl th{background:#f3f6f9;font-weight:900;color:#27384a}
+      .ahi-chip{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:900;color:#fff}
+      .ahi-tbl tr.hl td{background:#fff7ed}
+      .cv-wrap{position:relative}
+      .cv-hot{position:absolute;cursor:pointer;border-radius:10px}
+      .cv-hot:hover,.cv-hot:focus{outline:2px solid rgba(255,255,255,.45);outline-offset:1px}
+      .cv-pop{position:absolute;display:none;width:236px;background:#0b1b2c;border:1px solid #2f5066;border-radius:10px;padding:12px 14px;z-index:9;box-shadow:0 10px 28px rgba(0,0,0,.45);color:#e6eef5;font-size:12.5px}
+      .cv-pop h4{margin:0;font-size:14px;color:#fff}
+      .cv-pop .pop-ahi{font-weight:900;float:right}
+      .cv-pop table{width:100%;border-collapse:collapse;margin:8px 0 4px}
+      .cv-pop td{padding:2px 0;color:#cfe0ec;border:0}
+      .cv-pop td.v{text-align:right;font-weight:800;color:#fff}
+      .cv-pop a{display:inline-block;margin-top:6px;color:#7cc4e6;font-weight:800;text-decoration:none;font-size:12px}
+      .cv-pop a:hover{text-decoration:underline}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Representative cell view</span><h2>Cell 056 at a glance — 8 robots + conveyor</h2></div>
+      <p class="section-copy">How the cell reads in the cockpit: one rolled-up cell AHI, and a per-asset score on each of the 8 ABB robots and the conveyor. Color flags the band so the COO triages the cell in one look, then drills into the asset dragging it down — here, Robot BC5605 at 54%.</p>
+    </div>
+    <figure class="platform-figure">
+      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>civops cockpit — Cell 056 asset health<span class="pf-badge">Representative view</span></div>
+      <div class="cv-wrap">
+      <svg width="100%" viewBox="0 0 680 424" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        <title>Cell 056 base coat asset health — 8 ABB robots around a conveyor with per-asset AHI</title>
+        <desc>Eight ABB IRB 6600 robots, four above and four below a central conveyor, each showing an Asset Health Index score; the conveyor and the rolled-up cell AHI are also shown. Robot BC5605 is in the alert band at 54 percent.</desc>
+        <style>
+          .cvt{font-size:13px;fill:#e6eef5}.cvscore{font-size:20px;font-weight:800}
+          .cvnode{fill:#15324c;stroke-width:1.5}.cvconv{fill:#16314c;stroke:#3f627d;stroke-width:1.5}
+          .cvstem{stroke:#3f627d;stroke-width:2}.cvhd{font-size:15px;font-weight:600;fill:#ffffff}
+          .cvsub{font-size:11px;fill:#9fb6c6}.cvlegend{font-size:11px;fill:#9fb6c6}
+          .cvbadgenum{font-size:18px;font-weight:800;fill:#ffb15b}
+        </style>
+        <rect x="2" y="2" width="676" height="420" rx="16" fill="#0e2236" stroke="#1f587a"/>
+        <text class="cvhd" x="24" y="32">Cell 056 — Base Coat</text>
+        <text class="cvsub" x="24" y="49">ABB IRB 6600 · 8 robots + conveyor</text>
+        <rect x="494" y="14" width="162" height="48" rx="10" fill="#241a06" stroke="#ffb15b"/>
+        <text class="cvsub" x="508" y="33">CELL AHI · roll-up</text>
+        <text class="cvbadgenum" x="508" y="54">77%<tspan class="cvsub" dx="6" fill="#ffb15b"> · WATCH</tspan></text>
+
+        <rect class="cvconv" x="40" y="188" width="600" height="48" rx="10"/>
+        <text class="cvt" x="56" y="218" text-anchor="start">Conveyor 056</text>
+        <path d="M300 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M330 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M360 212 l10 -6 v12 z" fill="#3f627d"/>
+        <path d="M390 212 l10 -6 v12 z" fill="#3f627d"/>
+        <circle cx="600" cy="200" r="4" fill="#49bd8d"/>
+        <text class="cvscore" x="624" y="219" text-anchor="end" fill="#49bd8d">83%</text>
+
+        <line class="cvstem" x1="91" y1="142" x2="91" y2="188"/>
+        <line class="cvstem" x1="257" y1="142" x2="257" y2="188"/>
+        <line class="cvstem" x1="423" y1="142" x2="423" y2="188"/>
+        <line class="cvstem" x1="589" y1="142" x2="589" y2="188"/>
+        <line class="cvstem" x1="91" y1="236" x2="91" y2="300"/>
+        <line class="cvstem" x1="257" y1="236" x2="257" y2="300"/>
+        <line class="cvstem" x1="423" y1="236" x2="423" y2="300"/>
+        <line class="cvstem" x1="589" y1="236" x2="589" y2="300"/>
+
+        <rect class="cvnode" x="26" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="141" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="91" y="108" text-anchor="middle">Robot BC5601</text>
+        <text class="cvscore" x="91" y="131" text-anchor="middle" fill="#49bd8d">88%</text>
+        <rect class="cvnode" x="192" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="307" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="257" y="108" text-anchor="middle">Robot BC5602</text>
+        <text class="cvscore" x="257" y="131" text-anchor="middle" fill="#49bd8d">81%</text>
+        <rect class="cvnode" x="358" y="84" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="473" cy="98" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="423" y="108" text-anchor="middle">Robot BC5603</text>
+        <text class="cvscore" x="423" y="131" text-anchor="middle" fill="#ffb15b">69%</text>
+        <rect class="cvnode" x="524" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="639" cy="98" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="589" y="108" text-anchor="middle">Robot BC5604</text>
+        <text class="cvscore" x="589" y="131" text-anchor="middle" fill="#49bd8d">90%</text>
+
+        <rect class="cvnode" x="26" y="300" width="130" height="58" rx="10" stroke="#ef6a5b" stroke-width="2.5"/>
+        <circle cx="141" cy="314" r="4" fill="#ef6a5b"/>
+        <text class="cvt" x="91" y="324" text-anchor="middle">Robot BC5605</text>
+        <text class="cvscore" x="91" y="347" text-anchor="middle" fill="#ef6a5b">54%</text>
+        <text class="cvsub" x="91" y="374" text-anchor="middle" fill="#ef6a5b">â—€ worked example</text>
+        <rect class="cvnode" x="192" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="307" cy="314" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="257" y="324" text-anchor="middle">Robot BC5606</text>
+        <text class="cvscore" x="257" y="347" text-anchor="middle" fill="#ffb15b">77%</text>
+        <rect class="cvnode" x="358" y="300" width="130" height="58" rx="10" stroke="#49bd8d"/>
+        <circle cx="473" cy="314" r="4" fill="#49bd8d"/>
+        <text class="cvt" x="423" y="324" text-anchor="middle">Robot BC5607</text>
+        <text class="cvscore" x="423" y="347" text-anchor="middle" fill="#49bd8d">85%</text>
+        <rect class="cvnode" x="524" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="639" cy="314" r="4" fill="#ffb15b"/>
+        <text class="cvt" x="589" y="324" text-anchor="middle">Robot BC5608</text>
+        <text class="cvscore" x="589" y="347" text-anchor="middle" fill="#ffb15b">63%</text>
+
+        <circle cx="206" cy="400" r="5" fill="#49bd8d"/><text class="cvlegend" x="216" y="404">Healthy ≥ 80</text>
+        <circle cx="330" cy="400" r="5" fill="#ffb15b"/><text class="cvlegend" x="340" y="404">Watch 60–79</text>
+        <circle cx="452" cy="400" r="5" fill="#ef6a5b"/><text class="cvlegend" x="462" y="404">Alert &lt; 60</text>
+      </svg>
+      <div class="cv-hot" data-asset="BC5601" data-pos="top" tabindex="0" style="left:3.8%;top:19.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5602" data-pos="top" tabindex="0" style="left:28.2%;top:19.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5603" data-pos="top" tabindex="0" style="left:52.6%;top:19.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5604" data-pos="top" tabindex="0" style="left:77.1%;top:19.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="conv" data-pos="top" tabindex="0" style="left:5.9%;top:44.3%;width:88.2%;height:11.3%"></div>
+      <div class="cv-hot" data-asset="BC5605" data-pos="bottom" tabindex="0" style="left:3.8%;top:70.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5606" data-pos="bottom" tabindex="0" style="left:28.2%;top:70.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5607" data-pos="bottom" tabindex="0" style="left:52.6%;top:70.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-hot" data-asset="BC5608" data-pos="bottom" tabindex="0" style="left:77.1%;top:70.8%;width:19.1%;height:13.7%"></div>
+      <div class="cv-pop" id="cvPop" role="dialog"></div>
+      </div>
+      <figcaption><b>Cell 056 asset health.</b> Representative scores — cell roll-up 77% (Watch), driven down by Robot BC5605 (54%, Alert). Robots flank the conveyor 4 + 4; the conveyor carries its own AHI.</figcaption>
+    </figure>
+    <table class="ahi-tbl">
+      <tr><th>Asset</th><th>Model</th><th>AHI</th><th>Band</th></tr>
+      <tr><td>Cell 056 (roll-up)</td><td>Base coat cell</td><td><b>77%</b></td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5601</td><td>ABB IRB 6600</td><td>88%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot BC5602</td><td>ABB IRB 6600</td><td>81%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot BC5603</td><td>ABB IRB 6600</td><td>69%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5604</td><td>ABB IRB 6600</td><td>90%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr class="hl"><td>Robot BC5605 <em>(worked example)</em></td><td>ABB IRB 6600</td><td>54%</td><td><span class="ahi-chip" style="background:#d1453a">Alert</span></td></tr>
+      <tr><td>Robot BC5606</td><td>ABB IRB 6600</td><td>77%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5607</td><td>ABB IRB 6600</td><td>85%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot BC5608</td><td>ABB IRB 6600</td><td>63%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Conveyor 056</td><td>Cell conveyor</td><td>83%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+    </table>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">Scores are representative for layout review, not live client data. Cell roll-up shown as the weighted asset average; the production roll-up rule (worst-of vs. weighted) is a config decision to confirm.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The calculation</span><h2>Weighted moving average</h2></div>
+    </div>
+    <p class="section-copy" style="max-width:none;margin-bottom:14px"><strong>Pillar 1 runs on real torque.</strong> The condition score is computed from the ABB controller's per-cycle torque monitor (<code>Monitor1Tsk.TorqueData</code>). Below is the <strong>actual torque envelope Robot BC5605 produced over 134 cycles</strong> on the night shift of 21 Jun (real <code>BC56_Torques</code> data). Each cycle is scored against a learned per-axis baseline; limits to be set from the asset population. Motor-temperature and vibration (the example's other inputs) still need their tags historized.</p>
+    <table class="ahi-tbl">
+      <tr><th>Axis</th><th>Observed max torque (Nm)</th><th>Observed min torque (Nm)</th></tr>
+      <tr><td>A1</td><td>18.9 – 34.0</td><td>−34.4 – −24.9</td></tr>
+      <tr><td>A2</td><td>10.6 – 26.7</td><td>−37.3 – −33.1</td></tr>
+      <tr><td>A3</td><td>7.9 – 11.2</td><td>−9.8 – −6.0</td></tr>
+      <tr><td>A4</td><td>1.6 – 2.9</td><td>−2.0 – −0.5</td></tr>
+      <tr><td>A5</td><td>0.4 – 1.9</td><td>−2.0 – −1.6</td></tr>
+      <tr><td>A6</td><td>0.6 – 1.2</td><td>−1.7 – −0.5</td></tr>
+      <tr><td>A7</td><td colspan="2">— external axis, unused on this robot</td></tr>
+    </table>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted);margin:6px 0 22px">Real values across 134 cycles (Senseye trends these same signals as MaxTorque per axis).</p>
+
+    <div class="ahi-calc">AHI = (S₁ × W₁) + (S₂ × W₂) + (S₃ × W₃) + (S₄ × W₄)
+
+AHI = (78.3 × 0.35) + (82.0 × 0.25) + (8.0 × 0.20) + (22.8 × 0.20)
+
+AHI = 27.40 + 20.50 + 1.60 + 4.56
+
+AHI = <b>54.06%</b></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Reading the score</span>
+      <h2 style="font-size:28px">What 54% means at the Control Tower</h2>
+      <p class="section-copy" style="max-width:none">A single number lets the COO and FDA triage hundreds of assets at a glance, then drill into the pillars. 54% is a clear ALERT band: not a breakdown today, but an asset whose age and repair economics now outweigh its remaining condition headroom — a planned-replacement decision, not a repair-again reflex.</p>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">Recommended action playbook</h3>
+      <p style="color:#ffd9b0;font-weight:900;margin:0 0 8px">⚠ Critical path warning — asset is on the final-assembly critical path.</p>
+      <ul>
+        <li>Restrict further heavy capital component overhauls.</li>
+        <li>Defer restoration spend — repair economics no longer justify it.</li>
+        <li>Flag the asset registry for full CapEx replacement during the next shutdown.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → HighByte). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / Maximo (cost ledger) feeds — the integration points to confirm with client controls / IT before the score goes live.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Standards basis</span><h2>Grounded in established health-index practice</h2></div>
+      <p class="section-copy">The AHI approach — compressing condition, reliability, age, and risk into one banded 0–100 score — is consistent with recognized asset-management standards and decades of published prior art. The closest precedents come from regulated, asset-intensive industries that have done exactly this for years.</p>
+    </div>
+
+    <table class="ahi-tbl">
+      <tr><th>What we do</th><th>Recognized basis</th></tr>
+      <tr><td>Single 0–100 score, banded into health levels</td><td>CIGRE/IEEE transformer Health Index (0–100%, 100 = healthy, &lt;25 = poor); Ofgem <strong>CNAIM</strong> bands HI1–HI5 mapped to Probability of Failure</td></tr>
+      <tr><td>Combining condition + reliability + age into one composite</td><td>CNAIM: <em>Health Score = Initial (age) × Health-Score Factor (condition) × Reliability Factor</em></td></tr>
+      <tr><td>Weighted aggregation of heterogeneous factors</td><td><strong>Weighted Sum Model</strong> — the named method behind most published Health Indices (Naderian &amp; Jahromi, IEEE 2008)</td></tr>
+      <tr><td>Pillar 1 · Condition monitoring</td><td><strong>ISO 13374</strong> "Health Assessment" functional block; implemented by <strong>MIMOSA OSA-CBM</strong></td></tr>
+      <tr><td>Pillar 2 · Operational reliability</td><td>CNAIM Reliability Factor; ISO 14224 reliability/maintenance data (MTBF/MTTR); SMRP metrics</td></tr>
+      <tr><td>Pillar 3 · Lifecycle age</td><td>CNAIM age-based Initial Health Score (an <em>initial proxy</em> — see caution); ISO 13381 remaining-useful-life prognostics</td></tr>
+      <tr><td>Pillar 4 · Financial risk</td><td>No condition-monitoring HI precedent — maps to asset-management criticality / consequence-of-failure (ISO 55000, ISO 31000). Our extension.</td></tr>
+    </table>
+
+    <div class="grid-2" style="margin-top:18px">
+      <div class="panel">
+        <span class="eyebrow">Precedents</span>
+        <h3 style="margin-top:6px">Published methodologies this follows</h3>
+        <ul>
+          <li><strong>Ofgem CNAIM v2.1</strong> — the UK electricity-network regulator's Health Index / Probability-of-Failure methodology. <a href="https://www.ofgem.gov.uk/sites/default/files/docs/2021/04/dno_common_network_asset_indices_methodology_v2.1_final_01-04-2021.pdf" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>CIGRE / IEEE transformer Health Index</strong> — recognized industry technical methodology (CIGRE TB 761; Naderian &amp; Jahromi, IEEE 2008). <a href="https://ieeexplore.ieee.org/document/4570308/" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>ISO 13374 + MIMOSA OSA-CBM</strong> — the standard condition-monitoring processing chain with a formal Health Assessment block. <a href="https://www.mimosa.org/mimosa-osa-cbm/" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>Process-pump fleet AHI</strong> — a non-transformer, rotating-equipment precedent. <a href="https://omaintec.org/journal/index.php/docs/asset-health-index-method-a-case-study-for-process-pumps-fleet/" target="_blank" rel="noreferrer">source →</a></li>
+        </ul>
+      </div>
+      <div class="panel" style="border-left:3px solid #d9a441;background:#fbf6ec">
+        <span class="eyebrow">What is engineering judgment — disclosed</span>
+        <h3 style="margin-top:6px">What the standards don't mandate</h3>
+        <ul>
+          <li><strong>The 35/25/20/20 weights, the four-pillar set, and the weighted-average math are our engineering judgment</strong> — no standard mandates them. Composite-indicator guidance (OECD/JRC) treats weights as value judgments that change the verdict, so they're tuned and validated with the client.</li>
+          <li><strong>Age ≠ condition.</strong> Lifecycle age is only a starting proxy; observed condition must be able to override it (as CNAIM does with caps &amp; collars).</li>
+          <li><strong>Normalization matters.</strong> A simple weighted average can mask a single urgent failure mode; we calibrate the scale (and consider a hard condition override) so one critical signal can't be diluted, and tie each band to an action and timescale.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Example Plant. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Operations Cockpit</a>
+<a href="operations-cockpit.html" class="">Operations<br>Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var W=[0.35,0.25,0.20,0.20], LBL=['Condition','Reliability','Lifecycle age','Financial'];
+  // [asset]: { name, ahi, band, color, pillars:[S1,S2,S3,S4] }
+  var D={
+    'BC5601':{name:'Robot BC5601',ahi:88,band:'Healthy',color:'#49bd8d',p:[92,90,80,85]},
+    'BC5602':{name:'Robot BC5602',ahi:81,band:'Healthy',color:'#49bd8d',p:[85,82,72,78]},
+    'BC5603':{name:'Robot BC5603',ahi:69,band:'Watch',color:'#ffb15b',p:[74,72,55,62]},
+    'BC5604':{name:'Robot BC5604',ahi:90,band:'Healthy',color:'#49bd8d',p:[94,91,84,86]},
+    'BC5605':{name:'Robot BC5605',ahi:54,band:'Alert',color:'#ef6a5b',p:[78,82,8,23]},
+    'BC5606':{name:'Robot BC5606',ahi:77,band:'Watch',color:'#ffb15b',p:[82,80,66,70]},
+    'BC5607':{name:'Robot BC5607',ahi:85,band:'Healthy',color:'#49bd8d',p:[89,86,78,80]},
+    'BC5608':{name:'Robot BC5608',ahi:63,band:'Watch',color:'#ffb15b',p:[70,68,48,58]},
+    'conv':{name:'Conveyor 056',ahi:83,band:'Healthy',color:'#49bd8d',p:[88,85,76,80]}
+  };
+  var pop=document.getElementById('cvPop'), wrap=pop&&pop.parentElement, sticky=false;
+  if(!pop) return;
+  function html(id){
+    var d=D[id]; if(!d) return '';
+    var rows=d.p.map(function(s,i){return '<tr><td>'+LBL[i]+' <span style="opacity:.6">·'+Math.round(W[i]*100)+'%</span></td><td class="v">'+s+'%</td></tr>';}).join('');
+    return '<h4>'+d.name+'<span class="pop-ahi" style="color:'+d.color+'">'+d.ahi+'% · '+d.band+'</span></h4>'+
+      '<table>'+rows+'</table>'+
+      '<a href="asset-data.html?asset='+id+'">View source data →</a>';
+  }
+  function show(hot){
+    var id=hot.getAttribute('data-asset');
+    pop.innerHTML=html(id); pop.style.display='block';
+    var hl=hot.offsetLeft, ht=hot.offsetTop, hw=hot.offsetWidth, hh=hot.offsetHeight;
+    var pw=pop.offsetWidth, ph=pop.offsetHeight, ww=wrap.offsetWidth;
+    var left=hl+hw/2-pw/2; if(left<0)left=0; if(left+pw>ww)left=ww-pw;
+    var top = hot.getAttribute('data-pos')==='bottom' ? (ht-ph-8) : (ht+hh+8);
+    if(top<0) top=ht+hh+8;
+    pop.style.left=left+'px'; pop.style.top=top+'px';
+  }
+  function hide(){ if(!sticky){ pop.style.display='none'; } }
+  document.querySelectorAll('.cv-hot').forEach(function(hot){
+    hot.addEventListener('mouseenter',function(){ if(!sticky) show(hot); });
+    hot.addEventListener('mouseleave',hide);
+    hot.addEventListener('focus',function(){ show(hot); });
+    hot.addEventListener('blur',hide);
+    hot.addEventListener('click',function(e){ e.stopPropagation(); sticky=true; show(hot); });
+  });
+  pop.addEventListener('click',function(e){ e.stopPropagation(); });
+  document.addEventListener('click',function(){ sticky=false; pop.style.display='none'; });
+})();
+</script>
+<script src="main.js"></script>
+</body>
+</html>
