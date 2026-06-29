@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Kentucky Truck Plant — ROI</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .roi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin:24px 0}
+    .roi-card{background:#fff;border:1px solid #e0e4ea;border-radius:12px;padding:20px 22px}
+    .roi-card-eyebrow{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8e9aab;margin-bottom:6px}
+    .roi-card h3{font-size:18px;font-weight:900;color:#0a77a9;margin:0 0 4px}
+    .roi-card p{font-size:13px;color:#4a5a6a;line-height:1.55;margin:0}
+    .roi-card .roi-basis{font-size:11px;color:#8e9aab;margin-top:8px;font-style:italic}
+    .roi-total{background:#0a1928;border-radius:14px;padding:28px 32px;color:#fff;margin:28px 0}
+    .roi-total h3{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7baac4;margin:0 0 10px}
+    .roi-total-val{font-size:42px;font-weight:900;color:#ffd23f;line-height:1}
+    .roi-total-sub{font-size:13px;color:#9fb6c6;margin-top:6px}
+    .roi-assume{background:#f0f6fa;border-left:4px solid #0a77a9;border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.6;color:#27384a;margin:20px 0}
+    .roi-assume strong{color:#0a77a9}
+    .roi-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+    .roi-table th,.roi-table td{border:1px solid #e0e4ea;padding:9px 12px;text-align:left;vertical-align:top}
+    .roi-table th{background:#f3f6f9;font-weight:900;color:#27384a}
+    .roi-table td:last-child{font-weight:700;color:#0a77a9}
+    .roi-disclaimer{font-size:11px;color:#8e9aab;line-height:1.55;margin-top:16px}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Ford Motor Co. — Kentucky Truck Plant</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations<br>Cockpit</a>
+      <a href="design.html">Design<br>Detail</a>
+      <a href="roi.html" class="current">ROI</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / ROI</div>
+    <h1 class="page-title">Return on investment — the case for visibility</h1>
+    <p class="page-deck">Kentucky Truck Plant produces high-demand, high-margin vehicles. Every minute of unplanned downtime, every quality escape, and every delayed Help/Call response has a measurable cost. The numbers below are illustrative — built from publicly available Ford production data and industry benchmarks. The functional specification engagement will replace these estimates with figures grounded in KTP's actual output, downtime history, and quality data.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The opportunity</span><h2>What each OEE dimension is worth at KTP</h2></div>
+    </div>
+
+    <div class="roi-assume">
+      <strong>Working assumptions (illustrative).</strong> KTP produces approximately 1,000–1,100 vehicles per day across multiple shifts. Average Super Duty transaction price ~$65,000–$75,000. Typical truck plant unplanned downtime runs 8–12% of available time. These assumptions drive the estimates below — actual figures will differ and will be refined during the data mapping workstream.
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Availability — downtime reduction</div>
+        <h3>~$2.1M / shift-point</h3>
+        <p>Each percentage point of uptime recovered at KTP's scale and vehicle price point represents significant throughput. At 1,050 vehicles/day and ~$70K ASP, one point of availability is roughly 10–11 vehicles — approximately $700K–$770K per shift in recovered output.</p>
+        <div class="roi-basis">Basis: 1,050 vehicles/day · $70K ASP · 1pt availability = ~10.5 vehicles/shift</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Performance — JPH improvement</div>
+        <h3>~$1.4M / JPH point</h3>
+        <p>Closing even a portion of the gap between actual and target JPH compounds across shifts. One additional JPH sustained across a full shift adds ~20 vehicles. At KTP's vehicle mix, that is roughly $1.4M in additional output per shift.</p>
+        <div class="roi-basis">Basis: 1 JPH × 10-hr shift × $70K ASP = ~$700K/shift per line</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Quality — first-pass yield</div>
+        <h3>~$800K / yield point</h3>
+        <p>Each rework loop at KTP costs time on the line and carries warranty risk downstream. Closing 1 point of first-pass yield eliminates rework loops on roughly 10 vehicles per shift — and reduces the downstream warranty exposure that follows quality escapes.</p>
+        <div class="roi-basis">Basis: 1pt FPY at 1,050 vehicles/day · rework cost + warranty tail</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Help/Call — response time</div>
+        <h3>~$420K / minute saved</h3>
+        <p>At KTP's throughput, each minute of unplanned downtime eliminated across the plant represents roughly $420K in annualized output recovery — assuming 250 production days and current vehicle mix. Faster Help/Call response directly shortens event duration.</p>
+        <div class="roi-basis">Basis: 1 min/event · 2 events/shift avg · 250 days · $70K ASP</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:40px">
+      <div class="section-title"><span class="eyebrow">Conservative case</span><h2>What modest improvements look like at scale</h2></div>
+      <p class="section-copy">The case for this engagement doesn't require heroic assumptions. The table below shows what small, sustained improvements in each OEE dimension are worth annually — based on the working assumptions above.</p>
+    </div>
+
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>OEE dimension</th>
+          <th>Conservative improvement</th>
+          <th>Mechanism</th>
+          <th>Illustrative annual value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Availability</td>
+          <td>1.5 points of uptime recovered</td>
+          <td>Faster downtime attribution → shorter events. Chronic causes surface in Pareto before they repeat.</td>
+          <td>~$6.3M</td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td>0.5 JPH improvement sustained</td>
+          <td>Live JPH visible to supervisors → micro-adjustments before the hour is lost.</td>
+          <td>~$3.5M</td>
+        </tr>
+        <tr>
+          <td>Quality</td>
+          <td>0.5 point FPY improvement</td>
+          <td>Defects linked to asset and vehicle config → root cause found faster, rework loops eliminated.</td>
+          <td>~$2.0M</td>
+        </tr>
+        <tr>
+          <td>Help/Call response</td>
+          <td>3 min avg response time reduction</td>
+          <td>Auto-trigger eliminates the lag between stop-state and the call being made.</td>
+          <td>~$1.3M</td>
+        </tr>
+        <tr>
+          <td><strong>Total — conservative case</strong></td>
+          <td></td>
+          <td></td>
+          <td><strong>~$13.1M / year</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="roi-total">
+      <h3>Conservative annual value — illustrative</h3>
+      <div class="roi-total-val">~$13M</div>
+      <div class="roi-total-sub">Based on 1.5pt availability · 0.5 JPH · 0.5pt FPY · 3min Help/Call reduction · 250 production days · ~$70K ASP</div>
+    </div>
+
+    <div class="section-head" style="margin-top:40px">
+      <div class="section-title"><span class="eyebrow">The engagement cost</span><h2>What the functional specification costs vs. what it enables</h2></div>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <h3>Functional specification engagement</h3>
+        <p>Six workstreams over approximately eight weeks. Data mapping, OEE methodology definition, Help/Call workflow design, architecture recommendation, and a build-ready implementation spec.</p>
+        <div class="proof-link">Output: a document engineering can build from. No discovery re-work on the follow-on implementation.</div>
+      </div>
+      <div class="proof-card">
+        <h3>What it unlocks</h3>
+        <p>A follow-on implementation that is estimable, low-risk, and scoped to KTP's actual systems — not a generic deployment. The spec eliminates the most expensive part of most technology projects: discovering requirements after the build has started.</p>
+        <div class="proof-link">Risk reduction: a spec-first approach consistently delivers faster, lower-cost implementations.</div>
+      </div>
+      <div class="proof-card">
+        <h3>Scalability beyond KTP</h3>
+        <p>The architecture and data flow patterns developed for KTP are designed to extend to other Ford plants. The asset model, namespace structure, and integration patterns become a Ford template — not a one-off.</p>
+        <div class="proof-link">Multiplier: each additional plant connected costs a fraction of the first.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:28px">
+      <strong>These numbers get refined, not replaced.</strong> The functional specification engagement's first workstream is current-state data mapping — which produces KTP's actual downtime history, quality event counts, and Help/Call response time data. Every estimate on this page gets replaced with a number grounded in what KTP actually experiences. That's the point of doing the spec first.
+    </div>
+
+    <p class="roi-disclaimer">All figures on this page are illustrative estimates based on publicly available Ford production volume data, industry-average truck plant OEE benchmarks, and approximate Super Duty transaction prices. They are intended to frame the scale of the opportunity, not to represent KTP's actual performance. Actual values will be determined during the data mapping workstream of the functional specification engagement.</p>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site prepared for Ford Motor Co. — Kentucky Truck Plant. Built to support scope alignment and follow-on design work.</div>
+    </div>
+    <div class="small-nav">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations Cockpit</a>
+      <a href="design.html">Design Detail</a>
+      <a href="roi.html">ROI</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

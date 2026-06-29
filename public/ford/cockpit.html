@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Kentucky Truck Plant — Operations Cockpit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .fo-tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+    .fo-tab{padding:9px 20px;border-radius:999px;border:1.5px solid #c5d2dc;background:#fff;font-size:13px;font-weight:700;color:#27384a;cursor:pointer;transition:all .15s}
+    .fo-tab.active{background:#0a77a9;border-color:#0a77a9;color:#fff}
+    .fo-pane{display:none}.fo-pane.active{display:block}
+    .fo-screen{background:#0e2236;border-radius:14px;padding:20px 24px;color:#e6eef5}
+    .fo-screen-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+    .fo-screen-title{font-size:16px;font-weight:900;color:#fff}
+    .fo-toggle{display:flex;gap:6px}
+    .fo-seg{padding:5px 14px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid #3b7494;color:#9fb6c6;background:transparent}
+    .fo-seg.active{background:#ff8300;border-color:#ff8300;color:#fff}
+    .fo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+    .fo-kpi{background:#132f49;border-radius:10px;padding:14px 16px}
+    .fo-kpi-label{font-size:10px;font-weight:700;letter-spacing:.06em;color:#7baac4;text-transform:uppercase;margin-bottom:6px}
+    .fo-kpi-val{font-size:26px;font-weight:900;line-height:1}
+    .fo-kpi-sub{font-size:11px;color:#7baac4;margin-top:4px}
+    .fo-green{color:#49bd8d}.fo-yellow{color:#ffd23f}.fo-orange{color:#ff8300}.fo-red{color:#ff5555}
+    .fo-bar-wrap{background:#091827;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+    .fo-bar-title{font-size:10px;font-weight:700;letter-spacing:.06em;color:#7baac4;text-transform:uppercase;margin-bottom:10px}
+    .fo-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px}
+    .fo-bar-label{width:160px;flex-shrink:0;color:#9fb6c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .fo-bar-track{flex:1;background:#132f49;border-radius:4px;height:8px}
+    .fo-bar-fill{height:8px;border-radius:4px}
+    .fo-bar-val{width:36px;text-align:right;color:#c5d2dc;flex-shrink:0}
+    .fo-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:640px){.fo-two{grid-template-columns:1fr}}
+    .fo-q{background:#091827;border-radius:10px;padding:14px 16px}
+    .fo-q-title{font-size:10px;font-weight:700;letter-spacing:.06em;color:#7baac4;text-transform:uppercase;margin-bottom:10px}
+    .fo-q-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px}
+    .fo-q-label{flex:1;color:#9fb6c6}
+    .fo-q-bar-track{width:120px;flex-shrink:0;background:#132f49;border-radius:4px;height:8px}
+    .fo-q-bar-fill{height:8px;border-radius:4px;background:#49a9bd}
+    .fo-q-val{width:28px;text-align:right;color:#c5d2dc;flex-shrink:0}
+    .fo-alert{background:#1a0e00;border:1.5px solid #ff8300;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:12px;color:#ffb15b}
+    .fo-alert strong{color:#ff8300}
+    .fo-help-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+    .fo-help-card{background:#132f49;border-radius:10px;padding:14px 16px;border-left:4px solid #ff8300}
+    .fo-help-card.resolved{border-left-color:#49bd8d}
+    .fo-help-card.pending{border-left-color:#ffd23f}
+    .fo-help-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7baac4;margin-bottom:4px}
+    .fo-help-area{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+    .fo-help-desc{font-size:11px;color:#9fb6c6;margin-bottom:6px}
+    .fo-help-meta{font-size:10px;color:#5a7a8a}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Ford Motor Co. — Kentucky Truck Plant</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html" class="current">Operations<br>Cockpit</a>
+      <a href="design.html">Design<br>Detail</a>
+      <a href="roi.html">ROI</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Operations Cockpit</div>
+    <h1 class="page-title">KTP Operations Cockpit</h1>
+    <p class="page-deck">Representative view of what real-time OEE visibility looks like at Kentucky Truck Plant — JPH performance, uptime and downtime by cause, quality yield, and Help/Call status, all in one screen. Data shown is illustrative; the functional specification defines the exact sources, tags, and update rates.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="fo-tabs">
+      <button class="fo-tab active" data-fo-btn="oee">OEE Summary</button>
+      <button class="fo-tab" data-fo-btn="downtime">Downtime</button>
+      <button class="fo-tab" data-fo-btn="quality">Quality</button>
+      <button class="fo-tab" data-fo-btn="helpcall">Help / Call</button>
+    </div>
+
+    <!-- OEE Summary -->
+    <div class="fo-pane active" data-fo-pane="oee">
+      <div class="fo-screen">
+        <div class="fo-screen-head">
+          <div class="fo-screen-title">KTP — OEE Summary · Current Shift</div>
+          <div class="fo-toggle">
+            <div class="fo-seg active">Body on Frame</div>
+            <div class="fo-seg">Expedition / Navigator</div>
+          </div>
+        </div>
+        <div class="fo-grid">
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Actual JPH</div>
+            <div class="fo-kpi-val fo-yellow">47</div>
+            <div class="fo-kpi-sub">Target 52 JPH · −5 gap</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Uptime %</div>
+            <div class="fo-kpi-val fo-orange">88.3%</div>
+            <div class="fo-kpi-sub">Target 94% · 11.7% lost</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Quality Yield</div>
+            <div class="fo-kpi-val fo-green">96.2%</div>
+            <div class="fo-kpi-sub">14 defects · 3 rework loops</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">OEE</div>
+            <div class="fo-kpi-val fo-orange">75.1%</div>
+            <div class="fo-kpi-sub">Target 83% · availability driving gap</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Units Built</div>
+            <div class="fo-kpi-val fo-green">282</div>
+            <div class="fo-kpi-sub">Target 312 · 30 unit gap</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Open Help Calls</div>
+            <div class="fo-kpi-val fo-red">3</div>
+            <div class="fo-kpi-sub">Avg response 8.4 min this shift</div>
+          </div>
+        </div>
+        <div class="fo-two">
+          <div class="fo-bar-wrap">
+            <div class="fo-bar-title">JPH by Line — Current Hour</div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Line 1 — Body</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:82%;background:#ff8300"></div></div><div class="fo-bar-val">43</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Line 2 — Chassis</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:92%;background:#49bd8d"></div></div><div class="fo-bar-val">48</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Trim &amp; Final</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:88%;background:#ffd23f"></div></div><div class="fo-bar-val">46</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Paint</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:96%;background:#49bd8d"></div></div><div class="fo-bar-val">50</div></div>
+          </div>
+          <div class="fo-bar-wrap">
+            <div class="fo-bar-title">Downtime by Category — This Shift</div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Equipment fault</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:78%;background:#ff8300"></div></div><div class="fo-bar-val">34m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Starved / blocked</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:52%;background:#ff8300;opacity:.75"></div></div><div class="fo-bar-val">23m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Quality hold</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:30%;background:#ff8300;opacity:.55"></div></div><div class="fo-bar-val">13m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Changeover</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:20%;background:#ff8300;opacity:.4"></div></div><div class="fo-bar-val">9m</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Downtime -->
+    <div class="fo-pane" data-fo-pane="downtime">
+      <div class="fo-screen">
+        <div class="fo-screen-head">
+          <div class="fo-screen-title">Downtime Detail · Current Shift</div>
+          <div class="fo-toggle">
+            <div class="fo-seg active">All lines</div>
+            <div class="fo-seg">Line 1</div>
+            <div class="fo-seg">Line 2</div>
+            <div class="fo-seg">Trim / Final</div>
+          </div>
+        </div>
+        <div class="fo-grid">
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Total downtime</div>
+            <div class="fo-kpi-val fo-orange">79 min</div>
+            <div class="fo-kpi-sub">11.7% of shift so far</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Events</div>
+            <div class="fo-kpi-val fo-yellow">31</div>
+            <div class="fo-kpi-sub">18 micro · 13 major</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Longest stop</div>
+            <div class="fo-kpi-val fo-red">18 min</div>
+            <div class="fo-kpi-sub">Line 1 — weld gun fault</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">MTBF this shift</div>
+            <div class="fo-kpi-val fo-yellow">14.2 min</div>
+            <div class="fo-kpi-sub">Target &gt;25 min</div>
+          </div>
+        </div>
+        <div class="fo-two">
+          <div class="fo-bar-wrap">
+            <div class="fo-bar-title">Top 5 Downtime Causes — Pareto (time)</div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Weld gun fault · L1</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:100%;background:#ff8300"></div></div><div class="fo-bar-val">34m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Conveyor starved · L2</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:68%;background:#ff8300;opacity:.8"></div></div><div class="fo-bar-val">23m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Quality hold · Trim</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:38%;background:#ff8300;opacity:.6"></div></div><div class="fo-bar-val">13m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Torque tool fault · Final</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:26%;background:#ff8300;opacity:.45"></div></div><div class="fo-bar-val">9m</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Model changeover</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:20%;background:#ff8300;opacity:.35"></div></div><div class="fo-bar-val">7m</div></div>
+          </div>
+          <div class="fo-bar-wrap">
+            <div class="fo-bar-title">Top 5 Downtime Causes — Pareto (count)</div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Conveyor starved</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:100%;background:#ffd23f"></div></div><div class="fo-bar-val">11</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Weld gun fault</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:73%;background:#ffd23f;opacity:.8"></div></div><div class="fo-bar-val">8</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Torque tool fault</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:55%;background:#ffd23f;opacity:.65"></div></div><div class="fo-bar-val">6</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Quality hold</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:36%;background:#ffd23f;opacity:.5"></div></div><div class="fo-bar-val">4</div></div>
+            <div class="fo-bar-row"><div class="fo-bar-label">Model changeover</div><div class="fo-bar-track"><div class="fo-bar-fill" style="width:18%;background:#ffd23f;opacity:.4"></div></div><div class="fo-bar-val">2</div></div>
+          </div>
+        </div>
+        <div class="fo-alert"><strong>Chronic pattern:</strong> Weld gun faults on Line 1 account for 43% of total downtime minutes this shift — 3rd consecutive shift with &gt;30 min lost to same cause. Escalation recommended.</div>
+      </div>
+    </div>
+
+    <!-- Quality -->
+    <div class="fo-pane" data-fo-pane="quality">
+      <div class="fo-screen">
+        <div class="fo-screen-head">
+          <div class="fo-screen-title">Quality Yield · Current Shift</div>
+          <div class="fo-toggle">
+            <div class="fo-seg active">All models</div>
+            <div class="fo-seg">F-250 / 350</div>
+            <div class="fo-seg">Expedition</div>
+            <div class="fo-seg">Navigator</div>
+          </div>
+        </div>
+        <div class="fo-grid">
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">First-pass yield</div>
+            <div class="fo-kpi-val fo-green">96.2%</div>
+            <div class="fo-kpi-sub">Target 98% · 1.8pt gap</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Total defects</div>
+            <div class="fo-kpi-val fo-yellow">14</div>
+            <div class="fo-kpi-sub">9 end-of-line · 5 in-process</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Rework loops</div>
+            <div class="fo-kpi-val fo-orange">3</div>
+            <div class="fo-kpi-sub">Avg 12 min per loop</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Defects per unit</div>
+            <div class="fo-kpi-val fo-yellow">0.050</div>
+            <div class="fo-kpi-sub">Target &lt;0.030</div>
+          </div>
+        </div>
+        <div class="fo-two">
+          <div class="fo-q">
+            <div class="fo-q-title">Top Defect Types — End of Line</div>
+            <div class="fo-q-row"><div class="fo-q-label">Fit / gap — door</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:100%"></div></div><div class="fo-q-val">4</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">Paint — surface</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:78%"></div></div><div class="fo-q-val">3</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">Torque spec miss</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:56%"></div></div><div class="fo-q-val">2</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">Trim alignment</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:56%"></div></div><div class="fo-q-val">2</div></div>
+          </div>
+          <div class="fo-q">
+            <div class="fo-q-title">Defects by Model</div>
+            <div class="fo-q-row"><div class="fo-q-label">F-250 / F-350</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:100%;background:#ff8300"></div></div><div class="fo-q-val">8</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">F-450 / F-550</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:44%;background:#ff8300;opacity:.7"></div></div><div class="fo-q-val">4</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">Expedition</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:22%;background:#ff8300;opacity:.5"></div></div><div class="fo-q-val">2</div></div>
+            <div class="fo-q-row"><div class="fo-q-label">Navigator</div><div class="fo-q-bar-track"><div class="fo-q-bar-fill" style="width:0%;background:#ff8300"></div></div><div class="fo-q-val">0</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help / Call -->
+    <div class="fo-pane" data-fo-pane="helpcall">
+      <div class="fo-screen">
+        <div class="fo-screen-head">
+          <div class="fo-screen-title">Help / Call Status · Current Shift</div>
+        </div>
+        <div class="fo-grid">
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Open calls</div>
+            <div class="fo-kpi-val fo-red">3</div>
+            <div class="fo-kpi-sub">2 auto-triggered · 1 manual</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Avg response time</div>
+            <div class="fo-kpi-val fo-yellow">8.4 min</div>
+            <div class="fo-kpi-sub">Target &lt;5 min</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Resolved this shift</div>
+            <div class="fo-kpi-val fo-green">18</div>
+            <div class="fo-kpi-sub">Avg resolution 22 min</div>
+          </div>
+          <div class="fo-kpi">
+            <div class="fo-kpi-label">Auto-triggered</div>
+            <div class="fo-kpi-val fo-green">71%</div>
+            <div class="fo-kpi-sub">15 of 21 calls this shift</div>
+          </div>
+        </div>
+        <div class="fo-help-grid">
+          <div class="fo-help-card">
+            <div class="fo-help-label">Open · 14 min</div>
+            <div class="fo-help-area">Line 1 — Weld Station 12</div>
+            <div class="fo-help-desc">Auto-triggered on stop-state · weld gun fault · no response yet</div>
+            <div class="fo-help-meta">Opened 09:42 · Maintenance notified</div>
+          </div>
+          <div class="fo-help-card">
+            <div class="fo-help-label">Open · 6 min</div>
+            <div class="fo-help-area">Trim — Station 34B</div>
+            <div class="fo-help-desc">Manual call · torque tool out of spec · technician en route</div>
+            <div class="fo-help-meta">Opened 09:50 · Responded 09:53</div>
+          </div>
+          <div class="fo-help-card">
+            <div class="fo-help-label">Open · 2 min</div>
+            <div class="fo-help-area">Final — Audit Lane</div>
+            <div class="fo-help-desc">Auto-triggered on quality hold · door fit gap</div>
+            <div class="fo-help-meta">Opened 09:54 · Awaiting response</div>
+          </div>
+          <div class="fo-help-card resolved">
+            <div class="fo-help-label">Resolved · 09:31</div>
+            <div class="fo-help-area">Line 2 — Chassis Station 8</div>
+            <div class="fo-help-desc">Conveyor hold · upstream starve · resolved in 11 min</div>
+            <div class="fo-help-meta">Auto-triggered · Response 4 min</div>
+          </div>
+          <div class="fo-help-card resolved">
+            <div class="fo-help-label">Resolved · 08:14</div>
+            <div class="fo-help-area">Paint — Sealer Zone</div>
+            <div class="fo-help-desc">Sealer applicator fault · resolved in 18 min</div>
+            <div class="fo-help-meta">Auto-triggered · Response 6 min</div>
+          </div>
+          <div class="fo-help-card pending">
+            <div class="fo-help-label">Escalated · 09:28</div>
+            <div class="fo-help-area">Line 1 — Weld · Recurring</div>
+            <div class="fo-help-desc">3rd shift in a row with &gt;30 min weld gun downtime · Engineering review requested</div>
+            <div class="fo-help-meta">Supervisor escalated · Engineering assigned</div>
+          </div>
+        </div>
+        <div class="fo-alert"><strong>Auto-trigger note:</strong> 71% of Help/Call events this shift were initiated automatically on stop-state detection — not by a team member calling in. Average response time on auto-triggered calls (6.1 min) is faster than manual calls (13.2 min).</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site prepared for Ford Motor Co. — Kentucky Truck Plant. Data shown is illustrative — representative of what the live cockpit delivers.</div>
+    </div>
+    <div class="small-nav">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations Cockpit</a>
+      <a href="design.html">Design Detail</a>
+      <a href="roi.html">ROI</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-fo-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.dataset.foBtn;
+      document.querySelectorAll('[data-fo-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-fo-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.foPane === key); });
+    });
+  });
+</script>
+<script src="main.js"></script>
+</body>
+</html>

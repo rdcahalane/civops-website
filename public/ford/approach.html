@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Kentucky Truck Plant — Approach</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Ford Motor Co. — Kentucky Truck Plant</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="index.html">Overview</a>
+      <a href="approach.html" class="current">Approach</a>
+      <a href="cockpit.html">Operations<br>Cockpit</a>
+      <a href="design.html">Design<br>Detail</a>
+      <a href="roi.html">ROI</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Kentucky Truck Plant — Approach</div>
+      <h1>Real-time OEE visibility — across every dimension of KTP production</h1>
+      <p class="lead">The goal is live, actionable visibility into everything that affects OEE at Kentucky Truck Plant: cycle time performance, uptime and downtime, and quality — drillable to a specific line, asset, shift, or vehicle configuration. That requires mapping what data exists, identifying the gaps, and connecting the sources that are already there.</p>
+    </div>
+    <div class="hero-card">
+      <div class="tag blue">Brooksource point of view</div>
+      <div class="answer">Map the current data flows first — understand what each system holds and where the gaps are. Then build a unified translation layer that connects historian, downtime, and quality data without replacing any of them. The functional specification makes the follow-on build estimable and low-risk.</div>
+      <div class="decision-band">
+        <div class="decision-cell"><strong>Data mapping first</strong><small>Understand what exists before designing what's needed. Every recommendation is grounded in KTP's actual systems — not a generic architecture.</small></div>
+        <div class="decision-cell"><strong>OEE as the framework</strong><small>Cycle time, availability, and quality yield — defined accurately, measured consistently, visible at the line and plant level.</small></div>
+        <div class="decision-cell"><strong>Help/Call that works</strong><small>Auto-trigger on stop-state. Visible across the area. Response time tracked. Built alongside the downtime system, not on top of it.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container">
+    <div class="spine">
+      <div class="spine-side">
+        <div class="metric-box"><h3>Cycle time performance</h3><p>The plant historian is the source of truth for equipment cycle signals. The functional spec will define which tags, at what polling rate, feed JPH and effective cycle time — by line, by area, and by vehicle configuration (Super Duty, Expedition, Navigator).</p></div>
+        <div class="metric-box"><h3>Quality yield</h3><p>End-of-line and in-process inspection systems carry the quality event record. Connecting defects to the specific asset, shift, and vehicle configuration is what turns a count into a root-cause signal — and a driver of OEE, not just a separate metric.</p></div>
+      </div>
+      <div class="spine-core">
+        <div class="circle">OEE</div>
+        <h3>OEE as the organizing framework</h3>
+        <p>Every data source feeds one of the three OEE dimensions: the historian drives cycle time performance, the downtime system drives availability and cause, and quality inspection drives yield. The spec defines how they combine into an accurate, reportable OEE number — without buffers or manual adjustments.</p>
+      </div>
+      <div class="spine-side">
+        <div class="metric-box"><h3>Downtime &amp; Help/Call</h3><p>The downtime system carries the stop record. Help/Call carries response time and open ticket status. Both are operations metrics — visible alongside OEE so supervisors see cause and response in the same view, not in separate systems.</p></div>
+        <div class="metric-box"><h3>Drill-down to vehicle level</h3><p>KTP produces multiple vehicle lines (F-250/350/450/550, Expedition, Navigator) with different cycle time targets and quality profiles. Visibility scoped to a specific model or configuration requires correlating equipment state with the vehicle sequence from MES.</p></div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>What this is not:</strong> spare parts inventory, PM schedules, and long-range asset lifecycle planning are maintenance priorities — not the focus of this engagement. The focus is what affects throughput and quality today, visible in real time to the people who can act on it.</div>
+  </div>
+</section>
+
+<section class="section" id="workstreams">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">Engagement structure</span>
+        <h2>Six workstreams, one functional specification</h2>
+      </div>
+      <p class="section-copy">This engagement is structured as a functional specification effort — not an implementation. The deliverable is a build-ready spec that makes follow-on implementation estimable, low-risk, and informed by real current-state data from the KTP floor.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <h3>1 — Kickoff &amp; alignment</h3>
+        <p>Confirm scope, stakeholders, system access, and the priority order for which production area or line to address first. Align on how this connects to any existing Ford digital manufacturing initiatives.</p>
+        <div class="proof-link">Outcome: shared understanding of scope and sequencing before any discovery work begins.</div>
+      </div>
+      <div class="proof-card">
+        <h3>2 — Current-state data mapping</h3>
+        <p>Document existing systems — historian, downtime, quality inspection, MES — their data owners, naming conventions, and where each source lives vs. where it needs to go to support real-time OEE visibility.</p>
+        <div class="proof-link">Outcome: accurate as-is picture before requirements are written.</div>
+      </div>
+      <div class="proof-card">
+        <h3>3 — OEE methodology &amp; gap analysis</h3>
+        <p>Define accurate OEE methodology for KTP: cycle time by vehicle configuration, downtime attribution rules, quality loss inclusion. Identify the gaps between what's currently captured and what's needed.</p>
+        <div class="proof-link">Outcome: OEE definition and measurement logic that reflects KTP's operational reality.</div>
+      </div>
+      <div class="proof-card">
+        <h3>4 — Help/Call &amp; downtime workflow</h3>
+        <p>Design a Help/Call system with automatic stop-state triggers where possible, clear escalation rules, and integration with the existing downtime system — so data lands once, in context, not twice in separate records.</p>
+        <div class="proof-link">Outcome: workflow specification that improves response time and data quality simultaneously.</div>
+      </div>
+      <div class="proof-card">
+        <h3>5 — Architecture &amp; data translation layer</h3>
+        <p>Define the architecture that connects historian, downtime, and quality data into a unified real-time view — including the recommended data translation layer, integration points, and the namespace structure that makes it scalable across lines.</p>
+        <div class="proof-link">Outcome: architecture recommendation grounded in KTP's actual systems.</div>
+      </div>
+      <div class="proof-card">
+        <h3>6 — Functional specification</h3>
+        <p>Compile all workstream outputs into a build-ready functional spec: data flows, integration points, cockpit requirements, architecture diagrams, and a follow-on implementation estimate scoped to KTP.</p>
+        <div class="proof-link">Outcome: a document that engineering can build from — no discovery re-work needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">Timeline</span>
+        <h2>Kickoff → functional specification</h2>
+      </div>
+      <p class="section-copy">Six phases structured to deliver a complete functional specification. Each phase ends with a Ford review checkpoint before the next phase begins.</p>
+    </div>
+    <div class="phase-grid">
+      <div class="phase"><div class="when">Phase 1 — 1 day</div><h3>Kickoff &amp; alignment</h3><p>Confirm scope, stakeholders, system access, and the priority production area. Align on connection to existing Ford digital manufacturing programs.</p></div>
+      <div class="phase"><div class="when">Phase 2 — 2 weeks</div><h3>Current-state data mapping</h3><p>Document historian, downtime, quality, and MES systems — data owners, naming conventions, data flows, and the as-is connectivity picture across the priority production area.</p></div>
+      <div class="phase"><div class="when">Phase 3 — 1 week</div><h3>OEE methodology &amp; gap analysis</h3><p>Define OEE methodology by vehicle configuration. Identify gaps between current data capture and what's needed for real-time, accurate OEE visibility.</p></div>
+      <div class="phase"><div class="when">Phase 4 — 1 week</div><h3>Help/Call &amp; downtime workflow</h3><p>Design Help/Call trigger logic, escalation rules, and integration with the existing downtime system. Define response time visibility requirements.</p></div>
+      <div class="phase"><div class="when">Phase 5 — 1 week</div><h3>Architecture &amp; data translation layer</h3><p>Define the data translation architecture, integration points, namespace structure, and the cockpit requirements that the architecture must support.</p></div>
+      <div class="phase"><div class="when">Phase 6 — 1.5 weeks</div><h3>Functional specification</h3><p>Compile all workstream outputs into a build-ready functional spec with data flows, integration points, architecture diagrams, and a follow-on implementation estimate.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site prepared for Ford Motor Co. — Kentucky Truck Plant. Built to support scope alignment and follow-on design work.</div>
+    </div>
+    <div class="small-nav">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations Cockpit</a>
+      <a href="design.html">Design Detail</a>
+      <a href="roi.html">ROI</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

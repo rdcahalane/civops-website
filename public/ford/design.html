@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Kentucky Truck Plant — Design Detail</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Ford Motor Co. — Kentucky Truck Plant</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations<br>Cockpit</a>
+      <a href="design.html" class="current">Design<br>Detail</a>
+      <a href="roi.html">ROI</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Design detail</div>
+    <h1 class="page-title">Data flow architecture — from plant floor to operations cockpit</h1>
+    <p class="page-deck">The architecture shown here reflects the same approach proven in the Nissan Smyrna Maintenance CCR project — extended to KTP's production environment. The core recommendation is a <strong>universal data translation layer</strong> between the plant-floor sources and the operational applications above. This layer connects historian, downtime, and quality data in real time without replacing any existing system, and scales to additional lines and areas without rebuilding.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Working architecture</span><h2>As-is and to-be — KTP data flow</h2></div>
+      <p class="section-copy">Illustrative data flow based on typical Ford truck assembly plant architecture. The functional specification engagement maps KTP's actual systems, naming conventions, and integration points — this diagram is the starting point for that conversation, not the finished output.</p>
+    </div>
+
+    <figure class="platform-figure">
+      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>As-is — KTP production data flow<span class="pf-badge">Working draft</span></div>
+      <svg width="100%" viewBox="0 0 680 300" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        <title>KTP as-is production data flow</title>
+        <desc>PLCs to plant historian and downtime system, crossing the DMZ to quality inspection DB and MES, then to reporting in the IS zone.</desc>
+        <defs><marker id="ktar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+        <style>.kzt{font-size:14px;fill:#e6eef5}.kzts{font-size:12px;fill:#9fb6c6}.kzth{font-size:14px;font-weight:600;fill:#ffffff}.kzzn{font-size:12px;font-weight:600;fill:#80a0b5}.kzbx{fill:#15324c;stroke:#3f627d;stroke-width:1}.kzln{stroke:#71bfdf;stroke-width:1.4;fill:none}.kzdv{stroke:#34607f;stroke-width:1;stroke-dasharray:4 4}</style>
+        <rect x="3" y="3" width="674" height="294" rx="16" fill="#0e2236" stroke="#1f587a"/>
+        <text class="kzth" x="40" y="32">As-is — KTP production data flow</text>
+        <line class="kzdv" x1="310" y1="50" x2="310" y2="262"/>
+        <line class="kzdv" x1="520" y1="50" x2="520" y2="262"/>
+        <text class="kzzn" x="160" y="282" text-anchor="middle">Manufacturing</text>
+        <text class="kzzn" x="415" y="282" text-anchor="middle">DMZ</text>
+        <text class="kzzn" x="590" y="282" text-anchor="middle">IS</text>
+        <!-- PLCs -->
+        <rect class="kzbx" x="20" y="100" width="64" height="40" rx="6"/>
+        <text class="kzt" x="52" y="116" text-anchor="middle">PLCs</text>
+        <text class="kzts" x="52" y="131" text-anchor="middle">Body / Weld</text>
+        <rect class="kzbx" x="20" y="160" width="64" height="40" rx="6"/>
+        <text class="kzt" x="52" y="176" text-anchor="middle">PLCs</text>
+        <text class="kzts" x="52" y="191" text-anchor="middle">Trim / Final</text>
+        <!-- Historian -->
+        <rect class="kzbx" x="110" y="120" width="100" height="40" rx="6"/>
+        <text class="kzt" x="160" y="136" text-anchor="middle">Historian</text>
+        <text class="kzts" x="160" y="151" text-anchor="middle">Plant floor</text>
+        <!-- Downtime -->
+        <rect class="kzbx" x="230" y="120" width="70" height="40" rx="6"/>
+        <text class="kzt" x="265" y="136" text-anchor="middle">Downtime</text>
+        <text class="kzts" x="265" y="151" text-anchor="middle">System</text>
+        <!-- DMZ zone -->
+        <rect class="kzbx" x="330" y="60" width="120" height="40" rx="6"/>
+        <text class="kzt" x="390" y="78" text-anchor="middle">CMMS</text>
+        <text class="kzts" x="390" y="93" text-anchor="middle">Maintenance mgmt</text>
+        <rect class="kzbx" x="330" y="115" width="120" height="40" rx="6"/>
+        <text class="kzt" x="390" y="133" text-anchor="middle">Quality DB</text>
+        <text class="kzts" x="390" y="148" text-anchor="middle">Inspection results</text>
+        <rect class="kzbx" x="330" y="170" width="120" height="40" rx="6"/>
+        <text class="kzt" x="390" y="188" text-anchor="middle">MES</text>
+        <text class="kzts" x="390" y="203" text-anchor="middle">Vehicle sequence</text>
+        <!-- Help/Call -->
+        <rect class="kzbx" x="330" y="225" width="120" height="40" rx="6" stroke="#ff9b2e"/>
+        <text class="kzt" x="390" y="243" text-anchor="middle">Help / Call</text>
+        <text class="kzts" x="390" y="258" text-anchor="middle">stop-state trigger</text>
+        <!-- IS zone -->
+        <rect class="kzbx" x="548" y="115" width="100" height="40" rx="6"/>
+        <text class="kzt" x="598" y="133" text-anchor="middle">Reporting</text>
+        <text class="kzts" x="598" y="148" text-anchor="middle">BI / dashboards</text>
+        <!-- Arrows -->
+        <path class="kzln" d="M84 115 L108 135" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M84 175 L108 145" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M210 135 L228 135" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M160 160 L160 170 L310 135" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M300 130 L328 130" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M300 140 L328 185" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M160 162 L330 240" marker-end="url(#ktar)"/>
+        <path class="kzln" d="M450 135 L546 135" marker-end="url(#ktar)"/>
+      </svg>
+      <figcaption><b>As-is.</b> PLCs → plant historian and downtime system → DMZ quality DB, CMMS, MES → IS reporting. Help/Call is a proposed auto-trigger on stop-state detection from the historian.</figcaption>
+    </figure>
+
+    <!-- Phased To-Be -->
+    <div style="margin-top:32px">
+      <div class="section-head" style="margin-bottom:16px">
+        <div class="section-title"><span class="eyebrow">Phased build</span><h2>Three phases — map, connect, scale</h2></div>
+        <p class="section-copy">Phase 1 maps the data and validates the architecture on a single line. Each subsequent phase extends coverage without rebuilding the foundation.</p>
+      </div>
+
+      <style>
+        .phase-pane{display:none}.phase-pane.active{display:block}
+        .phase-svg{width:100%;border-radius:14px;display:block;margin-bottom:16px}
+        .phase-note{background:#f0f6fa;border-left:4px solid #0a77a9;padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;line-height:1.55;margin-top:8px;color:#1a2f3f}
+      </style>
+
+      <div class="tab-row" style="margin-bottom:20px">
+        <button class="tab-btn active" data-phase-btn="p1">Phase 1 — Data mapping &amp; pilot</button>
+        <button class="tab-btn" data-phase-btn="p2">Phase 2 — Line 1 live cockpit</button>
+        <button class="tab-btn" data-phase-btn="p3">Phase 3 — Full plant coverage</button>
+      </div>
+
+      <div class="phase-pane active" data-phase-pane="p1">
+        <svg viewBox="0 0 940 580" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="580" rx="18" fill="#0a1928"/>
+          <rect x="788" y="12" width="140" height="26" rx="13" fill="none" stroke="#3b7494"/>
+          <text x="858" y="30" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.07em">WORKING DRAFT</text>
+          <text x="18" y="44" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 1 (data mapping &amp; pilot)</text>
+          <text x="18" y="66" fill="#9fb6c6" font-size="12">Map current data flows · validate architecture · pilot cockpit on Line 1 · functional specification deliverable</text>
+          <!-- Cockpit panel -->
+          <rect x="15" y="86" width="900" height="130" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="35" y="110" fill="#ffffff" font-size="13" font-weight="900">KTP Operations Cockpit — Line 1 pilot</text>
+          <rect x="35" y="118" width="180" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="45" y="132" fill="#7baac4" font-size="8" font-weight="700">JPH / TARGET</text>
+          <text x="45" y="152" fill="#ffd23f" font-size="20" font-weight="900">47</text>
+          <text x="76" y="152" fill="#9fb6c6" font-size="14"> / 52</text>
+          <text x="45" y="168" fill="#5a7a8a" font-size="8">Body on Frame · current hour</text>
+          <rect x="225" y="118" width="180" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="235" y="132" fill="#7baac4" font-size="8" font-weight="700">UPTIME / DOWNTIME</text>
+          <text x="235" y="152" fill="#ff8300" font-size="16" font-weight="900">88.3% / 94%</text>
+          <text x="235" y="168" fill="#5a7a8a" font-size="8">11.7% downtime · 31 events · weld gun driving</text>
+          <rect x="415" y="118" width="220" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="425" y="132" fill="#7baac4" font-size="8" font-weight="700">TOP 3 DOWNTIME — PARETO</text>
+          <text x="425" y="147" fill="#9fb6c6" font-size="9">Weld gun fault  34m</text>
+          <rect x="425" y="150" width="185" height="5" rx="2" fill="#ff8300"/>
+          <text x="425" y="165" fill="#9fb6c6" font-size="9">Conveyor starved  23m</text>
+          <rect x="425" y="168" width="123" height="5" rx="2" fill="#ff8300" opacity="0.7"/>
+          <text x="425" y="183" fill="#9fb6c6" font-size="9">Quality hold  13m</text>
+          <rect x="425" y="186" width="70" height="5" rx="2" fill="#ff8300" opacity="0.5"/>
+          <rect x="645" y="118" width="255" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="655" y="132" fill="#7baac4" font-size="8" font-weight="700">HELP / CALL STATUS</text>
+          <text x="655" y="150" fill="#ff5555" font-size="18" font-weight="900">3 open</text>
+          <text x="655" y="166" fill="#9fb6c6" font-size="9">2 auto-triggered · avg response 8.4 min</text>
+          <text x="655" y="180" fill="#49bd8d" font-size="9">18 resolved this shift</text>
+          <!-- Arrow up to cockpit -->
+          <line x1="200" y1="248" x2="200" y2="220" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="200,216 193,226 207,226" fill="#ff8300"/>
+          <line x1="700" y1="248" x2="700" y2="220" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <polygon points="700,216 693,226 707,226" fill="#ff8300" opacity="0.7"/>
+          <!-- Consumers -->
+          <rect x="15" y="250" width="355" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="193" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble Factory OS</text>
+          <text x="193" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">MCP client — AI-assisted operations layer</text>
+          <rect x="580" y="250" width="345" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="752" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / BI</text>
+          <text x="752" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">Ford reporting systems</text>
+          <!-- DMZ line -->
+          <line x1="15" y1="332" x2="925" y2="332" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="330" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <!-- HighByte hub -->
+          <rect x="15" y="340" width="910" height="100" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="368" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub — data translation layer</text>
+          <text x="35" y="388" fill="#9fb6c6" font-size="11">DataOps · ISA-95 asset model · UNS (MQTT broker) · MCP server · i3X templates — Line 1 pilot</text>
+          <rect x="35" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="125" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="225" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="315" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="415" y="400" width="490" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="660" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">i3X templates · Line 1 asset model</text>
+          <!-- Sources -->
+          <text x="18" y="462" fill="#7baac4" font-size="11" font-weight="700">Data sources</text>
+          <rect x="15" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="75" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Historian</text>
+          <text x="75" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Plant floor</text>
+          <rect x="145" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="205" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Downtime</text>
+          <text x="205" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">System</text>
+          <rect x="275" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="335" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Quality DB</text>
+          <text x="335" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Inspection</text>
+          <rect x="405" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="465" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">MES</text>
+          <text x="465" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Vehicle sequence</text>
+          <rect x="535" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="595" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">CMMS</text>
+          <text x="595" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Maintenance</text>
+          <rect x="665" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="725" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Help / Call</text>
+          <text x="725" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">stop-state trigger</text>
+          <!-- Source arrows up -->
+          <line x1="75" y1="470" x2="75" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="75,440 69,450 81,450" fill="#4a6a7a"/>
+          <line x1="205" y1="470" x2="205" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="205,440 199,450 211,450" fill="#4a6a7a"/>
+          <line x1="335" y1="470" x2="335" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="335,440 329,450 341,450" fill="#4a6a7a"/>
+          <line x1="465" y1="470" x2="465" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="465,440 459,450 471,450" fill="#4a6a7a"/>
+          <line x1="595" y1="470" x2="595" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="595,440 589,450 601,450" fill="#4a6a7a"/>
+          <line x1="725" y1="470" x2="725" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="725,440 719,450 731,450" fill="#4a6a7a"/>
+          <text x="18" y="568" fill="#4a6a7a" font-size="10">grey = sources publish up · orange = consumers read via UNS / MCP · orange border = new Help/Call trigger</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 1 scope:</strong> Map current data flows across KTP systems (historian, downtime, quality, MES, CMMS). Validate the HighByte translation layer architecture on Line 1. Deliver the functional specification — data flows documented, gaps identified, integration points defined, and a follow-on implementation scoped. Pilot cockpit shows live JPH, uptime, top downtime causes, and Help/Call status for Line 1.</div>
+      </div>
+
+      <div class="phase-pane" data-phase-pane="p2">
+        <svg viewBox="0 0 940 580" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="580" rx="18" fill="#0a1928"/>
+          <text x="18" y="44" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 2 (Line 1 live cockpit)</text>
+          <text x="18" y="66" fill="#9fb6c6" font-size="12">Full OEE cockpit live on Line 1 · Help/Call auto-triggers active · quality and model-level drill-down enabled</text>
+          <!-- Cockpit panel -->
+          <rect x="15" y="86" width="900" height="130" rx="12" fill="#10283f" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="35" y="110" fill="#ffffff" font-size="13" font-weight="900">KTP Operations Cockpit — Line 1 (live)</text>
+          <rect x="35" y="118" width="180" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="45" y="132" fill="#7baac4" font-size="8" font-weight="700">JPH / TARGET — by model</text>
+          <text x="45" y="148" fill="#ffd23f" font-size="16" font-weight="900">47 / 52</text>
+          <text x="45" y="164" fill="#9fb6c6" font-size="8">F-250/350 · F-450/550 · Expedition</text>
+          <text x="45" y="178" fill="#49bd8d" font-size="8">drill to vehicle config ✓</text>
+          <rect x="225" y="118" width="180" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="235" y="132" fill="#7baac4" font-size="8" font-weight="700">UPTIME / DOWNTIME</text>
+          <text x="235" y="148" fill="#ff8300" font-size="16" font-weight="900">88.3% / 94%</text>
+          <text x="235" y="164" fill="#9fb6c6" font-size="8">attributed by cause + area</text>
+          <text x="235" y="178" fill="#49bd8d" font-size="8">upstream cause visible ✓</text>
+          <rect x="415" y="118" width="220" height="82" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="425" y="132" fill="#7baac4" font-size="8" font-weight="700">QUALITY YIELD — by model</text>
+          <text x="425" y="148" fill="#49bd8d" font-size="14" font-weight="900">96.2%</text>
+          <text x="425" y="163" fill="#9fb6c6" font-size="8">linked to asset · shift · vehicle config</text>
+          <text x="425" y="178" fill="#9fb6c6" font-size="8">Top defect: Fit/gap — door (4)</text>
+          <rect x="645" y="118" width="255" height="82" rx="8" fill="#091827" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="655" y="132" fill="#7baac4" font-size="8" font-weight="700">HELP / CALL — AUTO-TRIGGERED</text>
+          <text x="655" y="148" fill="#ff5555" font-size="14" font-weight="900">3 open</text>
+          <text x="655" y="163" fill="#49bd8d" font-size="8">71% auto-triggered this shift</text>
+          <text x="655" y="178" fill="#9fb6c6" font-size="8">avg response 6.1 min (auto) vs 13.2 (manual)</text>
+          <!-- Arrows -->
+          <line x1="200" y1="248" x2="200" y2="220" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="200,216 193,226 207,226" fill="#ff8300"/>
+          <line x1="700" y1="248" x2="700" y2="220" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <polygon points="700,216 693,226 707,226" fill="#ff8300" opacity="0.7"/>
+          <!-- Consumers -->
+          <rect x="15" y="250" width="355" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="193" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble Factory OS</text>
+          <text x="193" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">MCP client · AI-assisted decisions</text>
+          <rect x="580" y="250" width="345" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="752" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / BI + Ford Systems</text>
+          <text x="752" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">Reporting · shift summaries · trending</text>
+          <line x1="15" y1="332" x2="925" y2="332" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="330" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <rect x="15" y="340" width="910" height="100" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="368" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
+          <text x="35" y="388" fill="#9fb6c6" font-size="11">DataOps · ISA-95 · UNS · MCP · i3X templates — Line 1 full asset model · Help/Call trigger logic active</text>
+          <rect x="35" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="125" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="225" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="315" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="415" y="400" width="490" height="30" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="660" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">i3X templates · Line 1 full · quality + MES join</text>
+          <text x="18" y="462" fill="#7baac4" font-size="11" font-weight="700">Data sources</text>
+          <rect x="15" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="75" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Historian</text>
+          <text x="75" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Plant floor</text>
+          <rect x="145" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="205" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Downtime</text>
+          <text x="205" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">System</text>
+          <rect x="275" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="335" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Quality DB</text>
+          <text x="335" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Inspection</text>
+          <rect x="405" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="465" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">MES</text>
+          <text x="465" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Vehicle sequence</text>
+          <rect x="535" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#2f5066"/>
+          <text x="595" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">CMMS</text>
+          <text x="595" y="508" fill="#5a8a9a" font-size="10" text-anchor="middle">Maintenance</text>
+          <rect x="665" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.5"/>
+          <text x="725" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Help / Call</text>
+          <text x="725" y="508" fill="#ff9b2e" font-size="10" text-anchor="middle">auto-trigger live ✓</text>
+          <line x1="75" y1="470" x2="75" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="75,440 69,450 81,450" fill="#4a6a7a"/>
+          <line x1="205" y1="470" x2="205" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="205,440 199,450 211,450" fill="#4a6a7a"/>
+          <line x1="335" y1="470" x2="335" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="335,440 329,450 341,450" fill="#4a6a7a"/>
+          <line x1="465" y1="470" x2="465" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="465,440 459,450 471,450" fill="#4a6a7a"/>
+          <line x1="595" y1="470" x2="595" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="595,440 589,450 601,450" fill="#4a6a7a"/>
+          <line x1="725" y1="470" x2="725" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="725,440 719,450 731,450" fill="#4a6a7a"/>
+          <text x="18" y="568" fill="#4a6a7a" font-size="10">grey = existing sources · green border = newly activated in Phase 2 · orange border = Help/Call auto-trigger live</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 2 scope:</strong> Full OEE cockpit live on Line 1. Quality data joined to vehicle sequence from MES — defects visible by model, shift, and asset. Help/Call auto-triggers active on stop-state detection. All data attributed and drillable. Humble Factory OS layer enabled for AI-assisted decision support.</div>
+      </div>
+
+      <div class="phase-pane" data-phase-pane="p3">
+        <svg viewBox="0 0 940 580" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
+          <rect width="940" height="580" rx="18" fill="#0a1928"/>
+          <text x="18" y="44" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 3 (full plant coverage)</text>
+          <text x="18" y="66" fill="#9fb6c6" font-size="12">Same architecture extended to all lines — Body, Chassis, Trim/Final, Paint — same hub, no rebuild</text>
+          <!-- Cockpit panel -->
+          <rect x="15" y="86" width="900" height="130" rx="12" fill="#10283f" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="35" y="110" fill="#ffffff" font-size="13" font-weight="900">KTP Operations Cockpit — All Lines</text>
+          <!-- Line tabs mock -->
+          <rect x="35" y="116" width="72" height="16" rx="8" fill="#ff8300"/>
+          <text x="71" y="128" fill="#fff" font-size="8" font-weight="700" text-anchor="middle">Body / Weld</text>
+          <rect x="113" y="116" width="60" height="16" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="143" y="128" fill="#9fb6c6" font-size="8" font-weight="700" text-anchor="middle">Chassis</text>
+          <rect x="179" y="116" width="68" height="16" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="213" y="128" fill="#9fb6c6" font-size="8" font-weight="700" text-anchor="middle">Trim / Final</text>
+          <rect x="253" y="116" width="46" height="16" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="276" y="128" fill="#9fb6c6" font-size="8" font-weight="700" text-anchor="middle">Paint</text>
+          <!-- KPIs -->
+          <rect x="35" y="138" width="130" height="70" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="45" y="152" fill="#7baac4" font-size="8" font-weight="700">PLANT OEE</text>
+          <text x="45" y="170" fill="#ff8300" font-size="18" font-weight="900">75.1%</text>
+          <text x="45" y="186" fill="#5a7a8a" font-size="8">target 83% · avail driving gap</text>
+          <rect x="175" y="138" width="130" height="70" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="185" y="152" fill="#7baac4" font-size="8" font-weight="700">PLANT JPH</text>
+          <text x="185" y="170" fill="#ffd23f" font-size="18" font-weight="900">47 / 52</text>
+          <text x="185" y="186" fill="#5a7a8a" font-size="8">all lines · current hour</text>
+          <rect x="315" y="138" width="170" height="70" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="325" y="152" fill="#7baac4" font-size="8" font-weight="700">PLANT DOWNTIME — TOP CAUSE</text>
+          <text x="325" y="168" fill="#ff8300" font-size="12" font-weight="700">Weld gun fault · L1</text>
+          <text x="325" y="183" fill="#9fb6c6" font-size="8">34 min · 3rd consecutive shift</text>
+          <text x="325" y="198" fill="#ffd23f" font-size="8">Escalation active · Engineering assigned</text>
+          <rect x="495" y="138" width="170" height="70" rx="8" fill="#091827" stroke="#1f3d55"/>
+          <text x="505" y="152" fill="#7baac4" font-size="8" font-weight="700">QUALITY — ALL LINES</text>
+          <text x="505" y="170" fill="#49bd8d" font-size="16" font-weight="900">96.2%</text>
+          <text x="505" y="186" fill="#9fb6c6" font-size="8">Fit/gap door leading · F-250/350</text>
+          <rect x="675" y="138" width="225" height="70" rx="8" fill="#091827" stroke="#ff9b2e" stroke-width="1.2"/>
+          <text x="685" y="152" fill="#7baac4" font-size="8" font-weight="700">HELP / CALL — ALL LINES</text>
+          <text x="685" y="168" fill="#ff5555" font-size="14" font-weight="900">3 open</text>
+          <text x="685" y="183" fill="#49bd8d" font-size="8">71% auto-triggered plant-wide</text>
+          <text x="685" y="197" fill="#9fb6c6" font-size="8">avg response 6.1 min</text>
+          <line x1="200" y1="248" x2="200" y2="220" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="200,216 193,226 207,226" fill="#ff8300"/>
+          <line x1="700" y1="248" x2="700" y2="220" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <polygon points="700,216 693,226 707,226" fill="#ff8300" opacity="0.7"/>
+          <rect x="15" y="250" width="355" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="193" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble Factory OS</text>
+          <text x="193" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">MCP client · plant-wide AI operations layer</text>
+          <rect x="580" y="250" width="345" height="70" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="752" y="280" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / BI + Ford Systems</text>
+          <text x="752" y="300" fill="#9fb6c6" font-size="11" text-anchor="middle">Plant reporting · Ford enterprise integration</text>
+          <line x1="15" y1="332" x2="925" y2="332" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
+          <text x="910" y="330" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
+          <rect x="15" y="340" width="910" height="100" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <text x="35" y="368" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
+          <text x="35" y="388" fill="#9fb6c6" font-size="11">DataOps · ISA-95 · UNS · MCP · i3X templates — all lines · Body / Chassis / Trim-Final / Paint</text>
+          <rect x="35" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="125" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
+          <rect x="225" y="400" width="180" height="30" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="315" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="415" y="400" width="490" height="30" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="660" y="420" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">i3X templates · all lines · full plant asset model</text>
+          <text x="18" y="462" fill="#7baac4" font-size="11" font-weight="700">Data sources — all lines connected</text>
+          <rect x="15" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="75" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Historian</text>
+          <text x="75" y="508" fill="#49bd8d" font-size="10" text-anchor="middle">all lines ✓</text>
+          <rect x="145" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="205" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Downtime</text>
+          <text x="205" y="508" fill="#49bd8d" font-size="10" text-anchor="middle">all lines ✓</text>
+          <rect x="275" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="335" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Quality DB</text>
+          <text x="335" y="508" fill="#49bd8d" font-size="10" text-anchor="middle">all lines ✓</text>
+          <rect x="405" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="465" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">MES</text>
+          <text x="465" y="508" fill="#49bd8d" font-size="10" text-anchor="middle">all models ✓</text>
+          <rect x="535" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
+          <text x="595" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">CMMS</text>
+          <text x="595" y="508" fill="#49bd8d" font-size="10" text-anchor="middle">plant-wide ✓</text>
+          <rect x="665" y="470" width="120" height="50" rx="8" fill="#0e2236" stroke="#ff9b2e" stroke-width="1.5"/>
+          <text x="725" y="492" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Help / Call</text>
+          <text x="725" y="508" fill="#ff9b2e" font-size="10" text-anchor="middle">plant-wide ✓</text>
+          <line x1="75" y1="470" x2="75" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="75,440 69,450 81,450" fill="#4a6a7a"/>
+          <line x1="205" y1="470" x2="205" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="205,440 199,450 211,450" fill="#4a6a7a"/>
+          <line x1="335" y1="470" x2="335" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="335,440 329,450 341,450" fill="#4a6a7a"/>
+          <line x1="465" y1="470" x2="465" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="465,440 459,450 471,450" fill="#4a6a7a"/>
+          <line x1="595" y1="470" x2="595" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="595,440 589,450 601,450" fill="#4a6a7a"/>
+          <line x1="725" y1="470" x2="725" y2="444" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/><polygon points="725,440 719,450 731,450" fill="#4a6a7a"/>
+          <text x="18" y="568" fill="#4a6a7a" font-size="10">green border = fully active · orange border = Help/Call auto-trigger · same HighByte hub — no rebuild</text>
+        </svg>
+        <div class="phase-note"><strong>Phase 3 scope:</strong> The same HighByte hub extended to all production lines at KTP — Body/Weld, Chassis, Trim/Final, and Paint. Plant-wide OEE visible on one screen. Help/Call auto-triggers active across all areas. i3X templates expand from Line 1 to the full plant asset model. This phase validates the architecture as KTP's scalable data backbone — and the template for other Ford plants.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site prepared for Ford Motor Co. — Kentucky Truck Plant. Built to support scope alignment and follow-on design work.</div>
+    </div>
+    <div class="small-nav">
+      <a href="index.html">Overview</a>
+      <a href="approach.html">Approach</a>
+      <a href="cockpit.html">Operations Cockpit</a>
+      <a href="design.html">Design Detail</a>
+      <a href="roi.html">ROI</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-phase-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var phase = btn.dataset.phaseBtn;
+      document.querySelectorAll('[data-phase-btn]').forEach(function(b){ b.classList.toggle('active', b === btn); });
+      document.querySelectorAll('[data-phase-pane]').forEach(function(p){ p.classList.toggle('active', p.dataset.phasePane === phase); });
+    });
+  });
+</script>
+<script src="main.js"></script>
+</body>
+</html>
