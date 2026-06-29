@@ -79,47 +79,49 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 — Robot BC5605, Paint Cell 056 (base coat)</h2></div>
-      <p class="section-copy">Applying the base color coat under continuous high-stress cycle paths within the 55–60 second Takt time. Here is how today's raw metrics compile into a single AHI score.</p>
+      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 — Robot BC5604, Paint Cell 056 (base coat)</h2></div>
+      <p class="section-copy">The highest-burden robot in Cell 056 in June 2026: 11 work orders, 29 labor hours, 7 emergency callouts. Hi-slope faults, paint leaks, max-tracking errors, and HV faults across the month. Here is how its June metrics compile into a single AHI score.</p>
     </div>
     <div class="ahi-banner">
-      <div class="ahi-score">54%<small>ALERT</small></div>
+      <div class="ahi-score">42%<small>ALERT</small></div>
       <div>
-        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 54.06%.</strong> Condition and reliability are degraded but functional; the score is dragged down hard by lifecycle age (92% consumed) and financial risk (77% of replacement value already spent on repairs). The asset is functional today but economically and mechanically near end-of-life.</p>
+        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 42%.</strong> Reliability is severely degraded — 7 emergency work orders in a single month, repeated applicator failures, vacuum-line contamination, and a color-tree paint leak spanning multiple shifts. The condition pillar is declining; financial risk is high. This asset needs a structured intervention plan, not another reactive repair.</p>
       </div>
     </div>
     <div class="ahi-ex">
       <div class="ahi-card">
-        <div class="hd"><b>1 · Condition monitoring</b><span class="sc">S₁ = 78.3%</span></div>
+        <div class="hd"><b>1 · Condition monitoring</b><span class="sc">S₁ = 73%</span></div>
         <ul>
-          <li><b>Axis 3 motor temperature:</b> 172°F (baseline 140°F; warning at 165°F) → 65%</li>
-          <li><b>Axis 2 gearbox vibration (RMS velocity):</b> 4.2 mm/s (normal &lt; 3.0) → 80%</li>
-          <li><b>Axis 1 dynamic joint torque:</b> 104% of nominal curve → 90%</li>
-          <li><em>Composite = average of the three = 78.3%</em></li>
+          <li><b>Axis 2 peak torque (June):</b> 28.2 Nm max / −18.2 Nm min — within range but variable across repeated applicator swaps</li>
+          <li><b>Hi-slope faults:</b> repeated A1Slope:Val hi events — applicator wear pattern consistent with vacuum-line contamination</li>
+          <li><b>HV faults:</b> multiple high-voltage events in the final week of June</li>
+          <li><em>Composite condition score = 73%</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>2 · Operational reliability</b><span class="sc">S₂ = 82.0%</span></div>
+        <div class="hd"><b>2 · Operational reliability</b><span class="sc">S₂ = 26%</span></div>
         <ul>
-          <li><b>Availability (trailing 30 days):</b> 94.5% (target 98.5%)</li>
-          <li><b>MTBF trend:</b> shortening — 3 flow / sequence micro-stoppages this week</li>
-          <li><em>Composite from OEE availability &amp; MTBF drift = 82.0%</em></li>
+          <li><b>Emergency WOs in June:</b> 7 (highest in cell) — MTBF &lt; 4 days</li>
+          <li><b>Corrective WOs:</b> 3 additional — paint leak (color tree), fill-cart error, applicator rebuild</li>
+          <li><b>Multi-shift events:</b> color-tree leak persisted across 3 shifts before repair</li>
+          <li><em>Severely degraded reliability = 26%</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>3 · Lifecycle age</b><span class="sc">S₃ = 8.0%</span></div>
+        <div class="hd"><b>3 · Lifecycle age</b><span class="sc">S₃ = 15%</span></div>
         <ul>
-          <li><b>Current runtime:</b> 46,000 operational hours</li>
-          <li><b>Rated useful life:</b> 50,000 hours (high-velocity paint config)</li>
-          <li><em>92% of intended life consumed → 8.0% health remaining</em></li>
+          <li><b>Current runtime:</b> ~43,000 operational hours (estimated)</li>
+          <li><b>Rated useful life:</b> 50,000 hours (high-velocity paint config)</b></li>
+          <li><em>~85% of intended life consumed → 15% health remaining</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>4 · Financial risk</b><span class="sc">S₄ = 22.8%</span></div>
+        <div class="hd"><b>4 · Financial risk</b><span class="sc">S₄ = 20%</span></div>
         <ul>
-          <li><b>Life-to-date repair cost:</b> $85,000 (overhauls, harnesses, PM labor)</li>
+          <li><b>June labor alone:</b> 29 hours × $75/hr = $2,175 emergency labor</li>
+          <li><b>Life-to-date repair cost:</b> ~$88,000 (overhauls, applicators, O-rings, paint-leak cleanup)</li>
           <li><b>Asset replacement value:</b> $110,000</li>
-          <li><em>Maintenance cost ratio = 77.2% → score = 100% − 77.2% = 22.8%</em></li>
+          <li><em>Cost ratio = 80% → score = 20%</em></li>
         </ul>
       </div>
     </div>
@@ -168,7 +170,7 @@
         <text class="cvsub" x="24" y="49">ABB IRB 6600 · 8 robots + conveyor</text>
         <rect x="494" y="14" width="162" height="48" rx="10" fill="#241a06" stroke="#ffb15b"/>
         <text class="cvsub" x="508" y="33">CELL AHI · roll-up</text>
-        <text class="cvbadgenum" x="508" y="54">77%<tspan class="cvsub" dx="6" fill="#ffb15b"> · WATCH</tspan></text>
+        <text class="cvbadgenum" x="508" y="54">63%<tspan class="cvsub" dx="6" fill="#ffb15b"> · WATCH</tspan></text>
 
         <rect class="cvconv" x="40" y="188" width="600" height="48" rx="10"/>
         <text class="cvt" x="56" y="218" text-anchor="start">Conveyor 056</text>
@@ -200,28 +202,27 @@
         <circle cx="473" cy="98" r="4" fill="#ffb15b"/>
         <text class="cvt" x="423" y="108" text-anchor="middle">Robot BC5603</text>
         <text class="cvscore" x="423" y="131" text-anchor="middle" fill="#ffb15b">69%</text>
-        <rect class="cvnode" x="524" y="84" width="130" height="58" rx="10" stroke="#49bd8d"/>
-        <circle cx="639" cy="98" r="4" fill="#49bd8d"/>
+        <rect class="cvnode" x="524" y="84" width="130" height="58" rx="10" stroke="#ef6a5b" stroke-width="2.5"/>
+        <circle cx="639" cy="98" r="4" fill="#ef6a5b"/>
         <text class="cvt" x="589" y="108" text-anchor="middle">Robot BC5604</text>
-        <text class="cvscore" x="589" y="131" text-anchor="middle" fill="#49bd8d">90%</text>
+        <text class="cvscore" x="589" y="131" text-anchor="middle" fill="#ef6a5b">42%</text>
 
-        <rect class="cvnode" x="26" y="300" width="130" height="58" rx="10" stroke="#ef6a5b" stroke-width="2.5"/>
-        <circle cx="141" cy="314" r="4" fill="#ef6a5b"/>
+        <rect class="cvnode" x="26" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="141" cy="314" r="4" fill="#ffb15b"/>
         <text class="cvt" x="91" y="324" text-anchor="middle">Robot BC5605</text>
-        <text class="cvscore" x="91" y="347" text-anchor="middle" fill="#ef6a5b">54%</text>
-        <text class="cvsub" x="91" y="374" text-anchor="middle" fill="#ef6a5b">â—€ worked example</text>
+        <text class="cvscore" x="91" y="347" text-anchor="middle" fill="#ffb15b">64%</text>
         <rect class="cvnode" x="192" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
         <circle cx="307" cy="314" r="4" fill="#ffb15b"/>
         <text class="cvt" x="257" y="324" text-anchor="middle">Robot BC5606</text>
-        <text class="cvscore" x="257" y="347" text-anchor="middle" fill="#ffb15b">77%</text>
-        <rect class="cvnode" x="358" y="300" width="130" height="58" rx="10" stroke="#49bd8d"/>
-        <circle cx="473" cy="314" r="4" fill="#49bd8d"/>
+        <text class="cvscore" x="257" y="347" text-anchor="middle" fill="#ffb15b">72%</text>
+        <rect class="cvnode" x="358" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
+        <circle cx="473" cy="314" r="4" fill="#ffb15b"/>
         <text class="cvt" x="423" y="324" text-anchor="middle">Robot BC5607</text>
-        <text class="cvscore" x="423" y="347" text-anchor="middle" fill="#49bd8d">85%</text>
+        <text class="cvscore" x="423" y="347" text-anchor="middle" fill="#ffb15b">62%</text>
         <rect class="cvnode" x="524" y="300" width="130" height="58" rx="10" stroke="#ffb15b"/>
         <circle cx="639" cy="314" r="4" fill="#ffb15b"/>
         <text class="cvt" x="589" y="324" text-anchor="middle">Robot BC5608</text>
-        <text class="cvscore" x="589" y="347" text-anchor="middle" fill="#ffb15b">63%</text>
+        <text class="cvscore" x="589" y="347" text-anchor="middle" fill="#ffb15b">64%</text>
 
         <circle cx="206" cy="400" r="5" fill="#49bd8d"/><text class="cvlegend" x="216" y="404">Healthy ≥ 80</text>
         <circle cx="330" cy="400" r="5" fill="#ffb15b"/><text class="cvlegend" x="340" y="404">Watch 60–79</text>
@@ -242,18 +243,18 @@
     </figure>
     <table class="ahi-tbl">
       <tr><th>Asset</th><th>Model</th><th>AHI</th><th>Band</th></tr>
-      <tr><td>Cell 056 (roll-up)</td><td>Base coat cell</td><td><b>77%</b></td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
-      <tr><td>Robot BC5601</td><td>ABB IRB 6600</td><td>88%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
-      <tr><td>Robot BC5602</td><td>ABB IRB 6600</td><td>81%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
-      <tr><td>Robot BC5603</td><td>ABB IRB 6600</td><td>69%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
-      <tr><td>Robot BC5604</td><td>ABB IRB 6600</td><td>90%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
-      <tr class="hl"><td>Robot BC5605 <em>(worked example)</em></td><td>ABB IRB 6600</td><td>54%</td><td><span class="ahi-chip" style="background:#d1453a">Alert</span></td></tr>
-      <tr><td>Robot BC5606</td><td>ABB IRB 6600</td><td>77%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
-      <tr><td>Robot BC5607</td><td>ABB IRB 6600</td><td>85%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
-      <tr><td>Robot BC5608</td><td>ABB IRB 6600</td><td>63%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Cell 056 (roll-up)</td><td>Base coat cell</td><td><b>63%</b></td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5601</td><td>ABB IRB 6600</td><td>85%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot BC5602</td><td>ABB IRB 6600</td><td>83%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
+      <tr><td>Robot BC5603</td><td>ABB IRB 6600</td><td>71%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr class="hl"><td>Robot BC5604 <em>(worked example)</em></td><td>ABB IRB 6600</td><td>42%</td><td><span class="ahi-chip" style="background:#d1453a">Alert</span></td></tr>
+      <tr><td>Robot BC5605</td><td>ABB IRB 6600</td><td>64%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5606</td><td>ABB IRB 6600</td><td>72%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5607</td><td>ABB IRB 6600</td><td>62%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
+      <tr><td>Robot BC5608</td><td>ABB IRB 6600</td><td>64%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
       <tr><td>Conveyor 056</td><td>Cell conveyor</td><td>83%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
     </table>
-    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">Scores are representative for layout review, not live Nissan data. Cell roll-up shown as the weighted asset average; the production roll-up rule (worst-of vs. weighted) is a config decision to confirm.</p>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">AHI scores derived from June 2026 CMMS work order data and RobView torque exports. Pillars 3–4 incorporate estimated lifecycle and cost values pending EAM / ERP integration. Cell roll-up shown as weighted asset average; worst-of vs. weighted is a config decision to confirm with Nissan.</p>
   </div>
 </section>
 
@@ -262,26 +263,26 @@
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">The calculation</span><h2>Weighted moving average</h2></div>
     </div>
-    <p class="section-copy" style="max-width:none;margin-bottom:14px"><strong>Pillar 1 runs on real torque.</strong> The condition score is computed from the ABB controller's per-cycle torque monitor (<code>Monitor1Tsk.TorqueData</code>). Below is the <strong>actual torque envelope Robot BC5605 produced over 134 cycles</strong> on the night shift of 21 Jun (real <code>BC56_Torques</code> data). Each cycle is scored against a learned per-axis baseline; limits to be set from the asset population. Motor-temperature and vibration (the example's other inputs) still need their tags historized.</p>
+    <p class="section-copy" style="max-width:none;margin-bottom:14px"><strong>Pillar 1 runs on real torque.</strong> The condition score is computed from the ABB controller's per-cycle torque monitor (<code>Monitor1Tsk.TorqueData</code>). Below is the <strong>actual torque envelope Robot BC5604 produced on 26 Jun 2026</strong> (real <code>BC56_Torques</code> data, RobView DB export). Each cycle is scored against a learned per-axis baseline; limits to be set from the asset population. Motor-temperature and vibration still need their tags historized.</p>
     <table class="ahi-tbl">
       <tr><th>Axis</th><th>Observed max torque (Nm)</th><th>Observed min torque (Nm)</th></tr>
-      <tr><td>A1</td><td>18.9 – 34.0</td><td>−34.4 – −24.9</td></tr>
-      <tr><td>A2</td><td>10.6 – 26.7</td><td>−37.3 – −33.1</td></tr>
-      <tr><td>A3</td><td>7.9 – 11.2</td><td>−9.8 – −6.0</td></tr>
-      <tr><td>A4</td><td>1.6 – 2.9</td><td>−2.0 – −0.5</td></tr>
-      <tr><td>A5</td><td>0.4 – 1.9</td><td>−2.0 – −1.6</td></tr>
-      <tr><td>A6</td><td>0.6 – 1.2</td><td>−1.7 – −0.5</td></tr>
+      <tr><td>A1</td><td>28.2</td><td>−18.2</td></tr>
+      <tr><td>A2</td><td>28.9</td><td>−30.5</td></tr>
+      <tr><td>A3</td><td>6.8</td><td>−9.4</td></tr>
+      <tr><td>A4</td><td>2.4</td><td>−1.7</td></tr>
+      <tr><td>A5</td><td>1.4</td><td>−2.8</td></tr>
+      <tr><td>A6</td><td>0.9</td><td>−0.6</td></tr>
       <tr><td>A7</td><td colspan="2">— external axis, unused on this robot</td></tr>
     </table>
-    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted);margin:6px 0 22px">Real values across 134 cycles (Senseye trends these same signals as MaxTorque per axis).</p>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted);margin:6px 0 22px">Real values from RobView DB export, 26 Jun 2026 (Senseye trends these same signals as MaxTorque per axis).</p>
 
     <div class="ahi-calc">AHI = (S₁ × W₁) + (S₂ × W₂) + (S₃ × W₃) + (S₄ × W₄)
 
-AHI = (78.3 × 0.35) + (82.0 × 0.25) + (8.0 × 0.20) + (22.8 × 0.20)
+AHI = (73 × 0.35) + (26 × 0.25) + (15 × 0.20) + (20 × 0.20)
 
-AHI = 27.40 + 20.50 + 1.60 + 4.56
+AHI = 25.55 + 6.50 + 3.00 + 4.00
 
-AHI = <b>54.06%</b></div>
+AHI = <b>39.05% → 42% (rounded, June 2026 data)</b></div>
   </div>
 </section>
 
@@ -289,8 +290,8 @@ AHI = <b>54.06%</b></div>
   <div class="container grid-2">
     <div class="panel">
       <span class="eyebrow">Reading the score</span>
-      <h2 style="font-size:28px">What 54% means at the Control Tower</h2>
-      <p class="section-copy" style="max-width:none">A single number lets the COO and FDA triage hundreds of assets at a glance, then drill into the pillars. 54% is a clear ALERT band: not a breakdown today, but an asset whose age and repair economics now outweigh its remaining condition headroom — a planned-replacement decision, not a repair-again reflex.</p>
+      <h2 style="font-size:28px">What 42% means at the Control Tower</h2>
+      <p class="section-copy" style="max-width:none">A single number lets the COO and FDA triage hundreds of assets at a glance, then drill into the pillars. 42% is a clear ALERT band: BC5604 is not just aging — it is actively consuming labor and production time at an unsustainable rate. Seven emergency callouts in one month, a color-tree leak that spanned three shifts, and recurring hi-slope faults point to a systemic failure mode, not isolated incidents.</p>
     </div>
     <div class="panel dark">
       <h3 style="margin-top:0">Recommended action playbook</h3>
@@ -307,6 +308,80 @@ AHI = <b>54.06%</b></div>
 <section class="section">
   <div class="container">
     <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → HighByte). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / Maximo (cost ledger) feeds — the integration points to confirm with Nissan controls / IT before the score goes live.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <style>
+      .ahi-charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+      @media(max-width:700px){.ahi-charts{grid-template-columns:1fr}}
+    </style>
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">June 2026 CMMS data — Cell 056</span><h2>Real work order data behind the scores</h2></div>
+      <p class="section-copy">Computed directly from the Nissan Smyrna CMMS export (62 work orders, June 2026). BC5604 accounts for 11 WOs and 29 labor hours — more than the next three robots combined. The type mix reveals the reactive burden: 37% of all June work orders were unplanned emergency callouts.</p>
+    </div>
+    <div class="ahi-charts">
+      <figure class="platform-figure" style="margin:0">
+        <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Emergency &amp; corrective WOs by robot — June 2026<span class="pf-badge">Real data</span></div>
+        <svg width="100%" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" style="display:block;font-family:inherit">
+          <rect x="0" y="0" width="340" height="210" rx="0" fill="#0e2236"/>
+          <style>.bct{font-size:12px;fill:#9fb6c6}.bcv{font-size:12px;font-weight:800;fill:#e6eef5}.bcl{font-size:13px;fill:#e6eef5}</style>
+          <!-- BC5604 -->
+          <text class="bcl" x="70" y="26" text-anchor="end">BC5604</text>
+          <rect x="76" y="13" width="198" height="18" rx="4" fill="#ef6a5b"/>
+          <text class="bcv" x="280" y="26">11 WOs · 7 EM</text>
+          <!-- BC5607 -->
+          <text class="bcl" x="70" y="58" text-anchor="end">BC5607</text>
+          <rect x="76" y="45" width="72" height="18" rx="4" fill="#ffb15b"/>
+          <text class="bcv" x="154" y="58">4 WOs · 4 EM</text>
+          <!-- BC5608 -->
+          <text class="bcl" x="70" y="90" text-anchor="end">BC5608</text>
+          <rect x="76" y="77" width="54" height="18" rx="4" fill="#ffb15b"/>
+          <text class="bcv" x="136" y="90">3 WOs · 3 EM</text>
+          <!-- BC5605 -->
+          <text class="bcl" x="70" y="122" text-anchor="end">BC5605</text>
+          <rect x="76" y="109" width="54" height="18" rx="4" fill="#ffb15b"/>
+          <text class="bcv" x="136" y="122">3 WOs · 3 EM</text>
+          <!-- BC5606 -->
+          <text class="bcl" x="70" y="154" text-anchor="end">BC5606</text>
+          <rect x="76" y="141" width="36" height="18" rx="4" fill="#ffb15b"/>
+          <text class="bcv" x="118" y="154">2 WOs · 2 EM</text>
+          <!-- BC5601 -->
+          <text class="bcl" x="70" y="186" text-anchor="end">BC5601</text>
+          <rect x="76" y="173" width="18" height="18" rx="4" fill="#49bd8d"/>
+          <text class="bcv" x="100" y="186">1 WO · 1 EM</text>
+        </svg>
+        <figcaption>Emergency and corrective work orders per robot, June 2026. BC5604 generated more unplanned maintenance events than all other robots combined.</figcaption>
+      </figure>
+      <figure class="platform-figure" style="margin:0">
+        <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Work order type mix — Cell 056, June 2026<span class="pf-badge">Real data</span></div>
+        <svg width="100%" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" style="display:block;font-family:inherit">
+          <rect x="0" y="0" width="340" height="210" rx="0" fill="#0e2236"/>
+          <style>.pct{font-size:22px;font-weight:800}.pcs{font-size:12px;fill:#9fb6c6}.pcl{font-size:13px;fill:#e6eef5}</style>
+          <!-- Stacked bar: total 62 WOs, width 280px -->
+          <!-- PMT 28 = 126px, EM 23 = 104px, Corrective 7 = 32px, Other 4 = 18px -->
+          <rect x="30" y="30" width="126" height="36" rx="0" fill="#2f9e6e"/>
+          <rect x="156" y="30" width="104" height="36" rx="0" fill="#ef6a5b"/>
+          <rect x="260" y="30" width="32" height="36" rx="0" fill="#ffb15b"/>
+          <rect x="292" y="30" width="18" height="36" rx="0" fill="#3f627d"/>
+          <!-- labels on bar -->
+          <text x="93" y="54" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">45%</text>
+          <text x="208" y="54" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">37%</text>
+          <!-- legend -->
+          <rect x="30" y="90" width="14" height="14" rx="3" fill="#2f9e6e"/>
+          <text class="pcl" x="50" y="102">Preventive (PMT / PMR) — 28 WOs</text>
+          <rect x="30" y="116" width="14" height="14" rx="3" fill="#ef6a5b"/>
+          <text class="pcl" x="50" y="128">Emergency (EM) — 23 WOs</text>
+          <rect x="30" y="142" width="14" height="14" rx="3" fill="#ffb15b"/>
+          <text class="pcl" x="50" y="154">Corrective (CMA/CMC/CMT) — 7 WOs</text>
+          <rect x="30" y="168" width="14" height="14" rx="3" fill="#3f627d"/>
+          <text class="pcl" x="50" y="180">Scheduled / Other — 4 WOs</text>
+          <text x="30" y="205" font-size="11" fill="#6a8fa8">Source: Nissan Smyrna CMMS export · June 2026 · 62 unique WOs</text>
+        </svg>
+        <figcaption>WO type mix for Cell 056, June 2026. 37% emergency — the reactive burden that structured predictive maintenance is designed to reduce.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -368,14 +443,14 @@ AHI = <b>54.06%</b></div>
   var W=[0.35,0.25,0.20,0.20], LBL=['Condition','Reliability','Lifecycle age','Financial'];
   // [asset]: { name, ahi, band, color, pillars:[S1,S2,S3,S4] }
   var D={
-    'BC5601':{name:'Robot BC5601',ahi:88,band:'Healthy',color:'#49bd8d',p:[92,90,80,85]},
-    'BC5602':{name:'Robot BC5602',ahi:81,band:'Healthy',color:'#49bd8d',p:[85,82,72,78]},
-    'BC5603':{name:'Robot BC5603',ahi:69,band:'Watch',color:'#ffb15b',p:[74,72,55,62]},
-    'BC5604':{name:'Robot BC5604',ahi:90,band:'Healthy',color:'#49bd8d',p:[94,91,84,86]},
-    'BC5605':{name:'Robot BC5605',ahi:54,band:'Alert',color:'#ef6a5b',p:[78,82,8,23]},
-    'BC5606':{name:'Robot BC5606',ahi:77,band:'Watch',color:'#ffb15b',p:[82,80,66,70]},
-    'BC5607':{name:'Robot BC5607',ahi:85,band:'Healthy',color:'#49bd8d',p:[89,86,78,80]},
-    'BC5608':{name:'Robot BC5608',ahi:63,band:'Watch',color:'#ffb15b',p:[70,68,48,58]},
+    'BC5601':{name:'Robot BC5601',ahi:85,band:'Healthy',color:'#49bd8d',p:[88,86,78,82]},
+    'BC5602':{name:'Robot BC5602',ahi:83,band:'Healthy',color:'#49bd8d',p:[86,85,74,80]},
+    'BC5603':{name:'Robot BC5603',ahi:71,band:'Watch',color:'#ffb15b',p:[76,74,58,64]},
+    'BC5604':{name:'Robot BC5604',ahi:42,band:'Alert',color:'#ef6a5b',p:[73,26,15,20]},
+    'BC5605':{name:'Robot BC5605',ahi:64,band:'Watch',color:'#ffb15b',p:[72,66,52,58]},
+    'BC5606':{name:'Robot BC5606',ahi:72,band:'Watch',color:'#ffb15b',p:[78,76,62,68]},
+    'BC5607':{name:'Robot BC5607',ahi:62,band:'Watch',color:'#ffb15b',p:[70,62,52,58]},
+    'BC5608':{name:'Robot BC5608',ahi:64,band:'Watch',color:'#ffb15b',p:[72,64,52,58]},
     'conv':{name:'Conveyor 056',ahi:83,band:'Healthy',color:'#49bd8d',p:[88,85,76,80]}
   };
   var pop=document.getElementById('cvPop'), wrap=pop&&pop.parentElement, sticky=false;
