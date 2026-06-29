@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Fascia &amp; Plastics — Design Detail</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna — Fascia &amp; Plastics leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="fascia.html" class="">Overview</a>
+      <a href="fascia-approach.html" class="">Approach</a>
+      <a href="fascia-cockpit.html" class="">Fascia Operations<br>Cockpit</a>
+      <a href="fascia-design.html" class="current">Design<br>Detail</a>
+      <a href="fascia-roi.html" class="">ROI</a>
+    </nav>
+    <div class="section-switch">
+      <a href="index.html">Maintenance</a>
+      <span class="ss-active">Fascia &amp; Plastics</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Fascia &amp; Plastics — Design Detail</div>
+      <h1>Architecture consistent with the maintenance project</h1>
+      <p class="lead">The Fascia engagement uses the same underlying architecture assumptions as the maintenance modernization work — Cimplicity as the central system, a context and data layer on top, and a single operating experience for the people who work in the area.</p>
+    </div>
+    <div class="hero-card">
+      <div class="tag blue">Design principle</div>
+      <div class="answer">Retain and extend — don't replace. The same principle that governs the maintenance architecture applies here: build on FAULT, build on Cimplicity, and design the data layer so it feeds both Fascia operations and enterprise analytics without a redesign later.</div>
+      <div class="decision-band">
+        <div class="decision-cell"><strong>Cimplicity</strong><small>Central system candidate — consistent with plant-floor architecture on the maintenance side.</small></div>
+        <div class="decision-cell"><strong>FAULT spine</strong><small>All help-call and downtime data integrates into FAULT — not alongside it.</small></div>
+        <div class="decision-cell"><strong>Fabric path</strong><small>Specification written with Microsoft Fabric in mind — no redesign needed for the digital twin phase.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="technical">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">Technical foundation</span>
+        <h2>Four architecture components</h2>
+      </div>
+      <p class="section-copy">The functional specification will confirm which components apply and in what order. Each is consistent with the architecture already in use on the maintenance side of the project.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card"><h3>Cimplicity as the central system</h3><p>Consistent with the plant-floor architecture used on the maintenance side. Retain and extend rather than replace — the same principle applies in Fascia.</p><div class="proof-link">Integration scope confirmed during connectivity feasibility workstream.</div></div>
+      <div class="proof-card"><h3>FAULT as the data spine</h3><p>Nissan's standardized downtime tracking system. All help-call, downtime, and root-cause work integrates into FAULT — not alongside it. Reporting improvements target the DRS output layer.</p><div class="proof-link">Japan-format reporting gap addressed without touching FAULT's data model.</div></div>
+      <div class="proof-card"><h3>Historian + context layer</h3><p>High-speed time-series and event data infrastructure — same approach as the maintenance project. Connects Cimplicity signals to a reusable operational data layer that feeds both the Fascia cockpit and enterprise analytics.</p><div class="proof-link">Reuse of the same data backbone reduces integration cost on follow-on phases.</div></div>
+      <div class="proof-card"><h3>Microsoft Fabric path</h3><p>Craig's identified long-term direction. The functional specification will document the Fabric integration point so the follow-on implementation can reach it without a redesign — Brooksource's Microsoft partnership is available as a resource.</p><div class="proof-link">Digital twin capability becomes a natural extension, not a separate program.</div></div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Key principle:</strong> bring in data and systems engineering contacts early — before scope is finalized — to avoid the delays experienced on the control room project. Timing matters.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">Deliverables</span>
+        <h2>What this engagement produces</h2>
+      </div>
+      <p class="section-copy">Six concrete deliverables — each designed to stand alone and to feed directly into implementation. No discovery will need to be repeated when the build phase begins.</p>
+    </div>
+    <div class="comparison">
+      <div class="score-card">
+        <div class="tag">Deliverable 1</div>
+        <b>Current-state visibility map</b>
+        <small>Systems, data owners, naming conventions, FAULT data flows, and the DRS-to-Japan reporting gap — documented and validated with the Nissan team.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+      <div class="score-card">
+        <div class="tag blue">Deliverable 2</div>
+        <b>OEE requirements &amp; methodology</b>
+        <small>Accurate OEE definition including quality losses, hour-by-hour throughput logic, and alignment with Japan reporting expectations.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+      <div class="score-card">
+        <div class="tag green">Deliverable 3</div>
+        <b>Connectivity feasibility matrix</b>
+        <small>Equipment-by-equipment assessment of what can be connected, at what cost, and in what timeframe — scoped to injection molding, welder PCS, and punch machines.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+    </div>
+    <div class="comparison" style="margin-top:18px">
+      <div class="score-card">
+        <div class="tag">Deliverable 4</div>
+        <b>Help-call workflow requirements</b>
+        <small>Structured help-call and downtime workflow spec — routing, escalation, FAULT integration, and close-out logic — designed to drive adoption without mandating behavior change.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+      <div class="score-card">
+        <div class="tag blue">Deliverable 5</div>
+        <b>Quality KB requirements</b>
+        <small>Specification for a centralized quality knowledge base: event classification, root-cause taxonomy, resolution pattern capture, and search requirements.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+      <div class="score-card">
+        <div class="tag green">Deliverable 6</div>
+        <b>Functional specification + implementation estimate</b>
+        <small>Build-ready functional spec covering all workstreams, data flows, integration points, and a follow-on implementation estimate scoped to the Fascia area.</small>
+        <div class="scorebar"><span style="width:100%"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna Fascia &amp; Plastics. Built to support scope alignment and follow-on design work.</div>
+    </div>
+    <div class="small-nav"><a href="fascia.html">Overview</a> <a href="fascia-approach.html">Approach</a> <a href="fascia-cockpit.html">Fascia Operations Cockpit</a> <a href="fascia-design.html">Design Detail</a> <a href="fascia-roi.html">ROI</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
