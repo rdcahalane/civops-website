@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
@@ -20,7 +20,6 @@
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
 <a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
-<a href="operations-cockpit.html" class="">Fascia Operations<br>Cockpit</a>
 <a href="asset-health.html" class="">Asset Health<br>Index</a>
 <a href="detail-design.html" class="current">Detail<br>Design</a>
 <a href="technology.html" class="">Tech<br>Options</a>
@@ -35,8 +34,8 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Detailed design</div>
-    <h1 class="page-title">Detailed design — the source-grounded build spec</h1>
-    <p class="page-deck">The working architecture and asset-model spec, derived from the live Nissan Smyrna exports (Cimplicity points, the Paint4 SQL schema, Senseye, the FAULT app). The Architecture tab holds the conceptual story; this tab is the implementable detail — naming convention, asset templates, and the HighByte auto-config.</p>
+    <h1 class="page-title">Detailed design ï¿½ the source-grounded build spec</h1>
+    <p class="page-deck">The working architecture and asset-model spec, derived from the live Nissan Smyrna exports (Cimplicity points, the Paint4 SQL schema, Senseye, the FAULT app). The Architecture tab holds the conceptual story; this tab is the implementable detail ï¿½ naming convention, asset templates, and the HighByte auto-config.</p>
   </div>
 </section>
 
@@ -44,19 +43,19 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Working architecture</span><h2>As-is and to-be — phase 1 (HighByte UNS)</h2></div>
+      <div class="section-title"><span class="eyebrow">Working architecture</span><h2>As-is and to-be ï¿½ phase 1 (HighByte UNS)</h2></div>
       <p class="section-copy">Source-grounded redraw from the engineering working sessions. Customer direction: HighByte as the i3X-compliant UNS / MCP layer using its embedded broker; Humble (Factory OS) as a private-cloud VM consuming via MCP; phase 1 read-only. These supersede the conceptual As-Is / To-Be in the tabs below and continue to be refined with Nissan controls / IT.</p>
     </div>
 
     <figure class="platform-figure">
-      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>As-is — paint sealer data flow<span class="pf-badge">Working draft</span></div>
+      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>As-is ï¿½ paint sealer data flow<span class="pf-badge">Working draft</span></div>
       <svg width="100%" viewBox="0 0 680 300" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
         <title>Nissan Smyrna as-is paint sealer data flow</title>
         <desc>PLC to FTG OPC-UA gateway to two Cimplicity instances, crossing the DMZ to a SQL mirror, fault databases and CMMS, then to Senseye in the IS zone.</desc>
         <defs><marker id="axar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
         <style>.azt{font-size:14px;fill:#e6eef5}.azts{font-size:12px;fill:#9fb6c6}.azth{font-size:14px;font-weight:600;fill:#ffffff}.azzn{font-size:12px;font-weight:600;fill:#80a0b5}.azbx{fill:#15324c;stroke:#3f627d;stroke-width:1}.azhb{fill:none;stroke:#ff9b2e;stroke-width:1.7}.aznb{fill:#10324a;stroke:#74c6e5;stroke-width:1}.azpn{fill:none;stroke:#3f627d;stroke-width:1}.azln{stroke:#71bfdf;stroke-width:1.4;fill:none}.azlp{stroke:#ffb15b;stroke-width:1.5;fill:none}.azd2{stroke:#ffb15b;stroke-width:1.3;stroke-dasharray:5 4;fill:none}.azdv{stroke:#34607f;stroke-width:1;stroke-dasharray:4 4}</style>
         <rect x="3" y="3" width="674" height="294" rx="16" fill="#0e2236" stroke="#1f587a"/>
-        <text class="azth" x="40" y="32">As-is — paint sealer data flow</text>
+        <text class="azth" x="40" y="32">As-is ï¿½ paint sealer data flow</text>
         <line class="azdv" x1="330" y1="50" x2="330" y2="262"/>
         <line class="azdv" x1="530" y1="50" x2="530" y2="262"/>
         <text class="azzn" x="170" y="282" text-anchor="middle">Manufacturing</text>
@@ -76,7 +75,7 @@
         <text class="azts" x="272" y="210" text-anchor="middle">022 cell</text>
         <rect class="azbx" x="352" y="56" width="156" height="42" rx="6"/>
         <text class="azt" x="430" y="74" text-anchor="middle">CMMS</text>
-        <text class="azts" x="430" y="89" text-anchor="middle">Maximo · Maintenance Connect</text>
+        <text class="azts" x="430" y="89" text-anchor="middle">Maximo ï¿½ Maintenance Connect</text>
         <rect class="azbx" x="352" y="110" width="110" height="34" rx="6"/>
         <text class="azt" x="407" y="131" text-anchor="middle">Fault</text>
         <rect class="azbx" x="352" y="152" width="150" height="44" rx="6"/>
@@ -101,7 +100,7 @@
     <!-- Phased To-Be diagrams -->
     <div style="margin-top:32px">
       <div class="section-head" style="margin-bottom:16px">
-        <div class="section-title"><span class="eyebrow">Phased build</span><h2>Three phases of expansion — same architecture, wider scope</h2></div>
+        <div class="section-title"><span class="eyebrow">Phased build</span><h2>Three phases of expansion ï¿½ same architecture, wider scope</h2></div>
         <p class="section-copy">Phase 1 pilots HighByte on a single asset. Each subsequent phase extends the same hub to cover more of the plant without rebuilding it.</p>
       </div>
 
@@ -112,9 +111,9 @@
       </style>
 
       <div class="tab-row" style="margin-bottom:20px">
-        <button class="tab-btn active" data-phase-btn="p1">Phase 1 — Cell 56 pilot</button>
-        <button class="tab-btn" data-phase-btn="p2">Phase 2 — Fascia operations</button>
-        <button class="tab-btn" data-phase-btn="p3">Phase 3 — Full Paint Line 1</button>
+        <button class="tab-btn active" data-phase-btn="p1">Phase 1 ï¿½ Cell 56 pilot</button>
+        <button class="tab-btn" data-phase-btn="p2">Phase 2 ï¿½ Fascia operations</button>
+        <button class="tab-btn" data-phase-btn="p3">Phase 3 ï¿½ Full Paint Line 1</button>
       </div>
 
       <div class="phase-pane active" data-phase-pane="p1">
@@ -122,21 +121,21 @@
           <rect width="940" height="700" rx="18" fill="#0a1928"/>
           <rect x="788" y="12" width="140" height="26" rx="13" fill="none" stroke="#3b7494"/>
           <text x="858" y="30" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.07em">WORKING DRAFT</text>
-          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 1 (read-only)</text>
-          <text x="18" y="62" fill="#9fb6c6" font-size="12">Paint (CCR) · Basecoat Automated Spray Cell 56 · maintenance + asset health pilot</text>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be ï¿½ Phase 1 (read-only)</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Paint (CCR) ï¿½ Basecoat Automated Spray Cell 56 ï¿½ maintenance + asset health pilot</text>
           <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
-          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night ï¿½ web + mobile</text>
           <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">Central Control Room View</text>
-          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — robot / body style</text>
-          <text x="35" y="170" fill="#9fb6c6" font-size="12">· top-3 breakdowns — WTD / MTD / hr</text>
-          <text x="35" y="192" fill="#9fb6c6" font-size="12">· uptime % — per shift</text>
-          <text x="35" y="214" fill="#9fb6c6" font-size="12">· Senseye PdM · inspection QC</text>
-          <!-- AHI mini — Cell 056 Base Coat pilot view -->
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">ï¿½ cycle time ï¿½ robot / body style</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">ï¿½ top-3 breakdowns ï¿½ WTD / MTD / hr</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">ï¿½ uptime % ï¿½ per shift</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">ï¿½ Senseye PdM ï¿½ inspection QC</text>
+          <!-- AHI mini ï¿½ Cell 056 Base Coat pilot view -->
           <rect x="458" y="96" width="467" height="172" rx="12" fill="#091827" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="470" y="114" fill="#9fb6c6" font-size="10" font-weight="700">Cell 056 — Base Coat · Asset Health Index</text>
+          <text x="470" y="114" fill="#9fb6c6" font-size="10" font-weight="700">Cell 056 ï¿½ Base Coat ï¿½ Asset Health Index</text>
           <rect x="810" y="100" width="106" height="20" rx="10" fill="#2a1400" stroke="#ff9b2e" stroke-width="1.2"/>
-          <text x="863" y="114" fill="#ff9b2e" font-size="10" font-weight="700" text-anchor="middle">77% · WATCH</text>
+          <text x="863" y="114" fill="#ff9b2e" font-size="10" font-weight="700" text-anchor="middle">77% ï¿½ WATCH</text>
           <!-- top row robots -->
           <rect x="466" y="124" width="90" height="28" rx="6" fill="#0e2236" stroke="#49bd8d" stroke-width="1.2"/>
           <text x="511" y="135" fill="#7baac4" font-size="8" text-anchor="middle">BC5601</text>
@@ -181,10 +180,10 @@
           <circle cx="470" cy="232" r="4" fill="#49bd8d"/>
           <text x="478" y="236" fill="#7baac4" font-size="9">=80 Healthy</text>
           <circle cx="556" cy="232" r="4" fill="#ff9b2e"/>
-          <text x="564" y="236" fill="#7baac4" font-size="9">60–79 Watch</text>
+          <text x="564" y="236" fill="#7baac4" font-size="9">60ï¿½79 Watch</text>
           <circle cx="646" cy="232" r="4" fill="#ff5555"/>
           <text x="654" y="236" fill="#7baac4" font-size="9">&lt;60 Alert</text>
-          <text x="470" y="255" fill="#4a6a7a" font-size="9">representative pilot data · drives maintenance prioritisation in CCR</text>
+          <text x="470" y="255" fill="#4a6a7a" font-size="9">representative pilot data ï¿½ drives maintenance prioritisation in CCR</text>
           <!-- data flow arrows from middle tier to consumer panels -->
           <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
           <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
@@ -194,7 +193,7 @@
           <polygon points="720,266 713,276 726,276" fill="#ff8300" opacity="0.7"/>
           <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS ï¿½ MCP client</text>
           <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
           <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
@@ -208,13 +207,13 @@
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
           <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
-          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps ï¿½ i3X profiles ï¿½ ISA-95</text>
           <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
           <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
           <rect x="463" y="474" width="220" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="573" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · Cell 56</text>
+          <text x="573" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates ï¿½ Cell 56</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
@@ -234,37 +233,37 @@
           <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
           <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
           <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
-          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 · SLR_10S · Tracker</text>
+          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 ï¿½ SLR_10S ï¿½ Tracker</text>
           <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
           <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
           <rect x="490" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="564" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="564" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
           <line x1="535" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
           <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
-          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · dashed = phase 2 write-back</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up ï¿½ orange = consumers read via UNS / MCP ï¿½ dashed = phase 2 write-back</text>
         </svg>
-        <div class="phase-note"><strong>Phase 1 scope:</strong> Read-only pilot. HighByte Intelligence Hub connects to Cimplicity, Historian, FAULT, Inspect/Autis, Robots DB, and Maximo. Humble Factory OS and Analytics/AI consume data via UNS and MCP. Output: Maintenance Cockpit for CCR — cycle time, top-3 breakdowns, uptime, Senseye PdM, and inspection QC. Fascia is out of scope; the architecture is designed to extend to it in Phase 2 without rebuilding.</div>
+        <div class="phase-note"><strong>Phase 1 scope:</strong> Read-only pilot. HighByte Intelligence Hub connects to Cimplicity, Historian, FAULT, Inspect/Autis, Robots DB, and Maximo. Humble Factory OS and Analytics/AI consume data via UNS and MCP. Output: Maintenance Cockpit for CCR ï¿½ cycle time, top-3 breakdowns, uptime, Senseye PdM, and inspection QC. Fascia is out of scope; the architecture is designed to extend to it in Phase 2 without rebuilding.</div>
       </div>
 
       <div class="phase-pane" data-phase-pane="p2">
         <svg viewBox="0 0 940 700" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
           <rect width="940" height="700" rx="18" fill="#0a1928"/>
-          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 2</text>
-          <text x="18" y="62" fill="#9fb6c6" font-size="12">Extends Phase 1 · adds Fascia front &amp; rear · operations data focus</text>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be ï¿½ Phase 2</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Extends Phase 1 ï¿½ adds Fascia front &amp; rear ï¿½ operations data focus</text>
           <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
-          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night ï¿½ web + mobile</text>
           <!-- Fascia moved to primary left slot -->
           <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia — front / rear</text>
-          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — front / rear fascia</text>
-          <text x="35" y="170" fill="#9fb6c6" font-size="12">· uptime % — per hour</text>
-          <text x="35" y="192" fill="#9fb6c6" font-size="12">· top-3 QC from inspection</text>
-          <text x="35" y="214" fill="#9fb6c6" font-size="12">· top-3 downtime — equip / operator</text>
+          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia ï¿½ front / rear</text>
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">ï¿½ cycle time ï¿½ front / rear fascia</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">ï¿½ uptime % ï¿½ per hour</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">ï¿½ top-3 QC from inspection</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">ï¿½ top-3 downtime ï¿½ equip / operator</text>
           <rect x="288" y="234" width="140" height="24" rx="12" fill="#1a3a1a" stroke="#49bd8d"/>
           <text x="358" y="250" fill="#49bd8d" font-size="11" font-weight="700" text-anchor="middle">New in Phase 2</text>
-          <!-- Off paint · ahead of punch — Fascia Operations Cockpit sample view -->
+          <!-- Off paint ï¿½ ahead of punch ï¿½ Fascia Operations Cockpit sample view -->
           <rect x="458" y="96" width="467" height="172" rx="12" fill="#091827" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="470" y="112" fill="#ffffff" font-size="11" font-weight="900">Off paint · ahead of punch</text>
-          <text x="470" y="125" fill="#7baac4" font-size="9">painted fascia performance — front / rear</text>
+          <text x="470" y="112" fill="#ffffff" font-size="11" font-weight="900">Off paint ï¿½ ahead of punch</text>
+          <text x="470" y="125" fill="#7baac4" font-size="9">painted fascia performance ï¿½ front / rear</text>
           <rect x="874" y="98" width="42" height="18" rx="9" fill="#ff8300"/>
           <text x="895" y="111" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">Front</text>
           <!-- KPI left: Cycle Time -->
@@ -273,26 +272,26 @@
           <text x="474" y="162" fill="#ff8300" font-size="18" font-weight="900">52</text>
           <text x="508" y="162" fill="#7baac4" font-size="14" font-weight="700"> / 58</text>
           <text x="548" y="162" fill="#7baac4" font-size="10"> JPH</text>
-          <text x="474" y="178" fill="#5a7a8a" font-size="8">cycle 252s · target 230s · off-paint ? sub-assy</text>
+          <text x="474" y="178" fill="#5a7a8a" font-size="8">cycle 252s ï¿½ target 230s ï¿½ off-paint ? sub-assy</text>
           <!-- KPI right: Uptime -->
           <rect x="692" y="130" width="222" height="56" rx="7" fill="#0e2236" stroke="#1f3d55"/>
           <text x="702" y="143" fill="#7baac4" font-size="8" font-weight="700">UPTIME / DOWNTIME</text>
           <text x="702" y="162" fill="#ff8300" font-size="15" font-weight="900">91.4% / 95%</text>
-          <text x="702" y="178" fill="#5a7a8a" font-size="8">8.6% downtime · 14 microstops · 22 min major</text>
+          <text x="702" y="178" fill="#5a7a8a" font-size="8">8.6% downtime ï¿½ 14 microstops ï¿½ 22 min major</text>
           <!-- Pareto left: Downtime -->
           <rect x="464" y="192" width="222" height="74" rx="7" fill="#0e2236" stroke="#1f3d55"/>
-          <text x="474" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 DOWNTIME — PARETO</text>
-          <text x="474" y="216" fill="#9fb6c6" font-size="8">Sealer line plug  3·18m</text>
+          <text x="474" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 DOWNTIME ï¿½ PARETO</text>
+          <text x="474" y="216" fill="#9fb6c6" font-size="8">Sealer line plug  3ï¿½18m</text>
           <rect x="474" y="218" width="185" height="5" rx="2" fill="#ff8300"/>
-          <text x="474" y="230" fill="#9fb6c6" font-size="8">Conveyor hold  5·11m</text>
+          <text x="474" y="230" fill="#9fb6c6" font-size="8">Conveyor hold  5ï¿½11m</text>
           <rect x="474" y="232" width="113" height="5" rx="2" fill="#ff8300" opacity="0.75"/>
-          <text x="474" y="244" fill="#9fb6c6" font-size="8">Color-change overrun  2·7m</text>
+          <text x="474" y="244" fill="#9fb6c6" font-size="8">Color-change overrun  2ï¿½7m</text>
           <rect x="474" y="246" width="72" height="5" rx="2" fill="#ff8300" opacity="0.55"/>
-          <text x="474" y="258" fill="#9fb6c6" font-size="8">Robot fault  2·5m</text>
+          <text x="474" y="258" fill="#9fb6c6" font-size="8">Robot fault  2ï¿½5m</text>
           <rect x="474" y="260" width="51" height="5" rx="2" fill="#ff8300" opacity="0.4"/>
           <!-- Pareto right: Quality -->
           <rect x="692" y="192" width="222" height="74" rx="7" fill="#0e2236" stroke="#1f3d55"/>
-          <text x="702" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 QUALITY — PARETO</text>
+          <text x="702" y="204" fill="#7baac4" font-size="8" font-weight="700">TOP 5 QUALITY ï¿½ PARETO</text>
           <text x="702" y="216" fill="#9fb6c6" font-size="8">Orange peel  9</text>
           <rect x="702" y="218" width="180" height="5" rx="2" fill="#49a9bd"/>
           <text x="702" y="230" fill="#9fb6c6" font-size="8">Dirt / seed  6</text>
@@ -312,7 +311,7 @@
           <text x="254" y="284" fill="#ff8300" font-size="10" opacity="0.8">write-back</text>
           <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS ï¿½ MCP client</text>
           <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
           <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
@@ -326,14 +325,14 @@
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
           <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
-          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps ï¿½ i3X profiles ï¿½ ISA-95</text>
           <line x1="310" y1="410" x2="310" y2="386" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
           <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
           <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
           <rect x="463" y="474" width="240" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="583" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · 56 / front-rear</text>
+          <text x="583" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates ï¿½ 56 / front-rear</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
@@ -353,36 +352,36 @@
           <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
           <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
           <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
-          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 + fascia · SLR_10S · Tracker</text>
+          <rect x="213" y="630" width="230" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="328" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant)</text><text x="328" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">Cell 56 + fascia ï¿½ SLR_10S ï¿½ Tracker</text>
           <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
           <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
           <rect x="490" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="564" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="564" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
           <line x1="535" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
           <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
-          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · dashed = write-back · green border = Phase 2 addition</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up ï¿½ orange = consumers read via UNS / MCP ï¿½ dashed = write-back ï¿½ green border = Phase 2 addition</text>
         </svg>
-        <div class="phase-note"><strong>Phase 2 scope:</strong> Extends the Phase 1 hub to cover Fascia front &amp; rear — a separate engagement focused on <em>operations</em> data, not maintenance and asset health. New outputs: Fascia Operations Cockpit (cycle time, uptime, QC, downtime by operator/equipment). The HighByte hub is already in place; Phase 2 adds the Fascia data path, i3X templates for front/rear fascia, and activates optional write-back capability.</div>
+        <div class="phase-note"><strong>Phase 2 scope:</strong> Extends the Phase 1 hub to cover Fascia front &amp; rear ï¿½ a separate engagement focused on <em>operations</em> data, not maintenance and asset health. New outputs: Fascia Operations Cockpit (cycle time, uptime, QC, downtime by operator/equipment). The HighByte hub is already in place; Phase 2 adds the Fascia data path, i3X templates for front/rear fascia, and activates optional write-back capability.</div>
       </div>
 
       <div class="phase-pane" data-phase-pane="p3">
         <svg viewBox="0 0 940 700" class="phase-svg" xmlns="http://www.w3.org/2000/svg">
           <rect width="940" height="700" rx="18" fill="#0a1928"/>
-          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be — Phase 3</text>
-          <text x="18" y="62" fill="#9fb6c6" font-size="12">Full Paint Line 1 · all areas on the HighByte hub · larger undertaking than Cell 56 alone</text>
+          <text x="18" y="40" fill="#ffffff" font-size="16" font-weight="900">To-be ï¿½ Phase 3</text>
+          <text x="18" y="62" fill="#9fb6c6" font-size="12">Full Paint Line 1 ï¿½ all areas on the HighByte hub ï¿½ larger undertaking than Cell 56 alone</text>
           <text x="18" y="86" fill="#7baac4" font-size="12" font-weight="700">Private cloud</text>
-          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night · web + mobile</text>
+          <text x="922" y="86" fill="#7baac4" font-size="12" font-weight="700" text-anchor="end">split day / night ï¿½ web + mobile</text>
           <rect x="15" y="96" width="428" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">CCR — paint / sealer</text>
-          <text x="35" y="148" fill="#9fb6c6" font-size="12">· cycle time — all cells / body styles</text>
-          <text x="35" y="170" fill="#9fb6c6" font-size="12">· top-3 breakdowns — WTD / MTD / hr</text>
-          <text x="35" y="192" fill="#9fb6c6" font-size="12">· uptime % — per shift · all cells</text>
-          <text x="35" y="214" fill="#9fb6c6" font-size="12">· Senseye PdM · inspection QC</text>
+          <text x="35" y="124" fill="#ffffff" font-size="14" font-weight="900">CCR ï¿½ paint / sealer</text>
+          <text x="35" y="148" fill="#9fb6c6" font-size="12">ï¿½ cycle time ï¿½ all cells / body styles</text>
+          <text x="35" y="170" fill="#9fb6c6" font-size="12">ï¿½ top-3 breakdowns ï¿½ WTD / MTD / hr</text>
+          <text x="35" y="192" fill="#9fb6c6" font-size="12">ï¿½ uptime % ï¿½ per shift ï¿½ all cells</text>
+          <text x="35" y="214" fill="#9fb6c6" font-size="12">ï¿½ Senseye PdM ï¿½ inspection QC</text>
           <rect x="458" y="96" width="467" height="172" rx="12" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="478" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia — front / rear</text>
-          <text x="478" y="148" fill="#9fb6c6" font-size="12">· cycle time — front / rear fascia</text>
-          <text x="478" y="170" fill="#9fb6c6" font-size="12">· uptime % — per hour</text>
-          <text x="478" y="192" fill="#9fb6c6" font-size="12">· top-3 QC from inspection</text>
-          <text x="478" y="214" fill="#9fb6c6" font-size="12">· top-3 downtime — equip / operator</text>
+          <text x="478" y="124" fill="#ffffff" font-size="14" font-weight="900">Fascia ï¿½ front / rear</text>
+          <text x="478" y="148" fill="#9fb6c6" font-size="12">ï¿½ cycle time ï¿½ front / rear fascia</text>
+          <text x="478" y="170" fill="#9fb6c6" font-size="12">ï¿½ uptime % ï¿½ per hour</text>
+          <text x="478" y="192" fill="#9fb6c6" font-size="12">ï¿½ top-3 QC from inspection</text>
+          <text x="478" y="214" fill="#9fb6c6" font-size="12">ï¿½ top-3 downtime ï¿½ equip / operator</text>
           <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
           <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
           <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
@@ -392,7 +391,7 @@
           <line x1="245" y1="288" x2="245" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
           <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS · MCP client</text>
+          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Factory OS ï¿½ MCP client</text>
           <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
           <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
           <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
@@ -406,13 +405,13 @@
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
           <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
-          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps · i3X profiles · ISA-95 · full Paint Line 1</text>
+          <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps ï¿½ i3X profiles ï¿½ ISA-95 ï¿½ full Paint Line 1</text>
           <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
           <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
           <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
           <rect x="463" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="595" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates · all cells · 56 / 22 / fascia</text>
+          <text x="595" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates ï¿½ all cells ï¿½ 56 / 22 / fascia</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
@@ -432,15 +431,15 @@
           <line x1="95" y1="650" x2="103" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="105,650 97,643 97,657" fill="#4a6a7a"/>
           <rect x="107" y="630" width="92" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="153" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">FTG</text><text x="153" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">OPC-UA</text>
           <line x1="201" y1="650" x2="209" y2="650" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="211,650 203,643 203,657" fill="#4a6a7a"/>
-          <rect x="213" y="630" width="260" height="40" rx="7" fill="#0a1928" stroke="#49bd8d" stroke-width="1.5"/><text x="343" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant) — full Paint Line 1</text><text x="343" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">all cells · SLR_10S · 56 / 22 / fascia · Tracker</text>
+          <rect x="213" y="630" width="260" height="40" rx="7" fill="#0a1928" stroke="#49bd8d" stroke-width="1.5"/><text x="343" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Cimplicity (plant) ï¿½ full Paint Line 1</text><text x="343" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">all cells ï¿½ SLR_10S ï¿½ 56 / 22 / fascia ï¿½ Tracker</text>
           <line x1="297" y1="630" x2="297" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="297,602 291,612 303,612" fill="#4a6a7a"/>
           <text x="306" y="618" fill="#5a7a8a" font-size="10">DB replication</text>
           <rect x="520" y="630" width="148" height="40" rx="7" fill="#0a1928" stroke="#1f4060"/><text x="594" y="648" fill="#9fb6c6" font-size="11" font-weight="700" text-anchor="middle">Robots</text><text x="594" y="663" fill="#5a7a8a" font-size="10" text-anchor="middle">plant-floor network</text>
           <line x1="560" y1="630" x2="535" y2="606" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="535,602 529,612 541,612" fill="#4a6a7a"/>
           <text x="544" y="618" fill="#5a7a8a" font-size="10">parallel feed</text>
-          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up · orange = consumers read via UNS / MCP · green border = Phase 3 expansion</text>
+          <text x="18" y="688" fill="#4a6a7a" font-size="10">grey = sources / DBs publish up ï¿½ orange = consumers read via UNS / MCP ï¿½ green border = Phase 3 expansion</text>
         </svg>
-        <div class="phase-note"><strong>Phase 3 scope:</strong> Extends the same HighByte architecture across all of Paint Line 1 — a significantly larger undertaking than the Cell 56 pilot. All cells, conveyors, and support systems connect to the UNS. i3X templates expand to cover the full cell and equipment inventory. Both the CCR and Fascia Operations cockpits are fully operational. This phase validates the architecture as the plant-wide data backbone.</div>
+        <div class="phase-note"><strong>Phase 3 scope:</strong> Extends the same HighByte architecture across all of Paint Line 1 ï¿½ a significantly larger undertaking than the Cell 56 pilot. All cells, conveyors, and support systems connect to the UNS. i3X templates expand to cover the full cell and equipment inventory. Both the CCR and Fascia Operations cockpits are fully operational. This phase validates the architecture as the plant-wide data backbone.</div>
       </div>
     </div>
   </div>
@@ -449,7 +448,7 @@
 <section class="section" id="detail-design">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Detailed design</span><h2>Asset model spec — grounded in the live Cimplicity / SQL exports</h2></div>
+      <div class="section-title"><span class="eyebrow">Detailed design</span><h2>Asset model spec ï¿½ grounded in the live Cimplicity / SQL exports</h2></div>
       <p class="section-copy">Source-grounded working spec, derived from the real Nissan Smyrna point exports (<code>ISS_022_POINTS</code>, <code>SLR_105_POINTS</code>), the <code>Paint4</code> SQL schema, the Senseye PMx asset list, and the FAULT downtime app. The goal of this section is a precise, repeatable convention that lets us generate a HighByte-importable model + instance set to auto-configure the UNS. Cell 022 (ABB sealer) is the fully worked example; cell 56 / base-coat and any Fanuc cells are stubbed pending their exports.</p>
     </div>
 
@@ -480,26 +479,26 @@
     </div>
 
     <div class="dd-pane active" data-dd-pane="naming">
-      <p class="section-copy">Every asset, point, and fault in Paint 4 already follows a consistent code. Decoding it is what lets us template once and instantiate many — and map cleanly to ISA-95.</p>
+      <p class="section-copy">Every asset, point, and fault in Paint 4 already follows a consistent code. Decoding it is what lets us template once and instantiate many ï¿½ and map cleanly to ISA-95.</p>
 
-      <div class="dd-h3">1 · Equipment asset code</div>
-      <p class="section-copy" style="max-width:none"><code>P4</code> + <code>&lt;area&gt;</code> + <code>&lt;equipment&gt;</code> + <code>&lt;sub-component&gt;</code> — e.g. <code>P4SL220101MR01</code> = Plant 4 · area 022 · sealer robot 01 · Mastic Regulator 01.</p>
+      <div class="dd-h3">1 ï¿½ Equipment asset code</div>
+      <p class="section-copy" style="max-width:none"><code>P4</code> + <code>&lt;area&gt;</code> + <code>&lt;equipment&gt;</code> + <code>&lt;sub-component&gt;</code> ï¿½ e.g. <code>P4SL220101MR01</code> = Plant 4 ï¿½ area 022 ï¿½ sealer robot 01 ï¿½ Mastic Regulator 01.</p>
       <table class="dd-tbl">
         <tr><th>Token</th><th>Meaning</th><th>Example</th></tr>
-        <tr><td><code>P4</code></td><td>Plant 4 (Paint)</td><td><code>P4…</code></td></tr>
-        <tr><td><code>022</code></td><td>Area / process cell — Sealer Automation (seam seal). Base coat = <code>56</code>.</td><td><code>P4022MP</code> (cell main control panel)</td></tr>
-        <tr><td><code>SL220x</code></td><td>Sealer robot 1–6 in cell 022 (work unit)</td><td><code>P4SL2201</code> … <code>P4SL2206</code></td></tr>
+        <tr><td><code>P4</code></td><td>Plant 4 (Paint)</td><td><code>P4ï¿½</code></td></tr>
+        <tr><td><code>022</code></td><td>Area / process cell ï¿½ Sealer Automation (seam seal). Base coat = <code>56</code>.</td><td><code>P4022MP</code> (cell main control panel)</td></tr>
+        <tr><td><code>SL220x</code></td><td>Sealer robot 1ï¿½6 in cell 022 (work unit)</td><td><code>P4SL2201</code> ï¿½ <code>P4SL2206</code></td></tr>
         <tr><td><code>RC</code></td><td>Robot Controller</td><td><code>P4SL2201RC</code></td></tr>
         <tr><td><code>ACV</code></td><td>Applicator Control Valve</td><td><code>P4SL2201ACV</code></td></tr>
         <tr><td><code>IDFP</code></td><td>Integrated dispense / fluid panel</td><td><code>P4SL2206IDFP</code></td></tr>
         <tr><td><code>MR01</code></td><td>Mastic Regulator</td><td><code>P4SL220101MR01</code></td></tr>
-        <tr><td><code>FP1</code> · <code>MHS01</code> · <code>WHS01</code></td><td>Material fluid plate · material hose swivel · whip hose swivel</td><td><code>P4SL220201FP1</code></td></tr>
-        <tr><td><code>RP0x</code> · <code>MP</code> · <code>PDP</code> · <code>FIL01</code></td><td>Safety interface panel · main control panel · power distribution · material filters</td><td><code>P4022RP02</code>, <code>P4022PDP</code></td></tr>
-        <tr><td><code>RAMn</code> · <code>PUMPn</code></td><td>Sealer material ram assembly + pumps</td><td><code>P4RAM3PUMP1</code></td></tr>
+        <tr><td><code>FP1</code> ï¿½ <code>MHS01</code> ï¿½ <code>WHS01</code></td><td>Material fluid plate ï¿½ material hose swivel ï¿½ whip hose swivel</td><td><code>P4SL220201FP1</code></td></tr>
+        <tr><td><code>RP0x</code> ï¿½ <code>MP</code> ï¿½ <code>PDP</code> ï¿½ <code>FIL01</code></td><td>Safety interface panel ï¿½ main control panel ï¿½ power distribution ï¿½ material filters</td><td><code>P4022RP02</code>, <code>P4022PDP</code></td></tr>
+        <tr><td><code>RAMn</code> ï¿½ <code>PUMPn</code></td><td>Sealer material ram assembly + pumps</td><td><code>P4RAM3PUMP1</code></td></tr>
       </table>
 
-      <div class="dd-h3">2 · Cimplicity point address (maps to ABB)</div>
-      <p class="section-copy" style="max-width:none">Robot points (device <code>ABB_ROBOT</code>) address the controller directly: <code>&lt;RobotId&gt;.&lt;subsystem&gt;.&lt;…&gt;</code></p>
+      <div class="dd-h3">2 ï¿½ Cimplicity point address (maps to ABB)</div>
+      <p class="section-copy" style="max-width:none">Robot points (device <code>ABB_ROBOT</code>) address the controller directly: <code>&lt;RobotId&gt;.&lt;subsystem&gt;.&lt;ï¿½&gt;</code></p>
       <table class="dd-tbl">
         <tr><th>Subsystem</th><th>Address pattern</th><th>Holds</th></tr>
         <tr><td>Controller</td><td><code>SL2201.ControllerState</code></td><td>Run / stop state (DINT)</td></tr>
@@ -509,10 +508,10 @@
       </table>
       <p class="section-copy" style="max-width:none">Cimplicity <code>PT_ID</code> is descriptive uppercase with a function prefix (<code>ABB_ROBOT_CURRENT_PROGRAM_INDEX_RW6</code>); cell-master points use <code>M0x_&lt;SIGNAL&gt;</code> where <code>M0x</code> is the robot index (<code>M05_CURRENT_PROGRAM</code>). RAPID variables carry Hungarian prefixes: <code>n</code> numeric, <code>do_</code> digital output, <code>b</code> bool.</p>
 
-      <div class="dd-h3">3 · Data types &amp; fault coding</div>
-      <p class="section-copy" style="max-width:none">Cimplicity <code>PT_TYPE</code>: <code>BOOL · INT · DINT · REAL · WORD · SINT · UINT · STRING_8/20/80</code>. Faults are PLC bit-arrays <code>FAULT[word].bit</code> mapped to text (<code>FAULT[0].4 = SEALER AUTOMATION BLOCKED</code>); downtime rolls up to categories <em>Manufacturing · Starved · Blocked · Modified Schedule · ADC · Reorder · Lunch/Break · Between Shifts</em>, tagged by Responsibility + Category per Area / Shift.</p>
+      <div class="dd-h3">3 ï¿½ Data types &amp; fault coding</div>
+      <p class="section-copy" style="max-width:none">Cimplicity <code>PT_TYPE</code>: <code>BOOL ï¿½ INT ï¿½ DINT ï¿½ REAL ï¿½ WORD ï¿½ SINT ï¿½ UINT ï¿½ STRING_8/20/80</code>. Faults are PLC bit-arrays <code>FAULT[word].bit</code> mapped to text (<code>FAULT[0].4 = SEALER AUTOMATION BLOCKED</code>); downtime rolls up to categories <em>Manufacturing ï¿½ Starved ï¿½ Blocked ï¿½ Modified Schedule ï¿½ ADC ï¿½ Reorder ï¿½ Lunch/Break ï¿½ Between Shifts</em>, tagged by Responsibility + Category per Area / Shift.</p>
 
-      <div class="dd-h3">4 · ISA-95 mapping &amp; proposed UNS path</div>
+      <div class="dd-h3">4 ï¿½ ISA-95 mapping &amp; proposed UNS path</div>
       <table class="dd-tbl">
         <tr><th>ISA-95 level</th><th>Nissan code</th></tr>
         <tr><td>Enterprise</td><td>Nissan</td></tr>
@@ -520,7 +519,7 @@
         <tr><td>Area</td><td>Paint 4 (<code>P4</code>)</td></tr>
         <tr><td>Work center / process cell</td><td><code>022</code> Sealer Automation</td></tr>
         <tr><td>Work unit (equipment)</td><td><code>SL220x</code> robot</td></tr>
-        <tr><td>Equipment module</td><td>RC · ACV · MR01 · FP1 · …</td></tr>
+        <tr><td>Equipment module</td><td>RC ï¿½ ACV ï¿½ MR01 ï¿½ FP1 ï¿½ ï¿½</td></tr>
       </table>
       <p class="section-copy" style="max-width:none">Proposed UNS namespace (HighByte publish path), derived directly from the code:</p>
       <div class="dd-code">Nissan/Smyrna/Paint4/022-SealerAutomation/SL2201/
@@ -536,62 +535,62 @@
       <div class="dd-tree">022 SEALER AUTOMATION
 +- Entrance Safety Interface Panel        P4022RP01
 +- Exit Safety Interface Panel + Tote Rams P4022RP02
-¦   +- Material Ram 3–6 Assembly           P4022RP02-R3..R6
-¦       +- Pump 1 / Pump 2                 P4RAM3PUMP1 / 2
+ï¿½   +- Material Ram 3ï¿½6 Assembly           P4022RP02-R3..R6
+ï¿½       +- Pump 1 / Pump 2                 P4RAM3PUMP1 / 2
 +- Main Control Panel                      P4022MP
 +- Material Filters                        P4022FIL01
 +- Power Distribution Panel                P4022PDP
-+- Sealer Robot SL2201–SL2206 (ABB)        P4SL2201 …
++- Sealer Robot SL2201ï¿½SL2206 (ABB)        P4SL2201 ï¿½
     +- Cable &amp; Hose Cat Track             P4SL220103
     +- Material Fluid Delivery System 1
-    ¦   +- Mastic Regulator 1              P4SL220101MR01
-    ¦   +- Material Fluid Plate            P4SL220201FP1
-    ¦   +- Material Hose Swivel            P4SL220201MHS01
-    ¦   +- Whip Hose Swivel                P4SL220201WHS01
+    ï¿½   +- Mastic Regulator 1              P4SL220101MR01
+    ï¿½   +- Material Fluid Plate            P4SL220201FP1
+    ï¿½   +- Material Hose Swivel            P4SL220201MHS01
+    ï¿½   +- Whip Hose Swivel                P4SL220201WHS01
     +- Robot ACV                           P4SL2201ACV
     +- Robot IDFP                          P4SL2206IDFP
     +- Robot Controller                    P4SL2201RC</div>
-      <p class="section-copy" style="max-width:none">This tree <em>is</em> the ISA-95 instance hierarchy — it becomes the HighByte instance set, one per <code>SL220x</code>, each composed from the ABB sealer-robot model.</p>
+      <p class="section-copy" style="max-width:none">This tree <em>is</em> the ISA-95 instance hierarchy ï¿½ it becomes the HighByte instance set, one per <code>SL220x</code>, each composed from the ABB sealer-robot model.</p>
     </div>
 
     <div class="dd-pane" data-dd-pane="abb">
-      <p class="section-copy">Derived from the 953 real <code>ABB_ROBOT</code> points in <code>ISS_022</code> (~159 tags per robot, repeating identically across SL2201–SL2206). This is the base of the "Sealer robot — ABB" HighByte model. Robots address the ABB controller via RAPID + IOSYSTEM; aligns to the OPC UA for Robotics model (<code>MotionDevice ? Axis</code>).</p>
+      <p class="section-copy">Derived from the 953 real <code>ABB_ROBOT</code> points in <code>ISS_022</code> (~159 tags per robot, repeating identically across SL2201ï¿½SL2206). This is the base of the "Sealer robot ï¿½ ABB" HighByte model. Robots address the ABB controller via RAPID + IOSYSTEM; aligns to the OPC UA for Robotics model (<code>MotionDevice ? Axis</code>).</p>
       <table class="dd-tbl">
         <tr><th>Group</th><th>Real tag path (per robot)</th><th>Type</th><th>Feeds</th></tr>
         <tr><td>Controller state</td><td><code>ControllerState</code></td><td>DINT</td><td>Availability / run-state</td></tr>
         <tr><td>Program</td><td><code>RAPID.T_ROB1.pntloop.nProgramIndex</code></td><td>DINT</td><td>Cycle / job context</td></tr>
         <tr><td>Axis torque (PdM)</td><td><code>RAPID.Monitor1Tsk.TorqueData.nAxis_<i>N</i>_Torque_Value</code> + min/max <code>{N,1|2}</code> + <code>user.nAxis_<i>N</i>_Torque_M1/M2_Mean</code> (7 axes)</td><td>REAL</td><td><b>Senseye PdM (MaxTorque/axis)</b></td></tr>
         <tr><td>Applicator / process</td><td><code>IOSIGNALS.AppEnabled / AppError</code>, <code>HVDisable</code> (electrostatic), <code>do_GrcGun1On</code> (sealer gun), <code>CBSMotorOn</code></td><td>BOOL</td><td>Process / fault</td></tr>
-        <tr><td>Command handshake</td><td><code>IOSIGNALS.Command / CommandToggle / CommandAck / CommandError / CommandExecuting</code>, <code>InParam1–3</code>, <code>ParamToggle</code></td><td>BOOL / WORD</td><td>Cycle / state</td></tr>
+        <tr><td>Command handshake</td><td><code>IOSIGNALS.Command / CommandToggle / CommandAck / CommandError / CommandExecuting</code>, <code>InParam1ï¿½3</code>, <code>ParamToggle</code></td><td>BOOL / WORD</td><td>Cycle / state</td></tr>
         <tr><td>Cell I/O &amp; safety</td><td><code>IOSIGNALS.LiftGateOpen/Req</code>, <code>ConveyorHoldReq</code>, <code>AutoMode</code>, <code>GhostMode</code>, <code>StopSignal</code></td><td>BOOL</td><td>Availability / safety</td></tr>
       </table>
-      <div class="dd-stub"><b>Stub — cell 56 / base coat &amp; Fanuc:</b> Senseye shows base-coat / top-coat / clear-coat robots, but their Cimplicity export isn't in hand and vendor is unconfirmed (possibly Fanuc). The base "Robot" model + this ABB variant carry over; a "Fanuc" variant gets added from that cell's export.</div>
+      <div class="dd-stub"><b>Stub ï¿½ cell 56 / base coat &amp; Fanuc:</b> Senseye shows base-coat / top-coat / clear-coat robots, but their Cimplicity export isn't in hand and vendor is unconfirmed (possibly Fanuc). The base "Robot" model + this ABB variant carry over; a "Fanuc" variant gets added from that cell's export.</div>
     </div>
 
     <div class="dd-pane" data-dd-pane="fault">
-      <p class="section-copy">Faults originate as PLC bit-arrays, are logged by Cimplicity, mirrored to SQL Server <code>Paint4</code>, and surfaced in the FAULT downtime app for OEE/availability. HighByte reads the mirror DB — not the plant-floor PLC.</p>
+      <p class="section-copy">Faults originate as PLC bit-arrays, are logged by Cimplicity, mirrored to SQL Server <code>Paint4</code>, and surfaced in the FAULT downtime app for OEE/availability. HighByte reads the mirror DB ï¿½ not the plant-floor PLC.</p>
       <div class="dd-h3">Alarm model</div>
-      <p class="section-copy" style="max-width:none"><code>SLR_105</code> carries ~6,400 alarm bits as <code>FAULT[word].bit ? description</code> (e.g. <code>FAULT[0].4 SEALER AUTOMATION BLOCKED</code>, <code>.5 STARVED</code>). The FAULT app (<code>npsm-intranet/Downtime/…</code>) categorizes each by Responsibility + Category per Area / Shift.</p>
-      <div class="dd-h3">Mirror DB — SQL Server <code>Paint4</code></div>
+      <p class="section-copy" style="max-width:none"><code>SLR_105</code> carries ~6,400 alarm bits as <code>FAULT[word].bit ? description</code> (e.g. <code>FAULT[0].4 SEALER AUTOMATION BLOCKED</code>, <code>.5 STARVED</code>). The FAULT app (<code>npsm-intranet/Downtime/ï¿½</code>) categorizes each by Responsibility + Category per Area / Shift.</p>
+      <div class="dd-h3">Mirror DB ï¿½ SQL Server <code>Paint4</code></div>
       <table class="dd-tbl">
         <tr><th>Object</th><th>Key columns</th></tr>
         <tr><td><code>dbo.ALARM_LOG</code></td><td><code>timestamp_utc</code> + <code>sequence_number</code> (PK), <code>alarm_id</code>, <code>alarm_class</code>, <code>resource</code>, <code>reference</code>, <code>prev_state</code>, <code>log_action</code>, <code>final_state</code>, <code>alarm_message</code>, <code>generation_time</code>, <code>project</code></td></tr>
         <tr><td><code>config.WorkStation</code></td><td>Workstation registry</td></tr>
         <tr><td><code>config.Zone</code></td><td>Zone registry</td></tr>
       </table>
-      <p class="section-copy" style="max-width:none">The <code>reference</code> column carries the asset/point path (e.g. <code>SL2201.…</code>), so alarms join back to the asset model on the naming convention above — letting HighByte attach fault context to each robot instance.</p>
+      <p class="section-copy" style="max-width:none">The <code>reference</code> column carries the asset/point path (e.g. <code>SL2201.ï¿½</code>), so alarms join back to the asset model on the naming convention above ï¿½ letting HighByte attach fault context to each robot instance.</p>
     </div>
 
     <div class="dd-pane" data-dd-pane="import">
-      <p class="section-copy">End goal: a properly formatted file that imports into HighByte to auto-configure the UNS — one <b>base model</b>, vendor <b>variant models</b>, and a generated <b>instance per asset</b>, sourced from the Cimplicity points and the <code>Paint4</code> DB.</p>
+      <p class="section-copy">End goal: a properly formatted file that imports into HighByte to auto-configure the UNS ï¿½ one <b>base model</b>, vendor <b>variant models</b>, and a generated <b>instance per asset</b>, sourced from the Cimplicity points and the <code>Paint4</code> DB.</p>
       <div class="dd-h3">Model structure</div>
       <div class="dd-code">Robot (base)                ? identity, state, axis, fault (OPC 40010/40001 aligned)
-  +- Sealer robot — ABB      ? ControllerState, 7-axis TorqueData, applicator I/O, handshake
-        ? instantiate ×6
-   SL2201 … SL2206  (cell 022)
-  +- Robot — Fanuc (stub)    ? from cell-56 / base-coat export</div>
-      <div class="dd-h3">Generated model (real — from <code>ISS_022_POINTS</code>)</div>
-      <p class="section-copy" style="max-width:none">A generator (<code>gen-highbyte-model.py</code>) reads the Cimplicity export and emits HighByte models + one instance per robot, bound to the real point addresses. Output follows HighByte's documented model schema (<code>name · description · groupAs · attributes[]</code>; attribute <code>type</code> = Simple / Modeled / Object). Excerpt:</p>
+  +- Sealer robot ï¿½ ABB      ? ControllerState, 7-axis TorqueData, applicator I/O, handshake
+        ? instantiate ï¿½6
+   SL2201 ï¿½ SL2206  (cell 022)
+  +- Robot ï¿½ Fanuc (stub)    ? from cell-56 / base-coat export</div>
+      <div class="dd-h3">Generated model (real ï¿½ from <code>ISS_022_POINTS</code>)</div>
+      <p class="section-copy" style="max-width:none">A generator (<code>gen-highbyte-model.py</code>) reads the Cimplicity export and emits HighByte models + one instance per robot, bound to the real point addresses. Output follows HighByte's documented model schema (<code>name ï¿½ description ï¿½ groupAs ï¿½ attributes[]</code>; attribute <code>type</code> = Simple / Modeled / Object). Excerpt:</p>
       <div class="dd-code">{
   "models": [
     { "name": "Paint4_AxisTorque", "groupAs": "Nissan/Paint4",
@@ -616,10 +615,10 @@
       "attributeSources": {
         "controllerState": "SL2201.ControllerState",
         "axis": [ { "torqueValue":
-          "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value" }, "… ×7" ] } }
+          "SL2201.RAPID.Monitor1Tsk.TorqueData.nAxis_1_Torque_Value" }, "ï¿½ ï¿½7" ] } }
   ]
 }</div>
-      <p class="section-copy" style="max-width:none">Full output: 2 models, 17 parent attributes, 6 instances (<code>P4SL2201–P4SL2206</code>), each bound to its real point addresses. Import via <code>POST /v1/project/partial/import</code> (merge by name).</p>
+      <p class="section-copy" style="max-width:none">Full output: 2 models, 17 parent attributes, 6 instances (<code>P4SL2201ï¿½P4SL2206</code>), each bound to its real point addresses. Import via <code>POST /v1/project/partial/import</code> (merge by name).</p>
       <div class="dd-h3">Download artifacts</div>
       <p class="dd-dl">
         <a href="downloads/highbyte-paint4-sealer-model.json" download>Model + instances (JSON)</a>
@@ -628,60 +627,60 @@
       </p>
       <table class="dd-tbl">
         <tr><th>File</th><th>What it is</th></tr>
-        <tr><td><code>highbyte-paint4-sealer-model.json</code></td><td>The deliverable: 2 models (<code>Paint4_AxisTorque</code> child + <code>Robot_ABB_Sealer</code> parent) and 6 instances (<code>P4SL2201–P4SL2206</code>), each attribute bound to its real Cimplicity point address. This is what you import into HighByte.</td></tr>
-        <tr><td><code>gen-highbyte-model.py</code></td><td>The generator that produced the JSON — reads <code>ISS_022_POINTS</code> and emits the models + instances. Re-run it whenever the point export changes, or point it at another cell's export.</td></tr>
+        <tr><td><code>highbyte-paint4-sealer-model.json</code></td><td>The deliverable: 2 models (<code>Paint4_AxisTorque</code> child + <code>Robot_ABB_Sealer</code> parent) and 6 instances (<code>P4SL2201ï¿½P4SL2206</code>), each attribute bound to its real Cimplicity point address. This is what you import into HighByte.</td></tr>
+        <tr><td><code>gen-highbyte-model.py</code></td><td>The generator that produced the JSON ï¿½ reads <code>ISS_022_POINTS</code> and emits the models + instances. Re-run it whenever the point export changes, or point it at another cell's export.</td></tr>
         <tr><td><code>highbyte-import-README.md</code></td><td>Step-by-step import instructions, the data-type mapping, and the validation caveats below.</td></tr>
       </table>
-      <p class="section-copy" style="max-width:none;font-size:12px">Behind the same access gate as the rest of the site — the JSON and generator carry real plant point addresses, so keep them inside the access-controlled scope.</p>
+      <p class="section-copy" style="max-width:none;font-size:12px">Behind the same access gate as the rest of the site ï¿½ the JSON and generator carry real plant point addresses, so keep them inside the access-controlled scope.</p>
 
       <div class="dd-h3">How to import</div>
-      <div class="dd-code">## 1 · get a token from the target hub
+      <div class="dd-code">## 1 ï¿½ get a token from the target hub
 curl -s -X POST http://&lt;hub&gt;:45245/login \
      -d '{"username":"...","password":"..."}'
 
-## 2 · partial import (merges by name — safe to re-run)
+## 2 ï¿½ partial import (merges by name ï¿½ safe to re-run)
 curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
      -H "Authorization: Bearer &lt;token&gt;" \
      -H "Content-Type: application/json" \
      --data @highbyte-paint4-sealer-model.json</div>
 
       <div class="dd-h3">What works today, and the one limitation</div>
-      <div class="dd-stub"><b>Models will import; the instance section is best-effort.</b> The <b>models / attributes</b> match HighByte's documented schema, so they import cleanly. What is <em>not</em> published is the exact <b>project wrapper keys</b> and the precise <b>instance-binding JSON</b> — so the per-robot binding is a best-effort mapping (attribute ? Cimplicity address) rather than a guaranteed-valid instance.
-      <br><br><b>The fix is one real export.</b> A single <code>GET /v1/project/export</code> from your hub — or one hand-built instance exported — lets us align the generator <b>1:1</b> with the real format. After that it auto-configures all six sealer robots, and the same pattern extends to <b>cell 56 / base coat</b> and any <b>Fanuc</b> cells straight from their Cimplicity exports.</div>
+      <div class="dd-stub"><b>Models will import; the instance section is best-effort.</b> The <b>models / attributes</b> match HighByte's documented schema, so they import cleanly. What is <em>not</em> published is the exact <b>project wrapper keys</b> and the precise <b>instance-binding JSON</b> ï¿½ so the per-robot binding is a best-effort mapping (attribute ? Cimplicity address) rather than a guaranteed-valid instance.
+      <br><br><b>The fix is one real export.</b> A single <code>GET /v1/project/export</code> from your hub ï¿½ or one hand-built instance exported ï¿½ lets us align the generator <b>1:1</b> with the real format. After that it auto-configures all six sealer robots, and the same pattern extends to <b>cell 56 / base coat</b> and any <b>Fanuc</b> cells straight from their Cimplicity exports.</div>
     </div>
 
     <div class="dd-pane" data-dd-pane="data">
-      <p class="section-copy">Moving from <em>representative</em> screens to a <em>validated</em> program. Phase 1 — real screens on the extracts Nissan provided — is done. Phase 2 is the data still needed to trust the AHI score and the KPI targets, not just render them.</p>
+      <p class="section-copy">Moving from <em>representative</em> screens to a <em>validated</em> program. Phase 1 ï¿½ real screens on the extracts Nissan provided ï¿½ is done. Phase 2 is the data still needed to trust the AHI score and the KPI targets, not just render them.</p>
 
-      <div class="dd-h3">Phase 1 — what we received (shift of 21–22 Jun) and what it powers</div>
+      <div class="dd-h3">Phase 1 ï¿½ what we received (shift of 21ï¿½22 Jun) and what it powers</div>
       <table class="dd-tbl">
         <tr><th>Extract (real)</th><th>Now drives</th></tr>
-        <tr><td><code>FAULT.csv</code> — 52 downtime events, Topcoat 5</td><td>Live downtime Pareto by responsibility &amp; cause (Cockpit)</td></tr>
-        <tr><td><code>Robot_Fault_Detail</code> + <code>ABB_Robot_056</code> / <code>TC_107</code> ALARM_LOG</td><td>Cascading-fault RCA — 24V dip ? 7-robot A1HV cascade ? booth starved (Cockpit)</td></tr>
-        <tr><td><code>BC56_Torques.csv</code> — per-axis torque, BC5601–BC5610</td><td>AHI Pillar 1 condition · real BC5605 torque envelope (Asset Health Index)</td></tr>
-        <tr><td><code>ReportOutput</code> — Maximo work orders</td><td>Maintenance history (downtime min, labor hrs, RCA notes)</td></tr>
+        <tr><td><code>FAULT.csv</code> ï¿½ 52 downtime events, Topcoat 5</td><td>Live downtime Pareto by responsibility &amp; cause (Cockpit)</td></tr>
+        <tr><td><code>Robot_Fault_Detail</code> + <code>ABB_Robot_056</code> / <code>TC_107</code> ALARM_LOG</td><td>Cascading-fault RCA ï¿½ 24V dip ? 7-robot A1HV cascade ? booth starved (Cockpit)</td></tr>
+        <tr><td><code>BC56_Torques.csv</code> ï¿½ per-axis torque, BC5601ï¿½BC5610</td><td>AHI Pillar 1 condition ï¿½ real BC5605 torque envelope (Asset Health Index)</td></tr>
+        <tr><td><code>ReportOutput</code> ï¿½ Maximo work orders</td><td>Maintenance history (downtime min, labor hrs, RCA notes)</td></tr>
         <tr><td><code>ABB_Events_List</code> (1,000) + <code>ABB_Alarm_Groups</code> (15)</td><td>Event dictionary / category taxonomy for Pareto grouping</td></tr>
-        <tr><td>Config — <code>ISS_022</code>, <code>SLR_105</code>, <code>Paint4</code> schema</td><td>HighByte asset model + naming convention</td></tr>
+        <tr><td>Config ï¿½ <code>ISS_022</code>, <code>SLR_105</code>, <code>Paint4</code> schema</td><td>HighByte asset model + naming convention</td></tr>
       </table>
 
-      <div class="dd-h3">Phase 2 — what's still needed to validate</div>
+      <div class="dd-h3">Phase 2 ï¿½ what's still needed to validate</div>
       <table class="dd-tbl">
         <tr><th>#</th><th>Gap</th><th>Unblocks (currently representative)</th><th>Source</th></tr>
-        <tr><td>1</td><td><b>Time depth — 30–90 days</b> (not one shift)</td><td>Trending, MTBF / drift, and validating the 35/25/20/20 weights against a real population</td><td>Historian export or repeated daily DB pulls</td></tr>
-        <tr><td>2</td><td><b>Per-axis torque baselines / limits</b></td><td>AHI Pillar 1 — converts real torque values into a 0–100 condition score</td><td>ABB supervision limits (CustKernel) or derive from population</td></tr>
+        <tr><td>1</td><td><b>Time depth ï¿½ 30ï¿½90 days</b> (not one shift)</td><td>Trending, MTBF / drift, and validating the 35/25/20/20 weights against a real population</td><td>Historian export or repeated daily DB pulls</td></tr>
+        <tr><td>2</td><td><b>Per-axis torque baselines / limits</b></td><td>AHI Pillar 1 ï¿½ converts real torque values into a 0ï¿½100 condition score</td><td>ABB supervision limits (CustKernel) or derive from population</td></tr>
         <tr><td>3</td><td><b>EAM runtime hours + commissioning dates</b></td><td>AHI Pillar 3 (lifecycle age)</td><td>EAM registry</td></tr>
-        <tr><td>4</td><td><b>Maximo $ cost + replacement value (CRV)</b></td><td>AHI Pillar 4 (financial) — WO export has minutes/labor but no $ or CRV</td><td>ERP / Maximo</td></tr>
+        <tr><td>4</td><td><b>Maximo $ cost + replacement value (CRV)</b></td><td>AHI Pillar 4 (financial) ï¿½ WO export has minutes/labor but no $ or CRV</td><td>ERP / Maximo</td></tr>
         <tr><td>5</td><td><b>Inspect / Autis defect export</b></td><td>Quality Pareto on the Off-paint / Punch / Sub-assembly dashboards</td><td>Inspect + Autis</td></tr>
         <tr><td>6</td><td><b>WIP / sequence data</b> (Jay item)</td><td>Cockpit Punch-queue + WIP-by-model view</td><td>Sequence/AVI; sensed or derived (paint-out - punch-in)</td></tr>
         <tr><td>7</td><td><b>Clock sync / offsets across systems</b></td><td>Cascading-fault RCA generalizing beyond one example</td><td>NTP/PTP confirm; ms-resolution SOE</td></tr>
         <tr><td>8</td><td><b>JPH / takt targets + "last station" trigger</b></td><td>Cockpit cycle-time targets (90 JPH etc.)</td><td>MES / DRS</td></tr>
       </table>
 
-      <div class="dd-stub"><b>Minimum to validate one cell end-to-end:</b> items 1–4 for the <b>cell-056 basecoat robots (BC5601–BC5610)</b> ? the first defensible AHI. A 30-day re-pull of the four files we already received (same format) covers most of it; read-only exports are fine, and a read-only Historian/SQL account would also enable the live HighByte pilot. Quality (5) and WIP (6) extend the ops dashboards from representative to live.</div>
+      <div class="dd-stub"><b>Minimum to validate one cell end-to-end:</b> items 1ï¿½4 for the <b>cell-056 basecoat robots (BC5601ï¿½BC5610)</b> ? the first defensible AHI. A 30-day re-pull of the four files we already received (same format) covers most of it; read-only exports are fine, and a read-only Historian/SQL account would also enable the live HighByte pilot. Quality (5) and WIP (6) extend the ops dashboards from representative to live.</div>
     </div>
 
     <div class="dd-pane" data-dd-pane="pilot">
-      <p class="section-copy">Screenshots from the running Humble CCR instance connected to the Nissan Smyrna paint shop data. This is what operators and maintenance supervisors see in the demo environment — and what the phase-1 build delivers.</p>
+      <p class="section-copy">Screenshots from the running Humble CCR instance connected to the Nissan Smyrna paint shop data. This is what operators and maintenance supervisors see in the demo environment ï¿½ and what the phase-1 build delivers.</p>
 
       <style>
         .humble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 24px; margin-top: 24px; }
@@ -695,10 +694,10 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
 
       <div class="humble-grid">
         <div class="humble-card">
-          <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+          <img src="assets/humble/01-inbox.png" alt="Humble inbox ï¿½ Eva morning briefing with causal chain" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Inbox · Eva AI</div>
-            <div class="humble-card-title">Morning briefing — causal chain + pending decisions</div>
+            <div class="humble-card-label">Inbox ï¿½ Eva AI</div>
+            <div class="humble-card-title">Morning briefing ï¿½ causal chain + pending decisions</div>
             <div class="humble-card-desc">Eva surfaces the two open decisions with urgency tags. The causal chain (Basecoat 56 ? Conveyor Stop ? Topcoat 5 Starved) is rendered inline so the operator sees root cause, not just symptoms.</div>
           </div>
         </div>
@@ -706,27 +705,27 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
         <div class="humble-card">
           <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Decision workflow · D-9</div>
+            <div class="humble-card-label">Decision workflow ï¿½ D-9</div>
             <div class="humble-card-title">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 Starvation</div>
-            <div class="humble-card-desc">Decision detail shows why it matters, causal mechanism tabs, ranked options, and one-click "Act on this" — the full decision record in a single panel.</div>
+            <div class="humble-card-desc">Decision detail shows why it matters, causal mechanism tabs, ranked options, and one-click "Act on this" ï¿½ the full decision record in a single panel.</div>
           </div>
         </div>
 
         <div class="humble-card">
           <img src="assets/humble/04-decision-d10.png" alt="Decision D-10: BC5605 Asset Degradation and Joint Range Fault" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Decision workflow · D-10</div>
+            <div class="humble-card-label">Decision workflow ï¿½ D-10</div>
             <div class="humble-card-title">BC5605 Asset Degradation and Joint Range Fault</div>
-            <div class="humble-card-desc">Two ranked intervention options — CapEx replacement vs. major mechanical overhaul — each with Description, Causal Mechanism, Outcome, Evidence, and Verification tabs. Robot AHI 38, 92% life consumed.</div>
+            <div class="humble-card-desc">Two ranked intervention options ï¿½ CapEx replacement vs. major mechanical overhaul ï¿½ each with Description, Causal Mechanism, Outcome, Evidence, and Verification tabs. Robot AHI 38, 92% life consumed.</div>
           </div>
         </div>
 
         <div class="humble-card">
-          <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+          <img src="assets/humble/12-control-center.png" alt="Humble Control Center ï¿½ Performance, Status, Anomalies" loading="lazy" />
           <div class="humble-card-body">
             <div class="humble-card-label">Control Center</div>
-            <div class="humble-card-title">Performance · Status · Anomalies — cross-operation view</div>
-            <div class="humble-card-desc">Eva-generated narrative of where we stand vs. peak — OEE availability gaps, asset health summary, and throughput/quality/labor status. Tabs for Operations, Processes, KPIs, Users, Triggers.</div>
+            <div class="humble-card-title">Performance ï¿½ Status ï¿½ Anomalies ï¿½ cross-operation view</div>
+            <div class="humble-card-desc">Eva-generated narrative of where we stand vs. peak ï¿½ OEE availability gaps, asset health summary, and throughput/quality/labor status. Tabs for Operations, Processes, KPIs, Users, Triggers.</div>
           </div>
         </div>
 
@@ -734,33 +733,33 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
           <img src="assets/humble/05-operations.png" alt="Humble Operations section" loading="lazy" />
           <div class="humble-card-body">
             <div class="humble-card-label">Operations</div>
-            <div class="humble-card-title">Paint shop operations — maintenance operations view</div>
+            <div class="humble-card-title">Paint shop operations ï¿½ maintenance operations view</div>
             <div class="humble-card-desc">Operations lists the active maintenance contexts (Paint Maintenance operation). Inside: Shift Updates, KPIs, and the decision/investigation queue for each operation.</div>
           </div>
         </div>
 
         <div class="humble-card">
-          <img src="assets/humble/09-work-center-tasks.png" alt="Humble Work Center — Tasks tab" loading="lazy" />
+          <img src="assets/humble/09-work-center-tasks.png" alt="Humble Work Center ï¿½ Tasks tab" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Work Center · Tasks</div>
-            <div class="humble-card-title">Tasks — seeded asset model and onboarding checklist</div>
-            <div class="humble-card-desc">Work Center tracks onboarding tasks (e.g. "Seed Nissan Asset Model" 100% done), open decisions, and active investigations in three tabs — all scoped to the user's role and operation.</div>
+            <div class="humble-card-label">Work Center ï¿½ Tasks</div>
+            <div class="humble-card-title">Tasks ï¿½ seeded asset model and onboarding checklist</div>
+            <div class="humble-card-desc">Work Center tracks onboarding tasks (e.g. "Seed Nissan Asset Model" 100% done), open decisions, and active investigations in three tabs ï¿½ all scoped to the user's role and operation.</div>
           </div>
         </div>
 
         <div class="humble-card">
-          <img src="assets/humble/10-work-center-decisions.png" alt="Humble Work Center — Decisions tab" loading="lazy" />
+          <img src="assets/humble/10-work-center-decisions.png" alt="Humble Work Center ï¿½ Decisions tab" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Work Center · Decisions</div>
-            <div class="humble-card-title">2 open decisions — D-9 Urgent, D-10 Soon</div>
+            <div class="humble-card-label">Work Center ï¿½ Decisions</div>
+            <div class="humble-card-title">2 open decisions ï¿½ D-9 Urgent, D-10 Soon</div>
             <div class="humble-card-desc">Decision queue with urgency badges, assignee, and timestamps. Clicking opens the full decision panel without leaving the Work Center context.</div>
           </div>
         </div>
 
         <div class="humble-card">
-          <img src="assets/humble/11-work-center-investigations.png" alt="Humble Work Center — Investigations tab" loading="lazy" />
+          <img src="assets/humble/11-work-center-investigations.png" alt="Humble Work Center ï¿½ Investigations tab" loading="lazy" />
           <div class="humble-card-body">
-            <div class="humble-card-label">Work Center · Investigations</div>
+            <div class="humble-card-label">Work Center ï¿½ Investigations</div>
             <div class="humble-card-title">I-4: 24V Power Dip on Basecoat Robots</div>
             <div class="humble-card-desc">Investigations are structured deep-dives on open causal questions. Private/Shared/Archived tabs let users manage their own vs. team investigations, with search and "New Investigation" inline.</div>
           </div>
@@ -776,8 +775,8 @@ curl -s -X POST http://&lt;hub&gt;:45245/v1/project/partial/import \
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="operations-cockpit.html">Fascia Operations Cockpit</a>
-<a href="operations-cockpit.html" class="">Fascia Operations<br>Cockpit</a> <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="roi.html">ROI</a></div>
   </div>
 </footer>
 
