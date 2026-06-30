@@ -72,72 +72,48 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title">
-        <span class="eyebrow">Engagement structure</span>
-        <h2>Eight workstreams, one functional specification</h2>
+        <span class="eyebrow">Engagement structure &amp; timeline</span>
+        <h2>Six phases → one functional specification</h2>
       </div>
-      <p class="section-copy">The engagement is structured as a functional specification effort — not an implementation. The deliverable is a build-ready spec that makes follow-on implementation estimable, low-risk, and informed by real current-state data from the Fascia floor.</p>
+      <p class="section-copy">The engagement is structured as a functional specification effort — not an implementation. Six phases over approximately eight weeks, each ending with a Nissan review checkpoint. The deliverable is a build-ready spec that makes follow-on implementation estimable, low-risk, and grounded in real current-state data from the Fascia floor.</p>
     </div>
     <div class="proof-grid">
       <div class="proof-card">
-        <h3>1 — Kickoff &amp; alignment</h3>
-        <p>Confirm scope, stakeholders, access, and the priority order for which area to tackle first. Shawn, Craig, and Paige aligned on how this connects to the control room work.</p>
+        <div class="when">Phase 1 — 1 day</div>
+        <h3>Kickoff &amp; alignment</h3>
+        <p>Confirm scope, stakeholders, access, and the priority order for which area to tackle first. Shawn, Craig, and Paige aligned on how this connects to the control room work. Loop in data/systems engineering contacts.</p>
         <div class="proof-link">Outcome: shared understanding of scope and sequencing before any discovery work begins.</div>
       </div>
       <div class="proof-card">
-        <h3>2 — Current-state mapping</h3>
-        <p>Document existing systems, data owners, naming conventions, and where FAULT data actually lives vs. where it needs to go. Identify the entry points DRS uses and where the Japan format gap occurs.</p>
+        <div class="when">Phase 2 — 2 weeks</div>
+        <h3>Current-state mapping</h3>
+        <p>Document existing systems, data owners, naming conventions, and where FAULT data actually lives vs. where it needs to go. Identify the entry points DRS uses, where the Japan format gap occurs, and the as-is connectivity picture for each equipment type.</p>
         <div class="proof-link">Outcome: accurate as-is picture before requirements are written.</div>
       </div>
       <div class="proof-card">
-        <h3>3 — Equipment connectivity feasibility</h3>
-        <p>Assess what injection molding machines, welder PCS, and punch machines can expose — protocols, data types, polling rates, and integration cost. Map each machine to a feasibility rating.</p>
-        <div class="proof-link">Outcome: connectivity matrix that scopes the implementation realistically.</div>
+        <div class="when">Phase 3 — 1 week</div>
+        <h3>Feasibility &amp; OEE requirements</h3>
+        <p>Assess what injection molding machines, welder PCS, and punch machines can expose — protocols, data types, polling rates, and integration cost. Define accurate OEE methodology: include quality losses, remove buffer padding, and align with what Nissan Japan expects to see.</p>
+        <div class="proof-link">Outcome: connectivity matrix + OEE definition that reflects operational reality.</div>
       </div>
       <div class="proof-card">
-        <h3>4 — OEE requirements</h3>
-        <p>Define accurate OEE methodology: include quality losses, remove buffer padding, and establish hour-by-hour throughput as the core metric. Align with what Nissan Japan expects to see.</p>
-        <div class="proof-link">Outcome: OEE definition and measurement logic that reflects operational reality.</div>
+        <div class="when">Phase 4 — 1 week</div>
+        <h3>Help/Call, downtime &amp; quality KB</h3>
+        <p>Design a Help/Call system that technicians want to use: clear routing, escalation rules, priority logic, and close-out requirements integrated with FAULT. Define requirements for a centralized quality knowledge base so root-cause patterns survive personnel turnover.</p>
+        <div class="proof-link">Outcome: workflow spec that addresses data adoption at the source + KB requirements.</div>
       </div>
       <div class="proof-card">
-        <h3>5 — Help-call &amp; downtime workflows</h3>
-        <p>Design a help-call system that technicians want to use: clear routing, escalation rules, priority logic, and close-out requirements. Integrate with FAULT rather than creating a parallel record.</p>
-        <div class="proof-link">Outcome: workflow specification that addresses data adoption at the source.</div>
-      </div>
-      <div class="proof-card">
-        <h3>6 — Quality knowledge base</h3>
-        <p>Define requirements for a centralized repository of quality events, root-cause classifications, and resolution patterns — so the institutional knowledge that currently lives in people's heads becomes searchable.</p>
-        <div class="proof-link">Outcome: KB requirements that survive personnel turnover.</div>
-      </div>
-      <div class="proof-card">
-        <h3>7 — Traceability &amp; automation opportunities</h3>
-        <p>Identify where manual data collection can be reduced through automation — machine signals, barcode/scan events, or structured form capture — and document the traceability requirements for each.</p>
+        <div class="when">Phase 5 — 1 week</div>
+        <h3>Traceability &amp; automation</h3>
+        <p>Identify where manual data collection can be reduced through automation — machine signals, barcode/scan events, or structured form capture — and document the traceability requirements and effort-to-value assessment for each opportunity.</p>
         <div class="proof-link">Outcome: automation candidates with effort-to-value assessment.</div>
       </div>
       <div class="proof-card">
-        <h3>8 — Functional specification package</h3>
-        <p>Compile all workstream outputs into a build-ready functional spec: requirements, architecture, integration points, data flows, and a follow-on implementation estimate scoped to the Fascia area.</p>
+        <div class="when">Phase 6 — 1.5 weeks</div>
+        <h3>Functional specification</h3>
+        <p>Compile all workstream outputs into a build-ready functional spec: requirements, architecture, integration points, data flows, and a follow-on implementation estimate scoped to the Fascia &amp; Plastics area.</p>
         <div class="proof-link">Outcome: a document that engineering can build from — no discovery re-work needed.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="roadmap">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title">
-        <span class="eyebrow">Timeline</span>
-        <h2>Kickoff → functional specification</h2>
-      </div>
-      <p class="section-copy">Six phases over approximately eight weeks, accounting for the July 4th plant shutdown. Each phase ends with a Nissan review checkpoint before the next phase begins.</p>
-    </div>
-    <div class="phase-grid">
-      <div class="phase"><div class="when">Phase 1 — 1 day</div><h3>Kickoff &amp; alignment</h3><p>Confirm scope, stakeholders, access, and the priority order for which area to tackle first. Loop in data/systems engineering contacts.</p></div>
-      <div class="phase"><div class="when">Phase 2 — 2 weeks</div><h3>Current-state mapping</h3><p>Document systems, data owners, FAULT data flows, DRS reporting gaps, and the as-is connectivity picture for each equipment type.</p></div>
-      <div class="phase"><div class="when">Phase 3 — 1 week</div><h3>Feasibility &amp; OEE requirements</h3><p>Connectivity feasibility matrix for injection molding, welder PCS, and punch machines. OEE methodology definition with Japan-format alignment.</p></div>
-      <div class="phase"><div class="when">Phase 4 — 1 week</div><h3>Help-call, downtime &amp; quality KB</h3><p>Workflow design for help-call and downtime, FAULT integration logic, and quality knowledge base requirements.</p></div>
-      <div class="phase"><div class="when">Phase 5 — 1 week</div><h3>Traceability &amp; automation</h3><p>Identify automation candidates, document traceability requirements, and assess effort-to-value for each opportunity in the Fascia area.</p></div>
-      <div class="phase"><div class="when">Phase 6 — 1.5 weeks</div><h3>Functional specification</h3><p>Compile all workstream outputs into a build-ready functional spec with data flows, integration points, and a follow-on implementation estimate.</p></div>
     </div>
   </div>
 </section>
