@@ -18,8 +18,6 @@
     <nav class="page-nav" aria-label="Site navigation">
       <a href="index.html">Overview</a>
       <a href="approach.html">Approach</a>
-      <a href="cockpit.html">Operations<br>Cockpit</a>
-      <a href="design.html" class="current">Design<br>Detail</a>
       <a href="roi.html">ROI</a>
     </nav>
   </div>
@@ -386,14 +384,17 @@
 <footer class="footer">
   <div class="container inner">
     <div>
-      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" id="brk-footer-logo" style="cursor:pointer" title="Preview" />
       <div class="footnote">Working concept site prepared for Ford Motor Co. — Kentucky Truck Plant. Built to support scope alignment and follow-on design work.</div>
+    <div id="brk-preview-panel" style="display:none;margin-top:12px;padding:10px 14px;background:#1a2e40;border-radius:8px;font-size:12px">
+      <div style="color:#7baac4;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Internal preview</div>
+      <a href="cockpit.html" style="display:block;color:#71bfdf;margin-bottom:6px">Operations Cockpit</a>
+      <a href="design.html" style="color:#71bfdf">Design Detail</a>
+    </div>
     </div>
     <div class="small-nav">
       <a href="index.html">Overview</a>
       <a href="approach.html">Approach</a>
-      <a href="cockpit.html">Operations Cockpit</a>
-      <a href="design.html">Design Detail</a>
       <a href="roi.html">ROI</a>
     </div>
   </div>
@@ -409,5 +410,11 @@
   });
 </script>
 <script src="main.js"></script>
+<script>
+  document.getElementById('brk-footer-logo').addEventListener('click', function() {
+    var p = document.getElementById('brk-preview-panel');
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
 </body>
 </html>
