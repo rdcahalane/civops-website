@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nissan Smyrna | Fascia &amp; Plastics — ROI</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .roi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin:24px 0}
+    .roi-card{background:#fff;border:1px solid #e0e4ea;border-radius:12px;padding:20px 22px}
+    .roi-card-eyebrow{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8e9aab;margin-bottom:6px}
+    .roi-card h3{font-size:18px;font-weight:900;color:#0a77a9;margin:0 0 4px}
+    .roi-card p{font-size:13px;color:#4a5a6a;line-height:1.55;margin:0}
+    .roi-card .roi-basis{font-size:11px;color:#8e9aab;margin-top:8px;font-style:italic}
+    .roi-total{background:#0a1928;border-radius:14px;padding:28px 32px;color:#fff;margin:28px 0}
+    .roi-total h3{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7baac4;margin:0 0 10px}
+    .roi-total-val{font-size:42px;font-weight:900;color:#ffd23f;line-height:1}
+    .roi-total-sub{font-size:13px;color:#9fb6c6;margin-top:6px}
+    .roi-assume{background:#f0f6fa;border-left:4px solid #0a77a9;border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.6;color:#27384a;margin:20px 0}
+    .roi-assume strong{color:#0a77a9}
+    .roi-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+    .roi-table th,.roi-table td{border:1px solid #e0e4ea;padding:9px 12px;text-align:left;vertical-align:top}
+    .roi-table th{background:#f3f6f9;font-weight:900;color:#27384a}
+    .roi-table td:last-child{font-weight:700;color:#0a77a9}
+    .roi-disclaimer{font-size:11px;color:#8e9aab;line-height:1.55;margin-top:16px}
+  </style>
 </head>
 <body>
 
@@ -90,7 +109,108 @@
         <p>The functional specification is written with Microsoft Fabric in mind. Follow-on digital twin capability becomes a natural extension of this work — not a separate program requiring its own discovery phase.</p>
       </div>
     </div>
-    <div class="callout" style="margin-top:18px"><strong>Quantified ROI:</strong> specific throughput uplift, downtime reduction, and OEE improvement figures will be added here following the current-state mapping and OEE methodology workstreams.</div>
+    <div class="callout" style="margin-top:18px"><strong>Quantified ROI:</strong> specific throughput uplift, downtime reduction, and OEE improvement figures will be confirmed during the current-state mapping and OEE methodology workstreams. The estimates below are directional — built from available Smyrna production data and industry benchmarks for injection molding and stamping operations.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">The opportunity</span>
+        <h2>What each OEE dimension is worth at Fascia &amp; Plastics</h2>
+      </div>
+    </div>
+
+    <div class="roi-assume">
+      <strong>Working assumptions (illustrative).</strong> Fascia &amp; Plastics supports production of vehicles across multiple body styles. Current reported OEE of 98–99% excludes quality losses and relies on built-in buffers — establishing an accurate baseline is the precondition for any of the estimates below. Actual figures will be confirmed during the data mapping and OEE methodology workstreams.
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Availability — downtime reduction</div>
+        <h3>Every minute counts</h3>
+        <p>Unstructured help-call processes extend mean time to repair. A routed, FAULT-integrated help-call system with automatic stop-state triggers reduces response time — and each minute of downtime eliminated across the Fascia line has direct throughput value.</p>
+        <div class="roi-basis">Basis: downtime duration × throughput rate × vehicle value — confirmed during data mapping</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Performance — JPH visibility</div>
+        <h3>Faster intervention = fewer missed targets</h3>
+        <p>No live view currently connects equipment state to hourly JPH across injection molding, welder PCS, and punch machines. Real-time visibility enables supervisors to intervene before a slowdown becomes a missed JPH target — recovering output that is currently lost silently.</p>
+        <div class="roi-basis">Basis: actual vs. target JPH gap × shift hours × vehicle value</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Quality — first-pass yield</div>
+        <h3>Defects linked to source</h3>
+        <p>Connecting quality defects to the specific asset, shift, and vehicle/color/option is what turns a count into a root-cause signal. Faster root cause = fewer repeat defects = fewer rework loops and fewer quality escapes downstream.</p>
+        <div class="roi-basis">Basis: rework loop cost + downstream warranty exposure — confirmed via Inspect data</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-eyebrow">Help/Call — response time</div>
+        <h3>Auto-trigger changes the baseline</h3>
+        <p>When Help/Call is triggered automatically on stop-state detection, the lag between the stop and the call being made is eliminated. That lag — currently dependent on someone noticing and calling — is untracked and unmanaged. Making it visible is the first step to reducing it.</p>
+        <div class="roi-basis">Basis: avg response lag × event frequency × downtime duration — confirmed during workflow workstream</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:40px">
+      <div class="section-title">
+        <span class="eyebrow">Conservative case</span>
+        <h2>What modest improvements look like</h2>
+      </div>
+      <p class="section-copy">The case for this engagement doesn't require heroic assumptions. Small, sustained improvements across each OEE dimension — enabled by accurate data and real-time visibility — compound quickly at production scale.</p>
+    </div>
+
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>OEE dimension</th>
+          <th>Conservative improvement</th>
+          <th>Mechanism</th>
+          <th>Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Availability</td>
+          <td>Reduce avg downtime event duration</td>
+          <td>Auto-triggered Help/Call + FAULT-integrated routing eliminates response lag. Chronic causes surface in Pareto before they repeat.</td>
+          <td>Significant — confirmed after data mapping</td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td>Close JPH gap vs. target</td>
+          <td>Live JPH visible per asset and area. Supervisors intervene before the hour is lost — not after the shift summary.</td>
+          <td>Significant — confirmed after OEE workstream</td>
+        </tr>
+        <tr>
+          <td>Quality</td>
+          <td>Improve first-pass yield</td>
+          <td>Defects linked to asset, shift, and vehicle/option/color. Root cause found faster. Rework loops and escapes reduced.</td>
+          <td>Moderate — confirmed via Inspect baseline</td>
+        </tr>
+        <tr>
+          <td>Help/Call response</td>
+          <td>Reduce avg response time</td>
+          <td>Auto-trigger on stop-state eliminates the manual notification lag. Response time becomes tracked and manageable.</td>
+          <td>Immediate on deployment</td>
+        </tr>
+        <tr>
+          <td><strong>OEE accuracy</strong></td>
+          <td>Establish honest baseline</td>
+          <td>Remove buffer padding and include quality losses. Credible reporting to Nissan Japan. Precondition for all other improvements.</td>
+          <td>Required first step</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="roi-total">
+      <h3>The core argument</h3>
+      <div class="roi-total-val">Spec first.</div>
+      <div class="roi-total-sub">A functional specification that costs a fraction of implementation de-risks the entire program. Every dollar spent clarifying OEE methodology, connectivity feasibility, and Help/Call workflow saves multiples in re-work during build. Kickoff-to-spec in eight weeks — build phase starts with full requirements, not assumptions.</div>
+    </div>
+
+    <p class="roi-disclaimer">All directional estimates are illustrative, based on available Nissan Smyrna production data and industry benchmarks for Fascia &amp; Plastics operations. Specific throughput, downtime, and quality figures will be established during the current-state mapping and OEE methodology workstreams of the functional specification engagement.</p>
   </div>
 </section>
 
