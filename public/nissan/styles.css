@@ -442,7 +442,7 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 /* UX review: contain wide content on small screens (tables scroll internally; long ids wrap) */
 .sd-mono{overflow-wrap:anywhere;word-break:break-word}
 @media (max-width:820px){
-  .tech-matrix, .table-like, .dd-tbl, .ahi-tbl, .sd-tbl{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tech-matrix, .table-like, .dd-tbl, .ahi-tbl, .sd-tbl, .roi-table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .tech-matrix td:first-child, .tech-matrix td:nth-child(1), .tech-matrix td:nth-child(2){min-width:120px}
 }
 
