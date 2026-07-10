@@ -31,7 +31,7 @@
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Asset Health Index</div>
     <h1 class="page-title">Asset Health Index — one score, four pillars</h1>
-    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0–100% score per asset. The database layer — fed by Cimplicity and HighByte — computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell 056.</p>
+    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0–100% score per asset. The database layer — fed by Cimplicity and an i3X UNS layer — computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell 056.</p>
   </div>
 </section>
 
@@ -63,7 +63,7 @@
       <p class="section-copy">Weights are tuned for heavy, asset-intensive manufacturing — condition carries the most signal, financial and age temper it. Pillar 1 is fed by the real OT telemetry templated on the Detail Design tab; pillars 2–4 draw on MES, EAM, and ERP / Maximo.</p>
     </div>
     <div class="ahi-pillars">
-      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry — motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity → HighByte</div></div>
+      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry — motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity → UNS</div></div>
       <div class="ahi-pill"><div class="w">25%</div><h3>Operational reliability</h3><small>Availability, MTBF trend, micro-stoppage frequency.</small><div class="ahi-src">DRS / MES</div></div>
       <div class="ahi-pill"><div class="w">20%</div><h3>Lifecycle age</h3><small>Runtime hours consumed vs. manufacturer rated life.</small><div class="ahi-src">EAM registry</div></div>
       <div class="ahi-pill"><div class="w">20%</div><h3>Financial risk</h3><small>Life-to-date repair cost vs. asset replacement value.</small><div class="ahi-src">ERP / Maximo</div></div>
@@ -302,7 +302,7 @@ AHI = <b>39.05% → 42% (rounded, June 2026 data)</b></div>
 
 <section class="section">
   <div class="container">
-    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → HighByte). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / Maximo (cost ledger) feeds — the integration points to confirm with Nissan controls / IT before the score goes live.</p></div>
+    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → UNS). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / Maximo (cost ledger) feeds — the integration points to confirm with Nissan controls / IT before the score goes live.</p></div>
   </div>
 </section>
 
