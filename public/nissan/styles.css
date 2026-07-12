@@ -453,3 +453,76 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 .section-switch a{color:#394a59}
 .section-switch a:hover{background:var(--soft-2);color:var(--brook-blue)}
 @media (max-width:860px){.section-switch{display:none}}
+
+/* ══════════════════════════════════════════════════════════
+   V12 — experience pass: scroll progress, reveal-on-scroll,
+   hover polish, mobile nav drawer, reduced-motion support
+   ══════════════════════════════════════════════════════════ */
+
+/* scroll progress bar */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:60;background:linear-gradient(90deg,var(--brook-blue),var(--brook-orange));transition:width .1s linear;pointer-events:none}
+
+/* reveal-on-scroll (applied via JS to .section, .hero, .page-intro) */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.8,.3,1),transform .7s cubic-bezier(.16,.8,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal-stagger.in>*{opacity:1;transform:translateY(0)}
+.reveal-stagger.in>*:nth-child(1){transition-delay:.02s}
+.reveal-stagger.in>*:nth-child(2){transition-delay:.08s}
+.reveal-stagger.in>*:nth-child(3){transition-delay:.14s}
+.reveal-stagger.in>*:nth-child(4){transition-delay:.2s}
+.reveal-stagger.in>*:nth-child(5){transition-delay:.26s}
+.reveal-stagger.in>*:nth-child(6){transition-delay:.32s}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal,.reveal-stagger>*{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* hover polish — extend the lift treatment already used on .category-card to the rest of the card family */
+.card,.phase,.metric-box,.proof-card,.gbb-rung,.arc-phase,.poc-card,.tech-card,.conn-card,.assumption-card,.value-row,.score-card,.vendor-card,.tech-column,.product-preview{transition:transform .22s cubic-bezier(.16,.8,.3,1),box-shadow .22s ease,border-color .22s ease}
+.card:hover,.phase:hover,.metric-box:hover,.proof-card:hover,.gbb-rung:hover,.arc-phase:hover,.poc-card:hover,.tech-card:hover,.conn-card:hover,.assumption-card:hover,.value-row:hover,.score-card:hover,.vendor-card:hover,.tech-column:hover,.product-preview:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:#c7dbe8}
+
+/* button micro-interaction */
+.btn{transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.btn.primary:hover{box-shadow:0 16px 30px rgba(0,99,148,.28)}
+.btn:active{transform:translateY(0)}
+
+/* nav link underline sweep */
+.page-nav a{position:relative}
+.page-nav a:after{content:"";position:absolute;left:10px;right:10px;bottom:3px;height:2px;background:var(--brook-orange);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.page-nav a:hover:after{transform:scaleX(1)}
+.page-nav a.current:after{transform:scaleX(1)}
+
+/* image zoom-in cursor affordance already present for pf-zoom; extend subtle scale on hover */
+.platform-figure a.pf-zoom img{transition:transform .35s ease}
+.platform-figure a.pf-zoom:hover img{transform:scale(1.015)}
+
+/* journey map: allow horizontal scroll instead of squashing columns on narrow screens */
+@media (max-width:900px){
+  .journey-map{grid-template-columns:140px repeat(6,220px);overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;scroll-snap-type:x proximity}
+  .journey-header,.journey-role,.journey-box{scroll-snap-align:start}
+}
+
+/* mobile nav drawer */
+.nav-toggle{display:none}
+@media (max-width:900px){
+  .site-header .inner{position:relative}
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;
+    width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:white;
+    position:absolute;top:0;right:0;cursor:pointer;z-index:2
+  }
+  .nav-toggle span{display:block;width:18px;height:2px;background:var(--navy);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+  .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .page-nav{
+    display:none;flex-direction:column;align-items:stretch;gap:2px;
+    margin-top:52px;padding-bottom:8px;
+  }
+  .page-nav.open{display:flex}
+  .page-nav a{text-align:left;padding:12px 14px;border-radius:12px;justify-content:flex-start}
+  .page-nav a:after{display:none}
+}
