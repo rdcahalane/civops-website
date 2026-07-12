@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Live Proof of Concept</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .poc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 24px; margin-top: 24px; }
+    .poc-card { border: 1px solid #e0e4ea; border-radius: 10px; overflow: hidden; background: #fff; }
+    .poc-card img { width: 100%; display: block; border-bottom: 1px solid #e0e4ea; }
+    .poc-card-body { padding: 14px 18px 16px; }
+    .poc-card-label { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8e9aab; margin-bottom: 4px; }
+    .poc-card-title { font-size: 15px; font-weight: 600; color: #1a2433; margin-bottom: 6px; }
+    .poc-card-desc { font-size: 12.5px; color: #5a6a7e; line-height: 1.55; }
+    .poc-stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 22px 0; }
+    .poc-stat { background: #f5f7fa; border: 1px solid #e0e4ea; border-radius: 10px; padding: 16px 18px; }
+    .poc-stat b { display: block; font-size: 26px; color: #1a2433; }
+    .poc-stat span { font-size: 12px; color: #5a6a7e; }
+    .scope-callout { border: 1px solid #f0c56b; background: #fdf6e6; border-radius: 10px; padding: 16px 18px; margin-top: 16px; }
+    .scope-callout b { color: #8a6413; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Approach</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="journey.html" class="">Journey<br>Map</a>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
+<a href="asset-health.html" class="">Asset Health<br>Index</a>
+<a href="detail-design.html" class="">Detail<br>Design</a>
+<a href="technology.html" class="">Tech<br>Options</a>
+<a href="poc.html" class="current">Live<br>Proof</a>
+<a href="roi.html" class="">ROI</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Live proof of concept</div>
+    <h1 class="page-title">The UNS / i3X architecture, actually built and running</h1>
+    <p class="page-deck">Not a slide of logos — a working pipeline. Five shop-floor equipment types publish live telemetry into a Unified Namespace, a schema registry enforces the standards contract on every message, a dashboard renders it live, and a second, independent vendor platform subscribes to the same feed with zero data translation. This page is the screenshots from that running system.</p>
+    <div class="scope-callout">
+      <b>Scope — read this first.</b> This build validates the <em>architecture pattern</em> (i3X-style Unified Namespace, standards-grounded schemas, cross-vendor interoperability) using representative equipment and simulated telemetry — it is not connected to Nissan Smyrna's real Cimplicity data. The <a href="fascia-design.html">real, cell-022-specific build</a> — generated directly from Nissan's own Cimplicity export (ABB sealer robots, actual point addresses) — is a separate, further-along workstream documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>. This page answers "does the pattern work end to end"; that one answers "is it wired to your actual paint shop."
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">What's running</span><h2>Five equipment types, one namespace, two platforms</h2></div>
+      <p class="section-copy">Each piece of equipment below is modeled against a real published standard — not an ad-hoc tag list — then flows through an orchestration pipeline into a governed UNS topic, where a bound schema enforces the contract on every message.</p>
+    </div>
+    <div class="poc-stat-row">
+      <div class="poc-stat"><b>6</b><span>pipelines live, 100% success rate</span></div>
+      <div class="poc-stat"><b>5</b><span>UNS schemas, each standards-cited</span></div>
+      <div class="poc-stat"><b>~14K</b><span>executions processed, zero failures</span></div>
+      <div class="poc-stat"><b>2</b><span>independent vendor platforms reading the same feed</span></div>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Equipment</th><th>Standard the schema is grounded in</th><th>UNS topic</th></tr></thead>
+      <tbody>
+        <tr><td>ABB paint robot (IRB 5500-27)</td><td class="small-cell">OPC 40010 — OPC UA for Robotics (MotionDeviceSystem / TaskControl state machine)</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/paint-robot-1</code></td></tr>
+        <tr><td>Paint shop conveyor section</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery, + PackML / ISA-88 TR88.00.02 state machine</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/conveyor-1</code></td></tr>
+        <tr><td>Fascia punch / piercing press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming process values, VDMA forming-machine conventions</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/fascia-punch-1</code></td></tr>
+        <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + weld-process fields</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/weld-robot-1</code></td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">ISO 5393 — torque tool measurement terminology</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/torque-station-1</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">1 — Orchestration</span><h2>Webhook in, standards-modeled payload out</h2></div>
+      <p class="section-copy">Each pipeline is a visual, three-node flow: a webhook trigger accepts the raw equipment event, a transform stage maps it onto the standards-grounded field set, and a publish stage writes it to the equipment's UNS topic. No custom code — the whole thing is built and versioned in the designer.</p>
+    </div>
+    <div class="poc-grid">
+      <div class="poc-card">
+        <img src="assets/poc/pipeline-designer.png" alt="MaestroHub Pipeline Designer showing the paint-robot-telemetry pipeline: Webhook Trigger, Build Payload, UNS Publish" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Pipeline Designer</div>
+          <div class="poc-card-title">paint-robot-telemetry — Webhook &rarr; Build Payload (17 fields) &rarr; UNS Publish</div>
+          <div class="poc-card-desc">The same three-node pattern is reused across all five equipment types — only the field mapping and topic change. Enabled, versioned, and running.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/pipelines-list.png" alt="MaestroHub Pipelines list showing 6 pipelines, 100% success rate, live throughput" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Orchestration overview</div>
+          <div class="poc-card-title">6 pipelines enabled, 100% success rate, live throughput</div>
+          <div class="poc-card-desc">Includes the original HumbleOps CCR export integration alongside the five equipment simulators — the same orchestration layer runs both without modification.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">2 — The contract</span><h2>Schemas enforce the standard, not just document it</h2></div>
+      <p class="section-copy">Every UNS topic is bound to a versioned schema. The schema isn't paperwork — the platform validates every published message against it, and the description field cites exactly which standard grounds each attribute, so the "why this field" question is answered in the tool, not a separate spec doc.</p>
+    </div>
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
+      <div class="poc-card">
+        <img src="assets/poc/schemas.png" alt="MaestroHub schema registry showing the Torque Station State schema, cited to ISO 5393, with full attribute table" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">UNS Schema Registry</div>
+          <div class="poc-card-title">Torque Station State (ISO 5393) — one of five registered schemas, all standards-grounded</div>
+          <div class="poc-card-desc">Left rail shows all five schemas grouped by kind (Assembly State, Conveyor State, Press State, Robot State &times;2). Each attribute lists its type, cardinality, and a description that names the source standard — visible, auditable, not tribal knowledge.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">3 — Visibility</span><h2>A live dashboard, not a static export</h2></div>
+      <p class="section-copy">Panels bind directly to UNS topics and fields — no separate reporting layer to keep in sync. Every value below updated multiple times over the course of building this page.</p>
+    </div>
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
+      <div class="poc-card">
+        <img src="assets/poc/dashboard.png" alt="MaestroHub live dashboard — Nissan CCR Live Shop Floor, showing CycleCount, SpeedMmS, and punch_force panels with live values" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">UNS Dashboard — "Nissan CCR — Live Shop Floor"</div>
+          <div class="poc-card-title">Five panels, one per equipment type, refreshing on a 30-second live interval</div>
+          <div class="poc-card-desc">CycleCount climbed from 2384 to 2850 over the course of this session without any manual refresh — the "Live" indicator top-right is not decorative.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">4 — The interoperability proof</span><h2>A second, independent vendor platform reads the same data</h2></div>
+      <p class="section-copy">This is the part that actually matters for a technology decision: HighByte Intelligence Hub — a completely separate product from a different vendor — was pointed at the same MQTT-based Unified Namespace and subscribed to all five equipment topics with <b>no data translation, no re-mapping, no custom connector work</b>. It just read the standard.</p>
+    </div>
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-inputs.png" alt="HighByte Intelligence Hub Inputs tab showing all 5 Nissan CCR equipment topics successfully subscribed via MQTT" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte Intelligence Hub — Connections &rarr; maestrohub_uns &rarr; Inputs</div>
+          <div class="poc-card-title">All 5 equipment topics, live, subscribed from a different vendor's platform</div>
+          <div class="poc-card-desc">HighByte's own topic browser walked the real MQTT tree (mHv1.0 / axiom / nissan-ccr) and found all five topics on the first pass — proof this isn't a point-to-point integration, it's a genuine open namespace any standards-compliant subscriber can read.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Why this is the argument, not the demo:</strong> the moment two independently-built platforms can read the same shop-floor data with zero translation work, technology selection stops being a lock-in decision. Nissan keeps optionality — MaestroHub, HighByte, or a future replacement can all sit on top of the same standards-modeled namespace without re-integrating the plant floor.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">What this proves</span>
+      <h2 style="font-size:28px">The architecture pattern works end to end</h2>
+      <ul>
+        <li>Equipment data can be modeled against real published standards (OPC UA companion specs, ISO 5393, PackML), not ad-hoc tags.</li>
+        <li>An orchestration layer can enforce that model at publish time via a schema registry — governance is in the platform, not a wiki page.</li>
+        <li>A live dashboard can bind directly to the namespace with no separate reporting/ETL layer.</li>
+        <li>A second, independent vendor platform can consume the same data with zero translation — the core i3X / UNS promise, demonstrated, not asserted.</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">What's still ahead before this is Nissan's real system</h3>
+      <ul>
+        <li>Point this same pattern at real Cimplicity tags for cell 022 — the groundwork is already done in the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
+        <li>Replace the simulators with the actual OT/historian connections once source access is confirmed.</li>
+        <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
+        <li>Decide MaestroHub vs. HighByte vs. another platform as the system of record — this page's whole point is that decision is now lower-risk either way.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+
+      <div style="margin-top:8px;font-size:11px"><a href="https://civops.io/nissan/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="technology.html">Tech Options</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
