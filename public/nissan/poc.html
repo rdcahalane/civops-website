@@ -21,6 +21,12 @@
     .poc-stat span { font-size: 12px; color: #5a6a7e; }
     .scope-callout { border: 1px solid #f0c56b; background: #fdf6e6; border-radius: 10px; padding: 16px 18px; margin-top: 16px; }
     .scope-callout b { color: #8a6413; }
+    .secondary-section { background: #f7f8fa; border-top: 1px solid #e0e4ea; border-bottom: 1px solid #e0e4ea; }
+    .secondary-section .section-head h2 { font-size: 22px; }
+    .secondary-section .poc-card-title { font-size: 13.5px; }
+    .secondary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+    .secondary-grid .poc-card-body { padding: 10px 14px 12px; }
+    .secondary-grid .poc-card-desc { font-size: 11.5px; }
   </style>
 </head>
 <body>
@@ -47,10 +53,10 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Live proof of concept</div>
-    <h1 class="page-title">The UNS / i3X architecture, actually built and running</h1>
-    <p class="page-deck">Not a slide of logos — a working pipeline. Five shop-floor equipment types publish live telemetry into a Unified Namespace, a schema registry enforces the standards contract on every message, a dashboard renders it live, and a second, independent vendor platform subscribes to the same feed with zero data translation. This page is the screenshots from that running system.</p>
+    <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
+    <p class="page-deck">Not a slide of logos — a working system. Five shop-floor equipment types publish live telemetry into a Unified Namespace; Humble's Eva reads it and reasons over causal chains, ranks intervention options, and answers questions against the live database — the actual maintenance-cockpit value. Underneath, the namespace is standards-governed and platform-neutral: a second, independent vendor (HighByte) reads the exact same feed with zero translation, so the platform question never has to gate the value question.</p>
     <div class="scope-callout">
-      <b>Scope — read this first.</b> This build validates the <em>architecture pattern</em> (i3X-style Unified Namespace, standards-grounded schemas, cross-vendor interoperability) using representative equipment and simulated telemetry — it is not connected to Nissan Smyrna's real Cimplicity data. The <a href="fascia-design.html">real, cell-022-specific build</a> — generated directly from Nissan's own Cimplicity export (ABB sealer robots, actual point addresses) — is a separate, further-along workstream documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>. This page answers "does the pattern work end to end"; that one answers "is it wired to your actual paint shop."
+      <b>Scope — read this first.</b> This build validates the <em>architecture pattern</em> (i3X-style Unified Namespace, standards-grounded schemas, cross-vendor interoperability) using representative equipment and simulated telemetry — it is not connected to Nissan Smyrna's real Cimplicity data. The <a href="fascia-design.html">real, cell-022-specific build</a> — generated directly from Nissan's own Cimplicity export (ABB sealer robots, actual point addresses) — is a separate, further-along workstream documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>. This page answers "does the pattern work end to end, and does it produce a maintenance team can actually use"; that one answers "is it wired to your actual paint shop."
     </div>
   </div>
 </section>
@@ -58,13 +64,13 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">What's running</span><h2>Five equipment types, one namespace, two platforms</h2></div>
-      <p class="section-copy">Each piece of equipment below is modeled against a real published standard — not an ad-hoc tag list — then flows through an orchestration pipeline into a governed UNS topic, where a bound schema enforces the contract on every message.</p>
+      <div class="section-title"><span class="eyebrow">What's running</span><h2>Five equipment types, one namespace, one decisioning layer</h2></div>
+      <p class="section-copy">Each piece of equipment is modeled against a real published standard — not an ad-hoc tag list — then flows through a governed UNS topic into Humble's Eva, where causal reasoning, decision workflows, and live Q&amp;A actually happen.</p>
     </div>
     <div class="poc-stat-row">
-      <div class="poc-stat"><b>6</b><span>pipelines live, 100% success rate</span></div>
-      <div class="poc-stat"><b>5</b><span>UNS schemas, each standards-cited</span></div>
-      <div class="poc-stat"><b>~14K</b><span>executions processed, zero failures</span></div>
+      <div class="poc-stat"><b>5</b><span>equipment types, standards-cited schemas</span></div>
+      <div class="poc-stat"><b>2</b><span>open decisions Eva is actively ranking right now</span></div>
+      <div class="poc-stat"><b>19</b><span>knowledge-base docs Eva answers questions against</span></div>
       <div class="poc-stat"><b>2</b><span>independent vendor platforms reading the same feed</span></div>
     </div>
     <table class="tech-matrix">
@@ -83,85 +89,106 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">1 — Orchestration</span><h2>Webhook in, standards-modeled payload out</h2></div>
-      <p class="section-copy">Each pipeline is a visual, three-node flow: a webhook trigger accepts the raw equipment event, a transform stage maps it onto the standards-grounded field set, and a publish stage writes it to the equipment's UNS topic. No custom code — the whole thing is built and versioned in the designer.</p>
+      <div class="section-title"><span class="eyebrow">1 — The value: Eva reasons over the data</span><h2>Causal chains, ranked decisions, and live Q&amp;A — not a static dashboard</h2></div>
+      <p class="section-copy">This is what a maintenance lead or ops manager actually opens. Eva doesn't just display tags — it surfaces <em>why</em> something is happening, ranks the intervention options with evidence behind each one, and answers direct questions against the live underlying database. Every screen below is a real capture from the running instance, not a mockup.</p>
     </div>
     <div class="poc-grid">
+      <div class="poc-card">
+        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Inbox — Eva AI</div>
+          <div class="poc-card-title">Morning briefing — causal chain, not just an alarm list</div>
+          <div class="poc-card-desc">Eva surfaces two open decisions with urgency tags and renders the causal chain inline — Basecoat 56 → Conveyor Stop → Topcoat 5 Starved — so the operator sees root cause, not a raw fault code.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Decision workflow — D-9</div>
+          <div class="poc-card-title">Ranked options, evidence, and one-click "Act on this"</div>
+          <div class="poc-card-desc">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 starvation. The decision record shows why it matters, causal mechanism, ranked options, and the full evidence trail in one panel — this is the artifact a maintenance lead actually acts on.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Control Center</div>
+          <div class="poc-card-title">Performance — status — anomalies, in Eva's own narrative</div>
+          <div class="poc-card-desc">Eva-generated summary of where the shop stands versus peak — OEE availability gaps, asset health, throughput/quality/labor status — read as a briefing, not assembled by a human from six separate reports.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/15-knowledge.png" alt="Humble Knowledge Base with Ask Eva chat, populated with real Nissan Smyrna paint shop documentation" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Knowledge Base — Ask Eva</div>
+          <div class="poc-card-title">Live Q&amp;A against real plant documentation, not a generic chatbot</div>
+          <div class="poc-card-desc">19 documents loaded — ABB robotics diagnostics, paint line fault logs, Asset Health Index methodology, IIoT/UNS/CMMS architecture. "Ask Eva" answers questions against this corpus plus the live database, in context, on demand.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Why this is the argument, not the demo:</strong> a UNS that just feeds a chart is a science project. A UNS that feeds causal reasoning, ranked decisions, and answerable questions is a maintenance team's actual daily tool — that's what's running above.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">2 — Live, native data — from a second vendor</span><h2>The same real-time payload, read natively by HighByte</h2></div>
+      <p class="section-copy">HighByte Intelligence Hub — a completely separate product from a different vendor, evaluated independently by Nissan — subscribed to the identical MQTT-based Unified Namespace and browsed it with its own native UNS Client, no custom connector, no re-mapping.</p>
+    </div>
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-uns-client.png" alt="HighByte UNS Client showing the live topic tree (conveyor-1, fascia-punch-1, paint-robot-1, torque-station-1, weld-robot-1) and a real-time JSON payload from torque-station-1" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte Intelligence Hub — Tools &rarr; UNS Client</div>
+          <div class="poc-card-title">All 5 equipment topics, live tree, real contextualized payload</div>
+          <div class="poc-card-desc">torque-station-1 payload shown live: tool_serial, target vs. achieved torque, a real pass_fail_result of "fail" — timestamped to the second. HighByte's own browser walked the real MQTT tree (mHv1.0 / axiom / nissan-ccr) and found all five topics on the first pass.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">3 — The plumbing underneath</span><h2>MaestroHub orchestrates it — but nothing here is locked to one platform</h2></div>
+      <p class="section-copy">The pipeline, schema, and topic layer above is built and run in MaestroHub today. That's an implementation detail, not the decision Nissan needs to make. The point of this whole page is section 2: whatever platform Nissan lands on for governance, the underlying UNS keeps working — so "data governance" debates don't have to stall the value operators and maintenance teams are already getting from Eva.</p>
+    </div>
+    <div class="secondary-grid">
       <div class="poc-card">
         <img src="assets/poc/pipeline-designer.png" alt="MaestroHub Pipeline Designer showing the paint-robot-telemetry pipeline: Webhook Trigger, Build Payload, UNS Publish" loading="lazy" />
         <div class="poc-card-body">
           <div class="poc-card-label">Pipeline Designer</div>
-          <div class="poc-card-title">paint-robot-telemetry — Webhook &rarr; Build Payload (17 fields) &rarr; UNS Publish</div>
-          <div class="poc-card-desc">The same three-node pattern is reused across all five equipment types — only the field mapping and topic change. Enabled, versioned, and running.</div>
+          <div class="poc-card-title">Webhook &rarr; Build Payload &rarr; UNS Publish, no custom code</div>
+          <div class="poc-card-desc">Same three-node pattern reused across all five equipment types — only field mapping and topic change. 6 pipelines enabled, 100% success rate.</div>
         </div>
       </div>
       <div class="poc-card">
-        <img src="assets/poc/pipelines-list.png" alt="MaestroHub Pipelines list showing 6 pipelines, 100% success rate, live throughput" loading="lazy" />
+        <img src="assets/poc/schemas.png" alt="MaestroHub schema registry showing the Torque Station State schema, cited to ISO 5393" loading="lazy" />
         <div class="poc-card-body">
-          <div class="poc-card-label">Orchestration overview</div>
-          <div class="poc-card-title">6 pipelines enabled, 100% success rate, live throughput</div>
-          <div class="poc-card-desc">Includes the original HumbleOps CCR export integration alongside the five equipment simulators — the same orchestration layer runs both without modification.</div>
+          <div class="poc-card-label">Schema Registry</div>
+          <div class="poc-card-title">Every topic bound to a standards-cited schema</div>
+          <div class="poc-card-desc">Platform validates every published message against it — governance lives in the tool, not a wiki page.</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">2 — The contract</span><h2>Schemas enforce the standard, not just document it</h2></div>
-      <p class="section-copy">Every UNS topic is bound to a versioned schema. The schema isn't paperwork — the platform validates every published message against it, and the description field cites exactly which standard grounds each attribute, so the "why this field" question is answered in the tool, not a separate spec doc.</p>
-    </div>
-    <div class="poc-grid" style="grid-template-columns: 1fr;">
       <div class="poc-card">
-        <img src="assets/poc/schemas.png" alt="MaestroHub schema registry showing the Torque Station State schema, cited to ISO 5393, with full attribute table" loading="lazy" />
+        <img src="assets/poc/dashboard.png" alt="MaestroHub live dashboard — Nissan CCR Live Shop Floor" loading="lazy" />
         <div class="poc-card-body">
-          <div class="poc-card-label">UNS Schema Registry</div>
-          <div class="poc-card-title">Torque Station State (ISO 5393) — one of five registered schemas, all standards-grounded</div>
-          <div class="poc-card-desc">Left rail shows all five schemas grouped by kind (Assembly State, Conveyor State, Press State, Robot State &times;2). Each attribute lists its type, cardinality, and a description that names the source standard — visible, auditable, not tribal knowledge.</div>
+          <div class="poc-card-label">UNS Dashboard</div>
+          <div class="poc-card-title">Panels bind directly to UNS topics, live</div>
+          <div class="poc-card-desc">No separate reporting layer to keep in sync — this is the orchestration-side view, secondary to Eva's decisioning layer above.</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">3 — Visibility</span><h2>A live dashboard, not a static export</h2></div>
-      <p class="section-copy">Panels bind directly to UNS topics and fields — no separate reporting layer to keep in sync. Every value below updated multiple times over the course of building this page.</p>
-    </div>
-    <div class="poc-grid" style="grid-template-columns: 1fr;">
-      <div class="poc-card">
-        <img src="assets/poc/dashboard.png" alt="MaestroHub live dashboard — Nissan CCR Live Shop Floor, showing CycleCount, SpeedMmS, and punch_force panels with live values" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">UNS Dashboard — "Nissan CCR — Live Shop Floor"</div>
-          <div class="poc-card-title">Five panels, one per equipment type, refreshing on a 30-second live interval</div>
-          <div class="poc-card-desc">CycleCount climbed from 2384 to 2850 over the course of this session without any manual refresh — the "Live" indicator top-right is not decorative.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">4 — The interoperability proof</span><h2>A second, independent vendor platform reads the same data</h2></div>
-      <p class="section-copy">This is the part that actually matters for a technology decision: HighByte Intelligence Hub — a completely separate product from a different vendor — was pointed at the same MQTT-based Unified Namespace and subscribed to all five equipment topics with <b>no data translation, no re-mapping, no custom connector work</b>. It just read the standard.</p>
-    </div>
-    <div class="poc-grid" style="grid-template-columns: 1fr;">
       <div class="poc-card">
         <img src="assets/poc/highbyte-inputs.png" alt="HighByte Intelligence Hub Inputs tab showing all 5 Nissan CCR equipment topics successfully subscribed via MQTT" loading="lazy" />
         <div class="poc-card-body">
-          <div class="poc-card-label">HighByte Intelligence Hub — Connections &rarr; maestrohub_uns &rarr; Inputs</div>
-          <div class="poc-card-title">All 5 equipment topics, live, subscribed from a different vendor's platform</div>
-          <div class="poc-card-desc">HighByte's own topic browser walked the real MQTT tree (mHv1.0 / axiom / nissan-ccr) and found all five topics on the first pass — proof this isn't a point-to-point integration, it's a genuine open namespace any standards-compliant subscriber can read.</div>
+          <div class="poc-card-label">HighByte — Inputs</div>
+          <div class="poc-card-title">All 5 topics subscribed from the other vendor's side</div>
+          <div class="poc-card-desc">Confirms the namespace, not a point-to-point integration — any standards-compliant subscriber reads it.</div>
         </div>
       </div>
     </div>
-    <div class="callout" style="margin-top:18px"><strong>Why this is the argument, not the demo:</strong> the moment two independently-built platforms can read the same shop-floor data with zero translation work, technology selection stops being a lock-in decision. Nissan keeps optionality — MaestroHub, HighByte, or a future replacement can all sit on top of the same standards-modeled namespace without re-integrating the plant floor.</div>
   </div>
 </section>
 
@@ -169,12 +196,12 @@
   <div class="container grid-2">
     <div class="panel">
       <span class="eyebrow">What this proves</span>
-      <h2 style="font-size:28px">The architecture pattern works end to end</h2>
+      <h2 style="font-size:28px">Real decisioning value, on a namespace that isn't locked to one vendor</h2>
       <ul>
-        <li>Equipment data can be modeled against real published standards (OPC UA companion specs, ISO 5393, PackML), not ad-hoc tags.</li>
-        <li>An orchestration layer can enforce that model at publish time via a schema registry — governance is in the platform, not a wiki page.</li>
-        <li>A live dashboard can bind directly to the namespace with no separate reporting/ETL layer.</li>
-        <li>A second, independent vendor platform can consume the same data with zero translation — the core i3X / UNS promise, demonstrated, not asserted.</li>
+        <li>Eva can turn raw equipment telemetry into causal chains, ranked decisions, and answerable questions — the thing a maintenance lead actually uses, not a chart.</li>
+        <li>Equipment data can be modeled against real published standards (OPC UA companion specs, ISO 5393, PackML), not ad-hoc tags — so that decisioning layer is trustworthy.</li>
+        <li>A second, independent vendor platform can consume the same data with zero translation — the platform decision is decoupled from the value Nissan is already getting.</li>
+        <li>Net effect: ops and maintenance teams don't have to wait on a "data governance" decision to start getting value — the namespace works today, under whichever platform Nissan lands on.</li>
       </ul>
     </div>
     <div class="panel dark">
@@ -183,7 +210,7 @@
         <li>Point this same pattern at real Cimplicity tags for cell 022 — the groundwork is already done in the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
         <li>Replace the simulators with the actual OT/historian connections once source access is confirmed.</li>
         <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
-        <li>Decide MaestroHub vs. HighByte vs. another platform as the system of record — this page's whole point is that decision is now lower-risk either way.</li>
+        <li>Decide the platform of record on Nissan's own timeline — this page's whole point is that decision no longer has to gate operator and maintenance value.</li>
       </ul>
     </div>
   </div>
