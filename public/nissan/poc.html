@@ -54,7 +54,7 @@
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Live proof of concept</div>
     <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
-    <p class="page-deck">Not a slide of logos — a working system. Five shop-floor equipment types publish live telemetry into a Unified Namespace; Humble's Eva reads it and reasons over causal chains, ranks intervention options, and answers questions against the live database — the actual maintenance-cockpit value. Underneath, the namespace is standards-governed and platform-neutral: a second, independent vendor (HighByte) reads the exact same feed with zero translation, so the platform question never has to gate the value question.</p>
+    <p class="page-deck">Not a slide of logos — a working system. Five shop-floor equipment types publish live telemetry into a Unified Namespace; Humble's Eva reads it and reasons over causal chains, ranks intervention options, and answers questions against the live database — the actual maintenance-cockpit value. Underneath, the namespace is standards-governed and platform-neutral: HighByte Intelligence Hub runs the namespace today, and a second, independent vendor (MaestroHub) reads the exact same feed with zero translation, so the platform question never has to gate the value question.</p>
     <div class="scope-callout">
       <b>Scope — read this first.</b> This build validates the <em>architecture pattern</em> (i3X-style Unified Namespace, standards-grounded schemas, cross-vendor interoperability) using representative equipment and simulated telemetry — it is not connected to Nissan Smyrna's real Cimplicity data. The <a href="fascia-design.html">real, cell-022-specific build</a> — generated directly from Nissan's own Cimplicity export (ABB sealer robots, actual point addresses) — is a separate, further-along workstream documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>. This page answers "does the pattern work end to end, and does it produce a maintenance team can actually use"; that one answers "is it wired to your actual paint shop."
     </div>
@@ -149,16 +149,32 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">2 — Live, native data — from a second vendor</span><h2>The same real-time payload, read natively by HighByte</h2></div>
-      <p class="section-copy">HighByte Intelligence Hub — a completely separate product from a different vendor, evaluated independently by Nissan — subscribed to the identical MQTT-based Unified Namespace and browsed it with its own native UNS Client, no custom connector, no re-mapping.</p>
+      <div class="section-title"><span class="eyebrow">2 — The plumbing underneath</span><h2>HighByte Intelligence Hub publishes the namespace</h2></div>
+      <p class="section-copy">Five equipment-type pipelines — Webhook Trigger &rarr; Validate &rarr; Publish — take real telemetry and write it to HighByte's own embedded MQTT broker under the governed mHv1.0/axiom/nissan-ccr topic structure. HighByte's own UNS Client reads the same broker it just wrote to: no custom connector, no re-mapping.</p>
     </div>
-    <div class="poc-grid" style="grid-template-columns: 1fr;">
+    <div class="secondary-grid">
       <div class="poc-card">
-        <img src="assets/poc/highbyte-uns-client.png" alt="HighByte UNS Client showing the live topic tree (conveyor-1, fascia-punch-1, paint-robot-1, torque-station-1, weld-robot-1) and a real-time JSON payload from torque-station-1" loading="lazy" />
+        <img src="assets/poc/highbyte-uns-client-publish.png" alt="HighByte UNS Client connected to highbyte_uns_publish showing the live topic tree (conveyor-1, fascia-punch-1, paint-robot-1, torque-station-1, weld-robot-1) and a real-time JSON payload from torque-station-1" loading="lazy" />
         <div class="poc-card-body">
           <div class="poc-card-label">HighByte Intelligence Hub — Tools &rarr; UNS Client</div>
           <div class="poc-card-title">All 5 equipment topics, live tree, real contextualized payload</div>
-          <div class="poc-card-desc">torque-station-1 payload shown live: tool_serial, target vs. achieved torque, a real pass_fail_result of "fail" — timestamped to the second. HighByte's own browser walked the real MQTT tree (mHv1.0 / axiom / nissan-ccr) and found all five topics on the first pass.</div>
+          <div class="poc-card-desc">torque-station-1 payload shown live: tool_serial, target vs. achieved torque, a real pass_fail_result of "pass" — timestamped to the second, read straight off this hub's own broker.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-pipelines-publish.png" alt="HighByte Pipelines list showing conveyor_1_publish, fascia_punch_1_publish, paint_robot_1_publish, torque_station_1_publish, weld_robot_1_publish, all Enabled with Good status" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Pipelines</div>
+          <div class="poc-card-title">5 pipelines, one pattern, zero custom code</div>
+          <div class="poc-card-desc">Same trigger-validate-publish pattern reused across all five equipment types — only the field mapping and topic change. All 5 enabled, all 5 Good.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-connections-publish.png" alt="HighByte Connections list showing highbyte_uns_publish MQTT connection with Good status" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Connections</div>
+          <div class="poc-card-title">The broker connection every pipeline writes through</div>
+          <div class="poc-card-desc">highbyte_uns_publish — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here.</div>
         </div>
       </div>
     </div>
@@ -168,40 +184,16 @@
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">3 — The plumbing underneath</span><h2>MaestroHub orchestrates it — but nothing here is locked to one platform</h2></div>
-      <p class="section-copy">The pipeline, schema, and topic layer above is built and run in MaestroHub today. That's an implementation detail, not the decision Nissan needs to make. The point of this whole page is section 2: whatever platform Nissan lands on for governance, the underlying UNS keeps working — so "data governance" debates don't have to stall the value operators and maintenance teams are already getting from Eva.</p>
+      <div class="section-title"><span class="eyebrow">3 — The same feed, read by a second vendor</span><h2>MaestroHub reads it too — but nothing here is locked to one platform</h2></div>
+      <p class="section-copy">MaestroHub — a completely separate product from a different vendor, and the platform this namespace originally ran on — now subscribes to HighByte's broker as a read-only client. Same topics, same payloads, zero translation. Whatever platform Nissan lands on for governance, the underlying UNS keeps working — so "data governance" debates don't have to stall the value operators and maintenance teams are already getting from Eva.</p>
     </div>
-    <div class="secondary-grid">
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
       <div class="poc-card">
-        <img src="assets/poc/pipeline-designer.png" alt="MaestroHub Pipeline Designer showing the paint-robot-telemetry pipeline: Webhook Trigger, Build Payload, UNS Publish" loading="lazy" />
+        <img src="assets/poc/maestrohub-discover-subscriber.png" alt="MaestroHub Connect > Discover tab showing a live discovery session against HighByte's broker: 5 topics, 662 messages, and a real-time JSON payload from torque-station-1" loading="lazy" />
         <div class="poc-card-body">
-          <div class="poc-card-label">Pipeline Designer</div>
-          <div class="poc-card-title">Webhook &rarr; Build Payload &rarr; UNS Publish, no custom code</div>
-          <div class="poc-card-desc">Same three-node pattern reused across all five equipment types — only field mapping and topic change. 6 pipelines enabled, 100% success rate.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/poc/schemas.png" alt="MaestroHub schema registry showing the Torque Station State schema, cited to ISO 5393" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">Schema Registry</div>
-          <div class="poc-card-title">Every topic bound to a standards-cited schema</div>
-          <div class="poc-card-desc">Platform validates every published message against it — governance lives in the tool, not a wiki page.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/poc/dashboard.png" alt="MaestroHub live dashboard — Nissan CCR Live Shop Floor" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">UNS Dashboard</div>
-          <div class="poc-card-title">Panels bind directly to UNS topics, live</div>
-          <div class="poc-card-desc">No separate reporting layer to keep in sync — this is the orchestration-side view, secondary to Eva's decisioning layer above.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/poc/highbyte-inputs.png" alt="HighByte Intelligence Hub Inputs tab showing all 5 Nissan CCR equipment topics successfully subscribed via MQTT" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">HighByte — Inputs</div>
-          <div class="poc-card-title">All 5 topics subscribed from the other vendor's side</div>
-          <div class="poc-card-desc">Confirms the namespace, not a point-to-point integration — any standards-compliant subscriber reads it.</div>
+          <div class="poc-card-label">MaestroHub — Connect &rarr; Discover</div>
+          <div class="poc-card-title">All 5 topics, live tree, real-time payload — read-only</div>
+          <div class="poc-card-desc">torque-station-1 shown live, sourced entirely from HighByte's broker (100.74.158.107:1885) — "last seen less than a minute ago," 662 messages and climbing. MaestroHub's own embedded broker is architecturally read-only for external clients, so this is a genuine mirror of section 2, not a re-implementation.</div>
         </div>
       </div>
     </div>
