@@ -200,6 +200,33 @@
   </div>
 </section>
 
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">4 — Beyond simulation</span><h2>The asset model itself is built from Nissan's real Cimplicity export</h2></div>
+      <p class="section-copy">The telemetry above is simulated, but the asset structure isn't invented — it's generated directly from Nissan Smyrna's own Cimplicity Shared Name File exports. 16 real robot instances, organized exactly the way Cimplicity organizes them (by cell, by robot ID), sitting in HighByte today as Models and Instances — ready to bind to live tags the moment source access is confirmed. Alarm behavior on the live topics is grounded the same way: real alarm-class and fault-message distributions pulled from June 2026 fault logs, not invented text.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-models-list.png" alt="HighByte Models list showing Paint4_AxisTorque, Robot_ABB_Basecoat, and Robot_ABB_Sealer" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte — Models</div>
+          <div class="poc-card-title">Robot_ABB_Sealer and Robot_ABB_Basecoat, from real point exports</div>
+          <div class="poc-card-desc">Robot_ABB_Sealer's 16 attributes come from Cell 022's ISS_022_POINTS export (10,395 real Cimplicity points). Robot_ABB_Basecoat's per-axis torque attributes come from BC56_Torques.csv, Nissan's real Cell 56 historian data.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-cell-instances-overview.png" alt="HighByte Instances organized under Nissan/Smyrna/Paint4 into 022-SealerAutomation and 056-BasecoatLine folders" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte — Instances</div>
+          <div class="poc-card-title">022-SealerAutomation and 056-BasecoatLine, matching Cimplicity's own cell grouping</div>
+          <div class="poc-card-desc">6 real ABB sealer robots (P4SL2201-2206) and all 10 real Basecoat robots (BC5601-BC5610) — the same robot IDs and cell structure Cimplicity uses on the plant floor, not a generic placeholder hierarchy.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container grid-2">
     <div class="panel">
@@ -209,13 +236,14 @@
         <li>Eva can turn raw equipment telemetry into causal chains, ranked decisions, and answerable questions — the thing a maintenance lead actually uses, not a chart.</li>
         <li>Equipment data can be modeled against real published standards (OPC UA companion specs, ISO 5393, PackML), not ad-hoc tags — so that decisioning layer is trustworthy.</li>
         <li>A second, independent vendor platform can consume the same data with zero translation — the platform decision is decoupled from the value Nissan is already getting.</li>
+        <li>The asset model isn't a guess at what Nissan's equipment looks like — it's generated from Nissan's own Cimplicity point exports, so the structure Eva reasons over today is the same structure the real plant floor uses.</li>
         <li>Net effect: ops and maintenance teams don't have to wait on a "data governance" decision to start getting value — the namespace works today, under whichever platform Nissan lands on.</li>
       </ul>
     </div>
     <div class="panel dark">
       <h3 style="margin-top:0">What's still ahead before this is Nissan's real system</h3>
       <ul>
-        <li>Point this same pattern at real Cimplicity tags for cell 022 — the groundwork is already done in the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
+        <li>The asset models for cells 022 and 056 are built from real Cimplicity exports (see section 4) — next is binding their attributes to live source tags instead of default values, once source access is confirmed. Further detail on the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
         <li>Replace the simulators with the actual OT/historian connections once source access is confirmed.</li>
         <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
         <li>Decide the platform of record on Nissan's own timeline — this page's whole point is that decision no longer has to gate operator and maintenance value.</li>
