@@ -212,43 +212,53 @@
           <line x1="940" y1="74" x2="940" y2="404" stroke="#16324a"/><text class="mmN" x="940" y="46" text-anchor="middle">5</text><text class="mmL" x="940" y="62" text-anchor="middle">Prescriptive</text>
         </g>
         <line x1="318" y1="74" x2="318" y2="404" stroke="#24425f"/>
-        <!-- rows: gap line (Nissan->cross-industry frontier), 4 markers, hover rect w/ definition -->
-        <!-- 1 Asset data foundation — Nissan at 3.0 (Smyrna is well-instrumented) -->
+        <defs><marker id="arrOr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#ff8300"/></marker></defs>
+        <!-- Nissan values are Smyrna, paint-shop-influenced. Hover the label for a definition; hover the orange dot for the Smyrna rationale. -->
+        <!-- 1 Asset data foundation — Nissan 2.5 (well-instrumented but no UNS) -->
         <text class="mmDim" x="22" y="112">Asset data foundation</text>
-        <line x1="635" y1="108" x2="863.75" y2="108" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="108" r="6" fill="#6b8299"/><circle cx="711.25" cy="108" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="108" r="6" fill="#49bd8d"/><circle cx="635" cy="108" r="7.5" fill="#ff8300"/>
+        <line x1="558.75" y1="108" x2="863.75" y2="108" stroke="#24425f" stroke-width="2"/>
+        <circle cx="482.5" cy="108" r="6" fill="#6b8299"/><circle cx="711.25" cy="108" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="108" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="108" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: well-instrumented (SCADA, historians, Senseye) but with NO Unified Namespace — data stays in per-system islands, uncontextualized and unshared. That missing UNS is what holds an otherwise-strong foundation at 2.5.</title></circle>
         <rect x="16" y="93" width="300" height="30" fill="transparent" style="cursor:help"><title>Asset data foundation — Is equipment data collected, contextualized, and available in one place, or trapped in per-system islands (SCADA, historians, spreadsheets)? Smyrna is well-instrumented; the gap is contextualization, not collection.</title></rect>
-        <!-- 2 Maintenance strategy -->
+        <!-- 2 Maintenance strategy — Nissan 2.5 and climbing toward 3-4 (CCR) -->
         <text class="mmDim" x="22" y="156">Maintenance strategy</text>
-        <line x1="482.5" y1="152" x2="863.75" y2="152" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="152" r="6" fill="#6b8299"/><circle cx="711.25" cy="152" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="152" r="6" fill="#49bd8d"/><circle cx="482.5" cy="152" r="7.5" fill="#ff8300"/>
+        <line x1="558.75" y1="152" x2="863.75" y2="152" stroke="#24425f" stroke-width="2"/>
+        <line x1="568" y1="152" x2="778" y2="152" stroke="#ff8300" stroke-width="2" stroke-dasharray="3 4" marker-end="url(#arrOr)" opacity="0.9"/>
+        <circle cx="482.5" cy="152" r="6" fill="#6b8299"/><circle cx="711.25" cy="152" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="152" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="152" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: the Cell 056 CMMS measured 80% reactive today, but the CCR initiative is actively moving strategy toward condition-based/predictive — hence 2.5 and climbing toward 3–4 (the orange arrow).</title></circle>
         <rect x="16" y="137" width="300" height="30" fill="transparent" style="cursor:help"><title>Maintenance strategy — The dominant maintenance mode: run-to-failure and calendar-based PMs at the low end, condition-based and predictive at the high end.</title></rect>
         <!-- 3 Reliability engineering / RCA -->
         <text class="mmDim" x="22" y="200">Reliability engineering / RCA</text>
         <line x1="406.25" y1="196" x2="863.75" y2="196" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="196" r="6" fill="#6b8299"/><circle cx="711.25" cy="196" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="196" r="6" fill="#49bd8d"/><circle cx="406.25" cy="196" r="7.5" fill="#ff8300"/>
+        <circle cx="558.75" cy="196" r="6" fill="#6b8299"/><circle cx="711.25" cy="196" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="196" r="6" fill="#49bd8d"/>
+        <circle cx="406.25" cy="196" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: recurring faults aren't being closed — &quot;Spray Booth Starved&quot; fired 2,300+ times in June and robot faults repeat. Symptoms get fixed, root causes persist — low RCA / bad-actor discipline.</title></circle>
         <rect x="16" y="181" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability engineering / RCA — Discipline for eliminating recurring failures: root-cause analysis, RCM/FMEA, and bad-actor programs. Closing causes, not just fixing symptoms.</title></rect>
         <!-- 4 Cross-functional decision flow -->
         <text class="mmDim" x="22" y="244">Cross-functional decision flow</text>
         <line x1="406.25" y1="240" x2="787.5" y2="240" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="240" r="6" fill="#6b8299"/><circle cx="711.25" cy="240" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="240" r="6" fill="#49bd8d"/><circle cx="406.25" cy="240" r="7.5" fill="#ff8300"/>
+        <circle cx="558.75" cy="240" r="6" fill="#6b8299"/><circle cx="711.25" cy="240" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="240" r="6" fill="#49bd8d"/>
+        <circle cx="406.25" cy="240" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: downtime events don't move through one shared record — departments still tap each other to learn what happened. No single trail from signal to closed action.</title></circle>
         <rect x="16" y="225" width="300" height="30" fill="transparent" style="cursor:help"><title>Cross-functional decision flow — Does an event move through one shared record with clear escalation, or does it depend on people tapping each department to find out what happened?</title></rect>
         <!-- 5 Connected-worker enablement -->
         <text class="mmDim" x="22" y="288">Connected-worker enablement</text>
         <line x1="482.5" y1="284" x2="787.5" y2="284" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="284" r="6" fill="#6b8299"/><circle cx="711.25" cy="284" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="284" r="6" fill="#49bd8d"/><circle cx="482.5" cy="284" r="7.5" fill="#ff8300"/>
+        <circle cx="558.75" cy="284" r="6" fill="#6b8299"/><circle cx="711.25" cy="284" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="284" r="6" fill="#49bd8d"/>
+        <circle cx="482.5" cy="284" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: SOPs and troubleshooting know-how live in binders and senior techs' heads; limited guided workflow delivered at the point of work.</title></circle>
         <rect x="16" y="269" width="300" height="30" fill="transparent" style="cursor:help"><title>Connected-worker enablement — How well SOPs, troubleshooting guidance, and tacit know-how reach the technician at the point of work, rather than living in binders and senior heads.</title></rect>
         <!-- 6 Analytics & industrial AI -->
         <text class="mmDim" x="22" y="332">Analytics &amp; industrial AI</text>
         <line x1="635" y1="328" x2="863.75" y2="328" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/><circle cx="635" cy="328" r="7.5" fill="#ff8300"/>
+        <circle cx="558.75" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/>
+        <circle cx="635" cy="328" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: Siemens Senseye predictive monitoring is live on 159 paint-shop assets (condition-based analytics) — a genuine strength. The gap is turning its anomalies into prescriptive, closed-loop action.</title></circle>
         <rect x="16" y="313" width="300" height="30" fill="transparent" style="cursor:help"><title>Analytics &amp; industrial AI — From static dashboards, to causal reasoning, to ranked prescriptive action on live data. Nissan runs Siemens Senseye predictive monitoring on 159 paint-shop assets (condition-based analytics) — the gap is turning its signals into prescriptive action.</title></rect>
         <!-- 7 Reliability -> productivity link -->
         <text class="mmDim" x="22" y="376">Reliability &#8594; productivity link</text>
         <line x1="558.75" y1="372" x2="863.75" y2="372" stroke="#24425f" stroke-width="2"/>
-        <circle cx="635" cy="372" r="6" fill="#6b8299"/><circle cx="787.5" cy="372" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="372" r="6" fill="#49bd8d"/><circle cx="558.75" cy="372" r="7.5" fill="#ff8300"/>
+        <circle cx="635" cy="372" r="6" fill="#6b8299"/><circle cx="787.5" cy="372" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="372" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="372" r="7.5" fill="#ff8300" style="cursor:help"><title>Nissan Smyrna: downtime is tracked (the DTR) but not systematically tied to OEE, cost, and the productivity number leadership manages.</title></circle>
         <rect x="16" y="357" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability → productivity link — Are asset health and downtime explicitly tied to OEE, cost, and the productivity number leadership actually manages?</title></rect>
-        <text class="mmL" x="22" y="440" style="font-size:11.5px;fill:#6b8299">Hover a capability for its definition &#183; markers are directional positions, not survey means &#183; the connector shows Nissan&#8217;s distance to the reliability frontier.</text>
+        <text class="mmL" x="22" y="432" style="font-size:11.5px;fill:#ffb15b;font-weight:700">Nissan Smyrna only &#183; heavily paint-shop-influenced (the CMMS / DTR / Senseye data in hand is all paint).</text>
+        <text class="mmL" x="22" y="452" style="font-size:11px;fill:#6b8299">Hover a capability for its definition, or a Nissan (orange) dot for the Smyrna rationale &#183; markers are directional, not survey means &#183; the orange arrow shows momentum.</text>
       </svg>
       <div class="mm-legend">
         <span><i style="background:#ff8300"></i>Nissan Smyrna &mdash; today</span>
