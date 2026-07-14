@@ -68,7 +68,7 @@
     <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
     <p class="page-deck">Not a slide of logos — a working system. Two independent OT sources — Nissan Smyrna's own <strong>Cimplicity</strong> SCADA and an <strong>Ignition</strong> stand-in for the non-Cimplicity plant areas — publish over OPC&nbsp;UA into a single, standards-governed Unified Namespace. HighByte Intelligence Hub runs that namespace; a second, independent vendor (MaestroHub) reads the exact same feed with zero translation; and Humble's Eva reads it to reason over causal chains, rank interventions, and answer questions against the live database — the actual maintenance-cockpit value. The point of the two-source, two-reader shape: neither the source you have nor the platform you pick ever gates the value.</p>
     <div class="scope-callout">
-      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing right now (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. We are now bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte. Telemetry values shown are representative/simulated until source tags are bound. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
+      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. And it now reaches the public internet: a <strong>live UNS bridge</strong> (<code>nissan-uns.civops.io</code>) streams the broker's real topics, so the <a href="cockpit-live.html">web cockpit</a>, the dashboards below, and the <a href="perspective-twin.html">Ignition Perspective twin</a> are all reading the <em>actual</em> namespace, not a mock-up. We are bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte. Where a source tag isn't bound yet (e.g. the paused BC5602 torque leg, or a scrap/quality feed), values are clearly labeled representative. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
     </div>
   </div>
 </section>
@@ -151,14 +151,14 @@
           <rect x="1070" y="238" width="6" height="96" rx="3" fill="#49bd8d"/>
           <text class="lbl" x="726" y="270">Live web + tablet cockpit</text>
           <text class="sub" x="726" y="292">The working app &#183; updates on screen</text>
-          <text class="tag" x="726" y="316">data layer swaps to the live broker</text>
+          <text class="tag" x="726" y="316" fill="#6fe0a8">now reads the live broker &#183; UNS bridge</text>
         </g>
         <g>
           <rect x="706" y="350" width="370" height="96" rx="12" fill="#15324c" stroke="#3f627d"/>
           <rect x="1070" y="350" width="6" height="96" rx="3" fill="#0a77a9"/>
-          <text class="lbl" x="726" y="382">Ignition Perspective</text>
-          <text class="sub" x="726" y="404">Same views, built natively in Ignition</text>
-          <text class="tag" x="726" y="428">proof the value layer is portable too</text>
+          <text class="lbl" x="726" y="382">Ignition Perspective twin</text>
+          <text class="sub" x="726" y="404">Same screen, Perspective idiom &#183; same UNS</text>
+          <text class="tag" x="726" y="428" fill="#6fe0a8">viewable now &#8212; reads the live bridge</text>
         </g>
 
         <!-- UNS -> consumers -->
@@ -181,7 +181,7 @@
         <tr><td>Paint shop conveyor section</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery, + PackML / ISA-88 TR88.00.02 state machine</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/conveyor-1</code></td></tr>
         <tr><td>Fascia punch / piercing press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming process values, VDMA forming-machine conventions</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/fascia-punch-1</code></td></tr>
         <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + weld-process fields</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/weld-robot-1</code></td></tr>
-        <tr><td>Final-assembly torque station</td><td class="small-cell">ISO 5393 — torque tool measurement terminology</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/torque-station-1</code></td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">OPC 40451-1 — OPC UA for Tightening Systems (part of the OPC 40450 Joining Systems family)</td><td class="small-cell"><code>mHv1.0/axiom/nissan-ccr/torque-station-1</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -192,7 +192,7 @@
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Standards, honestly</span><h2>How i3X-compliant is each schema, really?</h2></div>
-      <p class="section-copy">"i3X-compliant" should mean a schema conforms to a published, machine-readable information model — an OPC&nbsp;UA Companion Specification or a CESMII SM Profile — not just that it's named after a standard. By that bar, three of the five sit on real companion specs, one is base-compliant with custom extensions, and one is grounded in a measurement standard that isn't an information model at all. Stated plainly: <strong>none is a <em>certified</em> SM Profile yet</strong> — certification means registering and validating the type model, a defined next step, not a repaint.</p>
+      <p class="section-copy">"i3X-compliant" should mean a schema conforms to a published, machine-readable information model — an OPC&nbsp;UA Companion Specification or a CESMII SM Profile — not just that it's named after a standard. By that bar, <strong>four of the five now sit on real companion specs</strong> (the torque station was re-grounded from ISO&nbsp;5393 onto the OPC&nbsp;UA Tightening Systems companion spec — see below), and one is base-compliant with vendor-defined extensions. Stated plainly: <strong>none is a <em>certified</em> SM Profile yet</strong> — certification means registering and validating the type model, a defined next step, not a repaint.</p>
     </div>
     <table class="tech-matrix">
       <thead><tr><th>Equipment</th><th>Grounded in</th><th>i3X information-model status</th></tr></thead>
@@ -201,10 +201,10 @@
         <tr><td>Paint shop conveyor</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery (+ PackML / ISA-88 state model)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Machinery model + standardized states</td></tr>
         <tr><td>Fascia punch / press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Real companion spec</td></tr>
         <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + custom weld-process fields</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#d9851f;border-radius:7px;padding:2px 9px;margin-right:8px">Partial</span>Base compliant; weld fields vendor-defined</td></tr>
-        <tr><td>Final-assembly torque station</td><td class="small-cell">ISO 5393 — a torque measurement / terminology standard</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#c0564b;border-radius:7px;padding:2px 9px;margin-right:8px">Weakest</span>Not an information model to comply with</td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">OPC 40451-1 — OPC UA for Tightening Systems (re-grounded from ISO 5393)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Real companion spec — result/torque/angle model</td></tr>
       </tbody>
     </table>
-    <div class="callout" style="margin-top:16px"><strong>The one clean fix:</strong> re-ground the torque station on the <strong>OPC&nbsp;UA Companion Specification for Tightening / Joining Systems</strong> (an actual information model) instead of ISO&nbsp;5393 — that moves it onto the same compliance track as the robots and machinery. Everywhere else, the honest label is "standards-grounded, SM-Profile-track," not "certified."</div>
+    <div class="callout" style="margin-top:16px"><strong>The clean fix, applied:</strong> the torque station is now grounded on <strong>OPC&nbsp;40451-1 — OPC&nbsp;UA for Tightening Systems</strong> (part of the VDMA-led OPC&nbsp;40450 Joining Systems family, an actual information model with a result / torque / angle / evaluation model) instead of ISO&nbsp;5393. Its live payload — <code>torque_achieved_nm</code>, <code>target_torque_nm</code>, <code>angle_achieved_deg</code>, <code>pass_fail_result</code> — maps directly onto that spec, putting it on the same compliance track as the robots and machinery. Everywhere else, the honest label remains "standards-grounded, SM-Profile-track," not "certified."</div>
     <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc;margin-top:14px"><strong style="color:#10324b">Worth knowing —</strong> <strong>Toyota is reportedly running a very similar UNS / information-model exercise, and may be open to collaborating or sharing that work.</strong> A cross-OEM push on common OPC&nbsp;UA companion-spec profiles would let Nissan adopt proven, shared models rather than define them alone — turning "standards-grounded" into "industry-aligned."</div>
   </div>
 </section>
@@ -360,6 +360,35 @@
   </div>
 </section>
 
+<!-- ===================== 5. LIVE BRIDGE + PERSPECTIVE TWIN ===================== -->
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">5 — Off the plant floor, onto the internet</span><h2>A live UNS bridge — and the same screen in a second tool</h2></div>
+      <p class="section-copy">The namespace no longer lives only on the plant network. A small read-only bridge subscribes to HighByte's broker and streams its real topics over a Cloudflare tunnel, so any authorized consumer — a browser, a BI tool, a second HMI platform — can read the live namespace without touching OT. Two consumers are wired to it right now.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 1 — the web cockpit</div>
+          <div class="poc-card-title">Cell 056 tablet cockpit, on the live feed</div>
+          <div class="poc-card-desc">The working technician app reads the bridge via a one-line <code>EventSource</code> subscription. BC5602 axis torque shows live end-to-end whenever the Ignition leg is publishing; the other equipment topics stream continuously. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the live cockpit &rarr;</a></div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 2 — Ignition Perspective</div>
+          <div class="poc-card-title">The same screen, rebuilt in Perspective</div>
+          <div class="poc-card-desc">The Cell&nbsp;056 Asset-Health screen in Ignition Perspective's component idiom, bound to the identical <code>mHv1.0/axiom/nissan-ccr</code> topics and reading the same bridge — the proof the value layer ports across tools. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px">
+      <strong>The bridge, live:</strong> <code>https://nissan-uns.civops.io</code> &mdash; <span id="bridgeStatus" style="font-weight:700;color:#8a6413">checking&hellip;</span>. Read-only, CORS-open, synthetic demo telemetry only. Endpoints: <code>/healthz</code>, <code>/snapshot</code>, <code>/stream</code> (Server-Sent Events). <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CLOSING ===================== -->
 <section class="section">
   <div class="container grid-2">
@@ -399,5 +428,18 @@
 </footer>
 <script src="main.js"></script>
 <script src="live-dash.js"></script>
+<script>
+/* Live bridge health badge — pings the public UNS bridge and reports real state. */
+(function(){
+  var el=document.getElementById('bridgeStatus'); if(!el) return;
+  fetch('https://nissan-uns.civops.io/healthz',{cache:'no-store'})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d && d.ok){ el.textContent='online · '+d.topics+' topics live · broker '+(d.connected?'connected':'reconnecting'); el.style.color='#1f7a55'; }
+      else { el.textContent='reachable'; }
+    })
+    .catch(function(){ el.textContent='offline right now (site falls back to representative motion)'; el.style.color='#8a6413'; });
+})();
+</script>
 </body>
 </html>

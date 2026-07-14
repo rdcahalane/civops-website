@@ -82,23 +82,52 @@
       el.innerHTML = k==='health'?health():k==='oee'?oee():'';
     });
   }
+  // Public UNS bridge (Canoe HighByte broker :1885 -> SSE, via Cloudflare tunnel).
+  // Override with window.UNS_BRIDGE before this script loads if needed.
+  var BRIDGE = (typeof window!=='undefined' && window.UNS_BRIDGE) || 'https://nissan-uns.civops.io';
+
   var ticks=0;
   var Feed = {
+    liveTorque:false,   // true only while fresh bc5602 messages are arriving
+    _lastTorque:0,
     tick:function(){
       ticks++;
-      // BC5602 axis torque wanders like the live Ignition sim (visible motion)
-      MODEL.torque=MODEL.torque.map(function(t){return jit(t,3.4,40,130);});
-      // OEE breathes; newest hour bar moves
+      // If the real bc5602 leg goes quiet (Ignition sim paused / retained value only),
+      // drop back to simulated motion so the figure never freezes or mislabels itself.
+      if(Feed.liveTorque && Date.now()-Feed._lastTorque>8000){ Feed.liveTorque=false; }
+      // BC5602 axis torque: driven by the real UNS feed when connected; otherwise
+      // it wanders like the live Ignition sim so the figure still shows motion.
+      if(!Feed.liveTorque){ MODEL.torque=MODEL.torque.map(function(t){return jit(t,3.4,40,130);}); }
+      // OEE breathes; newest hour bar moves (representative — no scrap/rework feed yet)
       MODEL.oee.avail=Math.round(jit(MODEL.oee.avail,1.2,78,92));
       MODEL.oee.perf =Math.round(jit(MODEL.oee.perf,1.2,84,96));
       var h=MODEL.oee.hourly; h[h.length-1]=Math.round(jit(h[h.length-1],2.5,55,88));
       // AHI is a slow index — nudge one non-alert robot occasionally
       if(ticks%3===0){ var idx=1+Math.floor(Math.random()*8); if(!MODEL.robots[idx].alert){ MODEL.robots[idx].a=Math.max(55,Math.min(92,MODEL.robots[idx].a+(Math.random()<0.5?-1:1))); } }
       render();
+    },
+    // connectUNS(): PRODUCTION path, now live. Subscribes to the bridge's SSE stream
+    // and maps the real bc5602 axis-torque payload straight into MODEL.torque. The
+    // render code is unchanged — same MODEL shape. Falls back to the sim on any error.
+    connectUNS:function(){
+      if(typeof EventSource==='undefined') return;
+      var es;
+      try{ es=new EventSource(BRIDGE+'/stream'); }catch(e){ return; }
+      es.addEventListener('uns',function(ev){
+        var msg; try{ msg=JSON.parse(ev.data); }catch(e){ return; }
+        var t=msg.topic||'', p=msg.payload||{};
+        // BC5602 base-coat robot: real per-axis max torque, Ignition -> HighByte -> UNS
+        if(/\/bc5602$/i.test(t) && p.torqueMaxA1!=null && !msg.snapshot){
+          MODEL.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6]
+            .map(function(v){return +(+v).toFixed(1);});
+          Feed.liveTorque=true; Feed._lastTorque=Date.now();
+          render();
+        }
+      });
+      es.onerror=function(){ /* auto-reconnects; sim keeps the figure alive meanwhile */ };
     }
-    /* connectUNS(): PRODUCTION — mqtt.connect(BRIDGE_WSS).subscribe('mHv1.0/axiom/nissan-ccr/#')
-       .on('message', map into MODEL) then render(). Same MODEL shape, no render change. */
   };
   render();
   setInterval(function(){ Feed.tick(); }, 2600);
+  Feed.connectUNS();
 })();

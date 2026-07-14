@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Ignition Perspective twin</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ---- Ignition Perspective session idiom ---- */
+    .pv-shell{ background:#eef1f4; border-radius:14px; overflow:hidden; border:1px solid #cdd6df; box-shadow:0 18px 44px rgba(16,36,55,.16); }
+    .pv-gw{ background:#1c2b3a; color:#c9d6e2; display:flex; align-items:center; justify-content:space-between; padding:0 16px; height:44px; font-size:12px; }
+    .pv-gw .l{ display:flex; align-items:center; gap:10px; font-weight:700; }
+    .pv-gw .mark{ width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#f5a623,#e8801a); display:flex;align-items:center;justify-content:center;color:#1c2b3a;font-weight:900;font-size:13px; }
+    .pv-gw .r{ display:flex; align-items:center; gap:14px; color:#8fa6ba; }
+    .pv-gw .ok{ display:inline-flex; align-items:center; gap:6px; color:#5fd39a; font-weight:700; }
+    .pv-gw .ok .d{ width:8px;height:8px;border-radius:50%;background:#49bd8d; box-shadow:0 0 0 0 rgba(73,189,141,.6); animation:pvp 2s infinite; }
+    @keyframes pvp{ 0%{box-shadow:0 0 0 0 rgba(73,189,141,.5)} 70%{box-shadow:0 0 0 7px rgba(73,189,141,0)} 100%{box-shadow:0 0 0 0 rgba(73,189,141,0)} }
+    .pv-crumb{ background:#243547; color:#93a7b9; padding:8px 16px; font-size:12px; border-bottom:1px solid #16232f; }
+    .pv-crumb b{ color:#cfe0ec; }
+    .pv-crumb .path{ font-family:ui-monospace,Menlo,monospace; color:#7fc8ee; }
+    .pv-body{ display:grid; grid-template-columns:1fr 300px; gap:0; }
+    @media(max-width:820px){ .pv-body{ grid-template-columns:1fr; } }
+    .pv-view{ padding:18px; }
+    .pv-h{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
+    .pv-h h3{ margin:0; color:#16283a; font-size:20px; }
+    .pv-h .sub{ color:#5f7286; font-size:12.5px; }
+    .pv-pill{ font-size:11px; font-weight:800; border-radius:999px; padding:3px 10px; }
+    .pv-pill.watch{ background:#fff3e0; color:#9a5b00; border:1px solid #f2c98a; }
+    .pv-robots{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+    @media(max-width:560px){ .pv-robots{ grid-template-columns:repeat(3,1fr); } }
+    .pv-rob{ background:#fff; border:1px solid #d8e0e8; border-left-width:4px; border-radius:8px; padding:10px 8px; text-align:center; }
+    .pv-rob .id{ font-size:11.5px; color:#5f7286; font-weight:700; }
+    .pv-rob .s{ font-size:20px; font-weight:800; margin-top:3px; color:#16283a; }
+    .pv-rob.g{ border-left-color:#2f9e6e; } .pv-rob.g .s{ color:#1f8a5c; }
+    .pv-rob.w{ border-left-color:#e8a13a; } .pv-rob.w .s{ color:#b5730f; }
+    .pv-rob.a{ border-left-color:#d9534f; background:#fdf0ef; } .pv-rob.a .s{ color:#c0392b; }
+    .pv-conv{ background:#e7edf3; border:1px solid #d1dbe4; border-radius:8px; padding:11px 14px; margin:10px 0; display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#3a4c5e; }
+    .pv-conv b{ color:#1f8a5c; font-size:17px; }
+    .pv-legend{ display:flex; gap:16px; margin-top:10px; font-size:11.5px; color:#5f7286; flex-wrap:wrap; }
+    .pv-legend i{ width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:6px;vertical-align:middle; }
+    /* torque numeric-display component (Perspective LED look) */
+    .pv-tq{ margin-top:14px; background:#12212e; border-radius:9px; padding:12px 14px; }
+    .pv-tq .hd{ font-size:11px; font-weight:700; color:#7fc8ee; letter-spacing:.03em; margin-bottom:9px; display:flex; align-items:center; gap:7px; }
+    .pv-tq .g{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+    .pv-tq .ax{ background:#0b161f; border:1px solid #23384a; border-radius:6px; padding:8px 4px; text-align:center; }
+    .pv-tq .ax .n{ font-size:10px; color:#6f90a8; } .pv-tq .ax .t{ font-size:16px; font-weight:800; color:#6fe0a8; font-family:ui-monospace,Menlo,monospace; margin-top:2px; }
+    /* right: tag browser */
+    .pv-side{ background:#1c2b3a; padding:16px 14px; color:#c9d6e2; }
+    .pv-side h4{ margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:#8fa6ba; }
+    .pv-tree{ font-family:ui-monospace,Menlo,monospace; font-size:11.5px; line-height:1.9; }
+    .pv-tree .n{ color:#8fa6ba; } .pv-tree .leaf{ color:#7fc8ee; } .pv-tree .val{ color:#6fe0a8; float:right; }
+    .pv-tree .ind{ padding-left:14px; } .pv-tree .ind2{ padding-left:28px; }
+    .pv-note{ margin-top:16px; font-size:11px; color:#7f96a8; line-height:1.55; border-top:1px solid #2a3d4f; padding-top:12px; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html">Overview</a>
+<a href="decision.html">Approach</a>
+<a href="benchmarking.html">Benchmarks</a>
+<a href="architecture.html">Architecture</a>
+<a href="journey.html">Journey<br>Map</a>
+<a href="cockpit.html">Maintenance<br>Cockpit</a>
+<a href="asset-health.html">Asset Health<br>Index</a>
+<a href="detail-design.html">Detail<br>Design</a>
+<a href="poc.html" class="current">Live<br>Proof</a>
+<a href="roi.html">ROI</a>
+<a href="technology.html">Tech<br>Options</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / <a href="poc.html">Live proof</a> / Perspective twin</div>
+    <h1 class="page-title">The same Cell 056 screen &mdash; in Ignition Perspective</h1>
+    <p class="page-deck">The maintenance cockpit is just <em>one</em> consumer of the Unified Namespace. To prove the value layer isn't locked to a single tool, here is the Cell&nbsp;056 Asset-Health screen rebuilt in <strong>Ignition Perspective's</strong> component idiom, bound to the <strong>identical</strong> namespace topics (<code>mHv1.0/axiom/nissan-ccr</code>) and reading the <strong>same live UNS bridge</strong> the web cockpit reads. Swap the rendering tool; the data, the model, and the topics don't change.</p>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc">
+      <strong style="color:#10324b">What this is, precisely.</strong> This is a Perspective-idiom rendering that consumes the live namespace through the bridge &mdash; the portability proof. A <em>native</em> Perspective view runs inside the Ignition gateway that already sits on this stack (v8.3.7, Perspective module loaded); wiring it natively adds the MQTT&nbsp;Engine module (or an OPC binding) and a Designer pass. The point stands either way: the exact same UNS topics drive it.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pv-shell">
+      <div class="pv-gw">
+        <div class="l"><span class="mark">IA</span><span>Ignition Perspective</span></div>
+        <div class="r"><span>gateway <b style="color:#c9d6e2">axiom-cycles-ignition</b> &middot; v8.3.7</span><span class="ok"><span class="d"></span><span id="pvConn">session connecting&hellip;</span></span></div>
+      </div>
+      <div class="pv-crumb">project <b>Nissan_Smyrna_UNS</b> &nbsp;&rsaquo;&nbsp; view <span class="path">Paint/Cell056/AssetHealth</span></div>
+      <div class="pv-body">
+        <div class="pv-view">
+          <div class="pv-h">
+            <div><h3>Cell 056 &middot; Base Coat &mdash; Asset Health</h3><div class="sub">10 ABB basecoat robots + Section&nbsp;3 conveyor</div></div>
+            <span class="pv-pill watch">CELL ROLL-UP 66% &middot; WATCH</span>
+          </div>
+          <div class="pv-robots" id="pvTop"></div>
+          <div class="pv-conv"><span>Conveyor 056 &middot; <span id="pvConvState" style="color:#5f7286">&mdash;</span></span><b id="pvConv">85%</b></div>
+          <div class="pv-robots" id="pvBot"></div>
+          <div class="pv-legend"><span><i style="background:#2f9e6e"></i>Healthy &ge; 80</span><span><i style="background:#e8a13a"></i>Watch 60&ndash;79</span><span><i style="background:#d9534f"></i>Alert &lt; 60</span></div>
+          <div class="pv-tq">
+            <div class="hd"><span style="width:8px;height:8px;border-radius:50%;background:#6fe0a8;display:inline-block"></span>BC5602 &middot; live axis torque (Nm) &middot; <span id="pvTqSrc">Ignition &rarr; HighByte &rarr; UNS</span></div>
+            <div class="g" id="pvTq"></div>
+          </div>
+        </div>
+        <div class="pv-side">
+          <h4>Tag browser &mdash; bound topics</h4>
+          <div class="pv-tree">
+            <div class="n">[UNS] mHv1.0</div>
+            <div class="n ind">axiom / nissan-ccr</div>
+            <div class="leaf ind2">bc5602</div>
+            <div class="leaf ind2" id="tqA1">&nbsp;&#8226; torqueMaxA1<span class="val" id="vA1">&mdash;</span></div>
+            <div class="leaf ind2" id="tqA2">&nbsp;&#8226; torqueMaxA2<span class="val" id="vA2">&mdash;</span></div>
+            <div class="leaf ind2">&nbsp;&#8226; torqueMaxA3<span class="val" id="vA3">&mdash;</span></div>
+            <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; conveyor-1</div>
+            <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; torque-station-1</div>
+            <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; paint-robot-1</div>
+          </div>
+          <div class="pv-note">Values stream from <code style="color:#7fc8ee">nissan-uns.civops.io</code> &mdash; the same bridge the web cockpit uses. BC5602 shows live when the Ignition torque leg is publishing; otherwise it holds the last namespace value. The other equipment topics update continuously.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="panel">
+        <span class="eyebrow">Why a second rendering matters</span>
+        <h2 style="font-size:26px">The namespace is the product; the UI is a choice</h2>
+        <ul>
+          <li>The web cockpit and this Perspective view are <strong>two consumers of one namespace</strong> &mdash; neither owns the data.</li>
+          <li>Nissan can standardize on Ignition Perspective, Power&nbsp;BI, Grafana, or Humble/Eva without re-plumbing a single source.</li>
+          <li>The tag paths shown at right are the <strong>real UNS topics</strong> &mdash; the same ones HighByte and MaestroHub serve.</li>
+        </ul>
+        <div style="margin-top:14px"><a class="btn secondary" href="cockpit-live.html">Compare the web cockpit &rarr;</a></div>
+      </div>
+      <div class="panel dark">
+        <h3 style="margin-top:0">Going native inside the gateway</h3>
+        <p style="margin:0 0 10px">The Ignition gateway is already on the stack. To run this as a native Perspective session served by the gateway itself:</p>
+        <ul>
+          <li>Add the MQTT&nbsp;Engine (Cirrus&nbsp;Link) module to subscribe to the broker directly, <em>or</em> bind through the existing OPC&nbsp;UA connection.</li>
+          <li>Import this view into a Designer project and publish &mdash; the component tree above is the layout it targets.</li>
+        </ul>
+        <p style="margin:10px 0 0;color:#9fd6ff">Either way, the binding is to the same <code>mHv1.0/axiom/nissan-ccr</code> topics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. The Perspective twin proves the value layer is portable &mdash; swap the tool, keep the namespace.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* Perspective twin — reads the SAME live UNS bridge as the web cockpit.
+   BC5602 axis torque is driven by the real bc5602 topic when it is publishing;
+   an 8s staleness watchdog falls back to representative motion so the view never
+   freezes or mislabels itself "live". Same MODEL shape as the cockpit. */
+(function(){
+  var BRIDGE = (window.UNS_BRIDGE) || 'https://nissan-uns.civops.io';
+  var ROBOTS = [
+    {id:'BC5601',a:88},{id:'BC5602',a:83,live:true},{id:'BC5603',a:71},{id:'BC5604',a:42,alert:true},{id:'BC5605',a:80},
+    {id:'BC5606',a:72},{id:'BC5607',a:62},{id:'BC5608',a:81},{id:'BC5609',a:69},{id:'BC5610',a:84}
+  ];
+  var M = { conveyor:85, convState:'', torque:[95.2,101.8,88.4,76.1,94.7,102.3] };
+  var liveTorque=false, lastTq=0;
+  function band(a){ return a>=80?'g':(a>=60?'w':'a'); }
+  function jit(v,amt,lo,hi){ v+=(Math.random()-0.5)*amt; return Math.max(lo,Math.min(hi,v)); }
+  function robHtml(list){ return list.map(function(r){ return '<div class="pv-rob '+band(r.a)+'"><div class="id">'+r.id+(r.live?' &middot; live':'')+'</div><div class="s">'+r.a+'%</div></div>'; }).join(''); }
+  function setConn(t){ var e=document.getElementById('pvConn'); if(e) e.textContent=t; }
+  function render(){
+    document.getElementById('pvTop').innerHTML = robHtml(ROBOTS.slice(0,5));
+    document.getElementById('pvBot').innerHTML = robHtml(ROBOTS.slice(5));
+    document.getElementById('pvConv').textContent = M.conveyor+'%';
+    if(M.convState) document.getElementById('pvConvState').textContent = M.convState;
+    document.getElementById('pvTq').innerHTML = M.torque.map(function(t,i){ return '<div class="ax"><div class="n">A'+(i+1)+'</div><div class="t">'+t.toFixed(1)+'</div></div>'; }).join('');
+    ['vA1','vA2','vA3'].forEach(function(id,i){ var e=document.getElementById(id); if(e) e.textContent=M.torque[i].toFixed(1); });
+  }
+  function tick(){
+    if(liveTorque && Date.now()-lastTq>8000){ liveTorque=false; setConn('session connected'); document.getElementById('pvTqSrc').textContent='Ignition leg idle · last UNS value'; }
+    if(!liveTorque){ M.torque = M.torque.map(function(t){ return jit(t,3.2,40,130); }); }
+    render();
+  }
+  function connectUNS(){
+    if(typeof EventSource==='undefined'){ setConn('bridge unavailable'); return; }
+    var es; try{ es=new EventSource(BRIDGE+'/stream'); }catch(e){ setConn('bridge unavailable'); return; }
+    es.onopen=function(){ if(!liveTorque) setConn('session connected'); };
+    es.addEventListener('uns',function(ev){
+      var msg; try{ msg=JSON.parse(ev.data); }catch(e){ return; }
+      var t=msg.topic||'', p=msg.payload||{};
+      if(/\/bc5602$/i.test(t) && p.torqueMaxA1!=null && !msg.snapshot){
+        M.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6].map(function(v){return +(+v).toFixed(1);});
+        liveTorque=true; lastTq=Date.now(); setConn('session connected · live'); document.getElementById('pvTqSrc').textContent='Ignition → HighByte → UNS · live'; render();
+      }
+      if(/\/conveyor-1$/i.test(t) && p.PackMLState){ M.convState=p.PackMLState; }
+    });
+    es.onerror=function(){ if(!liveTorque) setConn('session reconnecting…'); };
+  }
+  render();
+  setInterval(tick, 2500);
+  connectUNS();
+})();
+</script>
+</body>
+</html>

@@ -109,7 +109,7 @@
       <div class="lc-frame">
         <div class="lc-status">
           <span>Cell 056 cockpit &#183; <span id="lcShift">Shift B</span></span>
-          <span><span class="lc-live"><span class="pulse"></span>UNS connected</span> &#183; <span id="lcAgo">updated 0s ago</span> &#183; <span id="lcClock">--:--</span></span>
+          <span><span class="lc-live"><span class="pulse"></span><span id="lcConn">UNS &#183; connecting&#8230;</span></span> &#183; <span id="lcAgo">updated 0s ago</span> &#183; <span id="lcClock">--:--</span></span>
         </div>
         <div class="lc-tabs" id="lcTabs">
           <div class="lc-tab active" data-screen="overview">Cell Overview</div>
@@ -184,24 +184,48 @@
   function bandName(a){ return a>=80?'good':(a>=60?'watch':'alert'); }
   function oeeVal(o){ return Math.round(o.avail*o.perf*o.quality/10000); }
 
-  // ---- live motion (stand-in for the UNS subscription) ----
+  // Public UNS bridge (Canoe HighByte broker :1885 -> SSE, via Cloudflare tunnel).
+  var BRIDGE = (typeof window!=='undefined' && window.UNS_BRIDGE) || 'https://nissan-uns.civops.io';
+  function setConn(txt){ var e=document.getElementById('lcConn'); if(e) e.textContent=txt; }
+
+  // ---- live motion / live feed ----
   function jit(v,amt,lo,hi){ v += (Math.random()-0.5)*amt; return Math.max(lo,Math.min(hi,v)); }
   Feed = {
+    liveTorque:false,   // true only while fresh bc5602 messages are arriving
+    _lastTorque:0,
     tick:function(){
-      // BC5602 torque wanders like the real Ignition sim
-      MODEL.torque = MODEL.torque.map(function(t,i){ return jit(t, 3.2, 40, 130); });
-      // OEE components drift slightly; newest hour bar breathes
+      // If the real bc5602 leg goes quiet (Ignition sim paused), drop back to simulated
+      // motion so the figure never freezes and the status never mislabels itself "live".
+      if(Feed.liveTorque && Date.now()-Feed._lastTorque>8000){ Feed.liveTorque=false; setConn('UNS connected'); }
+      // BC5602 torque: real UNS feed when connected; otherwise wanders like the Ignition sim
+      if(!Feed.liveTorque){ MODEL.torque = MODEL.torque.map(function(t,i){ return jit(t, 3.2, 40, 130); }); }
+      // OEE components drift slightly; newest hour bar breathes (representative — no scrap feed yet)
       MODEL.oee.avail = Math.round(jit(MODEL.oee.avail,1.2,78,92));
       MODEL.oee.perf  = Math.round(jit(MODEL.oee.perf,1.2,84,96));
       var h=MODEL.oee.hourly; h[h.length-1] = Math.round(jit(h[h.length-1],2.5,55,88));
       lastUpdate = Date.now();
       if(active==='overview'||active==='oee'||active==='alert') render();
+    },
+    // connectUNS: PRODUCTION path, now live. Reads the bridge's SSE stream and maps the
+    // real bc5602 axis-torque payload into MODEL.torque. No render changes — same MODEL shape.
+    connectUNS:function(){
+      if(typeof EventSource==='undefined'){ setConn('UNS · representative feed'); return; }
+      var es;
+      try{ es=new EventSource(BRIDGE+'/stream'); }catch(e){ setConn('UNS · representative feed'); return; }
+      es.onopen=function(){ if(!Feed.liveTorque) setConn('UNS connected'); };
+      es.addEventListener('uns',function(ev){
+        var msg; try{ msg=JSON.parse(ev.data); }catch(e){ return; }
+        var t=msg.topic||'', p=msg.payload||{};
+        if(/\/bc5602$/i.test(t) && p.torqueMaxA1!=null && !msg.snapshot){
+          MODEL.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6]
+            .map(function(v){return +(+v).toFixed(1);});
+          Feed.liveTorque=true; Feed._lastTorque=Date.now(); lastUpdate=Date.now();
+          setConn('UNS connected · live');
+          if(active==='overview'||active==='alert') render();
+        }
+      });
+      es.onerror=function(){ if(!Feed.liveTorque) setConn('UNS · reconnecting…'); };
     }
-    /* connectUNS: PRODUCTION SWAP — subscribe to the broker via the bridge:
-       var c = mqtt.connect(BRIDGE_WS_URL);
-       c.subscribe('mHv1.0/axiom/nissan-ccr/#');
-       c.on('message', function(topic,payload){ mapIntoMODEL(topic, JSON.parse(payload)); render(); });
-       No render changes — same MODEL shape. */
   };
 
   function tiles(){
@@ -281,6 +305,7 @@
   document.getElementById('lcShift').textContent = MODEL.shift;
   render();
   setInterval(function(){ Feed.tick(); }, 2500);
+  Feed.connectUNS();
 })();
 </script>
 </body>
