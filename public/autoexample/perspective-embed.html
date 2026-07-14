@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/autoexample/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perspective screen (embed)</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;background:transparent;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .pv-shell{ background:#eef1f4; border-radius:12px; overflow:hidden; border:1px solid #cdd6df; }
+    .pv-gw{ background:#1c2b3a; color:#c9d6e2; display:flex; align-items:center; justify-content:space-between; padding:0 14px; height:42px; font-size:12px; }
+    .pv-gw .l{ display:flex; align-items:center; gap:9px; font-weight:700; }
+    .pv-gw .mark{ width:21px;height:21px;border-radius:5px;background:linear-gradient(135deg,#f5a623,#e8801a); display:flex;align-items:center;justify-content:center;color:#1c2b3a;font-weight:900;font-size:12px; }
+    .pv-gw .r{ display:flex; align-items:center; gap:12px; color:#8fa6ba; }
+    .pv-gw .ok{ display:inline-flex; align-items:center; gap:6px; color:#5fd39a; font-weight:700; }
+    .pv-gw .ok .d{ width:8px;height:8px;border-radius:50%;background:#49bd8d; box-shadow:0 0 0 0 rgba(73,189,141,.6); animation:pvp 2s infinite; }
+    @keyframes pvp{ 0%{box-shadow:0 0 0 0 rgba(73,189,141,.5)} 70%{box-shadow:0 0 0 7px rgba(73,189,141,0)} 100%{box-shadow:0 0 0 0 rgba(73,189,141,0)} }
+    .pv-crumb{ background:#243547; color:#93a7b9; padding:7px 14px; font-size:11.5px; border-bottom:1px solid #16232f; }
+    .pv-crumb b{ color:#cfe0ec; } .pv-crumb .path{ font-family:ui-monospace,Menlo,monospace; color:#7fc8ee; }
+    .pv-body{ display:grid; grid-template-columns:1fr 270px; }
+    @media(max-width:720px){ .pv-body{ grid-template-columns:1fr; } }
+    .pv-view{ padding:16px; }
+    .pv-h{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px; }
+    .pv-h h3{ margin:0; color:#16283a; font-size:18px; } .pv-h .sub{ color:#5f7286; font-size:12px; }
+    .pv-pill{ font-size:10.5px; font-weight:800; border-radius:999px; padding:3px 9px; background:#fff3e0; color:#9a5b00; border:1px solid #f2c98a; }
+    .pv-robots{ display:grid; grid-template-columns:repeat(5,1fr); gap:9px; }
+    @media(max-width:560px){ .pv-robots{ grid-template-columns:repeat(3,1fr); } }
+    .pv-rob{ background:#fff; border:1px solid #d8e0e8; border-left-width:4px; border-radius:8px; padding:9px 6px; text-align:center; }
+    .pv-rob .id{ font-size:11px; color:#5f7286; font-weight:700; } .pv-rob .s{ font-size:19px; font-weight:800; margin-top:3px; color:#16283a; }
+    .pv-rob.g{ border-left-color:#2f9e6e; } .pv-rob.g .s{ color:#1f8a5c; }
+    .pv-rob.w{ border-left-color:#e8a13a; } .pv-rob.w .s{ color:#b5730f; }
+    .pv-rob.a{ border-left-color:#d9534f; background:#fdf0ef; } .pv-rob.a .s{ color:#c0392b; }
+    .pv-conv{ background:#e7edf3; border:1px solid #d1dbe4; border-radius:8px; padding:10px 13px; margin:9px 0; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:#3a4c5e; }
+    .pv-conv b{ color:#1f8a5c; font-size:16px; }
+    .pv-legend{ display:flex; gap:14px; margin-top:9px; font-size:11px; color:#5f7286; flex-wrap:wrap; }
+    .pv-legend i{ width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:6px;vertical-align:middle; }
+    .pv-tq{ margin-top:13px; background:#12212e; border-radius:9px; padding:11px 13px; }
+    .pv-tq .hd{ font-size:11px; font-weight:700; color:#7fc8ee; margin-bottom:8px; display:flex; align-items:center; gap:7px; }
+    .pv-tq .g{ display:grid; grid-template-columns:repeat(6,1fr); gap:7px; }
+    .pv-tq .ax{ background:#0b161f; border:1px solid #23384a; border-radius:6px; padding:7px 4px; text-align:center; }
+    .pv-tq .ax .n{ font-size:9.5px; color:#6f90a8; } .pv-tq .ax .t{ font-size:15px; font-weight:800; color:#6fe0a8; font-family:ui-monospace,Menlo,monospace; margin-top:2px; }
+    .pv-side{ background:#1c2b3a; padding:15px 13px; color:#c9d6e2; }
+    .pv-side h4{ margin:0 0 9px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#8fa6ba; }
+    .pv-tree{ font-family:ui-monospace,Menlo,monospace; font-size:11px; line-height:1.85; }
+    .pv-tree .n{ color:#8fa6ba; } .pv-tree .leaf{ color:#7fc8ee; } .pv-tree .val{ color:#6fe0a8; float:right; }
+    .pv-tree .ind{ padding-left:12px; } .pv-tree .ind2{ padding-left:24px; }
+    .pv-note{ margin-top:13px; font-size:10.5px; color:#7f96a8; line-height:1.5; border-top:1px solid #2a3d4f; padding-top:10px; }
+  </style>
+</head>
+<body>
+  <div class="pv-shell">
+    <div class="pv-gw">
+      <div class="l"><span class="mark">IA</span><span>Ignition Perspective</span></div>
+      <div class="r"><span>gateway <b style="color:#c9d6e2">oem-ignition</b> &middot; v8.3.7</span><span class="ok"><span class="d"></span><span id="pvConn">session connecting&hellip;</span></span></div>
+    </div>
+    <div class="pv-crumb">project <b>the OEM_the flagship plant_UNS</b> &nbsp;&rsaquo;&nbsp; view <span class="path">Paint/Cell056/AssetHealth</span></div>
+    <div class="pv-body">
+      <div class="pv-view">
+        <div class="pv-h">
+          <div><h3>Cell A &middot; Base Coat &mdash; Asset Health</h3><div class="sub">10 ABB basecoat robots + Section&nbsp;3 conveyor</div></div>
+          <span class="pv-pill">CELL 66% &middot; WATCH</span>
+        </div>
+        <div class="pv-robots" id="pvTop"></div>
+        <div class="pv-conv"><span>Conveyor 056 &middot; <span id="pvConvState" style="color:#5f7286">&mdash;</span></span><b id="pvConv">85%</b></div>
+        <div class="pv-robots" id="pvBot"></div>
+        <div class="pv-legend"><span><i style="background:#2f9e6e"></i>Healthy &ge; 80</span><span><i style="background:#e8a13a"></i>Watch 60&ndash;79</span><span><i style="background:#d9534f"></i>Alert &lt; 60</span></div>
+        <div class="pv-tq">
+          <div class="hd"><span style="width:8px;height:8px;border-radius:50%;background:#6fe0a8;display:inline-block"></span>R2 &middot; live axis torque (Nm) &middot; <span id="pvTqSrc">Ignition &rarr; HighByte &rarr; UNS</span></div>
+          <div class="g" id="pvTq"></div>
+        </div>
+      </div>
+      <div class="pv-side">
+        <h4>Tag browser &mdash; bound topics</h4>
+        <div class="pv-tree">
+          <div class="n">[UNS] mHv1.0</div>
+          <div class="n ind">axiom / oem-line</div>
+          <div class="leaf ind2">r2</div>
+          <div class="leaf ind2">&nbsp;&#8226; torqueMaxA1<span class="val" id="vA1">&mdash;</span></div>
+          <div class="leaf ind2">&nbsp;&#8226; torqueMaxA2<span class="val" id="vA2">&mdash;</span></div>
+          <div class="leaf ind2">&nbsp;&#8226; torqueMaxA3<span class="val" id="vA3">&mdash;</span></div>
+          <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; conveyor-1</div>
+          <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; torque-station-1</div>
+        </div>
+        <div class="pv-note">Streaming from <code style="color:#7fc8ee">oem-uns.example</code> &mdash; the same bridge the web cockpit reads.</div>
+      </div>
+    </div>
+  </div>
+<script>
+(function(){
+  var BRIDGE=(window.UNS_BRIDGE)||'https://oem-uns.example';
+  var ROBOTS=[{id:'R1',a:88},{id:'R2',a:83,live:true},{id:'R3',a:71},{id:'R4',a:42,alert:true},{id:'R5',a:80},{id:'R6',a:72},{id:'R7',a:62},{id:'R8',a:81},{id:'R9',a:69},{id:'R10',a:84}];
+  var M={conveyor:85,convState:'',torque:[95.2,101.8,88.4,76.1,94.7,102.3]};
+  var liveTorque=false,lastTq=0;
+  function band(a){return a>=80?'g':(a>=60?'w':'a');}
+  function jit(v,amt,lo,hi){v+=(Math.random()-0.5)*amt;return Math.max(lo,Math.min(hi,v));}
+  function robHtml(list){return list.map(function(r){return '<div class="pv-rob '+band(r.a)+'"><div class="id">'+r.id+(r.live?' &middot; live':'')+'</div><div class="s">'+r.a+'%</div></div>';}).join('');}
+  function setConn(t){var e=document.getElementById('pvConn');if(e)e.textContent=t;}
+  function render(){
+    document.getElementById('pvTop').innerHTML=robHtml(ROBOTS.slice(0,5));
+    document.getElementById('pvBot').innerHTML=robHtml(ROBOTS.slice(5));
+    document.getElementById('pvConv').textContent=M.conveyor+'%';
+    if(M.convState)document.getElementById('pvConvState').textContent=M.convState;
+    document.getElementById('pvTq').innerHTML=M.torque.map(function(t,i){return '<div class="ax"><div class="n">A'+(i+1)+'</div><div class="t">'+t.toFixed(1)+'</div></div>';}).join('');
+    ['vA1','vA2','vA3'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=M.torque[i].toFixed(1);});
+  }
+  function tick(){
+    if(liveTorque && Date.now()-lastTq>8000){liveTorque=false;setConn('session connected');document.getElementById('pvTqSrc').textContent='Ignition leg idle · last UNS value';}
+    if(!liveTorque){M.torque=M.torque.map(function(t){return jit(t,3.2,40,130);});}
+    render();
+  }
+  function connectUNS(){
+    if(typeof EventSource==='undefined'){setConn('bridge unavailable');return;}
+    var es;try{es=new EventSource(BRIDGE+'/stream');}catch(e){setConn('bridge unavailable');return;}
+    es.onopen=function(){if(!liveTorque)setConn('session connected');};
+    es.addEventListener('uns',function(ev){
+      var msg;try{msg=JSON.parse(ev.data);}catch(e){return;}
+      var t=msg.topic||'',p=msg.payload||{};
+      if(/\/r2$/i.test(t)&&p.torqueMaxA1!=null&&!msg.snapshot){
+        M.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6].map(function(v){return +(+v).toFixed(1);});
+        liveTorque=true;lastTq=Date.now();setConn('session connected · live');document.getElementById('pvTqSrc').textContent='Ignition → HighByte → UNS · live';render();
+      }
+      if(/\/conveyor-1$/i.test(t)&&p.PackMLState){M.convState=p.PackMLState;}
+    });
+    es.onerror=function(){if(!liveTorque)setConn('session reconnecting…');};
+  }
+  render();setInterval(tick,2500);connectUNS();
+})();
+</script>
+</body>
+</html>

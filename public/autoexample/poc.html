@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/autoexample/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Automotive OEM | Live Proof of Concept</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    .poc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 24px; margin-top: 24px; }
+    .poc-card { border: 1px solid #e0e4ea; border-radius: 10px; overflow: hidden; background: #fff; }
+    .poc-card img { width: 100%; display: block; border-bottom: 1px solid #e0e4ea; }
+    .poc-card-body { padding: 14px 18px 16px; }
+    .poc-card-label { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8e9aab; margin-bottom: 4px; }
+    .poc-card-title { font-size: 15px; font-weight: 600; color: #1a2433; margin-bottom: 6px; }
+    .poc-card-desc { font-size: 12.5px; color: #5a6a7e; line-height: 1.55; }
+    .poc-stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 22px 0; }
+    .poc-stat { background: #f5f7fa; border: 1px solid #e0e4ea; border-radius: 10px; padding: 16px 18px; }
+    .poc-stat b { display: block; font-size: 26px; color: #1a2433; }
+    .poc-stat span { font-size: 12px; color: #5a6a7e; }
+    .scope-callout { border: 1px solid #f0c56b; background: #fdf6e6; border-radius: 10px; padding: 16px 18px; margin-top: 16px; }
+    .scope-callout b { color: #8a6413; }
+    .secondary-section { background: #f7f8fa; border-top: 1px solid #e0e4ea; border-bottom: 1px solid #e0e4ea; }
+    .secondary-section .section-head h2 { font-size: 22px; }
+    .secondary-section .poc-card-title { font-size: 13.5px; }
+    .secondary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+    .secondary-grid .poc-card-body { padding: 10px 14px 12px; }
+    .secondary-grid .poc-card-desc { font-size: 11.5px; }
+    /* live-diagram + dashboard figures */
+    .fig { margin: 24px 0 0; }
+    .fig-bar { display:flex; align-items:center; gap:7px; background:#0b1b2c; border:1px solid #1f587a; border-bottom:0; border-radius:12px 12px 0 0; padding:9px 14px; font-size:12.5px; color:#cfe0ec; }
+    .fig-bar .dot { width:9px;height:9px;border-radius:50%;background:#3f627d; }
+    .fig-badge { margin-left:auto; font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:3px 9px; background:#123e61; border:1px solid #2f6488; color:#8fd0ee; }
+    .fig-badge.live { background:#0f3b2b; border-color:#1f7a55; color:#6fe0a8; }
+    .fig-svg { display:block; width:100%; border:1px solid #1f587a; border-radius:0 0 12px 12px; background:#0e2236; }
+    .fig cap, .fig figcaption { display:block; font-size:12.5px; color:#5a6a7e; margin-top:10px; line-height:1.5; }
+    .fig figcaption b { color:#152434; }
+    .dash-two { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:22px; }
+    @media(max-width:820px){ .dash-two{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>a global automotive OEM &mdash; senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<a href="decision.html" class="">Approach</a>
+<a href="benchmarking.html" class="">Benchmarks</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="journey.html" class="">Journey<br>Map</a>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
+<a href="asset-health.html" class="">Asset Health<br>Index</a>
+<a href="detail-design.html" class="">Detail<br>Design</a>
+<a href="poc.html" class="current">Live<br>Proof</a>
+<a href="roi.html" class="">ROI</a>
+<a href="technology.html" class="">Tech<br>Options</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Live proof of concept</div>
+    <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
+    <p class="page-deck">Not a slide of logos — a working system. Two independent OT sources — the flagship plant's own <strong>Cimplicity</strong> SCADA and an <strong>Ignition</strong> stand-in for the non-Cimplicity plant areas — publish over OPC&nbsp;UA into a single, standards-governed Unified Namespace. HighByte Intelligence Hub runs that namespace; a second, independent vendor (MaestroHub) reads the exact same feed with zero translation; and Humble's Eva reads it to reason over causal chains, rank interventions, and answer questions against the live database — the actual maintenance-cockpit value. The point of the two-source, two-reader shape: neither the source you have nor the platform you pick ever gates the value.</p>
+    <div class="scope-callout">
+      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. And it now reaches the public internet: a <strong>live UNS bridge</strong> (<code>oem-uns.example</code>) streams the broker's real topics, so the <a href="cockpit-live.html">web cockpit</a>, the dashboards below, and the <a href="perspective-twin.html">Ignition Perspective twin</a> are all reading the <em>actual</em> namespace, not a mock-up. We are bringing the flagship plant's <strong>real Cell&nbsp;A Cimplicity</strong> onto the identical spine — the asset model is already generated from the OEM's own Cimplicity export and loaded in HighByte. Where a source tag isn't bound yet (e.g. the paused R2 torque leg, or a scrap/quality feed), values are clearly labeled representative. The further-along, cell-B-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE STACK ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The stack we built</span><h2>Two independent OT sources, one governed namespace, any consumer</h2></div>
+      <p class="section-copy">The Unified Namespace — an i3X / CESMII&nbsp;SM-Profiles-governed MQTT topic tree — is the spine. Sources publish into it; consumers read from it. Neither side is coupled to the other, which is exactly why the platform question never has to stall the value question.</p>
+    </div>
+    <figure class="fig">
+      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>the flagship plant — Cell A live proof architecture<span class="fig-badge live">&#9679; Running now</span></div>
+      <svg class="fig-svg" viewBox="0 0 1100 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CIMPLICITY and Ignition publish over OPC UA into a Unified Namespace that can be served by HighByte and/or MaestroHub interchangeably; consumers include HumbleOps/Eva with the Daniel-san maintenance advisor, the live web and tablet cockpit, and Ignition Perspective.">
+        <defs>
+          <linearGradient id="spine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f4f77"/><stop offset="1" stop-color="#0a3350"/></linearGradient>
+          <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#6fb6dd"/></marker>
+        </defs>
+        <style>
+          .lbl{font-size:15px;font-weight:700;fill:#eef5fb}.sub{font-size:11px;fill:#9fb6c6}
+          .col{font-size:12px;font-weight:800;letter-spacing:.07em;fill:#7f96a8;text-transform:uppercase}
+          .flow{stroke:#4f7f9e;stroke-width:2;fill:none}.chip{font-size:10.5px;fill:#8fd0ee}
+          .tag{font-size:10.5px;font-weight:700;fill:#cfe0ec}.plat{font-size:13px;font-weight:800;fill:#fff}
+        </style>
+        <text class="col" x="28" y="32">OT sources</text>
+        <text class="col" x="479" y="32" text-anchor="middle">Unified Namespace &#183; i3X</text>
+        <text class="col" x="1076" y="32" text-anchor="end">Consumers &amp; apps</text>
+
+        <!-- sources -->
+        <g>
+          <rect x="24" y="92" width="222" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="24" y="92" width="6" height="118" rx="3" fill="#ff8300"/>
+          <text class="lbl" x="44" y="124">CIMPLICITY 2024</text>
+          <text class="sub" x="44" y="146">the OEM's real SCADA &#183; Base Coat</text>
+          <text class="sub" x="44" y="164">Real CELLA export &#183; R1&#8211;10</text>
+          <text class="tag" x="44" y="190">OPC UA &#183; None/Anon</text>
+        </g>
+        <g>
+          <rect x="24" y="246" width="222" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="24" y="246" width="6" height="118" rx="3" fill="#0a77a9"/>
+          <text class="lbl" x="44" y="278">Ignition 8.1</text>
+          <text class="sub" x="44" y="300">Non-CIMPLICITY areas (e.g. Stamping)</text>
+          <text class="sub" x="44" y="318">R2 torque sim</text>
+          <text class="tag" x="44" y="344">OPC UA &#183; opc.tcp:62541</text>
+        </g>
+
+        <!-- UNS panel with parallel platforms -->
+        <rect x="326" y="64" width="306" height="392" rx="16" fill="url(#spine)" stroke="#1f7fb0" stroke-width="1.5"/>
+        <text class="lbl" x="479" y="98" text-anchor="middle" style="font-size:16px">Unified Namespace</text>
+        <text class="sub" x="479" y="118" text-anchor="middle" fill="#ffcf9a">the vendor-neutral spine</text>
+        <text class="chip" x="479" y="150" text-anchor="middle" fill="#8fd0ee">served by &#8212; either, or, both:</text>
+        <rect x="344" y="160" width="128" height="46" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="408" y="188" text-anchor="middle">HighByte</text>
+        <rect x="486" y="160" width="128" height="46" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="550" y="188" text-anchor="middle">MaestroHub</text>
+        <text class="sub" x="479" y="228" text-anchor="middle">two independent UNS platforms &#183; interchangeable</text>
+        <line x1="352" y1="248" x2="606" y2="248" stroke="#1f7fb0"/>
+        <text class="chip" x="479" y="278" text-anchor="middle">MQTT broker</text>
+        <text class="chip" x="479" y="298" text-anchor="middle">mHv1.0/axiom/oem-line/&#8230;</text>
+        <text class="chip" x="479" y="326" text-anchor="middle" fill="#8fd0ee">governed topics</text>
+        <text class="chip" x="479" y="346" text-anchor="middle" fill="#8fd0ee">CESMII SM Profiles</text>
+        <text class="tag" x="479" y="392" text-anchor="middle" fill="#6fe0a8">same feed, zero translation</text>
+
+        <!-- source -> UNS -->
+        <path class="flow" d="M246 151 C 292 151, 300 175, 324 182" marker-end="url(#arr)"/>
+        <path class="flow" d="M246 305 C 292 305, 300 285, 324 280" marker-end="url(#arr)"/>
+
+        <!-- consumers -->
+        <g>
+          <rect x="706" y="72" width="370" height="150" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="72" width="6" height="150" rx="3" fill="#ff8300"/>
+          <text class="lbl" x="726" y="104">HumbleOps &#183; Eva</text>
+          <text class="sub" x="726" y="126">Causal reasoning &#183; ranked decisions</text>
+          <text class="sub" x="726" y="146" fill="#8fe6c0">Maint Advisor &#8212; &#8220;Daniel-san&#8221; chatbot</text>
+          <text class="sub" x="726" y="166">Asset Health &#183; OEE &#183; live Q&amp;A</text>
+          <text class="tag" x="726" y="196">the value layer maintenance opens</text>
+        </g>
+        <g>
+          <rect x="706" y="238" width="370" height="96" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="238" width="6" height="96" rx="3" fill="#49bd8d"/>
+          <text class="lbl" x="726" y="270">Live web + tablet cockpit</text>
+          <text class="sub" x="726" y="292">The working app &#183; updates on screen</text>
+          <text class="tag" x="726" y="316" fill="#6fe0a8">now reads the live broker &#183; UNS bridge</text>
+        </g>
+        <g>
+          <rect x="706" y="350" width="370" height="96" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="350" width="6" height="96" rx="3" fill="#0a77a9"/>
+          <text class="lbl" x="726" y="382">Ignition Perspective twin</text>
+          <text class="sub" x="726" y="404">Same screen, Perspective idiom &#183; same UNS</text>
+          <text class="tag" x="726" y="428" fill="#6fe0a8">viewable now &#8212; reads the live bridge</text>
+        </g>
+
+        <!-- UNS -> consumers -->
+        <path class="flow" d="M632 150 C 668 150, 676 147, 704 147" marker-end="url(#arr)"/>
+        <path class="flow" d="M632 260 C 668 275, 676 286, 704 286" marker-end="url(#arr)"/>
+        <path class="flow" d="M632 300 C 664 350, 676 396, 704 398" marker-end="url(#arr)"/>
+      </svg>
+      <figcaption><b>Live right now:</b> Ignition&nbsp;&rarr;&nbsp;HighByte&nbsp;&rarr;&nbsp;UNS is publishing (R2 torque, verified in the UNS Client and mirrored by MaestroHub). Cimplicity&nbsp;&rarr;&nbsp;HighByte is the same pattern on the OEM's real SCADA — bringing Cell&nbsp;A's own Base Coat robots onto the identical spine.</figcaption>
+    </figure>
+    <div class="poc-stat-row">
+      <div class="poc-stat"><b>2</b><span>independent OT sources (Cimplicity + Ignition) on one namespace</span></div>
+      <div class="poc-stat"><b>5</b><span>equipment types, standards-cited schemas</span></div>
+      <div class="poc-stat"><b>2</b><span>independent vendor platforms reading the identical feed</span></div>
+      <div class="poc-stat"><b>19</b><span>knowledge-base docs Eva answers questions against</span></div>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Equipment</th><th>Standard the schema is grounded in</th><th>UNS topic</th></tr></thead>
+      <tbody>
+        <tr><td>ABB paint robot (IRB 5500-27)</td><td class="small-cell">OPC 40010 — OPC UA for Robotics (MotionDeviceSystem / TaskControl state machine)</td><td class="small-cell"><code>mHv1.0/axiom/oem-line/paint-robot-1</code></td></tr>
+        <tr><td>Paint shop conveyor section</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery, + PackML / ISA-88 TR88.00.02 state machine</td><td class="small-cell"><code>mHv1.0/axiom/oem-line/conveyor-1</code></td></tr>
+        <tr><td>Fascia punch / piercing press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming process values, VDMA forming-machine conventions</td><td class="small-cell"><code>mHv1.0/axiom/oem-line/fascia-punch-1</code></td></tr>
+        <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + weld-process fields</td><td class="small-cell"><code>mHv1.0/axiom/oem-line/weld-robot-1</code></td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">OPC 40451-1 — OPC UA for Tightening Systems (part of the OPC 40450 Joining Systems family)</td><td class="small-cell"><code>mHv1.0/axiom/oem-line/torque-station-1</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== i3X COMPLIANCE ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Standards, honestly</span><h2>How i3X-compliant is each schema, really?</h2></div>
+      <p class="section-copy">"i3X-compliant" should mean a schema conforms to a published, machine-readable information model — an OPC&nbsp;UA Companion Specification or a CESMII SM Profile — not just that it's named after a standard. By that bar, <strong>four of the five now sit on real companion specs</strong> (the torque station was re-grounded from ISO&nbsp;5393 onto the OPC&nbsp;UA Tightening Systems companion spec — see below), and one is base-compliant with vendor-defined extensions. Stated plainly: <strong>none is a <em>certified</em> SM Profile yet</strong> — certification means registering and validating the type model, a defined next step, not a repaint.</p>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Equipment</th><th>Grounded in</th><th>i3X information-model status</th></tr></thead>
+      <tbody>
+        <tr><td>ABB paint robot</td><td class="small-cell">OPC 40010 — OPC UA for Robotics (a full companion spec)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Genuine information model to conform to</td></tr>
+        <tr><td>Paint shop conveyor</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery (+ PackML / ISA-88 state model)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Machinery model + standardized states</td></tr>
+        <tr><td>Fascia punch / press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Real companion spec</td></tr>
+        <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + custom weld-process fields</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#d9851f;border-radius:7px;padding:2px 9px;margin-right:8px">Partial</span>Base compliant; weld fields vendor-defined</td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">OPC 40451-1 — OPC UA for Tightening Systems (re-grounded from ISO 5393)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Real companion spec — result/torque/angle model</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="margin-top:16px"><strong>The clean fix, applied:</strong> the torque station is now grounded on <strong>OPC&nbsp;40451-1 — OPC&nbsp;UA for Tightening Systems</strong> (part of the VDMA-led OPC&nbsp;40450 Joining Systems family, an actual information model with a result / torque / angle / evaluation model) instead of ISO&nbsp;5393. Its live payload — <code>torque_achieved_nm</code>, <code>target_torque_nm</code>, <code>angle_achieved_deg</code>, <code>pass_fail_result</code> — maps directly onto that spec, putting it on the same compliance track as the robots and machinery. Everywhere else, the honest label remains "standards-grounded, SM-Profile-track," not "certified."</div>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc;margin-top:14px"><strong style="color:#10324b">Worth knowing —</strong> <strong>Toyota is reportedly running a very similar UNS / information-model exercise, and may be open to collaborating or sharing that work.</strong> A cross-OEM push on common OPC&nbsp;UA companion-spec profiles would let the OEM adopt proven, shared models rather than define them alone — turning "standards-grounded" into "industry-aligned."</div>
+  </div>
+</section>
+
+<!-- ===================== 1. HIGHBYTE LIVE ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">1 — The namespace, live</span><h2>HighByte Intelligence Hub publishes and serves the UNS</h2></div>
+      <p class="section-copy">Equipment pipelines — trigger &rarr; validate &rarr; publish — write real, contextualized payloads to HighByte's own embedded MQTT broker under the governed <code>mHv1.0/axiom/oem-line</code> topic tree. HighByte's own UNS Client reads the same broker it just wrote to: no custom connector, no re-mapping. The Ignition-sourced <code>r2</code> torque now lands on this same tree, alongside the equipment feeds.</p>
+    </div>
+    <div class="secondary-grid">
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-uns-client-publish.png" alt="HighByte UNS Client connected to highbyte_uns_publish showing the live topic tree and a real-time JSON payload" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte — Tools &rarr; UNS Client</div>
+          <div class="poc-card-title">Live topic tree, real contextualized payloads</div>
+          <div class="poc-card-desc">Equipment topics plus the Ignition-sourced <code>r2</code> node — live, sine-varying axis torque with current timestamps, read straight off this hub's own broker.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-pipelines-publish.png" alt="HighByte Pipelines list, all Enabled with Good status" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Pipelines</div>
+          <div class="poc-card-title">One pattern, reused across every source</div>
+          <div class="poc-card-desc">The same trigger-validate-publish shape across equipment types and the Ignition robot leg — only the field mapping and topic change. All enabled, all Good.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-connections-publish.png" alt="HighByte Connections list showing the MQTT broker connection with Good status" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Connections</div>
+          <div class="poc-card-title">The broker every pipeline writes through</div>
+          <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here; every reader subscribes here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2. CIMPLICITY LIVE ===================== -->
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">2 — the OEM's real SCADA on the same spine</span><h2>Cimplicity — the OEM's real Base Coat robots, from the plant's own export</h2></div>
+      <p class="section-copy">The asset structure isn't invented — it's generated directly from the flagship plant's own Cimplicity Shared Name File exports and already sits in HighByte as Models and Instances: all 10 real Base Coat robots (R1&ndash;R10), organized exactly the way Cimplicity organizes them.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-models-list.png" alt="HighByte Models list showing AxisTorque model, Robot_ABB_BaseCoat, and Robot_ABB_Sealer" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte — Models</div>
+          <div class="poc-card-title">Robot_ABB_BaseCoat, from representative point exports</div>
+          <div class="poc-card-desc">Robot_ABB_BaseCoat's per-axis torque attributes come from the axis-torque export, the OEM's real Cell&nbsp;A historian data; Robot_ABB_Sealer's 16 attributes from Cell&nbsp;B's large-scale Cimplicity export.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/poc/highbyte-cell-instances-overview.png" alt="HighByte Instances organized under the OEM/the flagship plant/Paint into Cell-B sealer line and Cell-A base-coat line folders" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">HighByte — Instances</div>
+          <div class="poc-card-title">Cell-A base-coat line, matching Cimplicity's own cell grouping</div>
+          <div class="poc-card-desc">All 10 real base coat robots (R1&ndash;R10) and 6 real ABB sealer robots (SL1&ndash;SL6) — the same robot IDs and cell structure Cimplicity uses on the plant floor, not a placeholder hierarchy.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Why Cimplicity, specifically:</strong> the flagship plant already runs Cimplicity. Proving the exact export &rarr; model &rarr; UNS path on their own SCADA — and showing Ignition ride the identical pipe for the areas that aren't on Cimplicity — is what makes this "our plant," not "a reference architecture."</div>
+  </div>
+</section>
+
+<!-- ===================== 3. SECOND VENDOR + SECOND SOURCE ===================== -->
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">3 — Not locked to one platform, or one source</span><h2>MaestroHub reads the same feed; Ignition proves any source rides the same pipe</h2></div>
+      <p class="section-copy">MaestroHub — a completely separate product from a different vendor, and the platform this namespace originally ran on — subscribes to HighByte's broker as a read-only client: same topics, same payloads, zero translation. And the Ignition leg proves the mirror image on the source side: a non-Cimplicity system publishes onto the identical UNS with the identical pattern. Whatever platform the OEM lands on, and whatever mix of source systems the plant runs, the namespace keeps working.</p>
+    </div>
+    <div class="poc-grid" style="grid-template-columns: 1fr;">
+      <div class="poc-card">
+        <img src="assets/poc/maestrohub-discover-subscriber.png" alt="MaestroHub Connect > Discover tab showing a live discovery session against HighByte's broker: 5 topics, 662 messages, and a real-time JSON payload" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">MaestroHub — Connect &rarr; Discover</div>
+          <div class="poc-card-title">The full topic tree, live payloads — read-only mirror</div>
+          <div class="poc-card-desc">Sourced entirely from HighByte's broker (100.74.158.107:1885) — "last seen less than a minute ago," messages climbing. A genuine second-vendor mirror of section 1, not a re-implementation. The Ignition-sourced <code>r2</code> node shows up here too, proving the source side is just as open as the reader side.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. THE VALUE: EVA + COCKPIT ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">4 — The value: what a maintenance lead opens</span><h2>Eva reasons over the feed — and the Cell A cockpit is built on it</h2></div>
+      <p class="section-copy">A UNS that just feeds a chart is a science project. A UNS that feeds causal reasoning, ranked decisions, answerable questions — and the operator-facing cockpit — is a maintenance team's daily tool. Below: Eva's decisioning surfaces (real captures from the running instance), then the Cell&nbsp;A Asset Health and OEE views that get built directly on the same namespace.</p>
+    </div>
+    <div class="poc-grid">
+      <div class="poc-card">
+        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Inbox — Eva AI</div>
+          <div class="poc-card-title">Morning briefing — causal chain, not just an alarm list</div>
+          <div class="poc-card-desc">Eva surfaces open decisions with urgency tags and renders the causal chain inline — the base-coat cell &rarr; Conveyor Stop &rarr; the paint booth Starved — so the operator sees root cause, not a raw fault code.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix the base-coat cell 24V Power Dip" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Decision workflow — D-9</div>
+          <div class="poc-card-title">Ranked options, evidence, and one-click "Act on this"</div>
+          <div class="poc-card-desc">Fix the base-coat cell 24V Power Dip to stop the paint booth starvation — why it matters, causal mechanism, ranked options, and the full evidence trail in one panel.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Control Center</div>
+          <div class="poc-card-title">Performance — status — anomalies, in Eva's own narrative</div>
+          <div class="poc-card-desc">Eva-generated summary of where the shop stands versus peak — OEE availability gaps, asset health, throughput/quality/labor — read as a briefing, not assembled by hand from six reports.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/15-knowledge.png" alt="Humble Knowledge Base with Ask Eva chat" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Knowledge Base — Ask Eva</div>
+          <div class="poc-card-title">Live Q&amp;A against real plant documentation</div>
+          <div class="poc-card-desc">19 documents loaded — ABB robotics diagnostics, paint line fault logs, Asset Health Index methodology, IIoT/UNS/CMMS architecture. "Ask Eva" answers against this corpus plus the live database.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:40px">
+      <div class="section-title"><span class="eyebrow">Built on the live feed — in any tool</span><h2 style="font-size:26px">Cell A Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
+      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Shown here to demonstrate the pattern; the identical views can be built in Humble/Eva, Power&nbsp;BI, Grafana, or Ignition Perspective against the same topics.</p>
+    </div>
+    <div class="dash-two">
+      <figure class="fig" style="margin-top:0">
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell A &#8212; Asset Health Index<span class="fig-badge live">&#9679; Live from UNS</span></div>
+        <div class="fig-svg" data-livedash="health" style="min-height:308px"></div>
+        <figcaption><b>Asset Health.</b> One number per robot; color triages the cell at a glance. R4 (Alert, 42%) is what a lead drills into first &#8212; updating live off the torque/fault signals on the UNS.</figcaption>
+      </figure>
+      <figure class="fig" style="margin-top:0">
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell A &#8212; OEE (current shift)<span class="fig-badge live">&#9679; Live from UNS</span></div>
+        <div class="fig-svg" data-livedash="oee" style="min-height:308px"></div>
+        <figcaption><b>OEE.</b> Availability&#215;Performance&#215;Quality, decomposed and updating live. Quality flagged <em>est.</em> &#8212; pending a scrap/rework feed. Any BI tool renders this off the UNS topics.</figcaption>
+      </figure>
+    </div>
+    <div class="callout" style="margin-top:20px"><strong>This is the argument, not the demo:</strong> the reasoning surfaces above and the cockpit views here are two consumers of one namespace. Swap the reader, swap the source, add a cell — the spine, and everything built on it, keeps working.</div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="cockpit-live.html" style="display:inline-flex;align-items:center;gap:10px;background:#006394;color:#fff;font-weight:800;font-size:15px;text-decoration:none;padding:14px 26px;border-radius:12px;box-shadow:0 12px 30px rgba(0,99,148,.24)">Open the live Cell&nbsp;A cockpit &rarr;</a>
+      <div style="font-size:12.5px;color:#5a6a7e;margin-top:10px">A working web app — the tablet a technician holds, updating on screen. Not a picture; a live-ready consumer of the namespace.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. LIVE BRIDGE + PERSPECTIVE TWIN ===================== -->
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">5 — Off the plant floor, onto the internet</span><h2>A live UNS bridge — and the same screen in a second tool</h2></div>
+      <p class="section-copy">The namespace no longer lives only on the plant network. A small read-only bridge subscribes to HighByte's broker and streams its real topics over a Cloudflare tunnel, so any authorized consumer — a browser, a BI tool, a second HMI platform — can read the live namespace without touching OT. Two consumers are wired to it right now.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 1 — the web cockpit</div>
+          <div class="poc-card-title">Cell A tablet cockpit, on the live feed</div>
+          <div class="poc-card-desc">The working technician app reads the bridge via a one-line <code>EventSource</code> subscription. R2 axis torque shows live end-to-end whenever the Ignition leg is publishing; the other equipment topics stream continuously. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the live cockpit &rarr;</a></div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 2 — Ignition Perspective</div>
+          <div class="poc-card-title">The same screen, rebuilt in Perspective</div>
+          <div class="poc-card-desc">The Cell&nbsp;A Asset-Health screen in Ignition Perspective's component idiom, bound to the identical <code>mHv1.0/axiom/oem-line</code> topics and reading the same bridge — the proof the value layer ports across tools. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+    <figure class="fig" style="margin-top:22px">
+      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ignition Perspective &#183; Cell A Asset Health &#183; reading the live UNS<span class="fig-badge live">&#9679; Live from UNS</span></div>
+      <iframe src="perspective-embed.html" title="Ignition Perspective twin — Cell A Asset Health, live from the UNS" loading="lazy" style="display:block;width:100%;height:474px;border:1px solid #1f587a;border-top:0;border-radius:0 0 12px 12px;background:#0e2236"></iframe>
+      <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;A Asset-Health view in Ignition Perspective&rsquo;s component idiom, bound to the identical <code>mHv1.0/axiom/oem-line</code> topics and reading the same bridge as the web cockpit &mdash; live in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
+    </figure>
+    <div class="callout" style="margin-top:18px">
+      <strong>The bridge, live:</strong> <code>https://oem-uns.example</code> &mdash; <span id="bridgeStatus" style="font-weight:700;color:#8a6413">checking&hellip;</span>. Read-only, CORS-open, synthetic demo telemetry only. Endpoints: <code>/healthz</code>, <code>/snapshot</code>, <code>/stream</code> (Server-Sent Events). <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">What this proves</span>
+      <h2 style="font-size:28px">Real decisioning value, on a namespace locked to neither a vendor nor a source</h2>
+      <ul>
+        <li>Two independent OT sources — the OEM's own Cimplicity and an Ignition stand-in — publish onto one governed UNS with the same pattern, so non-Cimplicity plant areas are first-class, not an exception.</li>
+        <li>Equipment is modeled against real published standards (OPC UA companion specs, ISO 5393, PackML), not ad-hoc tags — so the decisioning layer above is trustworthy.</li>
+        <li>A second, independent vendor platform consumes the same feed with zero translation — the platform decision is decoupled from the value already flowing.</li>
+        <li>The asset model is generated from the OEM's own Cimplicity exports — the structure Eva reasons over is the structure the plant floor actually uses.</li>
+        <li>Eva turns that feed into causal chains, ranked decisions, and answerable questions — and the Cell A Asset Health and OEE cockpit is built on the same topics, in whatever tool the OEM prefers.</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">What's still ahead before this is the OEM's real system</h3>
+      <ul>
+        <li>Bind the model attributes to live source tags instead of representative values, once source access is confirmed. Detail on the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
+        <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
+        <li>Decide the platform of record on the OEM's own timeline — this page's whole point is that decision no longer has to gate operator and maintenance value.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for the flagship plant. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+
+      <div style="margin-top:8px;font-size:11px"><a href="/autoexample/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script src="live-dash.js"></script>
+<script>
+/* Live bridge health badge — pings the public UNS bridge and reports real state. */
+(function(){
+  var el=document.getElementById('bridgeStatus'); if(!el) return;
+  fetch('https://oem-uns.example/healthz',{cache:'no-store'})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d && d.ok){ el.textContent='online · '+d.topics+' topics live · broker '+(d.connected?'connected':'reconnecting'); el.style.color='#1f7a55'; }
+      else { el.textContent='reachable'; }
+    })
+    .catch(function(){ el.textContent='offline right now (site falls back to representative motion)'; el.style.color='#8a6413'; });
+})();
+</script>
+</body>
+</html>
