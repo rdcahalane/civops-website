@@ -59,6 +59,10 @@
     .ro-bar .rf{height:100%;border-radius:5px}
     .ro-bar .rv{width:40px;flex:0 0 40px;text-align:right;font-weight:800;color:#1a2433}
     .chart-note{font-size:11.5px;color:#7a8898;margin-top:12px;line-height:1.5}
+    /* custom hover/tap tooltip for the maturity matrix (replaces flaky native SVG <title>) */
+    .mm-tip{position:fixed;z-index:9999;max-width:300px;background:#0b1b2c;color:#eaf3fb;border:1px solid #2f6488;border-radius:9px;padding:10px 13px;font-size:12.5px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.4);pointer-events:none;opacity:0;transition:opacity .12s;left:0;top:0}
+    .mm-tip.on{opacity:1}
+    .mm-svg [data-tip]{cursor:help}
     /* let the intro + section decks use the full content width (was globally capped at 760px) */
     .page-deck{max-width:none}
     /* give scope-callouts a real box (padding, radius, border) + separation from the paragraph above */
@@ -606,5 +610,70 @@
   </div>
 </footer>
 <script src="main.js"></script>
+<div class="mm-tip" id="mmTip" role="tooltip"></div>
+<script>
+/* Maturity-matrix tooltips — reliable custom hover/tap popup.
+   Converts the SVG <title> elements into a styled tooltip that appears instantly,
+   with enlarged hit areas on the small Nissan markers and tap support on touch. */
+(function(){
+  var tip = document.getElementById('mmTip');
+  var svg = document.querySelector('.mm-svg');
+  if(!tip || !svg) return;
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var targets = [];
+
+  // 1) migrate every <title> to a data-tip attribute (and aria-label for screen readers),
+  //    then remove the native <title> so it doesn't double up with our tooltip.
+  svg.querySelectorAll('rect, circle').forEach(function(el){
+    var t = el.getElementsByTagName('title')[0];
+    if(t){
+      var txt = t.textContent.trim();
+      el.setAttribute('data-tip', txt);
+      el.setAttribute('aria-label', txt);
+      el.removeChild(t);
+    }
+    if(el.getAttribute('data-tip')) targets.push(el);
+  });
+
+  // 2) enlarge the hit area on the small Nissan (orange) markers with an invisible overlay.
+  svg.querySelectorAll('circle[fill="#ff8300"][data-tip]').forEach(function(c){
+    var hit = document.createElementNS(SVGNS,'circle');
+    hit.setAttribute('cx', c.getAttribute('cx'));
+    hit.setAttribute('cy', c.getAttribute('cy'));
+    hit.setAttribute('r', '16');
+    hit.setAttribute('fill', 'transparent');
+    hit.setAttribute('data-tip', c.getAttribute('data-tip'));
+    c.parentNode.insertBefore(hit, c.nextSibling);
+    targets.push(hit);
+  });
+
+  function place(x, y){
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(x + 14, window.innerWidth - w - 10);
+    left = Math.max(10, left);
+    var top = y - h - 12;
+    if(top < 8) top = y + 20;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function show(e){
+    var el = e.currentTarget;
+    tip.textContent = el.getAttribute('data-tip');
+    tip.classList.add('on');
+    place(e.clientX, e.clientY);
+  }
+  function move(e){ if(tip.classList.contains('on')) place(e.clientX, e.clientY); }
+  function hide(){ tip.classList.remove('on'); }
+
+  targets.forEach(function(el){
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('mousemove', move);
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('click', function(e){ e.stopPropagation(); show(e); }); // tap on touch
+  });
+  document.addEventListener('click', function(e){ if(!e.target.closest('[data-tip]')) hide(); });
+  window.addEventListener('scroll', hide, {passive:true});
+})();
+</script>
 </body>
 </html>
