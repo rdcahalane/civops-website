@@ -194,8 +194,8 @@
     <p class="page-deck" style="margin-top:0">The index says <em>how much</em>. This says <em>why</em>. Seven operating capabilities that drive asset uptime and productivity, each scored on the standard maintenance-maturity ladder &mdash; <strong>Reactive &rarr; Preventive &rarr; Condition-based &rarr; Predictive &rarr; Prescriptive</strong>. Nissan Smyrna today, the automotive median, the automotive frontier, and &mdash; the honest benchmark &mdash; the <strong>cross-industry reliability frontier</strong>: oil&nbsp;&amp;&nbsp;gas, chemicals, and power, the asset-intensive industries that built predictive maintenance and remote operations decades before automotive needed to.</p>
 
     <figure style="margin:18px 0 0">
-      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Asset-health &amp; reliability maturity &#183; where the capability actually sits<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">LNS-framed assessment</span></div>
-      <svg class="mm-svg" viewBox="0 0 1015 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliability maturity matrix: seven operating capabilities scored 1 (Reactive) to 5 (Prescriptive) for Nissan today, automotive median, automotive frontier, and the cross-industry reliability frontier. Nissan sits at 1.5-2.5 across the board, behind the automotive median, well behind both frontiers.">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Asset-health &amp; reliability maturity &#183; where the capability actually sits<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">Directional &#183; for discussion</span></div>
+      <svg class="mm-svg" viewBox="0 0 1015 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliability maturity matrix: seven operating capabilities scored 1 (Reactive) to 5 (Prescriptive) for Nissan today, automotive median, automotive frontier, and the cross-industry reliability frontier. Nissan ranges from about 1.5 to 3 across the capabilities — strongest on asset data foundation (Smyrna is well-instrumented), weakest on reliability engineering and cross-functional decision flow, and well behind the reliability frontier overall.">
         <style>
           .mmL{font-size:11px;fill:#8ea6ba} .mmN{font-size:14px;font-weight:800;fill:#c7d7e6}
           .mmDim{font-size:13px;font-weight:700;fill:#dbe7f1} .mmHd{font-size:11px;font-weight:800;letter-spacing:.05em;fill:#7f96a8;text-transform:uppercase}
@@ -212,36 +212,43 @@
           <line x1="940" y1="74" x2="940" y2="404" stroke="#16324a"/><text class="mmN" x="940" y="46" text-anchor="middle">5</text><text class="mmL" x="940" y="62" text-anchor="middle">Prescriptive</text>
         </g>
         <line x1="318" y1="74" x2="318" y2="404" stroke="#24425f"/>
-        <!-- rows: gap line (Nissan->cross-industry frontier) then 4 markers -->
-        <!-- 1 Asset data foundation -->
+        <!-- rows: gap line (Nissan->cross-industry frontier), 4 markers, hover rect w/ definition -->
+        <!-- 1 Asset data foundation — Nissan at 3.0 (Smyrna is well-instrumented) -->
         <text class="mmDim" x="22" y="112">Asset data foundation</text>
-        <line x1="482.5" y1="108" x2="863.75" y2="108" stroke="#24425f" stroke-width="2"/>
-        <circle cx="558.75" cy="108" r="6" fill="#6b8299"/><circle cx="711.25" cy="108" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="108" r="6" fill="#49bd8d"/><circle cx="482.5" cy="108" r="7.5" fill="#ff8300"/>
+        <line x1="635" y1="108" x2="863.75" y2="108" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="108" r="6" fill="#6b8299"/><circle cx="711.25" cy="108" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="108" r="6" fill="#49bd8d"/><circle cx="635" cy="108" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="93" width="300" height="30" fill="transparent" style="cursor:help"><title>Asset data foundation — Is equipment data collected, contextualized, and available in one place, or trapped in per-system islands (SCADA, historians, spreadsheets)? Smyrna is well-instrumented; the gap is contextualization, not collection.</title></rect>
         <!-- 2 Maintenance strategy -->
         <text class="mmDim" x="22" y="156">Maintenance strategy</text>
         <line x1="482.5" y1="152" x2="863.75" y2="152" stroke="#24425f" stroke-width="2"/>
         <circle cx="558.75" cy="152" r="6" fill="#6b8299"/><circle cx="711.25" cy="152" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="152" r="6" fill="#49bd8d"/><circle cx="482.5" cy="152" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="137" width="300" height="30" fill="transparent" style="cursor:help"><title>Maintenance strategy — The dominant maintenance mode: run-to-failure and calendar-based PMs at the low end, condition-based and predictive at the high end.</title></rect>
         <!-- 3 Reliability engineering / RCA -->
         <text class="mmDim" x="22" y="200">Reliability engineering / RCA</text>
         <line x1="406.25" y1="196" x2="863.75" y2="196" stroke="#24425f" stroke-width="2"/>
         <circle cx="558.75" cy="196" r="6" fill="#6b8299"/><circle cx="711.25" cy="196" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="196" r="6" fill="#49bd8d"/><circle cx="406.25" cy="196" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="181" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability engineering / RCA — Discipline for eliminating recurring failures: root-cause analysis, RCM/FMEA, and bad-actor programs. Closing causes, not just fixing symptoms.</title></rect>
         <!-- 4 Cross-functional decision flow -->
         <text class="mmDim" x="22" y="244">Cross-functional decision flow</text>
         <line x1="406.25" y1="240" x2="787.5" y2="240" stroke="#24425f" stroke-width="2"/>
         <circle cx="558.75" cy="240" r="6" fill="#6b8299"/><circle cx="711.25" cy="240" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="240" r="6" fill="#49bd8d"/><circle cx="406.25" cy="240" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="225" width="300" height="30" fill="transparent" style="cursor:help"><title>Cross-functional decision flow — Does an event move through one shared record with clear escalation, or does it depend on people tapping each department to find out what happened?</title></rect>
         <!-- 5 Connected-worker enablement -->
         <text class="mmDim" x="22" y="288">Connected-worker enablement</text>
         <line x1="482.5" y1="284" x2="787.5" y2="284" stroke="#24425f" stroke-width="2"/>
         <circle cx="558.75" cy="284" r="6" fill="#6b8299"/><circle cx="711.25" cy="284" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="284" r="6" fill="#49bd8d"/><circle cx="482.5" cy="284" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="269" width="300" height="30" fill="transparent" style="cursor:help"><title>Connected-worker enablement — How well SOPs, troubleshooting guidance, and tacit know-how reach the technician at the point of work, rather than living in binders and senior heads.</title></rect>
         <!-- 6 Analytics & industrial AI -->
         <text class="mmDim" x="22" y="332">Analytics &amp; industrial AI</text>
         <line x1="482.5" y1="328" x2="863.75" y2="328" stroke="#24425f" stroke-width="2"/>
         <circle cx="635" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/><circle cx="482.5" cy="328" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="313" width="300" height="30" fill="transparent" style="cursor:help"><title>Analytics &amp; industrial AI — From static dashboards, to causal reasoning, to ranked prescriptive action on live data.</title></rect>
         <!-- 7 Reliability -> productivity link -->
         <text class="mmDim" x="22" y="376">Reliability &#8594; productivity link</text>
         <line x1="558.75" y1="372" x2="863.75" y2="372" stroke="#24425f" stroke-width="2"/>
         <circle cx="635" cy="372" r="6" fill="#6b8299"/><circle cx="787.5" cy="372" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="372" r="6" fill="#49bd8d"/><circle cx="558.75" cy="372" r="7.5" fill="#ff8300"/>
-        <text class="mmL" x="22" y="440" style="font-size:11.5px;fill:#6b8299">Each marker is a maturity position, not a survey mean &#183; the connector shows Nissan&#8217;s distance to the reliability frontier.</text>
+        <rect x="16" y="357" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability → productivity link — Are asset health and downtime explicitly tied to OEE, cost, and the productivity number leadership actually manages?</title></rect>
+        <text class="mmL" x="22" y="440" style="font-size:11.5px;fill:#6b8299">Hover a capability for its definition &#183; markers are directional positions, not survey means &#183; the connector shows Nissan&#8217;s distance to the reliability frontier.</text>
       </svg>
       <div class="mm-legend">
         <span><i style="background:#ff8300"></i>Nissan Smyrna &mdash; today</span>
@@ -254,8 +261,8 @@
     <div class="mm-cards">
       <div class="mm-card">
         <span class="lvl" style="background:#3a1c12;color:#ffb08a;border:1px solid #7a3a1f">Where Nissan sits</span>
-        <h4>Preventive, drifting reactive</h4>
-        <p>Time-based PMs plus firefighting when equipment surprises the floor. Condition data exists in islands (CIMPLICITY, historians, spreadsheets) but isn&rsquo;t contextualized or shared &mdash; so the same failures recur. BC5604&rsquo;s seven June callouts are the signature of maturity&nbsp;1&ndash;2: fix the symptom, never close the cause.</p>
+        <h4>Well-instrumented, under-leveraged</h4>
+        <p>Smyrna is <strong>fairly instrumented</strong> &mdash; the data foundation is a relative strength. But maintenance still runs on time-based PMs plus firefighting, and that condition data sits in islands (CIMPLICITY, historians, spreadsheets), not contextualized or shared &mdash; so the same failures recur. BC5604&rsquo;s seven June callouts are the signature: fix the symptom, never close the cause.</p>
       </div>
       <div class="mm-card">
         <span class="lvl" style="background:#0f2b1f;color:#6fe0a8;border:1px solid #1f7a55">The reliability frontier</span>
@@ -264,8 +271,8 @@
       </div>
       <div class="mm-card">
         <span class="lvl" style="background:#12233a;color:#8fd0ee;border:1px solid #2f6488">The move this site makes</span>
-        <h4>Two levels, on the capabilities that pay</h4>
-        <p>The Unified Namespace and one event record lift <em>Asset data foundation</em> and <em>Cross-functional decision flow</em> first &mdash; the two lowest scores and the prerequisites for everything above them. Predictive and prescriptive follow once the data is contextualized and the decision path is shared.</p>
+        <h4>Build on the instrumentation, close the low points</h4>
+        <p>The plant already has the data. The Unified Namespace turns Smyrna&rsquo;s existing instrumentation into one governed, shared record &mdash; which directly lifts the two lowest scores, <em>Cross-functional decision flow</em> and <em>Reliability engineering</em>, and makes predictive and prescriptive reachable rather than aspirational.</p>
       </div>
     </div>
 
@@ -351,13 +358,18 @@
       </div>
     </div>
     <p class="chart-note">BC5604's seven June callouts &mdash; the recurring fault the cockpit surfaces &mdash; is the <em>recurring-failures</em> number made concrete on one robot. Close causes instead of symptoms and all three move together.</p>
-    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6;margin-top:16px"><strong style="color:#8a6413">Illustrative ranges.</strong> The maintenance-mix and outcome figures are typical industry ranges for each maturity tier (drawn from published reliability benchmarks), sized to locate Nissan's position &mdash; not measured from Nissan's CMMS. The engagement's next step replaces them with Nissan's own work-order and downtime data.</div>
+    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6;margin-top:16px"><strong style="color:#8a6413">Directional ranges &mdash; and where they come from.</strong> These are not measured from Nissan's CMMS. They are typical ranges for each maturity tier, calibrated to <strong>public</strong> maintenance surveys, and sized to locate the gap. The pattern each number reflects is well-established publicly: most plants remain reactive/preventive-heavy, predictive adoption sits in the ~18&ndash;40% range, and asset-intensive leaders have shifted the majority of effort to condition/predictive. The engagement's next step replaces these with Nissan's own work-order and downtime data.</div>
+    <p class="chart-note" style="margin-top:10px"><strong>Public sources:</strong>
+      <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research (public blog)</a> &mdash; the reactive&rarr;prescriptive progression and prescriptive as the frontier;
+      <a href="https://www.plantengineering.com/2018-maintenance-survey-playing-offense-and-defense/" target="_blank" rel="noopener">Plant Engineering Maintenance Survey</a> and
+      <a href="https://www.reliableplant.com/Read/31707/predictive-maintenance-survey-2019" target="_blank" rel="noopener">Reliable Plant</a> &mdash; the reactive/preventive/predictive mix and the world-class target (&lt;20% reactive, 50&ndash;60% preventive, 25&ndash;35% predictive);
+      Deloitte's 2025 manufacturing-operations survey (~82% still reactive or time-based) and Fluke's 2025 downtime survey (unplanned-downtime prevalence; predictive adoption ~18%) &mdash; widely reported publicly. Figures are rounded to typical tier values, not lifted verbatim from any one study.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a structured assessment, not a survey dataset: each position uses the standard five-level maintenance-maturity ladder (reactive / preventive / condition-based / predictive / prescriptive) as the scale, with Nissan's placement grounded in this engagement's discovery and the cross-industry frontier grounded in documented oil&nbsp;&amp;&nbsp;gas / chemicals reliability practice (remote operations centers, prescriptive maintenance). It is meant to locate the capability gap, not to assert a decimal-precise score.</div>
+    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a directional assessment, not a survey dataset. The scale is the widely-used five-level maintenance-maturity ladder &mdash; reactive / preventive / condition-based / predictive / prescriptive &mdash; as framed in <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research's public writing</a> and standard reliability practice. Nissan's placements reflect this engagement's discovery (including that Smyrna is comparatively well-instrumented); the cross-industry frontier reflects publicly-documented oil&nbsp;&amp;&nbsp;gas / chemicals practice (remote operations centers, prescriptive maintenance). No proprietary LNS research-library data is used, and no individual company's maturity score is claimed &mdash; the matrix locates the capability gap, it does not assert decimal-precise scores.</div>
   </div>
 </section>
 
