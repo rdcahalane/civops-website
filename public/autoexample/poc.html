@@ -53,6 +53,9 @@
 <a href="benchmarking.html" class="">Benchmarks</a>
 <a href="architecture.html" class="">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
+<a href="asset-health.html" class="">Asset Health<br>Index</a>
+<a href="detail-design.html" class="">Detail<br>Design</a>
 <a href="poc.html" class="current">Live<br>Proof</a>
 <a href="roi.html" class="">ROI</a>
 <a href="technology.html" class="">Tech<br>Options</a></nav>
@@ -215,21 +218,24 @@
     </div>
     <div class="secondary-grid">
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/poc/highbyte-uns-client-publish.png" alt="HighByte UNS Client connected to highbyte_uns_publish showing the live topic tree and a real-time JSON payload" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">HighByte — Tools &rarr; UNS Client</div>
           <div class="poc-card-title">Live topic tree, real contextualized payloads</div>
           <div class="poc-card-desc">Equipment topics plus the Ignition-sourced <code>r2</code> node — live, sine-varying axis torque with current timestamps, read straight off this hub's own broker.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/poc/highbyte-pipelines-publish.png" alt="HighByte Pipelines list, all Enabled with Good status" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Pipelines</div>
           <div class="poc-card-title">One pattern, reused across every source</div>
           <div class="poc-card-desc">The same trigger-validate-publish shape across equipment types and the Ignition robot leg — only the field mapping and topic change. All enabled, all Good.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/poc/highbyte-connections-publish.png" alt="HighByte Connections list showing the MQTT broker connection with Good status" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Connections</div>
           <div class="poc-card-title">The broker every pipeline writes through</div>
           <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here; every reader subscribes here.</div>
@@ -248,17 +254,19 @@
     </div>
     <div class="secondary-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/poc/highbyte-models-list.png" alt="HighByte Models list showing AxisTorque model, Robot_ABB_BaseCoat, and Robot_ABB_Sealer" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">HighByte — Models</div>
           <div class="poc-card-title">Robot_ABB_BaseCoat, from representative point exports</div>
           <div class="poc-card-desc">Robot_ABB_BaseCoat's per-axis torque attributes come from the axis-torque export, the OEM's real Cell&nbsp;A historian data; Robot_ABB_Sealer's 16 attributes from Cell&nbsp;B's large-scale Cimplicity export.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/poc/highbyte-cell-instances-overview.png" alt="HighByte Instances organized under the OEM/the flagship plant/Paint into Cell-B sealer line and Cell-A base-coat line folders" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">HighByte — Instances</div>
           <div class="poc-card-title">Cell-A base-coat line, matching Cimplicity's own cell grouping</div>
-          <div class="poc-card-desc">10 base-coat robots (R1&ndash;R10) and 6 ABB sealer robots (SL1&ndash;SL6) — a representative cell structure.</div>
+          <div class="poc-card-desc">All 10 real base coat robots (R1&ndash;R10) and 6 real ABB sealer robots (SL1&ndash;SL6) — the same robot IDs and cell structure Cimplicity uses on the plant floor, not a placeholder hierarchy.</div>
         </div>
       </div>
     </div>
@@ -275,7 +283,7 @@
     </div>
     <div class="poc-grid" style="grid-template-columns: 1fr;">
       <div class="poc-card">
-Discover tab showing a live discovery session against HighByte's broker: 5 topics, 662 messages, and a real-time JSON payload" loading="lazy" />
+        <img src="assets/poc/maestrohub-discover-subscriber.png" alt="MaestroHub Connect > Discover tab showing a live discovery session against HighByte's broker: 5 topics, 662 messages, and a real-time JSON payload" loading="lazy" />
         <div class="poc-card-body">
           <div class="poc-card-label">MaestroHub — Connect &rarr; Discover</div>
           <div class="poc-card-title">The full topic tree, live payloads — read-only mirror</div>
@@ -295,28 +303,32 @@ Discover tab showing a live discovery session against HighByte's broker: 5 topic
     </div>
     <div class="poc-grid">
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Inbox — Eva AI</div>
           <div class="poc-card-title">Morning briefing — causal chain, not just an alarm list</div>
           <div class="poc-card-desc">Eva surfaces open decisions with urgency tags and renders the causal chain inline — the base-coat cell &rarr; Conveyor Stop &rarr; the paint booth Starved — so the operator sees root cause, not a raw fault code.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix the base-coat cell 24V Power Dip" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Decision workflow — D-9</div>
           <div class="poc-card-title">Ranked options, evidence, and one-click "Act on this"</div>
           <div class="poc-card-desc">Fix the base-coat cell 24V Power Dip to stop the paint booth starvation — why it matters, causal mechanism, ranked options, and the full evidence trail in one panel.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Control Center</div>
           <div class="poc-card-title">Performance — status — anomalies, in Eva's own narrative</div>
           <div class="poc-card-desc">Eva-generated summary of where the shop stands versus peak — OEE availability gaps, asset health, throughput/quality/labor — read as a briefing, not assembled by hand from six reports.</div>
         </div>
       </div>
       <div class="poc-card">
-<div class="poc-card-body">
+        <img src="assets/humble/15-knowledge.png" alt="Humble Knowledge Base with Ask Eva chat" loading="lazy" />
+        <div class="poc-card-body">
           <div class="poc-card-label">Knowledge Base — Ask Eva</div>
           <div class="poc-card-title">Live Q&amp;A against real plant documentation</div>
           <div class="poc-card-desc">19 documents loaded — ABB robotics diagnostics, paint line fault logs, Asset Health Index methodology, IIoT/UNS/CMMS architecture. "Ask Eva" answers against this corpus plus the live database.</div>
@@ -414,8 +426,9 @@ Discover tab showing a live discovery session against HighByte's broker: 5 topic
       <div class="footnote">Working concept site for the flagship plant. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
 
-      
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+      <div style="margin-top:8px;font-size:11px"><a href="/autoexample/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
   </div>
 </footer>
 <script src="main.js"></script>
