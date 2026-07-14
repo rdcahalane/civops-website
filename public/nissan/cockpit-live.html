@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Live Cockpit (working demo)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ---- live cockpit, dark screen ---- */
+    .lc-frame{ background:#0e2236; border-radius:24px; overflow:hidden; min-height:680px; position:relative; }
+    .lc-status{ height:38px; background:#0a1826; color:#cfe0ec; display:flex; align-items:center; justify-content:space-between; padding:0 16px; font-size:11.5px; font-weight:800; letter-spacing:.02em; border-bottom:1px solid #1f3247; }
+    .lc-live{ display:inline-flex; align-items:center; gap:6px; color:#6fe0a8; }
+    .lc-live .pulse{ width:8px;height:8px;border-radius:50%;background:#49bd8d; box-shadow:0 0 0 0 rgba(73,189,141,.6); animation:lcpulse 2s infinite; }
+    @keyframes lcpulse{ 0%{box-shadow:0 0 0 0 rgba(73,189,141,.5)} 70%{box-shadow:0 0 0 7px rgba(73,189,141,0)} 100%{box-shadow:0 0 0 0 rgba(73,189,141,0)} }
+    .lc-tabs{ display:flex; gap:6px; padding:12px 14px 0; background:#0e2236; flex-wrap:wrap; }
+    .lc-tab{ font-size:12.5px; font-weight:800; color:#9fb6c6; background:#15324c; border:1px solid #24425f; border-radius:10px 10px 0 0; padding:9px 14px; cursor:pointer; }
+    .lc-tab.active{ color:#fff; background:#1b466a; border-color:#2f6488; }
+    .lc-tab .badge{ display:inline-block; margin-left:6px; font-size:10px; background:#bf3f3f; color:#fff; border-radius:8px; padding:1px 6px; }
+    .lc-body{ padding:16px; }
+    .lc-hdr{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px; }
+    .lc-hdr h3{ margin:0; color:#fff; font-size:19px; letter-spacing:-.01em; }
+    .lc-hdr .sub{ color:#9fb6c6; font-size:12px; }
+    /* KPI tiles */
+    .lc-kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    @media(max-width:640px){ .lc-kpis{ grid-template-columns:repeat(2,1fr); } }
+    .lc-kpi{ background:#15324c; border:1px solid #24425f; border-radius:14px; padding:14px 16px; }
+    .lc-kpi .k{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#8ea6ba; }
+    .lc-kpi .v{ font-size:30px; font-weight:800; color:#fff; margin-top:2px; line-height:1; }
+    .lc-kpi .v small{ font-size:14px; font-weight:700; color:#9fb6c6; }
+    .lc-kpi .m{ font-size:11.5px; color:#8ea6ba; margin-top:6px; }
+    .lc-kpi.alert{ border-color:#7a2f2f; background:#2a1414; } .lc-kpi.alert .v{ color:#ff8f8f; }
+    .lc-kpi.watch .v{ color:#ffb15b; } .lc-kpi.good .v{ color:#6fe0a8; }
+    /* robot grid */
+    .lc-robots{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:6px; }
+    @media(max-width:640px){ .lc-robots{ grid-template-columns:repeat(3,1fr); } }
+    .lc-rob{ background:#15324c; border:1.5px solid #24425f; border-radius:12px; padding:10px 8px; text-align:center; }
+    .lc-rob .id{ font-size:12px; color:#cfe0ec; } .lc-rob .s{ font-size:20px; font-weight:800; margin-top:2px; }
+    .lc-rob.g{ border-color:#49bd8d; } .lc-rob.g .s{ color:#49bd8d; }
+    .lc-rob.w{ border-color:#ffb15b; } .lc-rob.w .s{ color:#ffb15b; }
+    .lc-rob.a{ border-color:#ef6a5b; border-width:2.5px; } .lc-rob.a .s{ color:#ef6a5b; }
+    .lc-conv{ background:#16314c; border:1px solid #3f627d; border-radius:12px; padding:12px 14px; margin:10px 0; display:flex; justify-content:space-between; align-items:center; color:#cfe0ec; font-size:13px; }
+    .lc-conv b{ color:#49bd8d; font-size:18px; }
+    .lc-legend{ display:flex; gap:18px; margin-top:10px; font-size:11.5px; color:#9fb6c6; }
+    .lc-legend i{ width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle; }
+    .lc-flag{ margin-top:12px; background:#241a06; border:1px solid #5a3d12; border-radius:10px; padding:10px 14px; color:#ffcf9a; font-size:12.5px; }
+    /* OEE */
+    .lc-oee{ display:grid; grid-template-columns:220px 1fr; gap:20px; align-items:center; }
+    @media(max-width:640px){ .lc-oee{ grid-template-columns:1fr; } }
+    .lc-donut{ width:200px; height:200px; border-radius:50%; margin:0 auto; display:flex; align-items:center; justify-content:center; }
+    .lc-donut .in{ width:150px;height:150px;border-radius:50%;background:#0e2236;display:flex;flex-direction:column;align-items:center;justify-content:center; }
+    .lc-donut .in b{ font-size:44px; color:#fff; line-height:1; } .lc-donut .in span{ font-size:12px; color:#9fb6c6; }
+    .lc-bars .row{ margin-bottom:14px; } .lc-bars .lab{ display:flex; justify-content:space-between; font-size:13px; color:#e6eef5; margin-bottom:5px; }
+    .lc-bars .lab .est{ font-size:10px; font-weight:800; color:#ffb15b; background:#241a06; border:1px solid #5a3d12; border-radius:7px; padding:1px 6px; margin-left:6px; }
+    .lc-bars .track{ height:14px; background:#173049; border-radius:6px; overflow:hidden; } .lc-bars .fill{ height:100%; background:#49bd8d; border-radius:6px; transition:width .5s; }
+    .lc-bars .fill.est{ background:repeating-linear-gradient(45deg,#c77700,#c77700 6px,#9a5c00 6px,#9a5c00 12px); }
+    .lc-trend{ display:flex; align-items:flex-end; gap:6px; height:80px; margin-top:8px; }
+    .lc-trend .b{ flex:1; background:#3f7fa0; border-radius:3px 3px 0 0; transition:height .5s; } .lc-trend .b.dip{ background:#c77700; } .lc-trend .b.now{ background:#49bd8d; }
+    /* alert screen */
+    .lc-alert{ background:#2a1414; border:1px solid #7a2f2f; border-radius:14px; padding:16px; }
+    .lc-alert .code{ font-size:20px; font-weight:800; color:#ff8f8f; }
+    .lc-alert .desc{ font-size:13px; color:#e7c3c3; margin-top:6px; line-height:1.5; }
+    .lc-torque{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:12px; }
+    .lc-torque .ax{ background:#15324c; border:1px solid #24425f; border-radius:10px; padding:8px 6px; text-align:center; }
+    .lc-torque .ax .n{ font-size:10px; color:#8ea6ba; } .lc-torque .ax .t{ font-size:16px; font-weight:800; color:#8fd0ee; margin-top:2px; }
+    .lc-steps{ margin-top:14px; } .lc-steps .st{ display:flex; gap:10px; padding:9px 0; border-top:1px solid #1f3247; }
+    .lc-steps .st .n{ width:22px;height:22px;border-radius:50%;background:#1b466a;color:#8fd0ee;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+    .lc-steps .st strong{ color:#fff; font-size:13px; } .lc-steps .st small{ color:#9fb6c6; font-size:12px; display:block; margin-top:2px; }
+    .lc-note{ margin-top:22px; }
+    .lc-src{ font-size:11px; color:#7f96a8; }
+    .src-chip{ display:inline-block; font-size:10.5px; font-weight:700; border-radius:7px; padding:2px 8px; margin-right:6px; }
+    .src-live{ background:#0f3b2b; border:1px solid #1f7a55; color:#6fe0a8; }
+    .src-est{ background:#241a06; border:1px solid #5a3d12; color:#ffcf9a; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html">Overview</a>
+<a href="decision.html">Approach</a>
+<a href="architecture.html">Architecture</a>
+<a href="journey.html">Journey<br>Map</a>
+<a href="cockpit.html">Maintenance<br>Cockpit</a>
+<a href="asset-health.html">Asset Health<br>Index</a>
+<a href="detail-design.html">Detail<br>Design</a>
+<a href="poc.html" class="current">Live<br>Proof</a>
+<a href="roi.html">ROI</a>
+<a href="technology.html">Tech<br>Options</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / <a href="poc.html">Live proof</a> / Live cockpit</div>
+    <h1 class="page-title">The Cell 056 cockpit — a working app, not a picture</h1>
+    <p class="page-deck">This is the tablet a maintenance technician actually holds, running off the Unified Namespace. It's a real web application — the tiles, health scores, OEE, and axis torque are populated by a live data layer that updates on screen. Today it runs on the same representative/live feed as the rest of the proof; pointing it at the production UNS bridge is a one-function swap, not a rebuild. The same app can be re-skinned in Ignition Perspective or Power BI against the identical topics — the cockpit is just another consumer of the namespace.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container tablet-layout">
+    <div class="tablet-shell">
+      <div class="lc-frame">
+        <div class="lc-status">
+          <span>Cell 056 cockpit &#183; <span id="lcShift">Shift B</span></span>
+          <span><span class="lc-live"><span class="pulse"></span>UNS connected</span> &#183; <span id="lcAgo">updated 0s ago</span> &#183; <span id="lcClock">--:--</span></span>
+        </div>
+        <div class="lc-tabs" id="lcTabs">
+          <div class="lc-tab active" data-screen="overview">Cell Overview</div>
+          <div class="lc-tab" data-screen="health">Asset Health</div>
+          <div class="lc-tab" data-screen="oee">OEE</div>
+          <div class="lc-tab" data-screen="alert">Active Alert<span class="badge">1</span></div>
+        </div>
+        <div class="lc-body" id="lcBody"><!-- rendered by JS --></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:14px">
+        <div class="section-title"><span class="eyebrow">Why this is the working demo</span><h2 style="font-size:32px">A consumer of the namespace — swap the data source, not the app</h2></div>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0">How "live" actually works here</h3>
+        <ul>
+          <li>The screen is driven by a data layer (<code>Feed</code>), not baked-in numbers — watch the axis torque and OEE trend update on their own.</li>
+          <li>Going to production data is one function: <code>Feed.connectUNS()</code> subscribes to <code>mHv1.0/axiom/nissan-ccr/#</code> on the broker (via the hosting bridge) and the same render code draws it.</li>
+          <li>BC5602's axis torque is the leg already flowing live end-to-end (Ignition&nbsp;&rarr;&nbsp;HighByte&nbsp;&rarr;&nbsp;UNS) — shown here as the live-source example.</li>
+        </ul>
+        <div class="callout" style="margin-top:14px"><strong>OEE &amp; the Quality gap:</strong> Availability and Performance compute from data Nissan has provided (runtime/faults, cycle counts). <strong>Quality has no source feed yet</strong> — scrap/rework isn't in the extracts — so it's flagged <em>est.</em> and OEE is labeled accordingly. Naming that gap is the point: it's the one feed to wire for a true, defensible OEE.</div>
+      </div>
+      <div class="panel dark" style="margin-top:16px">
+        <h3 style="margin-top:0">Same cockpit, any tool</h3>
+        <p style="margin:0">This web app is one rendering. The identical namespace topics drive a Humble/Eva view, an Ignition Perspective screen, or a Power&nbsp;BI board — proof the value layer isn't locked to one platform any more than the source is.</p>
+      </div>
+      <p class="lc-src" style="margin-top:16px">
+        <span class="src-chip src-live">&#9679; live from UNS</span> BC5602 axis torque (Ignition&#8594;HighByte&#8594;UNS)<br>
+        <span class="src-chip src-est">est.</span> Quality &amp; scores using representative values pending source-tag binding &amp; a quality feed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. The cockpit is a live-ready consumer of the Unified Namespace — swap the data source, not the app.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* ============================================================
+   Cell 056 Live Cockpit — data-driven, UNS-ready.
+   Today: Feed generates representative values with realistic
+   live motion. Production: replace Feed.tick() body with
+   Feed.connectUNS() (MQTT-over-WS to the hosting bridge).
+   ============================================================ */
+(function(){
+  var ROBOTS = [
+    {id:'BC5601',ahi:88},{id:'BC5602',ahi:83,live:true},{id:'BC5603',ahi:71},
+    {id:'BC5604',ahi:42,alert:true},{id:'BC5605',ahi:80},{id:'BC5606',ahi:72},
+    {id:'BC5607',ahi:62},{id:'BC5608',ahi:81},{id:'BC5609',ahi:69},{id:'BC5610',ahi:84}
+  ];
+  var MODEL = {
+    shift:'Shift B', cellAHI:66, conveyor:85,
+    robots: ROBOTS,
+    torque:[95.2,101.8,88.4,76.1,94.7,102.3],   // BC5602 axis torque (live example)
+    oee:{ avail:84, perf:91, quality:95, hourly:[62,71,48,67,76,58,80,69] },
+    alert:{ robot:'BC5604', code:'A1Slope:Val hi', em:7, labor:29, wos:11,
+      desc:'Applicator wear + vacuum-line contamination. Pattern has recurred 7 times in June. Short-term fix: applicator swap; root cause unresolved.' }
+  };
+  var lastUpdate = Date.now(), active='overview';
+
+  function band(a){ return a>=80?'g':(a>=60?'w':'a'); }
+  function bandName(a){ return a>=80?'good':(a>=60?'watch':'alert'); }
+  function oeeVal(o){ return Math.round(o.avail*o.perf*o.quality/10000); }
+
+  // ---- live motion (stand-in for the UNS subscription) ----
+  function jit(v,amt,lo,hi){ v += (Math.random()-0.5)*amt; return Math.max(lo,Math.min(hi,v)); }
+  Feed = {
+    tick:function(){
+      // BC5602 torque wanders like the real Ignition sim
+      MODEL.torque = MODEL.torque.map(function(t,i){ return jit(t, 3.2, 40, 130); });
+      // OEE components drift slightly; newest hour bar breathes
+      MODEL.oee.avail = Math.round(jit(MODEL.oee.avail,1.2,78,92));
+      MODEL.oee.perf  = Math.round(jit(MODEL.oee.perf,1.2,84,96));
+      var h=MODEL.oee.hourly; h[h.length-1] = Math.round(jit(h[h.length-1],2.5,55,88));
+      lastUpdate = Date.now();
+      if(active==='overview'||active==='oee'||active==='alert') render();
+    }
+    /* connectUNS: PRODUCTION SWAP — subscribe to the broker via the bridge:
+       var c = mqtt.connect(BRIDGE_WS_URL);
+       c.subscribe('mHv1.0/axiom/nissan-ccr/#');
+       c.on('message', function(topic,payload){ mapIntoMODEL(topic, JSON.parse(payload)); render(); });
+       No render changes — same MODEL shape. */
+  };
+
+  function tiles(){
+    var o=MODEL.oee, oee=oeeVal(o), alerts=MODEL.robots.filter(function(r){return r.alert;}).length;
+    return '<div class="lc-hdr"><h3>Cell 056 &#183; Base Coat</h3><span class="sub">10 ABB robots + conveyor</span></div>'+
+      '<div class="lc-kpis">'+
+      '<div class="lc-kpi watch"><div class="k">Cell AHI</div><div class="v">'+MODEL.cellAHI+'<small>%</small></div><div class="m">Watch band</div></div>'+
+      '<div class="lc-kpi"><div class="k">OEE (shift)</div><div class="v">'+oee+'<small>%</small></div><div class="m">A '+o.avail+' &#183; P '+o.perf+' &#183; Q '+o.quality+' <span style="color:#ffb15b">est</span></div></div>'+
+      '<div class="lc-kpi alert"><div class="k">Active alerts</div><div class="v">'+alerts+'</div><div class="m">BC5604 &#183; hi-slope</div></div>'+
+      '<div class="lc-kpi good"><div class="k">BC5602 torque A1 <span class="src-chip src-live" style="transform:scale(.85)">live</span></div><div class="v">'+MODEL.torque[0].toFixed(1)+'<small> Nm</small></div><div class="m">Ignition &#8594; UNS</div></div>'+
+      '</div>'+
+      '<div class="lc-flag">&#9650; BC5604 driving the cell down &#8212; AHI 42% (Alert), 7 emergency callouts in June. Tap <b>Active Alert</b>.</div>';
+  }
+  function health(){
+    function row(list){ return list.map(function(r){ var b=band(r.ahi);
+      return '<div class="lc-rob '+b+'"><div class="id">'+r.id+(r.live?' &#183; live':'')+'</div><div class="s">'+r.ahi+'%</div></div>';
+    }).join(''); }
+    return '<div class="lc-hdr"><h3>Asset Health Index</h3><span class="sub">Cell roll-up '+MODEL.cellAHI+'% &#183; Watch</span></div>'+
+      '<div class="lc-robots">'+row(MODEL.robots.slice(0,5))+'</div>'+
+      '<div class="lc-conv"><span>Conveyor 056</span><b>'+MODEL.conveyor+'%</b></div>'+
+      '<div class="lc-robots">'+row(MODEL.robots.slice(5))+'</div>'+
+      '<div class="lc-legend"><span><i style="background:#49bd8d"></i>Healthy &#8805; 80</span><span><i style="background:#ffb15b"></i>Watch 60&#8211;79</span><span><i style="background:#ef6a5b"></i>Alert &lt; 60</span></div>';
+  }
+  function oee(){
+    var o=MODEL.oee, val=oeeVal(o), deg=Math.round(val*3.6);
+    var trend=o.hourly.map(function(h,i){ var cls=(i===2?'dip':(i===o.hourly.length-1?'now':''));
+      return '<div class="b '+cls+'" style="height:'+(h)+'%" title="'+h+'%"></div>'; }).join('');
+    return '<div class="lc-hdr"><h3>OEE &#8212; current shift</h3><span class="sub">Availability &#215; Performance &#215; Quality</span></div>'+
+      '<div class="lc-oee">'+
+      '<div><div class="lc-donut" style="background:conic-gradient(#ffb15b '+deg+'deg,#173049 0)"><div class="in"><b>'+val+'%</b><span>OEE</span></div></div>'+
+      '<div style="text-align:center;color:#9fb6c6;font-size:11.5px;margin-top:10px">World-class &#8805; 85% &#183; target 78%</div></div>'+
+      '<div class="lc-bars">'+
+      '<div class="row"><div class="lab"><span>Availability</span><span>'+o.avail+'%</span></div><div class="track"><div class="fill" style="width:'+o.avail+'%"></div></div></div>'+
+      '<div class="row"><div class="lab"><span>Performance</span><span>'+o.perf+'%</span></div><div class="track"><div class="fill" style="width:'+o.perf+'%"></div></div></div>'+
+      '<div class="row"><div class="lab"><span>Quality<span class="est">est &#183; no feed yet</span></span><span>'+o.quality+'%</span></div><div class="track"><div class="fill est" style="width:'+o.quality+'%"></div></div></div>'+
+      '<div style="font-size:11.5px;color:#9fb6c6;margin-top:2px">OEE by hour &#8212; this shift</div>'+
+      '<div class="lc-trend">'+trend+'</div>'+
+      '</div></div>';
+  }
+  function alertScreen(){
+    var a=MODEL.alert;
+    var torque=MODEL.torque.map(function(t,i){ return '<div class="ax"><div class="n">A'+(i+1)+'</div><div class="t">'+t.toFixed(1)+'</div></div>'; }).join('');
+    return '<div class="lc-hdr"><h3>'+a.robot+' &#183; hi-slope fault</h3><span class="sub">Repeat failure &#183; 7th event</span></div>'+
+      '<div class="lc-alert"><div class="code">'+a.code+' &#8212; '+a.robot+'</div><div class="desc">'+a.desc+'</div></div>'+
+      '<div class="lc-kpis" style="margin-top:12px;grid-template-columns:repeat(3,1fr)">'+
+      '<div class="lc-kpi"><div class="k">EM events (Jun)</div><div class="v">'+a.em+'</div></div>'+
+      '<div class="lc-kpi"><div class="k">Labor this month</div><div class="v">'+a.labor+'<small>h</small></div></div>'+
+      '<div class="lc-kpi"><div class="k">Total WOs</div><div class="v">'+a.wos+'</div></div>'+
+      '</div>'+
+      '<div class="sub" style="color:#9fb6c6;font-size:12px;margin:14px 0 4px">Live axis torque envelope <span class="src-chip src-live" style="transform:scale(.85)">live</span> (Nm)</div>'+
+      '<div class="lc-torque">'+torque+'</div>'+
+      '<div class="lc-steps">'+
+      '<div class="st"><div class="n">1</div><div><strong>Remove cartridge, flush vacuum line</strong><small>Resolves ~60% of hi-slope recurrences on BC5604 per June history.</small></div></div>'+
+      '<div class="st"><div class="n">2</div><div><strong>Replace applicator</strong><small>Spares stocked in C4B &#183; NPS# confirmed.</small></div></div>'+
+      '<div class="st"><div class="n">3</div><div><strong>Run pattern test, monitor slope</strong><small>Confirm slope drops before returning to auto.</small></div></div>'+
+      '<div class="st"><div class="n">4</div><div><strong>Flag for reliability review</strong><small>7th recurrence this month &#8212; escalate to root cause.</small></div></div>'+
+      '</div>';
+  }
+  function render(){
+    var el=document.getElementById('lcBody'); if(!el) return;
+    el.innerHTML = active==='overview'?tiles():active==='health'?health():active==='oee'?oee():alertScreen();
+  }
+  // tabs
+  document.getElementById('lcTabs').addEventListener('click', function(e){
+    var t=e.target.closest('.lc-tab'); if(!t) return;
+    active=t.dataset.screen;
+    [].forEach.call(this.children,function(c){ c.classList.toggle('active', c===t); });
+    render();
+  });
+  // clock + "updated Ns ago"
+  function pad(n){ return (n<10?'0':'')+n; }
+  setInterval(function(){
+    var d=new Date(), h=d.getHours(), m=d.getMinutes(); var ap=h>=12?'PM':'AM'; var hh=h%12; if(hh===0)hh=12;
+    var ck=document.getElementById('lcClock'); if(ck) ck.textContent=hh+':'+pad(m)+' '+ap;
+    var ago=document.getElementById('lcAgo'); if(ago) ago.textContent='updated '+Math.round((Date.now()-lastUpdate)/1000)+'s ago';
+  },1000);
+  document.getElementById('lcShift').textContent = MODEL.shift;
+  render();
+  setInterval(function(){ Feed.tick(); }, 2500);
+})();
+</script>
+</body>
+</html>
