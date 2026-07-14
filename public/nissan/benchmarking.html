@@ -195,7 +195,7 @@
 
     <figure style="margin:18px 0 0">
       <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Asset-health &amp; reliability maturity &#183; where the capability actually sits<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">Directional &#183; for discussion</span></div>
-      <svg class="mm-svg" viewBox="0 0 1015 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliability maturity matrix: seven operating capabilities scored 1 (Reactive) to 5 (Prescriptive) for Nissan today, automotive median, automotive frontier, and the cross-industry reliability frontier. Nissan ranges from about 1.5 to 3 across the capabilities — strongest on asset data foundation (Smyrna is well-instrumented), weakest on reliability engineering and cross-functional decision flow, and well behind the reliability frontier overall.">
+      <svg class="mm-svg" viewBox="0 0 1015 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliability maturity matrix: seven operating capabilities scored 1 (Reactive) to 5 (Prescriptive) for Nissan today, automotive median, automotive frontier, and the cross-industry reliability frontier. Nissan ranges from about 1.5 to 3 across the capabilities — strongest on asset data foundation (Smyrna is well-instrumented), strong on asset data foundation and analytics (Senseye predictive monitoring is deployed), and weakest on reliability engineering and cross-functional decision flow — the execution loop, not the tooling.">
         <style>
           .mmL{font-size:11px;fill:#8ea6ba} .mmN{font-size:14px;font-weight:800;fill:#c7d7e6}
           .mmDim{font-size:13px;font-weight:700;fill:#dbe7f1} .mmHd{font-size:11px;font-weight:800;letter-spacing:.05em;fill:#7f96a8;text-transform:uppercase}
@@ -240,9 +240,9 @@
         <rect x="16" y="269" width="300" height="30" fill="transparent" style="cursor:help"><title>Connected-worker enablement — How well SOPs, troubleshooting guidance, and tacit know-how reach the technician at the point of work, rather than living in binders and senior heads.</title></rect>
         <!-- 6 Analytics & industrial AI -->
         <text class="mmDim" x="22" y="332">Analytics &amp; industrial AI</text>
-        <line x1="482.5" y1="328" x2="863.75" y2="328" stroke="#24425f" stroke-width="2"/>
-        <circle cx="635" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/><circle cx="482.5" cy="328" r="7.5" fill="#ff8300"/>
-        <rect x="16" y="313" width="300" height="30" fill="transparent" style="cursor:help"><title>Analytics &amp; industrial AI — From static dashboards, to causal reasoning, to ranked prescriptive action on live data.</title></rect>
+        <line x1="635" y1="328" x2="863.75" y2="328" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/><circle cx="635" cy="328" r="7.5" fill="#ff8300"/>
+        <rect x="16" y="313" width="300" height="30" fill="transparent" style="cursor:help"><title>Analytics &amp; industrial AI — From static dashboards, to causal reasoning, to ranked prescriptive action on live data. Nissan runs Siemens Senseye predictive monitoring on 159 paint-shop assets (condition-based analytics) — the gap is turning its signals into prescriptive action.</title></rect>
         <!-- 7 Reliability -> productivity link -->
         <text class="mmDim" x="22" y="376">Reliability &#8594; productivity link</text>
         <line x1="558.75" y1="372" x2="863.75" y2="372" stroke="#24425f" stroke-width="2"/>
@@ -262,7 +262,7 @@
       <div class="mm-card">
         <span class="lvl" style="background:#3a1c12;color:#ffb08a;border:1px solid #7a3a1f">Where Nissan sits</span>
         <h4>Well-instrumented, under-leveraged</h4>
-        <p>Smyrna is <strong>fairly instrumented</strong> &mdash; the data foundation is a relative strength. But maintenance still runs on time-based PMs plus firefighting, and that condition data sits in islands (CIMPLICITY, historians, spreadsheets), not contextualized or shared &mdash; so the same failures recur. BC5604&rsquo;s seven June callouts are the signature: fix the symptom, never close the cause.</p>
+        <p>Smyrna is <strong>well-instrumented and already runs Senseye predictive monitoring</strong> &mdash; data and analytics are relative strengths. Yet <strong>80% of Cell&nbsp;056's June maintenance labor was emergency + corrective</strong> (measured, CMMS) and predictive work orders were zero. The condition data sits in islands and never closes the loop &mdash; so the same faults recur. Monitoring without execution.</p>
       </div>
       <div class="mm-card">
         <span class="lvl" style="background:#0f2b1f;color:#6fe0a8;border:1px solid #1f7a55">The reliability frontier</span>
@@ -287,23 +287,21 @@
     <div class="section-head" style="margin-bottom:6px">
       <div class="section-title"><span class="eyebrow">The maintenance signature</span><h2 style="font-size:28px">How the work actually breaks down</h2></div>
     </div>
-    <p class="page-deck" style="margin-top:0">Maturity isn't abstract &mdash; it shows up in the maintenance mix. A plant stuck at reactive/preventive spends its hours fighting fires and swapping parts on a calendar; a reliability leader spends them on condition and prediction. Here is the typical split for each cohort.</p>
+    <p class="page-deck" style="margin-top:0">Maturity isn't abstract &mdash; it shows up in the maintenance mix. A plant stuck at reactive/preventive spends its hours fighting fires and swapping parts on a calendar; a reliability leader spends them on condition and prediction. <strong>Nissan's bar below is measured from their own CMMS</strong> &mdash; the comparators are public benchmarks.</p>
 
     <figure style="margin:6px 0 0">
-      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Maintenance strategy mix &#183; share of maintenance hours by type<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">Illustrative</span></div>
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Maintenance strategy mix &#183; share of maintenance labor hours by type<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#0f3b2b;border:1px solid #1f7a55;color:#6fe0a8;border-radius:999px;padding:3px 9px">Nissan: measured (CMMS)</span></div>
       <div style="background:#fff;border:1px solid #e0e4ea;border-top:0;border-radius:0 0 12px 12px;padding:20px 22px">
         <div class="msm">
           <div class="row">
-            <div class="lab"><span class="who">Nissan Smyrna <small>&middot; today</small></span><span style="color:#bf3f3f">85% reactive + preventive</span></div>
+            <div class="lab"><span class="who">Nissan &mdash; Cell 056 <small>&middot; measured, CMMS work orders, June</small></span><span style="color:#bf3f3f">80% emergency + corrective</span></div>
             <div class="bar">
-              <div class="seg" style="width:40%;background:#ef6a5b">40%</div>
-              <div class="seg" style="width:45%;background:#ffb15b;color:#5a3d12">45%</div>
-              <div class="seg" style="width:12%;background:#8fd0ee;color:#0e2236">12%</div>
-              <div class="seg" style="width:3%;background:#49bd8d"></div>
+              <div class="seg" style="width:80%;background:#ef6a5b">80%</div>
+              <div class="seg" style="width:20%;background:#ffb15b;color:#5a3d12">20%</div>
             </div>
           </div>
           <div class="row">
-            <div class="lab"><span class="who">Automotive median</span><span style="color:#5a6a7e">75% reactive + preventive</span></div>
+            <div class="lab"><span class="who">Automotive median <small>&middot; public benchmark</small></span><span style="color:#5a6a7e">75% reactive + preventive</span></div>
             <div class="bar">
               <div class="seg" style="width:30%;background:#ef6a5b">30%</div>
               <div class="seg" style="width:45%;background:#ffb15b;color:#5a3d12">45%</div>
@@ -312,7 +310,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="lab"><span class="who">Reliability frontier <small>&middot; O&amp;G / chemicals</small></span><span style="color:#1f8a5c">55% condition + predictive</span></div>
+            <div class="lab"><span class="who">Reliability frontier <small>&middot; O&amp;G / chemicals, public benchmark</small></span><span style="color:#1f8a5c">55% condition + predictive</span></div>
             <div class="bar">
               <div class="seg" style="width:12%;background:#ef6a5b">12%</div>
               <div class="seg" style="width:33%;background:#ffb15b;color:#5a3d12">33%</div>
@@ -322,12 +320,29 @@
           </div>
         </div>
         <div class="msm-legend">
-          <span><i style="background:#ef6a5b"></i>Reactive (run-to-failure)</span>
+          <span><i style="background:#ef6a5b"></i>Reactive (emergency + corrective)</span>
           <span><i style="background:#ffb15b"></i>Preventive (calendar-based)</span>
           <span><i style="background:#8fd0ee"></i>Condition-based</span>
           <span><i style="background:#49bd8d"></i>Predictive + prescriptive</span>
         </div>
-        <p class="chart-note">The frontier has roughly <strong>flipped the mix</strong> &mdash; the majority of its effort is condition-driven and predictive. Nissan's ~3% predictive share is the headroom the UNS + asset-health work on this site is built to open.</p>
+        <p class="chart-note"><strong>Nissan's bar is real</strong> &mdash; from the Cell&nbsp;056 CMMS work-order export they provided (62 work orders, ~331 labor-hours, June): <strong>61% emergency + 19% corrective = 80% reactive</strong>, 20% preventive, and <strong>zero predictive work orders</strong>. Comparators are public benchmarks. The headroom &mdash; from 0% to the frontier's condition/predictive majority &mdash; is exactly what the UNS + asset-health loop is built to open.</p>
+      </div>
+    </figure>
+
+    <div class="callout" style="margin-top:18px;border-color:#9ec3e0;background:#eef6fc">
+      <strong style="color:#10324b">The real finding: Nissan isn't missing the monitoring &mdash; it's missing the loop.</strong> Nissan already runs <strong>Siemens Senseye Predictive Maintenance live on 159 paint-shop assets</strong>, trending the same per-axis torque signals (MaxTorqueR1A1&ndash;A4) this site's Unified Namespace publishes, with anomaly detection. Yet Cell&nbsp;056's <em>executed</em> maintenance is still 80% emergency + corrective, and the CMMS shows <strong>zero predictive work orders</strong>. The condition signals exist; they aren't closing into prevented failures. The gap this program targets isn't another sensor &mdash; it's the one contextualized event record that turns a Senseye anomaly into a work order and a closed cause.
+    </div>
+
+    <figure style="margin:22px 0 0">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>June downtime by responsibility &#183; P4 paint shop<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#0f3b2b;border:1px solid #1f7a55;color:#6fe0a8;border-radius:999px;padding:3px 9px">Measured &#183; Nissan DTR</span></div>
+      <div style="background:#fff;border:1px solid #e0e4ea;border-top:0;border-radius:0 0 12px 12px;padding:20px 22px">
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Starved (flow)</span><span class="rt"><span class="rf" style="width:54.8%;background:#ffb15b"></span></span><span class="rv">54.8%</span></div>
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Maintenance (asset)</span><span class="rt"><span class="rf" style="width:10.9%;background:#ef6a5b"></span></span><span class="rv">10.9%</span></div>
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Cleaning</span><span class="rt"><span class="rf" style="width:10.7%;background:#6b8299"></span></span><span class="rv">10.7%</span></div>
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Manufacturing</span><span class="rt"><span class="rf" style="width:9.0%;background:#6b8299"></span></span><span class="rv">9.0%</span></div>
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Reprocess</span><span class="rt"><span class="rf" style="width:7.8%;background:#6b8299"></span></span><span class="rv">7.8%</span></div>
+        <div class="ro-bar"><span class="rl" style="width:150px;flex-basis:150px">Other (11 categories)</span><span class="rt"><span class="rf" style="width:6.8%;background:#c8d2dc"></span></span><span class="rv">6.8%</span></div>
+        <p class="chart-note" style="margin-top:12px"><strong>100% real</strong> &mdash; computed from the June DTR they provided: <strong>5,503 downtime events, ~120 hours</strong>. Honest read: the biggest driver is <em>starvation</em> (the booth waiting on upstream material/flow, 55%) &mdash; a scheduling/flow problem, not asset health. Equipment <em>maintenance</em> is ~11%. But the reactive-fault tail is chronic: <em>&ldquo;Spray Booth Starved&rdquo;</em> fired 2,300+ times and <em>&ldquo;Basecoat Cell Not Ready&rdquo;</em> 500+ &mdash; the recurring, never-closed causes a shared event record is built to kill. Asset health targets the maintenance + reactive-fault share; the UNS also makes the starvation problem finally diagnosable across departments.</p>
       </div>
     </figure>
 
@@ -343,11 +358,11 @@
         <div class="ro-bar"><span class="rl">Frontier</span><span class="rt"><span class="rf" style="width:18%;background:#49bd8d"></span></span><span class="rv">18%</span></div>
       </div>
       <div class="ro-card">
-        <h4>Predictive coverage</h4>
-        <div class="cap">Critical assets under condition/predictive monitoring. Higher is better.</div>
-        <div class="ro-bar"><span class="rl">Nissan today</span><span class="rt"><span class="rf" style="width:8%;background:#ff8300"></span></span><span class="rv">8%</span></div>
-        <div class="ro-bar"><span class="rl">Auto median</span><span class="rt"><span class="rf" style="width:20%;background:#6b8299"></span></span><span class="rv">20%</span></div>
-        <div class="ro-bar"><span class="rl">Frontier</span><span class="rt"><span class="rf" style="width:65%;background:#49bd8d"></span></span><span class="rv">65%</span></div>
+        <h4>Predictive maintenance <em>executed</em></h4>
+        <div class="cap">Share of maintenance done as predictive/condition work orders. Nissan value is real (CMMS: 0 predictive WOs) &mdash; monitoring like Senseye is in place but isn't yet closing into work.</div>
+        <div class="ro-bar"><span class="rl">Nissan today</span><span class="rt"><span class="rf" style="width:1%;background:#ff8300"></span></span><span class="rv">0%</span></div>
+        <div class="ro-bar"><span class="rl">Auto median</span><span class="rt"><span class="rf" style="width:10%;background:#6b8299"></span></span><span class="rv">~10%</span></div>
+        <div class="ro-bar"><span class="rl">Frontier</span><span class="rt"><span class="rf" style="width:45%;background:#49bd8d"></span></span><span class="rv">~45%</span></div>
       </div>
       <div class="ro-card">
         <h4>Recurring failures</h4>
@@ -357,8 +372,8 @@
         <div class="ro-bar"><span class="rl">Frontier</span><span class="rt"><span class="rf" style="width:9%;background:#49bd8d"></span></span><span class="rv">9%</span></div>
       </div>
     </div>
-    <p class="chart-note">BC5604's seven June callouts &mdash; the recurring fault the cockpit surfaces &mdash; is the <em>recurring-failures</em> number made concrete on one robot. Close causes instead of symptoms and all three move together.</p>
-    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6;margin-top:16px"><strong style="color:#8a6413">Directional ranges &mdash; and where they come from.</strong> These are not measured from Nissan's CMMS. They are typical ranges for each maturity tier, calibrated to <strong>public</strong> maintenance surveys, and sized to locate the gap. The pattern each number reflects is well-established publicly: most plants remain reactive/preventive-heavy, predictive adoption sits in the ~18&ndash;40% range, and asset-intensive leaders have shifted the majority of effort to condition/predictive. The engagement's next step replaces these with Nissan's own work-order and downtime data.</div>
+    <p class="chart-note">The recurring &ldquo;Spray Booth Starved&rdquo; and &ldquo;Cell Not Ready&rdquo; faults in the DTR above are the <em>recurring-failures</em> number made concrete &mdash; repeat, never-closed causes. Close causes instead of symptoms and all three of these move together.</p>
+    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6;margin-top:16px"><strong style="color:#8a6413">What's measured vs. benchmarked.</strong> <strong>Measured from Nissan's own data:</strong> the Cell&nbsp;056 maintenance mix (CMMS work-order export), the executed-predictive figure (0 predictive WOs), and the June downtime Pareto (5,503 DTR events). <strong>Public benchmark (directional):</strong> the automotive-median and reliability-frontier comparators, and the unplanned-downtime / recurring-failure ranges &mdash; calibrated to public maintenance surveys to locate the gap, not competitor data. The next step widens the measured set to Nissan's full plant history.</div>
     <p class="chart-note" style="margin-top:10px"><strong>Public sources:</strong>
       <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research (public blog)</a> &mdash; the reactive&rarr;prescriptive progression and prescriptive as the frontier;
       <a href="https://www.plantengineering.com/2018-maintenance-survey-playing-offense-and-defense/" target="_blank" rel="noopener">Plant Engineering Maintenance Survey</a> and
@@ -369,7 +384,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a directional assessment, not a survey dataset. The scale is the widely-used five-level maintenance-maturity ladder &mdash; reactive / preventive / condition-based / predictive / prescriptive &mdash; as framed in <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research's public writing</a> and standard reliability practice. Nissan's placements reflect this engagement's discovery (including that Smyrna is comparatively well-instrumented); the cross-industry frontier reflects publicly-documented oil&nbsp;&amp;&nbsp;gas / chemicals practice (remote operations centers, prescriptive maintenance). No proprietary LNS research-library data is used, and no individual company's maturity score is claimed &mdash; the matrix locates the capability gap, it does not assert decimal-precise scores.</div>
+    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a directional assessment, not a survey dataset. The scale is the widely-used five-level maintenance-maturity ladder &mdash; reactive / preventive / condition-based / predictive / prescriptive &mdash; as framed in <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research's public writing</a> and standard reliability practice. Nissan's placements reflect this engagement's discovery (including that Smyrna is comparatively well-instrumented); the cross-industry frontier reflects publicly-documented oil&nbsp;&amp;&nbsp;gas / chemicals practice (remote operations centers, prescriptive maintenance). No proprietary LNS research-library data is used, and no individual company's maturity score is claimed &mdash; the matrix locates the capability gap, it does not assert decimal-precise scores. <br><br>Where this page says <strong>&ldquo;measured&rdquo;</strong> it uses <strong>Nissan's own data</strong>, provided for this engagement: the Cell&nbsp;056 maintenance mix and executed-predictive figure from the CMMS work-order export (62 WOs / ~331 labor-hours, June; work-order types EM/CM = reactive, PM/SM = preventive); the downtime Pareto from the June DTR (5,503 events, ~120 hours); and the Senseye deployment (159 paint-shop assets) from Nissan's Siemens Senseye instance. These are Nissan's records, not third-party benchmarks. Sample sizes are one cell / one month &mdash; directional for the plant, exact for what they cover.</div>
   </div>
 </section>
 
