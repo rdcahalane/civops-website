@@ -59,6 +59,26 @@
     .ro-bar .rf{height:100%;border-radius:5px}
     .ro-bar .rv{width:40px;flex:0 0 40px;text-align:right;font-weight:800;color:#1a2433}
     .chart-note{font-size:11.5px;color:#7a8898;margin-top:12px;line-height:1.5}
+    /* deep dive accordion */
+    .dd{margin-top:20px}
+    .dd details{background:#f5f7fa;border:1px solid #e0e4ea;border-radius:10px;margin-bottom:10px}
+    .dd details[open]{background:#fff;box-shadow:0 6px 20px rgba(16,36,55,.06)}
+    .dd summary{cursor:pointer;padding:15px 18px;font-weight:800;font-size:15.5px;color:#101923;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .dd summary::-webkit-details-marker{display:none}
+    .dd summary .qt{font-size:11px;font-weight:700;color:#7a8898;text-transform:none;letter-spacing:0}
+    .dd summary::after{content:'+';color:#006394;font-size:22px;font-weight:700;line-height:1}
+    .dd details[open] summary::after{content:'\2212'}
+    .dd .dd-body{padding:2px 18px 18px;font-size:13.5px;color:#33414f;line-height:1.6}
+    .dd .dd-body p{margin:0 0 10px}
+    .dd .dd-body ul{margin:0 0 10px;padding-left:18px}
+    .dd .dd-body li{margin:4px 0}
+    .dd .dd-body .tech-matrix{margin-top:6px}
+    .dd .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:4px 0 12px}
+    @media(max-width:760px){.dd .kpis{grid-template-columns:repeat(2,1fr)}}
+    .dd .kpi{background:#0e2236;border-radius:9px;padding:12px 14px}
+    .dd .kpi b{display:block;font-size:22px;color:#fff;letter-spacing:-.02em}
+    .dd .kpi span{font-size:11px;color:#9fb6c6}
+    .dd .kpi.warn b{color:#ff9f8a}
   </style>
 </head>
 <body>
@@ -395,6 +415,178 @@
 <section class="section">
   <div class="container">
     <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a directional assessment, not a survey dataset. The scale is the widely-used five-level maintenance-maturity ladder &mdash; reactive / preventive / condition-based / predictive / prescriptive &mdash; as framed in <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research's public writing</a> and standard reliability practice. Nissan's placements reflect this engagement's discovery (including that Smyrna is comparatively well-instrumented); the cross-industry frontier reflects publicly-documented oil&nbsp;&amp;&nbsp;gas / chemicals practice (remote operations centers, prescriptive maintenance). No proprietary LNS research-library data is used, and no individual company's maturity score is claimed &mdash; the matrix locates the capability gap, it does not assert decimal-precise scores. <br><br>Where this page says <strong>&ldquo;measured&rdquo;</strong> it uses <strong>Nissan's own data</strong>, provided for this engagement: the Cell&nbsp;056 maintenance mix and executed-predictive figure from the CMMS work-order export (62 WOs / ~331 labor-hours, June; work-order types EM/CM = reactive, PM/SM = preventive); the downtime Pareto from the June DTR (5,503 events, ~120 hours); and the Senseye deployment (159 paint-shop assets) from Nissan's Siemens Senseye instance. These are Nissan's records, not third-party benchmarks. Sample sizes are one cell / one month &mdash; directional for the plant, exact for what they cover.</div>
+  </div>
+</section>
+
+<section class="section" style="border-top:1px solid #e0e4ea">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:6px">
+      <div class="section-title"><span class="eyebrow">Deep dive</span><h2 style="font-size:30px">Holistic productivity &amp; operating-model maturity</h2></div>
+    </div>
+    <p class="page-deck" style="margin-top:0">The matrix above is the verdict. This is the work behind it &mdash; the financial context, the US footprint, the capacity-utilization math, the peer comparison, and the honest read on Nissan's AI narrative versus what the operating data shows. Compiled from public financial results, manufacturing communications, and industry reporting (2023&ndash;2026); the plant-floor figures use the Smyrna CMMS / DTR / Senseye data provided for this engagement.</p>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc"><strong style="color:#10324b">Why it belongs here.</strong> The productivity gap isn't a plant-floor problem alone &mdash; it sits inside a company in survival-mode restructuring. Reading the maturity scores without the financial and footprint context overstates how much discretionary capital is available to close the gap, and understates why a low-capital, reuse-what-exists path (the rest of this site) is the realistic one.</div>
+
+    <div class="dd">
+      <details open>
+        <summary>1 &nbsp; Financial context &mdash; the Re:Nissan turnaround <span class="qt">survival-mode restructuring</span></summary>
+        <div class="dd-body">
+          <div class="kpis">
+            <div class="kpi"><b>0.5%</b><span>FY2025 operating margin</span></div>
+            <div class="kpi warn"><b>&minus;&yen;533B</b><span>net income (~&minus;$3.4B)</span></div>
+            <div class="kpi"><b>3.15M</b><span>global units sold</span></div>
+            <div class="kpi warn"><b>17 &rarr; 10</b><span>manufacturing sites (planned)</span></div>
+          </div>
+          <p>For fiscal 2025 (ending March 2026) Nissan delivered a positive operating profit of &yen;58.0&nbsp;billion on a razor-thin 0.5% margin, with consolidated revenue of &yen;12.0&nbsp;trillion. Net income was negative at &minus;&yen;533.1&nbsp;billion &mdash; an improvement on the prior year's &minus;&yen;670.9&nbsp;billion, but not yet a recovery.</p>
+          <p>The <strong>Re:Nissan</strong> plan is aggressive and cost-led: cut global production capacity by ~1&nbsp;million units; consolidate the footprint from 17 to 10 sites; drive fixed-cost reductions past $1.0B toward a $1.6B target; reduce R&amp;D cost-per-hour ~20%; and reduce headcount by ~20,000 (~15% of global staff) by 2027, against a ~&yen;500B (~$3.4B) cost-cutting target.</p>
+          <p><strong>Assessment:</strong> this is a company in survival-mode restructuring, not growth-mode investment. A 0.5% operating margin leaves essentially zero room for discretionary capital deployment into advanced manufacturing systems at US plants &mdash; which is exactly why a reuse-what-exists, low-capital path matters.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>2 &nbsp; US manufacturing footprint &mdash; asset age &amp; condition <span class="qt">aging infrastructure</span></summary>
+        <div class="dd-body">
+          <table class="tech-matrix">
+            <thead><tr><th>Facility</th><th>Opened</th><th>Age</th><th>Capacity</th><th>Key products</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Smyrna, TN</strong></td><td>1983</td><td>43 years</td><td>640,000 veh/yr</td><td class="small-cell">Rogue, Pathfinder, Murano, LEAF, QX60</td></tr>
+              <tr><td><strong>Canton, MS</strong></td><td>2003</td><td>23 years</td><td>400,000 veh/yr</td><td class="small-cell">Altima, Frontier</td></tr>
+              <tr><td><strong>Decherd, TN</strong></td><td>1997</td><td>29 years</td><td>Powertrain</td><td class="small-cell">Engines, components</td></tr>
+            </tbody>
+          </table>
+          <p>The first US-built Nissan &mdash; a white 720 pickup &mdash; rolled off the Smyrna line on June&nbsp;16, 1983. Collectively these plants have built nearly 20&nbsp;million vehicles and 13&nbsp;million engines. Smyrna alone has drawn &gt;$8&nbsp;billion of cumulative investment over 44 years and supports ~5,700 jobs, with a workforce exceeding 7,000.</p>
+          <p>But market conditions are forcing shift eliminations at both Smyrna and Canton. <strong>Critical observation:</strong> when a 43-year-old plant sheds shifts, capacity utilization drops &mdash; and with it the denominator that drives every productivity metric. A plant designed for 640K units running on reduced shifts burns fixed cost per unit at an accelerating rate.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>3 &nbsp; Capacity utilization &mdash; the productivity denominator <span class="qt">~50&ndash;58% implied</span></summary>
+        <div class="dd-body">
+          <p>At the macro level, US manufacturing capacity utilization sits at ~75.7% &mdash; about 2.5 points below its 1972&ndash;2025 average. For Nissan specifically the picture is worse:</p>
+          <ul>
+            <li>Combined installed capacity ~1.04M units across Smyrna + Canton.</li>
+            <li>With shift eliminations, effective production is likely running in the 500K&ndash;600K range.</li>
+            <li>Implied utilization: <strong>~50&ndash;58%</strong> &mdash; dramatically below the ~76% national manufacturing average, and far below Toyota's historical benchmark of running assembly plants at 95&ndash;108% of capacity.</li>
+          </ul>
+          <p>Utilization is the denominator under HPV, OEE, and unit cost. At ~55%, fixed cost per unit is structurally high before a single reliability or digital improvement is considered &mdash; which is why footprint rationalization is the right first lever, and why the remaining plants must run leaner to justify their fixed base.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>4 &nbsp; Peer comparison &mdash; hours per vehicle &amp; OEE <span class="qt">a lead that eroded</span></summary>
+        <div class="dd-body">
+          <p>Historically Nissan was a productivity <em>leader</em> &mdash; Ron Harbour once put its lead at a $300&ndash;$450/vehicle cost advantage. That advantage has eroded structurally.</p>
+          <table class="tech-matrix">
+            <thead><tr><th>Metric</th><th>Nissan (est.)</th><th>Toyota</th><th>Honda</th><th>Industry avg</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Capacity utilization</strong></td><td>~50&ndash;58% (US)</td><td>85&ndash;95%</td><td>80&ndash;90%</td><td>~76%</td></tr>
+              <tr><td><strong>OEE</strong></td><td class="small-cell">Not disclosed</td><td class="small-cell">World-class TPS</td><td>Strong</td><td class="small-cell">60&ndash;70% avg; 85% world-class</td></tr>
+              <tr><td><strong>Operating margin</strong></td><td>0.5%</td><td>~8&ndash;10%</td><td>~6&ndash;8%</td><td>Varies</td></tr>
+              <tr><td><strong>HPV trend</strong></td><td>Degrading</td><td class="small-cell">Stable / improving</td><td>Stable</td><td>Narrowing</td></tr>
+            </tbody>
+          </table>
+          <p>Toyota Production System lineage dominates Japanese-OEM OEE methodology. Nissan Production Way &mdash; though TPS-influenced &mdash; has not kept pace with Toyota's continuous-kaizen culture or Honda's flexibility, particularly in US operations.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>5 &nbsp; AI &amp; predictive maintenance &mdash; what's real vs. PR <span class="qt">the alignment gap, up close</span></summary>
+        <div class="dd-body">
+          <p><strong>What Nissan claims:</strong> a 2022 Acerta partnership for AI that anticipates engine-component failures, with reported outcomes of ~30% less unscheduled downtime, higher MTBF, ~25% lower maintenance cost, and standardized protocols across regions; real-time ergonomic-risk cameras; and a first-mover commitment to embed Wayve's AI in production vehicles. The AI push is explicitly framed as a turnaround play.</p>
+          <p style="font-weight:800;color:#10324b;margin-bottom:6px">Reality Check &mdash; where the claims break down:</p>
+          <ul>
+            <li><strong>The predictive-maintenance deployments are point solutions, not an operating model.</strong> Acerta targets engine-component failure at specific lines; Siemens <strong>Senseye</strong> (verified live on 159 Smyrna paint-shop assets in this engagement) covers paint. Real tools &mdash; but pockets, not a plant-wide, asset-class-wide architecture, and not closing the loop: Cell&nbsp;056's executed maintenance is still ~80% reactive with zero predictive work orders.</li>
+            <li><strong>If it were delivering at scale, it would show in the P&amp;L.</strong> A 0.5% operating margin is hard to reconcile with plant-wide 30% downtime reduction.</li>
+            <li><strong>No evidence of a digital twin, deep MES/OT integration, or a digital thread</strong> in US operations. Smyrna's 36 miles of conveyors, AGVs, and 1,500 six-axis robots are impressive &mdash; but that's legacy automation, not AI-driven adaptive manufacturing.</li>
+            <li><strong>The Canton "factory of the future" language is aspirational.</strong> The $500M EV conversion (announced 2022 for 2025 delivery) is delayed into a very different market.</li>
+            <li><strong>No IEC&nbsp;62443 / OT-security certification visibility</strong> for any US facility &mdash; a leading indicator of digital-manufacturing maturity.</li>
+          </ul>
+          <table class="tech-matrix">
+            <thead><tr><th>Capability</th><th>Nissan</th><th>Toyota</th><th>Hyundai-Kia</th></tr></thead>
+            <tbody>
+              <tr><td>Predictive maintenance</td><td class="small-cell">Point solutions (Acerta engines; Senseye paint) &mdash; loop not closed</td><td class="small-cell">TPS-integrated TPM + digital</td><td class="small-cell">K-Smart Factory program</td></tr>
+              <tr><td>Digital twin</td><td>No evidence</td><td class="small-cell">Advanced (virtual commissioning)</td><td class="small-cell">Deployed at multiple plants</td></tr>
+              <tr><td>OEE measurement</td><td class="small-cell">Not disclosed</td><td class="small-cell">Real-time, TPS-native</td><td class="small-cell">Government-supported</td></tr>
+              <tr><td>MES/OT integration</td><td>Legacy automation</td><td>Integrated</td><td class="small-cell">New-build smart factories</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details>
+        <summary>6 &nbsp; Operating Model Digital Maturity <span class="qt">~1.8 / 5 overall</span></summary>
+        <div class="dd-body">
+          <table class="tech-matrix">
+            <thead><tr><th>Dimension</th><th>Nissan US score</th><th>Evidence</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Connected Workforce</strong></td><td>2 / 5</td><td class="small-cell">Cobot deployment, ergonomic cameras &mdash; but no connected-worker platform</td></tr>
+              <tr><td><strong>Asset Performance Management</strong></td><td>2 / 5</td><td class="small-cell">Acerta (engines) + Senseye (paint, 159 assets) &mdash; real but pocketed; no unified plant-wide APM, execution still reactive</td></tr>
+              <tr><td><strong>Quality 4.0</strong></td><td>1.5 / 5</td><td class="small-cell">Traditional quality systems; no closed-loop AI quality</td></tr>
+              <tr><td><strong>Digital Thread</strong></td><td>1 / 5</td><td class="small-cell">No evidence of design-to-manufacture digital continuity in US operations</td></tr>
+              <tr><td><strong>Supply Chain Visibility</strong></td><td>2 / 5</td><td class="small-cell">Alliance procurement leverage but no real-time control tower</td></tr>
+              <tr><td><strong>Energy / Sustainability</strong></td><td>2.5 / 5</td><td class="small-cell">Smyrna solar farm; carbon-neutral-by-2050 target</td></tr>
+              <tr><td><strong>Overall Digital Maturity</strong></td><td><strong>~1.8 / 5</strong></td><td class="small-cell"><strong>Early-stage digital, well behind peers</strong></td></tr>
+            </tbody>
+          </table>
+          <p>Scored against a standard industrial-transformation maturity model (0&ndash;5). The headline: strong instrumentation and real point-tools (Senseye, Acerta) sit on top of an early-stage digital operating model &mdash; the tooling is ahead of the operating model that would turn it into productivity.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>7 &nbsp; The alignment gap &mdash; narrative vs. operational reality <span class="qt">the gap is stark</span></summary>
+        <div class="dd-body">
+          <table class="tech-matrix">
+            <thead><tr><th>What Nissan says</th><th>What the data shows</th></tr></thead>
+            <tbody>
+              <tr><td>&ldquo;Factory of the future&rdquo; (Canton)</td><td class="small-cell">$500M EV conversion delayed; shift elimination; facility is 23 years old</td></tr>
+              <tr><td>&ldquo;AI-powered predictive maintenance&rdquo;</td><td class="small-cell">Point deployments (Acerta engines, Senseye paint); no visible P&amp;L impact; loop not closed</td></tr>
+              <tr><td>&ldquo;Safest and most innovative factories&rdquo;</td><td class="small-cell">43-year-old Smyrna; no disclosed OEE; utilization ~50&ndash;58%</td></tr>
+              <tr><td>&ldquo;Entering growth phase&rdquo;</td><td class="small-cell">Net loss of ~&yen;533B (~$3.3B) for FY2025</td></tr>
+              <tr><td>&ldquo;5,000+ cost-reduction initiatives&rdquo;</td><td class="small-cell">Mostly procurement and headcount, not manufacturing transformation</td></tr>
+              <tr><td>&ldquo;Mobility-intelligence AI vision&rdquo;</td><td class="small-cell">Overwhelmingly product/vehicle AI (autonomous, in-cabin) &mdash; not manufacturing AI</td></tr>
+            </tbody>
+          </table>
+          <p><strong>The gap is stark.</strong> Nissan's AI narrative is overwhelmingly product/vehicle-focused. The manufacturing-AI story is thin &mdash; a couple of predictive-maintenance deployments and ergonomic cameras. There is no evidence of a systematic, plant-wide digital-manufacturing transformation in US operations.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>8 &nbsp; Recommendations <span class="qt">immediate &rarr; strategic</span></summary>
+        <div class="dd-body">
+          <p style="font-weight:800;color:#10324b;margin-bottom:4px">Immediate (0&ndash;90 days)</p>
+          <ul>
+            <li><strong>Commission an independent asset-health assessment for Smyrna and Canton.</strong> A 43-year-old plant at ~55% utilization with shift cuts needs a candid condition-based read on critical assets (stamping presses, paint systems, body-shop robots, conveyors). Cascading-failure risk on aging equipment during a cost-cutting period is elevated.</li>
+            <li><strong>Extend predictive maintenance from point solutions to plant-wide APM.</strong> If the engine-line downtime gains are real, the ROI case for body shop, paint, and final assembly is compelling &mdash; 95% of predictive-maintenance adopters report positive ROI, 27% with payback under a year.</li>
+            <li><strong>Implement and disclose real-time OEE.</strong> Not publicly reporting US OEE &mdash; while Toyota's whole system is built around it &mdash; is a red flag. Even knowing where they stand drives accountability.</li>
+          </ul>
+          <p style="font-weight:800;color:#10324b;margin:12px 0 4px">Medium-term (90&ndash;365 days)</p>
+          <ul>
+            <li><strong>Separate &ldquo;manufacturing AI&rdquo; from &ldquo;product AI&rdquo; in the investor narrative.</strong> Blending autonomous-driving AI with factory AI creates a false impression of manufacturing digital maturity.</li>
+            <li><strong>Evaluate a digital twin for Smyrna body shop and paint</strong> &mdash; the highest-value, highest-downtime-risk areas, and the ones with the most existing data to build on.</li>
+            <li><strong>Benchmark against Hyundai-Kia's K-Smart Factory program</strong> &mdash; a direct competitive threat, especially with Hyundai's greenfield Georgia smart plant.</li>
+          </ul>
+          <p style="font-weight:800;color:#10324b;margin:12px 0 4px">Strategic (1&ndash;3 years)</p>
+          <ul>
+            <li><strong>Reassess the Canton &ldquo;factory of the future&rdquo; thesis</strong> against the current market &mdash; and weigh whether Smyrna, with its larger footprint and product diversification, deserves the digital-showcase investment instead.</li>
+            <li><strong>Address the operating-model maturity debt.</strong> At ~1.8/5, Nissan sits 2&ndash;3 years behind Toyota and Hyundai-Kia. The AI-enabled-vs-traditional productivity gap is structural, not temporary &mdash; better data &rarr; better decisions &rarr; more data. Every quarter of delay widens it.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="grid-2" style="margin-top:22px">
+      <div class="panel">
+        <span class="eyebrow">Bottom line</span>
+        <h2 style="font-size:24px">A cost play, not yet a competitiveness play</h2>
+        <p style="margin:0 0 10px">Nissan is fighting for survival while trying to tell an innovation story. Re:Nissan is rightly focused on cost and footprint &mdash; but the manufacturing-technology narrative is thin. The AI claims are real yet narrow, the US plants are old and under-utilized, and there's no visible path from &ldquo;point-solution predictive maintenance&rdquo; to &ldquo;digitally transformed manufacturing.&rdquo;</p>
+        <p style="margin:0">The risk: exit the restructuring with a leaner cost base but the <strong>same legacy operating model</strong> &mdash; just with fewer plants running it. Cost-cutting alone won't close a productivity gap that widens every year.</p>
+      </div>
+      <div class="panel dark">
+        <h3 style="margin-top:0">Which is why this program is shaped the way it is</h3>
+        <p style="margin:0 0 10px">Given a 0.5% margin and aging, under-utilized plants, the only credible path is <strong style="color:#9fd6ff">low-capital and reuse-first</strong>: keep CIMPLICITY and the existing controls, add the missing middle (a Unified Namespace + one event record), and turn the monitoring Nissan already owns &mdash; Senseye, historians, the DTR &mdash; into closed causes and disclosed OEE.</p>
+        <p style="margin:0">That's the difference between a cost play and a competitiveness play &mdash; and it's the plan on <a href="architecture.html" style="color:#9fd6ff">the rest of this site</a>.</p>
+      </div>
+    </div>
+    <p class="chart-note" style="margin-top:16px"><strong>Sources.</strong> Compiled from public sources &mdash; Nissan financial results and manufacturing communications (usa.nissannews.com, NissanManufacturing.com), the Q4&nbsp;FY2025 earnings call, Federal Reserve capacity-utilization data (G.17), Harbour/industry HPV reporting, and automotive OEE / smart-factory analyses (2023&ndash;2026) &mdash; plus the Smyrna CMMS, DTR, and Senseye data provided for this engagement. Financial and macro figures are public; plant-floor figures are Nissan's own records for Cell&nbsp;056 / the paint shop.</p>
   </div>
 </section>
 
