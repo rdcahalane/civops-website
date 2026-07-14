@@ -186,6 +186,28 @@
   </div>
 </section>
 
+<!-- ===================== i3X COMPLIANCE ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Standards, honestly</span><h2>How i3X-compliant is each schema, really?</h2></div>
+      <p class="section-copy">"i3X-compliant" should mean a schema conforms to a published, machine-readable information model — an OPC&nbsp;UA Companion Specification or a CESMII SM Profile — not just that it's named after a standard. By that bar, three of the five sit on real companion specs, one is base-compliant with custom extensions, and one is grounded in a measurement standard that isn't an information model at all. Stated plainly: <strong>none is a <em>certified</em> SM Profile yet</strong> — certification means registering and validating the type model, a defined next step, not a repaint.</p>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Equipment</th><th>Grounded in</th><th>i3X information-model status</th></tr></thead>
+      <tbody>
+        <tr><td>ABB paint robot</td><td class="small-cell">OPC 40010 — OPC UA for Robotics (a full companion spec)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Genuine information model to conform to</td></tr>
+        <tr><td>Paint shop conveyor</td><td class="small-cell">VDMA 40001 — OPC UA for Machinery (+ PackML / ISA-88 state model)</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Machinery model + standardized states</td></tr>
+        <tr><td>Fascia punch / press</td><td class="small-cell">OPC 40001-2 — OPC UA Metal Forming</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2f9e6e;border-radius:7px;padding:2px 9px;margin-right:8px">On track</span>Real companion spec</td></tr>
+        <tr><td>Bodyshop spot-weld robot</td><td class="small-cell">OPC 40010 base (robotics) + custom weld-process fields</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#d9851f;border-radius:7px;padding:2px 9px;margin-right:8px">Partial</span>Base compliant; weld fields vendor-defined</td></tr>
+        <tr><td>Final-assembly torque station</td><td class="small-cell">ISO 5393 — a torque measurement / terminology standard</td><td class="small-cell"><span style="display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#c0564b;border-radius:7px;padding:2px 9px;margin-right:8px">Weakest</span>Not an information model to comply with</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="margin-top:16px"><strong>The one clean fix:</strong> re-ground the torque station on the <strong>OPC&nbsp;UA Companion Specification for Tightening / Joining Systems</strong> (an actual information model) instead of ISO&nbsp;5393 — that moves it onto the same compliance track as the robots and machinery. Everywhere else, the honest label is "standards-grounded, SM-Profile-track," not "certified."</div>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc;margin-top:14px"><strong style="color:#10324b">Worth knowing —</strong> <strong>Toyota is reportedly running a very similar UNS / information-model exercise, and may be open to collaborating or sharing that work.</strong> A cross-OEM push on common OPC&nbsp;UA companion-spec profiles would let Nissan adopt proven, shared models rather than define them alone — turning "standards-grounded" into "industry-aligned."</div>
+  </div>
+</section>
+
 <!-- ===================== 1. HIGHBYTE LIVE ===================== -->
 <section class="section">
   <div class="container">
