@@ -76,11 +76,26 @@
   </div>
 </header>
 
-<section class="page-intro">
-  <div class="container">
-    <div class="breadcrumbs"><a href="index.html">Overview</a> / Operations Cockpit</div>
-    <h1 class="page-title">Operations Cockpit</h1>
-    <p class="page-deck">Representative view of what real-time OEE visibility looks like at the plant level — JPH performance, uptime and downtime by cause, quality yield, and Help/Call status, all in one screen. Data shown is illustrative; the functional specification defines the exact sources, tags, and update rates.</p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Plant operations &mdash; OEE visibility</div>
+      <h1>Operations Cockpit</h1>
+      <p class="lead">Representative view of what real-time OEE visibility looks like at the plant level &mdash; JPH performance, uptime and downtime by cause, quality yield, and Help/Call status, all in one screen. Data shown is illustrative; the functional specification defines the exact sources, tags, and update rates.</p>
+      <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+        <a href="decision.html" class="btn-primary">See the approach</a>
+        <a href="roi.html" class="btn-secondary">See the ROI case</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="tag blue">Brooksource point of view</div>
+      <div class="answer">Operations visibility should never be a mystery. Cycle time performance, uptime vs. downtime, and quality yield &mdash; visible in real time to everyone from team member to plant manager. The data already exists. The missing layer is a structured, unified way to surface it.</div>
+      <div class="decision-band">
+        <div class="decision-cell"><strong>OEE as the lens</strong><small>JPH performance, uptime %, downtime cause, and quality yield &mdash; measured at the line, area, and asset level, minute by minute.</small></div>
+        <div class="decision-cell"><strong>Unified data backbone</strong><small>Plant historian, downtime system, and quality inspection are distinct sources. A universal translation layer connects them without replacing them.</small></div>
+        <div class="decision-cell"><strong>Help/Call that acts</strong><small>Auto-trigger on stop-state where possible. Highly visible across the line. Response time tracked. Never dependent on someone remembering to call.</small></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -100,41 +115,17 @@
         <div class="fo-screen-head">
           <div class="fo-screen-title">OEE Summary &middot; Current Shift</div>
           <div class="fo-toggle">
-            <div class="fo-seg active">Paint — Cell A</div>
+            <div class="fo-seg active">Paint &mdash; Cell A</div>
             <div class="fo-seg">Fascia operations</div>
           </div>
         </div>
         <div class="fo-grid">
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Actual JPH</div>
-            <div class="fo-kpi-val fo-yellow">47</div>
-            <div class="fo-kpi-sub">Target 52 JPH &middot; &minus;5 gap</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Uptime %</div>
-            <div class="fo-kpi-val fo-orange">88.3%</div>
-            <div class="fo-kpi-sub">Target 94% &middot; 11.7% lost</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Quality Yield</div>
-            <div class="fo-kpi-val fo-green">96.2%</div>
-            <div class="fo-kpi-sub">14 defects &middot; 3 rework loops</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">OEE</div>
-            <div class="fo-kpi-val fo-orange">75.1%</div>
-            <div class="fo-kpi-sub">Target 83% &middot; availability driving gap</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Units Built</div>
-            <div class="fo-kpi-val fo-green">282</div>
-            <div class="fo-kpi-sub">Target 312 &middot; 30 unit gap</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Open Help Calls</div>
-            <div class="fo-kpi-val fo-red">3</div>
-            <div class="fo-kpi-sub">Avg response 8.4 min this shift</div>
-          </div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Actual JPH</div><div class="fo-kpi-val fo-yellow">47</div><div class="fo-kpi-sub">Target 52 JPH &middot; &minus;5 gap</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Uptime %</div><div class="fo-kpi-val fo-orange">88.3%</div><div class="fo-kpi-sub">Target 94% &middot; 11.7% lost</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Quality Yield</div><div class="fo-kpi-val fo-green">96.2%</div><div class="fo-kpi-sub">14 defects &middot; 3 rework loops</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">OEE</div><div class="fo-kpi-val fo-orange">75.1%</div><div class="fo-kpi-sub">Target 83% &middot; availability driving gap</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Units Built</div><div class="fo-kpi-val fo-green">282</div><div class="fo-kpi-sub">Target 312 &middot; 30 unit gap</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Open Help Calls</div><div class="fo-kpi-val fo-red">3</div><div class="fo-kpi-sub">Avg response 8.4 min this shift</div></div>
         </div>
         <div class="fo-two">
           <div class="fo-bar-wrap">
@@ -167,26 +158,10 @@
           </div>
         </div>
         <div class="fo-grid">
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Total downtime</div>
-            <div class="fo-kpi-val fo-orange">79 min</div>
-            <div class="fo-kpi-sub">11.7% of shift so far</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Events</div>
-            <div class="fo-kpi-val fo-yellow">31</div>
-            <div class="fo-kpi-sub">18 micro &middot; 13 major</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Longest stop</div>
-            <div class="fo-kpi-val fo-red">18 min</div>
-            <div class="fo-kpi-sub">Cell A &mdash; robot hi-slope fault</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">MTBF this shift</div>
-            <div class="fo-kpi-val fo-yellow">14.2 min</div>
-            <div class="fo-kpi-sub">Target &gt;25 min</div>
-          </div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Total downtime</div><div class="fo-kpi-val fo-orange">79 min</div><div class="fo-kpi-sub">11.7% of shift so far</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Events</div><div class="fo-kpi-val fo-yellow">31</div><div class="fo-kpi-sub">18 micro &middot; 13 major</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Longest stop</div><div class="fo-kpi-val fo-red">18 min</div><div class="fo-kpi-sub">Cell A &mdash; robot hi-slope fault</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">MTBF this shift</div><div class="fo-kpi-val fo-yellow">14.2 min</div><div class="fo-kpi-sub">Target &gt;25 min</div></div>
         </div>
         <div class="fo-two">
           <div class="fo-bar-wrap">
@@ -222,26 +197,10 @@
           </div>
         </div>
         <div class="fo-grid">
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">First-pass yield</div>
-            <div class="fo-kpi-val fo-green">96.2%</div>
-            <div class="fo-kpi-sub">Target 98% &middot; 1.8pt gap</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Total defects</div>
-            <div class="fo-kpi-val fo-yellow">14</div>
-            <div class="fo-kpi-sub">9 end-of-line &middot; 5 in-process</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Rework loops</div>
-            <div class="fo-kpi-val fo-orange">3</div>
-            <div class="fo-kpi-sub">Avg 12 min per loop</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Defects per unit</div>
-            <div class="fo-kpi-val fo-yellow">0.050</div>
-            <div class="fo-kpi-sub">Target &lt;0.030</div>
-          </div>
+          <div class="fo-kpi"><div class="fo-kpi-label">First-pass yield</div><div class="fo-kpi-val fo-green">96.2%</div><div class="fo-kpi-sub">Target 98% &middot; 1.8pt gap</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Total defects</div><div class="fo-kpi-val fo-yellow">14</div><div class="fo-kpi-sub">9 end-of-line &middot; 5 in-process</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Rework loops</div><div class="fo-kpi-val fo-orange">3</div><div class="fo-kpi-sub">Avg 12 min per loop</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Defects per unit</div><div class="fo-kpi-val fo-yellow">0.050</div><div class="fo-kpi-sub">Target &lt;0.030</div></div>
         </div>
         <div class="fo-two">
           <div class="fo-q">
@@ -269,26 +228,10 @@
           <div class="fo-screen-title">Help / Call Status &middot; Current Shift</div>
         </div>
         <div class="fo-grid">
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Open calls</div>
-            <div class="fo-kpi-val fo-red">3</div>
-            <div class="fo-kpi-sub">2 auto-triggered &middot; 1 manual</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Avg response time</div>
-            <div class="fo-kpi-val fo-yellow">8.4 min</div>
-            <div class="fo-kpi-sub">Target &lt;5 min</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Resolved this shift</div>
-            <div class="fo-kpi-val fo-green">18</div>
-            <div class="fo-kpi-sub">Avg resolution 22 min</div>
-          </div>
-          <div class="fo-kpi">
-            <div class="fo-kpi-label">Auto-triggered</div>
-            <div class="fo-kpi-val fo-green">71%</div>
-            <div class="fo-kpi-sub">15 of 21 calls this shift</div>
-          </div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Open calls</div><div class="fo-kpi-val fo-red">3</div><div class="fo-kpi-sub">2 auto-triggered &middot; 1 manual</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Avg response time</div><div class="fo-kpi-val fo-yellow">8.4 min</div><div class="fo-kpi-sub">Target &lt;5 min</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Resolved this shift</div><div class="fo-kpi-val fo-green">18</div><div class="fo-kpi-sub">Avg resolution 22 min</div></div>
+          <div class="fo-kpi"><div class="fo-kpi-label">Auto-triggered</div><div class="fo-kpi-val fo-green">71%</div><div class="fo-kpi-sub">15 of 21 calls this shift</div></div>
         </div>
         <div class="fo-help-grid">
           <div class="fo-help-card">
@@ -332,6 +275,50 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<section class="section" id="problem">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="eyebrow">The challenge</span>
+        <h2>What is holding the plant back</h2>
+      </div>
+      <p class="section-copy">The plant operates with experienced teams and high-output equipment. But the data infrastructure hasn&rsquo;t kept pace with the operational complexity. The result is reactive response, OEE numbers that don&rsquo;t reflect reality, and lost time hunting for answers that already exist &mdash; in separate systems, on separate clocks.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="tag orange">Problem 1</div>
+        <h3>OEE numbers don&rsquo;t reflect reality</h3>
+        <p>Reported OEE excludes quality losses and relies on buffers and manual entry. The methodology needs to be defined accurately before any improvement program can be measured.</p>
+      </div>
+      <div class="proof-card">
+        <div class="tag orange">Problem 2</div>
+        <h3>Downtime is logged, not understood</h3>
+        <p>Downtime events are recorded but the upstream cause is frequently lost. A stop at one station is logged at the station &mdash; not traced to the constraint that caused it.</p>
+      </div>
+      <div class="proof-card">
+        <div class="tag orange">Problem 3</div>
+        <h3>Quality and throughput are siloed</h3>
+        <p>Quality defects live in inspection systems. Throughput lives in the historian. No single view connects a quality trend to the asset, shift, or part configuration that produced it.</p>
+      </div>
+      <div class="proof-card">
+        <div class="tag orange">Problem 4</div>
+        <h3>Help/Call is informal</h3>
+        <p>Downtime response depends on who notices and who calls. There is no automatic trigger, no visibility into open calls, and no data on response time by area or shift.</p>
+      </div>
+      <div class="proof-card">
+        <div class="tag orange">Problem 5</div>
+        <h3>Data is trapped in separate systems</h3>
+        <p>Historian, downtime system, and quality tools each hold part of the picture. Getting a complete view requires manual correlation &mdash; too slow for real-time decisions.</p>
+      </div>
+      <div class="proof-card">
+        <div class="tag orange">Problem 6</div>
+        <h3>No common operating picture</h3>
+        <p>Team members, supervisors, and managers see different versions of performance. The same shift looks different depending on which system you check and when you check it.</p>
+      </div>
+    </div>
   </div>
 </section>
 
