@@ -67,7 +67,7 @@
     <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
     <p class="page-deck">Not a slide of logos — a working system. Two independent OT sources — Nissan Smyrna's own <strong>Cimplicity</strong> SCADA and an <strong>Ignition</strong> stand-in for the non-Cimplicity plant areas — publish over OPC&nbsp;UA into a single, standards-governed Unified Namespace. HighByte Intelligence Hub runs that namespace; a second, independent vendor (MaestroHub) reads the exact same feed with zero translation; and Humble's Eva reads it to reason over causal chains, rank interventions, and answer questions against the live database — the actual maintenance-cockpit value. The point of the two-source, two-reader shape: neither the source you have nor the platform you pick ever gates the value.</p>
     <div class="scope-callout">
-      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing right now (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. We are now bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte; the Cimplicity OPC&nbsp;UA feed is being wired to those instances. Telemetry values shown are representative/simulated until source tags are bound. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
+      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing right now (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. We are now bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte. Telemetry values shown are representative/simulated until source tags are bound. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
     </div>
   </div>
 </section>
@@ -211,8 +211,8 @@
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">2 — Nissan's real SCADA on the same spine</span><h2>Cimplicity — the asset model is real, the feed is coming onto the UNS</h2></div>
-      <p class="section-copy">The asset structure isn't invented — it's generated directly from Nissan Smyrna's own Cimplicity Shared Name File exports and already sits in HighByte as Models and Instances: all 10 real Base Coat robots (BC5601&ndash;BC5610), organized exactly the way Cimplicity organizes them. The same Cimplicity project's OPC&nbsp;UA server (None/Anonymous, on Beast) is being wired to feed those instances live — the last hop from "modeled from the real export" to "streaming from the real SCADA."</p>
+      <div class="section-title"><span class="eyebrow">2 — Nissan's real SCADA on the same spine</span><h2>Cimplicity — Nissan's real Base Coat robots, from the plant's own export</h2></div>
+      <p class="section-copy">The asset structure isn't invented — it's generated directly from Nissan Smyrna's own Cimplicity Shared Name File exports and already sits in HighByte as Models and Instances: all 10 real Base Coat robots (BC5601&ndash;BC5610), organized exactly the way Cimplicity organizes them.</p>
     </div>
     <div class="secondary-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="poc-card">
@@ -409,7 +409,6 @@
     <div class="panel dark">
       <h3 style="margin-top:0">What's still ahead before this is Nissan's real system</h3>
       <ul>
-        <li>Finish the Cimplicity OPC&nbsp;UA feed into the Cell&nbsp;056 instances (asset model already built from the real export) — the in-progress last hop from modeled to streaming.</li>
         <li>Bind the model attributes to live source tags instead of representative values, once source access is confirmed. Detail on the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
         <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
         <li>Decide the platform of record on Nissan's own timeline — this page's whole point is that decision no longer has to gate operator and maintenance value.</li>
