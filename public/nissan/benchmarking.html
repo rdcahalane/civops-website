@@ -59,6 +59,10 @@
     .ro-bar .rf{height:100%;border-radius:5px}
     .ro-bar .rv{width:40px;flex:0 0 40px;text-align:right;font-weight:800;color:#1a2433}
     .chart-note{font-size:11.5px;color:#7a8898;margin-top:12px;line-height:1.5}
+    /* let the intro + section decks use the full content width (was globally capped at 760px) */
+    .page-deck{max-width:none}
+    /* give scope-callouts a real box (padding, radius, border) + separation from the paragraph above */
+    .scope-callout{padding:15px 18px;border:1px solid #e0e4ea;border-radius:10px;background:#f5f7fa;margin-top:18px;font-size:14px;line-height:1.55;color:#33414f}
     /* deep dive accordion */
     .dd{margin-top:20px}
     .dd details{background:#f5f7fa;border:1px solid #e0e4ea;border-radius:10px;margin-bottom:10px}
@@ -107,8 +111,9 @@
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Benchmarks</div>
     <h1 class="page-title">Where Nissan stands &mdash; the productivity benchmark</h1>
-    <p class="page-deck">Before the architecture, the honest question: how is Nissan performing versus the field? We answer it at two levels. First, the <strong>macro</strong>: LNS Research's <strong>Industrial Productivity Index (IPI)</strong> scores 671 public manufacturers &mdash; Nissan against its passenger-vehicle peers, the broad auto industry, and the productivity frontier. Then we <strong>drill beneath the number</strong> into an <strong>asset-health &amp; reliability maturity matrix</strong> &mdash; the operating capabilities that actually produce the gap, benchmarked not just against other automakers but against the industries that mastered reliability first: oil &amp; gas, chemicals, and power.</p>
+    <p class="page-deck">Before the architecture, the honest question: how is Nissan performing versus the field? We answer it at three levels, each more specific than the last. First, the <strong>macro</strong>: LNS Research's <strong>Industrial Productivity Index (IPI)</strong> scores 671 public manufacturers &mdash; Nissan against its passenger-vehicle peers, the broad auto industry, and the productivity frontier. Then we <strong>drill beneath the number</strong> into an <strong>asset-health &amp; reliability maturity matrix</strong> &mdash; the operating capabilities that actually produce the gap, benchmarked not just against other automakers but against the industries that mastered reliability first: oil&nbsp;&amp;&nbsp;gas, chemicals, and power. And where we can, we stop benchmarking and start <strong>measuring</strong>: the maintenance mix, downtime, and predictive posture below come from <strong>Nissan Smyrna's own CMMS, downtime records, and Senseye</strong> &mdash; not estimates. The <strong>Deep Dive</strong> at the foot of the page carries the full financial, footprint, and digital-maturity assessment behind the verdict.</p>
     <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc"><strong style="color:#10324b">The point of this page:</strong> not a report card &mdash; a <strong>measurable gap</strong>. It sizes what the operational-excellence and Unified-Namespace work in the rest of this site exists to close, and gives a number to move.</div>
+    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6"><strong style="color:#8a6413">One piece still to come.</strong> A <strong>CESMII Smart Manufacturing (SM) maturity assessment</strong> &mdash; the standards-based capability scorecard that pairs with the SM&nbsp;Profiles + i3X spine used across this site &mdash; is the final input. It will be added here before the review is considered complete.</div>
   </div>
 </section>
 
