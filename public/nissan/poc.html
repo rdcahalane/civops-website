@@ -81,74 +81,89 @@
     </div>
     <figure class="fig">
       <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Nissan Smyrna — Cell 056 live proof architecture<span class="fig-badge live">&#9679; Running now</span></div>
-      <svg class="fig-svg" viewBox="0 0 1060 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CIMPLICITY and Ignition publish over OPC UA into HighByte, which normalizes and publishes to a Unified Namespace; HumbleOps/Eva and MaestroHub read from the namespace.">
+      <svg class="fig-svg" viewBox="0 0 1100 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CIMPLICITY and Ignition publish over OPC UA into a Unified Namespace that can be served by HighByte and/or MaestroHub interchangeably; consumers include HumbleOps/Eva with the Daniel-san maintenance advisor, the live web and tablet cockpit, and Ignition Perspective.">
         <defs>
           <linearGradient id="spine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f4f77"/><stop offset="1" stop-color="#0a3350"/></linearGradient>
           <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#6fb6dd"/></marker>
         </defs>
         <style>
-          .lbl{font-size:15px;font-weight:700;fill:#eef5fb}.sub{font-size:11.5px;fill:#9fb6c6}
-          .col{font-size:12px;font-weight:800;letter-spacing:.08em;fill:#7f96a8;text-transform:uppercase}
+          .lbl{font-size:15px;font-weight:700;fill:#eef5fb}.sub{font-size:11px;fill:#9fb6c6}
+          .col{font-size:12px;font-weight:800;letter-spacing:.07em;fill:#7f96a8;text-transform:uppercase}
           .flow{stroke:#4f7f9e;stroke-width:2;fill:none}.chip{font-size:10.5px;fill:#8fd0ee}
-          .tag{font-size:10.5px;font-weight:700;fill:#cfe0ec}
+          .tag{font-size:10.5px;font-weight:700;fill:#cfe0ec}.plat{font-size:13px;font-weight:800;fill:#fff}
         </style>
-        <text class="col" x="30" y="34">OT sources</text>
-        <text class="col" x="623" y="34" text-anchor="middle">Unified Namespace &#183; i3X</text>
-        <text class="col" x="1030" y="34" text-anchor="end">Consumers</text>
+        <text class="col" x="28" y="32">OT sources</text>
+        <text class="col" x="479" y="32" text-anchor="middle">Unified Namespace &#183; i3X</text>
+        <text class="col" x="1076" y="32" text-anchor="end">Consumers &amp; apps</text>
+
+        <!-- sources -->
         <g>
-          <rect x="24" y="70" width="250" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
-          <text class="lbl" x="44" y="104">CIMPLICITY 2024</text>
-          <text class="sub" x="44" y="126">Nissan's real SCADA &#183; Base Coat</text>
-          <text class="sub" x="44" y="145">Real BCL5_056 export &#183; BC5601&#8211;10</text>
-          <text class="tag" x="44" y="171">OPC UA &#183; opc.tcp &#183; None/Anon</text>
-          <rect x="24" y="70" width="6" height="118" rx="3" fill="#ff8300"/>
+          <rect x="24" y="92" width="222" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="24" y="92" width="6" height="118" rx="3" fill="#ff8300"/>
+          <text class="lbl" x="44" y="124">CIMPLICITY 2024</text>
+          <text class="sub" x="44" y="146">Nissan's real SCADA &#183; Base Coat</text>
+          <text class="sub" x="44" y="164">Real BCL5_056 export &#183; BC5601&#8211;10</text>
+          <text class="tag" x="44" y="190">OPC UA &#183; None/Anon</text>
         </g>
         <g>
-          <rect x="24" y="212" width="250" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
-          <text class="lbl" x="44" y="246">Ignition 8.1</text>
-          <text class="sub" x="44" y="268">Stand-in for non-CIMPLICITY areas</text>
-          <text class="sub" x="44" y="287">e.g. Stamping &#183; BC5602 torque sim</text>
-          <text class="tag" x="44" y="313">OPC UA &#183; opc.tcp:62541</text>
-          <rect x="24" y="212" width="6" height="118" rx="3" fill="#0a77a9"/>
+          <rect x="24" y="246" width="222" height="118" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="24" y="246" width="6" height="118" rx="3" fill="#0a77a9"/>
+          <text class="lbl" x="44" y="278">Ignition 8.1</text>
+          <text class="sub" x="44" y="300">Non-CIMPLICITY areas (e.g. Stamping)</text>
+          <text class="sub" x="44" y="318">BC5602 torque sim</text>
+          <text class="tag" x="44" y="344">OPC UA &#183; opc.tcp:62541</text>
         </g>
-        <rect x="360" y="120" width="150" height="160" rx="12" fill="#123e61" stroke="#2f6488"/>
-        <text class="lbl" x="435" y="176" text-anchor="middle">HighByte</text>
-        <text class="sub" x="435" y="196" text-anchor="middle">Intelligence</text>
-        <text class="sub" x="435" y="212" text-anchor="middle">Hub</text>
-        <text class="chip" x="435" y="240" text-anchor="middle">model &#183; map</text>
-        <text class="chip" x="435" y="256" text-anchor="middle">validate &#183; publish</text>
-        <path class="flow" d="M274 129 C 320 129, 330 170, 358 178" marker-end="url(#arr)"/>
-        <path class="flow" d="M274 271 C 320 271, 330 228, 358 220" marker-end="url(#arr)"/>
-        <rect x="548" y="70" width="150" height="320" rx="16" fill="url(#spine)" stroke="#1f7fb0" stroke-width="1.5"/>
-        <text class="lbl" x="623" y="150" text-anchor="middle" style="font-size:16px">UNS</text>
-        <text class="sub" x="623" y="172" text-anchor="middle" fill="#bfe0f2">Unified</text>
-        <text class="sub" x="623" y="188" text-anchor="middle" fill="#bfe0f2">Namespace</text>
-        <line x1="573" y1="208" x2="673" y2="208" stroke="#1f7fb0"/>
-        <text class="chip" x="623" y="234" text-anchor="middle">MQTT broker</text>
-        <text class="chip" x="623" y="254" text-anchor="middle">mHv1.0/axiom/</text>
-        <text class="chip" x="623" y="270" text-anchor="middle">nissan-ccr/&#8230;</text>
-        <text class="chip" x="623" y="298" text-anchor="middle" fill="#8fd0ee">governed topics</text>
-        <text class="chip" x="623" y="316" text-anchor="middle" fill="#8fd0ee">CESMII SM Profiles</text>
-        <text class="tag" x="623" y="352" text-anchor="middle" fill="#ffcf9a">the vendor-neutral spine</text>
-        <path class="flow" d="M510 200 C 528 210, 532 220, 546 224" marker-end="url(#arr)"/>
+
+        <!-- UNS panel with parallel platforms -->
+        <rect x="326" y="64" width="306" height="392" rx="16" fill="url(#spine)" stroke="#1f7fb0" stroke-width="1.5"/>
+        <text class="lbl" x="479" y="98" text-anchor="middle" style="font-size:16px">Unified Namespace</text>
+        <text class="sub" x="479" y="118" text-anchor="middle" fill="#ffcf9a">the vendor-neutral spine</text>
+        <text class="chip" x="479" y="150" text-anchor="middle" fill="#8fd0ee">served by &#8212; either, or, both:</text>
+        <rect x="344" y="160" width="128" height="46" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="408" y="188" text-anchor="middle">HighByte</text>
+        <rect x="486" y="160" width="128" height="46" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="550" y="188" text-anchor="middle">MaestroHub</text>
+        <text class="sub" x="479" y="228" text-anchor="middle">two independent UNS platforms &#183; interchangeable</text>
+        <line x1="352" y1="248" x2="606" y2="248" stroke="#1f7fb0"/>
+        <text class="chip" x="479" y="278" text-anchor="middle">MQTT broker</text>
+        <text class="chip" x="479" y="298" text-anchor="middle">mHv1.0/axiom/nissan-ccr/&#8230;</text>
+        <text class="chip" x="479" y="326" text-anchor="middle" fill="#8fd0ee">governed topics</text>
+        <text class="chip" x="479" y="346" text-anchor="middle" fill="#8fd0ee">CESMII SM Profiles</text>
+        <text class="tag" x="479" y="392" text-anchor="middle" fill="#6fe0a8">same feed, zero translation</text>
+
+        <!-- source -> UNS -->
+        <path class="flow" d="M246 151 C 292 151, 300 175, 324 182" marker-end="url(#arr)"/>
+        <path class="flow" d="M246 305 C 292 305, 300 285, 324 280" marker-end="url(#arr)"/>
+
+        <!-- consumers -->
         <g>
-          <rect x="786" y="86" width="250" height="130" rx="12" fill="#15324c" stroke="#3f627d"/>
-          <rect x="1030" y="86" width="6" height="130" rx="3" fill="#ff8300"/>
-          <text class="lbl" x="806" y="120">HumbleOps &#183; Eva</text>
-          <text class="sub" x="806" y="142">Causal reasoning &#183; ranked decisions</text>
-          <text class="sub" x="806" y="161">Asset Health &#183; OEE &#183; live Q&amp;A</text>
-          <text class="tag" x="806" y="190">the value layer maintenance opens</text>
+          <rect x="706" y="72" width="370" height="150" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="72" width="6" height="150" rx="3" fill="#ff8300"/>
+          <text class="lbl" x="726" y="104">HumbleOps &#183; Eva</text>
+          <text class="sub" x="726" y="126">Causal reasoning &#183; ranked decisions</text>
+          <text class="sub" x="726" y="146" fill="#8fe6c0">Maint Advisor &#8212; &#8220;Daniel-san&#8221; chatbot</text>
+          <text class="sub" x="726" y="166">Asset Health &#183; OEE &#183; live Q&amp;A</text>
+          <text class="tag" x="726" y="196">the value layer maintenance opens</text>
         </g>
         <g>
-          <rect x="786" y="240" width="250" height="130" rx="12" fill="#15324c" stroke="#3f627d"/>
-          <rect x="1030" y="240" width="6" height="130" rx="3" fill="#49bd8d"/>
-          <text class="lbl" x="806" y="274">MaestroHub</text>
-          <text class="sub" x="806" y="296">2nd, independent vendor</text>
-          <text class="sub" x="806" y="315">Same topics &#183; read-only &#183; zero xlate</text>
-          <text class="tag" x="806" y="344">proves nothing is locked in</text>
+          <rect x="706" y="238" width="370" height="96" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="238" width="6" height="96" rx="3" fill="#49bd8d"/>
+          <text class="lbl" x="726" y="270">Live web + tablet cockpit</text>
+          <text class="sub" x="726" y="292">The working app &#183; updates on screen</text>
+          <text class="tag" x="726" y="316">data layer swaps to the live broker</text>
         </g>
-        <path class="flow" d="M698 150 C 740 150, 748 150, 784 150" marker-end="url(#arr)"/>
-        <path class="flow" d="M698 300 C 740 300, 748 305, 784 305" marker-end="url(#arr)"/>
+        <g>
+          <rect x="706" y="350" width="370" height="96" rx="12" fill="#15324c" stroke="#3f627d"/>
+          <rect x="1070" y="350" width="6" height="96" rx="3" fill="#0a77a9"/>
+          <text class="lbl" x="726" y="382">Ignition Perspective</text>
+          <text class="sub" x="726" y="404">Same views, built natively in Ignition</text>
+          <text class="tag" x="726" y="428">proof the value layer is portable too</text>
+        </g>
+
+        <!-- UNS -> consumers -->
+        <path class="flow" d="M632 150 C 668 150, 676 147, 704 147" marker-end="url(#arr)"/>
+        <path class="flow" d="M632 260 C 668 275, 676 286, 704 286" marker-end="url(#arr)"/>
+        <path class="flow" d="M632 300 C 664 350, 676 396, 704 398" marker-end="url(#arr)"/>
       </svg>
       <figcaption><b>Live right now:</b> Ignition&nbsp;&rarr;&nbsp;HighByte&nbsp;&rarr;&nbsp;UNS is publishing (BC5602 torque, verified in the UNS Client and mirrored by MaestroHub). Cimplicity&nbsp;&rarr;&nbsp;HighByte is the same pattern on Nissan's real SCADA — bringing Cell&nbsp;056's own Base Coat robots onto the identical spine.</figcaption>
     </figure>
