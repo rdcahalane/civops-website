@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | Benchmarks</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    .bm-svg{display:block;width:100%;border:1px solid #1f587a;border-radius:0 0 12px 12px;background:#0e2236}
+    .bm-bar{display:flex;align-items:center;gap:7px;background:#0b1b2c;border:1px solid #1f587a;border-bottom:0;border-radius:12px 12px 0 0;padding:9px 14px;font-size:12.5px;color:#cfe0ec}
+    .bm-bar .dot{width:9px;height:9px;border-radius:50%;background:#3f627d}
+    .bm-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:12.5px;color:#5a6a7e}
+    .bm-legend i{width:22px;height:3px;display:inline-block;margin-right:7px;vertical-align:middle;border-radius:2px}
+    .bm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+    @media(max-width:760px){.bm-stats{grid-template-columns:repeat(2,1fr)}}
+    .bm-stat{background:#f5f7fa;border:1px solid #e0e4ea;border-radius:10px;padding:16px 18px}
+    .bm-stat b{display:block;font-size:30px;color:#101923;letter-spacing:-.02em}
+    .bm-stat span{font-size:12px;color:#5a6a7e}
+    .bm-stat.warn b{color:#bf3f3f}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html">Overview</a>
+<a href="decision.html">Approach</a>
+<a href="benchmarking.html" class="current">Benchmarks</a>
+<a href="architecture.html">Architecture</a>
+<a href="journey.html">Journey<br>Map</a>
+<a href="cockpit.html">Maintenance<br>Cockpit</a>
+<a href="asset-health.html">Asset Health<br>Index</a>
+<a href="detail-design.html">Detail<br>Design</a>
+<a href="poc.html">Live<br>Proof</a>
+<a href="roi.html">ROI</a>
+<a href="technology.html">Tech<br>Options</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Benchmarks</div>
+    <h1 class="page-title">Where Nissan stands &mdash; the productivity benchmark</h1>
+    <p class="page-deck">Before the architecture, the honest question: how is Nissan performing versus the field? LNS Research's <strong>Industrial Productivity Index (IPI)</strong> scores 671 public manufacturers across 10 industries. Below, Nissan Motor Co. against its own passenger-vehicle peer group, the broad automotive industry, and the productivity frontier &mdash; 2020 through 2025, each series indexed to 2019&nbsp;=&nbsp;100.</p>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc"><strong style="color:#10324b">The point of this page:</strong> not a report card &mdash; a <strong>measurable gap</strong>. It sizes what the operational-excellence and Unified-Namespace work in the rest of this site exists to close, and gives a number to move.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="bm-stats">
+      <div class="bm-stat"><b>113.9</b><span>Nissan IPI, 2025 (2019 = 100)</span></div>
+      <div class="bm-stat warn"><b>13<span style="font-size:16px;color:#5a6a7e"> of 16</span></b><span>rank within Passenger &amp; Light-Vehicle peer group</span></div>
+      <div class="bm-stat warn"><b>&minus;9.8</b><span>points below the peer-group average</span></div>
+      <div class="bm-stat warn"><b>&minus;18.4</b><span>points behind the productivity frontier</span></div>
+    </div>
+    <figure style="margin:8px 0 0">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Industrial Productivity Index &#183; Nissan vs. peers, industry, frontier<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">LNS IPI 2026</span></div>
+      <svg class="bm-svg" viewBox="0 0 1015 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Industrial Productivity Index 2020-2025: Nissan versus its passenger-vehicle peer group, the broad automotive industry, and the productivity frontier.">
+  <style>.ax{font-size:11px;fill:#8ea6ba} .ll{font-size:12px;font-weight:700} .lg{font-size:12px;fill:#cfe0ec}</style>
+  <rect x="0" y="0" width="1015" height="430" rx="12" fill="#0e2236"/>
+  <line x1="80" y1="360.0" x2="860" y2="360.0" stroke="#1c3550"/><text x="72" y="364.0" class="ax" text-anchor="end">110</text><line x1="80" y1="296.0" x2="860" y2="296.0" stroke="#1c3550"/><text x="72" y="300.0" class="ax" text-anchor="end">115</text><line x1="80" y1="232.0" x2="860" y2="232.0" stroke="#1c3550"/><text x="72" y="236.0" class="ax" text-anchor="end">120</text><line x1="80" y1="168.0" x2="860" y2="168.0" stroke="#1c3550"/><text x="72" y="172.0" class="ax" text-anchor="end">125</text><line x1="80" y1="104.0" x2="860" y2="104.0" stroke="#1c3550"/><text x="72" y="108.0" class="ax" text-anchor="end">130</text><line x1="80" y1="40.0" x2="860" y2="40.0" stroke="#1c3550"/><text x="72" y="44.0" class="ax" text-anchor="end">135</text>
+  <polyline points="80.0,143.7 236.0,129.6 392.0,136.0 548.0,110.4 704.0,87.4 860.0,74.6" fill="none" stroke="#49bd8d" stroke-width="2" stroke-dasharray="2 4"/><circle cx="80.0" cy="143.7" r="4" fill="#49bd8d"/><circle cx="236.0" cy="129.6" r="4" fill="#49bd8d"/><circle cx="392.0" cy="136.0" r="4" fill="#49bd8d"/><circle cx="548.0" cy="110.4" r="4" fill="#49bd8d"/><circle cx="704.0" cy="87.4" r="4" fill="#49bd8d"/><circle cx="860.0" cy="74.6" r="4" fill="#49bd8d"/>
+  <polyline points="80.0,157.8 236.0,128.3 392.0,142.4 548.0,128.3 704.0,128.3 860.0,134.7" fill="none" stroke="#6b8299" stroke-width="2" stroke-dasharray="6 5"/><circle cx="80.0" cy="157.8" r="4" fill="#6b8299"/><circle cx="236.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="392.0" cy="142.4" r="4" fill="#6b8299"/><circle cx="548.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="704.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="860.0" cy="134.7" r="4" fill="#6b8299"/>
+  <polyline points="80.0,170.6 236.0,130.9 392.0,139.8 548.0,132.2 704.0,148.8 860.0,184.6" fill="none" stroke="#8fd0ee" stroke-width="2"/><circle cx="80.0" cy="170.6" r="4" fill="#8fd0ee"/><circle cx="236.0" cy="130.9" r="4" fill="#8fd0ee"/><circle cx="392.0" cy="139.8" r="4" fill="#8fd0ee"/><circle cx="548.0" cy="132.2" r="4" fill="#8fd0ee"/><circle cx="704.0" cy="148.8" r="4" fill="#8fd0ee"/><circle cx="860.0" cy="184.6" r="4" fill="#8fd0ee"/>
+  <polyline points="80.0,293.4 236.0,249.9 392.0,239.7 548.0,232.0 704.0,280.6 860.0,310.1" fill="none" stroke="#ff8300" stroke-width="3.5"/><circle cx="80.0" cy="293.4" r="4" fill="#ff8300"/><circle cx="236.0" cy="249.9" r="4" fill="#ff8300"/><circle cx="392.0" cy="239.7" r="4" fill="#ff8300"/><circle cx="548.0" cy="232.0" r="4" fill="#ff8300"/><circle cx="704.0" cy="280.6" r="4" fill="#ff8300"/><circle cx="860.0" cy="310.1" r="4" fill="#ff8300"/>
+  <text x="868" y="314" class="ll" fill="#ff8300">Nissan 113.9</text>
+  <text x="868" y="189" class="ll" fill="#8fd0ee">Peer 123.7</text>
+  <text x="868" y="79" class="ll" fill="#49bd8d">Frontier 132.3</text>
+  <text x="80.0" y="385" class="ax" text-anchor="middle">2020</text><text x="236.0" y="385" class="ax" text-anchor="middle">2021</text><text x="392.0" y="385" class="ax" text-anchor="middle">2022</text><text x="548.0" y="385" class="ax" text-anchor="middle">2023</text><text x="704.0" y="385" class="ax" text-anchor="middle">2024</text><text x="860.0" y="385" class="ax" text-anchor="middle">2025</text>
+  <text x="24" y="26" style="font-size:12px;font-weight:800;fill:#7f96a8;letter-spacing:.06em">IPI &#183; INDEXED 2019 = 100</text>
+</svg>
+      <div class="bm-legend">
+        <span><i style="background:#ff8300"></i>Nissan Motor Co.</span>
+        <span><i style="background:#8fd0ee"></i>Peer group &mdash; Passenger &amp; Light Vehicles (n=16)</span>
+        <span><i style="background:#6b8299"></i>Automotive industry (n=64)</span>
+        <span><i style="background:#49bd8d"></i>Productivity frontier &mdash; auto Pathfinders / WMPC (n=14)</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Reading the curve</span>
+      <h2 style="font-size:28px">Below the pack, and the gap is widening</h2>
+      <ul>
+        <li>Nissan has run <strong>below its passenger-vehicle peer group across the entire 2020&ndash;2025 window</strong> &mdash; never closing to the peer average in any year.</li>
+        <li>Nissan's index peaked at 120 in 2023, then <strong>fell ~6 points to 113.9 by 2025</strong> &mdash; while the peer group held near 124 and the frontier pulled <em>further</em> ahead (129.5 &rarr; 132.3).</li>
+        <li>The result: an <strong>18-point gap to the productivity frontier</strong> and a bottom-quartile rank (13th of 16) in Nissan's own peer group.</li>
+        <li>This is the automotive pattern LNS sees broadly &mdash; the field's post-2020 productivity recovery separated the leaders from the laggards; Nissan is on the wrong side of that split.</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">Why this page comes first</h3>
+      <p style="margin:0 0 10px">A Unified Namespace, a maintenance cockpit, and asset-health scoring aren't the goal &mdash; they're the <strong style="color:#9fd6ff">mechanism to move this number</strong>. Closing even half the gap to the peer average is measurable margin.</p>
+      <p style="margin:0">The rest of this site is the plan to do it: <a href="architecture.html" style="color:#9fd6ff">the architecture</a> that makes plant data usable, <a href="poc.html" style="color:#9fd6ff">the live proof</a> it runs today, and <a href="roi.html" style="color:#9fd6ff">the ROI</a> that ties it back to this index.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for Nissan's own benchmarking.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. The benchmark sizes the opportunity; the rest of the site is the plan to move it.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
