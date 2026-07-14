@@ -19,6 +19,7 @@
     <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
 <a href="decision.html" class="">Approach</a>
+<a href="benchmarking.html" class="">Benchmarks</a>
 <a href="architecture.html" class="current">Architecture</a>
 <a href="journey.html" class="">Journey<br>Map</a>
 <a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
@@ -174,7 +175,7 @@
     <text x="38" y="76" class="stage-sub">Connectivity tier, network zones, source matrix, latency tiers, and the Cell 022 pilot reality — detailed below the graphic.</text>
     <g filter="url(#archShadow)">
       <rect x="56" y="120" width="848" height="322" rx="28" fill="#132f49" stroke="#3b7494"/>
-      <rect x="86" y="154" width="152" height="236" rx="20" fill="#173b59"/><text x="112" y="188" class="arch-card-title">Sources</text><text x="112" y="226" class="arch-small">CIMPLICITY</text><text x="112" y="252" class="arch-small">CMMS / Maximo</text><text x="112" y="278" class="arch-small">FAULT / DRS</text><text x="112" y="304" class="arch-small">Senseye</text><text x="112" y="330" class="arch-small">RobView / ISRA</text>
+      <rect x="86" y="154" width="152" height="236" rx="20" fill="#173b59"/><text x="112" y="188" class="arch-card-title">Sources</text><text x="112" y="226" class="arch-small">CIMPLICITY</text><text x="112" y="252" class="arch-small">CMMS / Maximo</text><text x="112" y="278" class="arch-small">FAULT / DRS</text><text x="112" y="304" class="arch-small">Senseye</text><text x="112" y="330" class="arch-small">RobView</text>
       <rect x="278" y="154" width="152" height="236" rx="20" fill="#174766"/><text x="304" y="188" class="arch-card-title">Collection</text><text x="304" y="226" class="arch-small">Historians</text><text x="304" y="252" class="arch-small">Replicas</text><text x="304" y="278" class="arch-small">DMZ bridge</text><text x="304" y="304" class="arch-small">Read-only APIs</text>
       <rect x="470" y="154" width="152" height="236" rx="20" fill="#195672"/><text x="496" y="188" class="arch-card-title">Context</text><text x="496" y="226" class="arch-small">Asset model</text><text x="496" y="252" class="arch-small">Event model</text><text x="496" y="278" class="arch-small">Reason codes</text><text x="496" y="304" class="arch-small">i3X mapping</text>
       <rect x="662" y="154" width="192" height="236" rx="20" fill="#174766"/><text x="690" y="188" class="arch-card-title">Apps + analytics</text><text x="690" y="226" class="arch-small">Cockpit / tablet</text><text x="690" y="252" class="arch-small">Control Room console</text><text x="690" y="278" class="arch-small">Cloud data platform</text><text x="690" y="304" class="arch-small">AI + reliability models</text>
@@ -407,7 +408,6 @@
         <tbody>
           <tr><td>CIMPLICITY (alarms/states)</td><td class="small-cell">Plant net</td><td class="small-cell">Local project MSSQL + DMZ logging server</td><td class="small-cell">Partial</td><td class="small-cell">SQL / historian</td><td class="small-cell">Near-real-time on floor; batch to IS</td></tr>
           <tr><td>RobView (ABB robot data)</td><td class="small-cell">Plant net (MFG side)</td><td class="small-cell">MSSQL, MFG only</td><td class="small-cell">No</td><td class="small-cell">SQL</td><td class="small-cell">Batch; <strong>not present in Cell 022</strong> (see pilot note)</td></tr>
-          <tr><td>ISRA vision (×3)</td><td class="small-cell">Cell I/O net only (air-gapped)</td><td class="small-cell">Local MSSQL per PC</td><td class="small-cell">No</td><td class="small-cell">None yet — needs replication</td><td class="small-cell">n/a until bridged</td></tr>
           <tr><td>CMMS (Maintenance Connect → Maximo, Dec)</td><td class="small-cell">IS side</td><td class="small-cell">MSSQL replica</td><td class="small-cell">Yes</td><td class="small-cell">DB / API</td><td class="small-cell">Periodic</td></tr>
           <tr><td>FAULT (OEE/DRS rollup)</td><td class="small-cell">Plant net → IS</td><td class="small-cell">Rolls up to plant FAULT project</td><td class="small-cell">Yes</td><td class="small-cell">DB</td><td class="small-cell">Periodic</td></tr>
           <tr><td>DRS (body shop)</td><td class="small-cell">Plant net (VMs)</td><td class="small-cell">Dedicated DRS DB</td><td class="small-cell">No</td><td class="small-cell">DB</td><td class="small-cell">Stays in MFG</td></tr>
@@ -431,7 +431,6 @@
           <ul style="margin:0;padding-left:18px;color:var(--text);line-height:1.55;font-size:14px">
             <li><strong>ABB robots, not Fanuc.</strong> RobView (not Fanuc Utilities) is the robot tool here — but it is connected to only <strong>2 of 8 robots</strong>; the other <strong>6 are visible through CIMPLICITY alarms only.</strong></li>
             <li><strong>No RobView?SQL logging in 022</strong> (only spray-booth cells do that); the sealer cell's robot history comes from CIMPLICITY SQL alarm logging.</li>
-            <li><strong>Three ISRA vision systems</strong>, each logging to local MSSQL, deliberately kept on the cell I/O network and off the plant network to stop Windows updates from breaking the fragile vision software. Body-relevant data is dropped to the PLC. <strong>A replication mechanism does not exist yet</strong> and must be designed.</li>
             <li>Elsewhere, <strong>Fanuc Utilities is antiquated and flagged for replacement.</strong></li>
           </ul>
           <div class="build-note"><strong>Management message:</strong> the pilot cell is one of the <em>harder</em> connectivity cases, not the easiest — which makes it a strong proof point if the layer is built right.</div>
@@ -452,7 +451,7 @@
 
       <h4 style="margin:6px 0 8px;color:#102130">The existing fault taxonomy (the raw input)</h4>
       <ul class="zone-list">
-        <li><b>Conveyor faults:</b> <span class="raw-tag">A.{project}.FLTxxxx</span> &nbsp;e.g. <span class="raw-tag">A.SLR_105.FLT0001</span></li>
+        <li><b>Conveyor faults:</b> <span class="raw-tag">A.{project}.FLTxxxx</span> &nbsp;e.g. <span class="raw-tag">A.TC_107.FLT0006</span></li>
         <li><b>Cell rollup faults:</b> <span class="raw-tag">PLC_CELL_MAJORFLT_xx_xx</span> / <span class="raw-tag">PLC_CELL_MINORFLT_xx_xx</span> &nbsp;(the <span class="mask">xx_xx</span> is fault-word and bit)</li>
         <li><b>Robot-specific faults:</b> <span class="raw-tag">PLC_SLxxxx_MAJORFLT_xx_xx</span> / <span class="raw-tag">_MINORFLT_xx_xx</span></li>
         <li><b>Rollup:</b> all CIMPLICITY projects roll up to a single plant FAULT project.</li>
@@ -589,7 +588,7 @@
     </div>
     
       <div style="margin-top:8px;font-size:11px"><a href="https://civops.io/nissan/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
 <a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
   </div>
 </footer>
