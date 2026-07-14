@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/autoexample/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Automotive OEM | Benchmarks</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    .bm-svg{display:block;width:100%;border:1px solid #1f587a;border-radius:0 0 12px 12px;background:#0e2236}
+    .bm-bar{display:flex;align-items:center;gap:7px;background:#0b1b2c;border:1px solid #1f587a;border-bottom:0;border-radius:12px 12px 0 0;padding:9px 14px;font-size:12.5px;color:#cfe0ec}
+    .bm-bar .dot{width:9px;height:9px;border-radius:50%;background:#3f627d}
+    .bm-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:12.5px;color:#5a6a7e}
+    .bm-legend i{width:22px;height:3px;display:inline-block;margin-right:7px;vertical-align:middle;border-radius:2px}
+    .bm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+    @media(max-width:760px){.bm-stats{grid-template-columns:repeat(2,1fr)}}
+    .bm-stat{background:#f5f7fa;border:1px solid #e0e4ea;border-radius:10px;padding:16px 18px}
+    .bm-stat b{display:block;font-size:30px;color:#101923;letter-spacing:-.02em}
+    .bm-stat span{font-size:12px;color:#5a6a7e}
+    .bm-stat.warn b{color:#bf3f3f}
+    /* maturity matrix */
+    .mm-svg{display:block;width:100%;border:1px solid #1f587a;border-radius:0 0 12px 12px;background:#0e2236}
+    .mm-legend{display:flex;flex-wrap:wrap;gap:20px;margin-top:12px;font-size:12.5px;color:#5a6a7e}
+    .mm-legend i{width:13px;height:13px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:-2px}
+    .mm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    @media(max-width:820px){.mm-cards{grid-template-columns:1fr}}
+    .mm-card{background:#0b1b2c;border:1px solid #1f587a;border-radius:12px;padding:16px 18px}
+    .mm-card h4{margin:0 0 6px;color:#eaf3fb;font-size:15px}
+    .mm-card p{margin:0;color:#a7bccd;font-size:12.5px;line-height:1.55}
+    .mm-card .lvl{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-bottom:9px}
+    /* cohort membership */
+    .co-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    @media(max-width:820px){.co-grid{grid-template-columns:1fr}}
+    .co-card{background:#f5f7fa;border:1px solid #e0e4ea;border-top:3px solid #ccc;border-radius:10px;padding:15px 18px}
+    .co-card h4{margin:0 0 3px;font-size:15px;color:#101923}
+    .co-card .n{font-size:11.5px;color:#7a8898;margin-bottom:10px}
+    .co-card ul{margin:0;padding-left:0;list-style:none;columns:2;column-gap:16px}
+    .co-card li{font-size:12.5px;color:#33414f;padding:2px 0;break-inside:avoid}
+    .co-card.wide ul{columns:1}
+    /* maintenance-mix stacked bars */
+    .msm{margin-top:8px}
+    .msm .row{margin-bottom:14px}
+    .msm .lab{display:flex;justify-content:space-between;font-size:13px;color:#1a2433;font-weight:700;margin-bottom:6px}
+    .msm .lab .who small{font-weight:500;color:#7a8898}
+    .msm .bar{display:flex;height:26px;border-radius:7px;overflow:hidden;border:1px solid #e0e4ea}
+    .msm .seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;min-width:0}
+    .msm-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px;font-size:12px;color:#5a6a7e}
+    .msm-legend i{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-2px}
+    /* reliability outcomes grouped bars */
+    .ro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+    @media(max-width:760px){.ro-grid{grid-template-columns:1fr}}
+    .ro-card{background:#fff;border:1px solid #e0e4ea;border-radius:10px;padding:16px 18px}
+    .ro-card h4{margin:0 0 2px;font-size:14px;color:#101923}
+    .ro-card .cap{font-size:11.5px;color:#7a8898;margin-bottom:14px;min-height:32px}
+    .ro-bar{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:12px;color:#33414f}
+    .ro-bar .rl{width:112px;flex:0 0 112px;color:#5a6a7e}
+    .ro-bar .rt{flex:1;height:15px;background:#eef1f4;border-radius:5px;overflow:hidden}
+    .ro-bar .rf{height:100%;border-radius:5px}
+    .ro-bar .rv{width:40px;flex:0 0 40px;text-align:right;font-weight:800;color:#1a2433}
+    .chart-note{font-size:11.5px;color:#7a8898;margin-top:12px;line-height:1.5}
+    /* custom hover/tap tooltip for the maturity matrix (replaces flaky native SVG <title>) */
+    .mm-tip{position:fixed;z-index:9999;max-width:300px;background:#0b1b2c;color:#eaf3fb;border:1px solid #2f6488;border-radius:9px;padding:10px 13px;font-size:12.5px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.4);pointer-events:none;opacity:0;transition:opacity .12s;left:0;top:0}
+    .mm-tip.on{opacity:1}
+    .mm-svg [data-tip]{cursor:help}
+    /* let the intro + section decks use the full content width (was globally capped at 760px) */
+    .page-deck{max-width:none}
+    /* give scope-callouts a real box (padding, radius, border) + separation from the paragraph above */
+    .scope-callout{padding:15px 18px;border:1px solid #e0e4ea;border-radius:10px;background:#f5f7fa;margin-top:18px;font-size:14px;line-height:1.55;color:#33414f}
+    /* deep dive accordion */
+    .dd{margin-top:20px}
+    .dd details{background:#f5f7fa;border:1px solid #e0e4ea;border-radius:10px;margin-bottom:10px}
+    .dd details[open]{background:#fff;box-shadow:0 6px 20px rgba(16,36,55,.06)}
+    .dd summary{cursor:pointer;padding:15px 18px;font-weight:800;font-size:15.5px;color:#101923;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .dd summary::-webkit-details-marker{display:none}
+    .dd summary .qt{font-size:11px;font-weight:700;color:#7a8898;text-transform:none;letter-spacing:0}
+    .dd summary::after{content:'+';color:#006394;font-size:22px;font-weight:700;line-height:1}
+    .dd details[open] summary::after{content:'\2212'}
+    .dd .dd-body{padding:2px 18px 18px;font-size:13.5px;color:#33414f;line-height:1.6}
+    .dd .dd-body p{margin:0 0 10px}
+    .dd .dd-body ul{margin:0 0 10px;padding-left:18px}
+    .dd .dd-body li{margin:4px 0}
+    .dd .dd-body .tech-matrix{margin-top:6px}
+    .dd .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:4px 0 12px}
+    @media(max-width:760px){.dd .kpis{grid-template-columns:repeat(2,1fr)}}
+    .dd .kpi{background:#0e2236;border-radius:9px;padding:12px 14px}
+    .dd .kpi b{display:block;font-size:22px;color:#fff;letter-spacing:-.02em}
+    .dd .kpi span{font-size:11px;color:#9fb6c6}
+    .dd .kpi.warn b{color:#ff9f8a}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>a global automotive OEM &mdash; senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html">Overview</a>
+<a href="decision.html">Approach</a>
+<a href="benchmarking.html" class="current">Benchmarks</a>
+<a href="architecture.html">Architecture</a>
+<a href="journey.html">Journey<br>Map</a>
+<a href="poc.html">Live<br>Proof</a>
+<a href="roi.html">ROI</a>
+<a href="technology.html">Tech<br>Options</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / Benchmarks</div>
+    <h1 class="page-title">Where the OEM stands &mdash; the productivity benchmark</h1>
+    <p class="page-deck">Before the architecture, the honest question: how is the OEM performing versus the field? We answer it at two levels. First, the <strong>macro</strong>: LNS Research's <strong>Industrial Productivity Index (IPI)</strong> scores 671 public manufacturers &mdash; the OEM against its passenger-vehicle peers, the broad auto industry, and the productivity frontier. Then we <strong>drill beneath the number</strong> into an <strong>asset-health &amp; reliability maturity matrix</strong> &mdash; the operating capabilities that actually produce the gap, benchmarked not just against other automakers but against the industries that mastered reliability first: oil&nbsp;&amp;&nbsp;gas, chemicals, and power. This is an anonymized example; figures are illustrative.</p>
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc"><strong style="color:#10324b">The point of this page:</strong> not a report card &mdash; a <strong>measurable gap</strong>. It sizes what the operational-excellence and Unified-Namespace work in the rest of this site exists to close, and gives a number to move.</div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="bm-stats">
+      <div class="bm-stat"><b>113.9</b><span>The OEM IPI, 2025 (2019 = 100)</span></div>
+      <div class="bm-stat warn"><b>13<span style="font-size:16px;color:#5a6a7e"> of 16</span></b><span>rank within Passenger &amp; Light-Vehicle peer group</span></div>
+      <div class="bm-stat warn"><b>&minus;9.8</b><span>points below the peer-group average</span></div>
+      <div class="bm-stat warn"><b>&minus;18.4</b><span>points behind the productivity frontier</span></div>
+    </div>
+    <figure style="margin:8px 0 0">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Industrial Productivity Index &#183; the OEM vs. peers, industry, frontier<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">LNS IPI 2026</span></div>
+      <svg class="bm-svg" viewBox="0 0 1015 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Industrial Productivity Index 2020-2025: the OEM versus its passenger-vehicle peer group, the broad automotive industry, and the productivity frontier.">
+  <style>.ax{font-size:11px;fill:#8ea6ba} .ll{font-size:12px;font-weight:700} .lg{font-size:12px;fill:#cfe0ec}</style>
+  <rect x="0" y="0" width="1015" height="430" rx="12" fill="#0e2236"/>
+  <line x1="80" y1="360.0" x2="860" y2="360.0" stroke="#1c3550"/><text x="72" y="364.0" class="ax" text-anchor="end">110</text><line x1="80" y1="296.0" x2="860" y2="296.0" stroke="#1c3550"/><text x="72" y="300.0" class="ax" text-anchor="end">115</text><line x1="80" y1="232.0" x2="860" y2="232.0" stroke="#1c3550"/><text x="72" y="236.0" class="ax" text-anchor="end">120</text><line x1="80" y1="168.0" x2="860" y2="168.0" stroke="#1c3550"/><text x="72" y="172.0" class="ax" text-anchor="end">125</text><line x1="80" y1="104.0" x2="860" y2="104.0" stroke="#1c3550"/><text x="72" y="108.0" class="ax" text-anchor="end">130</text><line x1="80" y1="40.0" x2="860" y2="40.0" stroke="#1c3550"/><text x="72" y="44.0" class="ax" text-anchor="end">135</text>
+  <polyline points="80.0,143.7 236.0,129.6 392.0,136.0 548.0,110.4 704.0,87.4 860.0,74.6" fill="none" stroke="#49bd8d" stroke-width="2" stroke-dasharray="2 4"/><circle cx="80.0" cy="143.7" r="4" fill="#49bd8d"/><circle cx="236.0" cy="129.6" r="4" fill="#49bd8d"/><circle cx="392.0" cy="136.0" r="4" fill="#49bd8d"/><circle cx="548.0" cy="110.4" r="4" fill="#49bd8d"/><circle cx="704.0" cy="87.4" r="4" fill="#49bd8d"/><circle cx="860.0" cy="74.6" r="4" fill="#49bd8d"/>
+  <polyline points="80.0,157.8 236.0,128.3 392.0,142.4 548.0,128.3 704.0,128.3 860.0,134.7" fill="none" stroke="#6b8299" stroke-width="2" stroke-dasharray="6 5"/><circle cx="80.0" cy="157.8" r="4" fill="#6b8299"/><circle cx="236.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="392.0" cy="142.4" r="4" fill="#6b8299"/><circle cx="548.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="704.0" cy="128.3" r="4" fill="#6b8299"/><circle cx="860.0" cy="134.7" r="4" fill="#6b8299"/>
+  <polyline points="80.0,170.6 236.0,130.9 392.0,139.8 548.0,132.2 704.0,148.8 860.0,184.6" fill="none" stroke="#8fd0ee" stroke-width="2"/><circle cx="80.0" cy="170.6" r="4" fill="#8fd0ee"/><circle cx="236.0" cy="130.9" r="4" fill="#8fd0ee"/><circle cx="392.0" cy="139.8" r="4" fill="#8fd0ee"/><circle cx="548.0" cy="132.2" r="4" fill="#8fd0ee"/><circle cx="704.0" cy="148.8" r="4" fill="#8fd0ee"/><circle cx="860.0" cy="184.6" r="4" fill="#8fd0ee"/>
+  <polyline points="80.0,293.4 236.0,249.9 392.0,239.7 548.0,232.0 704.0,280.6 860.0,310.1" fill="none" stroke="#ff8300" stroke-width="3.5"/><circle cx="80.0" cy="293.4" r="4" fill="#ff8300"/><circle cx="236.0" cy="249.9" r="4" fill="#ff8300"/><circle cx="392.0" cy="239.7" r="4" fill="#ff8300"/><circle cx="548.0" cy="232.0" r="4" fill="#ff8300"/><circle cx="704.0" cy="280.6" r="4" fill="#ff8300"/><circle cx="860.0" cy="310.1" r="4" fill="#ff8300"/>
+  <text x="868" y="314" class="ll" fill="#ff8300">The OEM 113.9</text>
+  <text x="868" y="189" class="ll" fill="#8fd0ee">Peer 123.7</text>
+  <text x="868" y="79" class="ll" fill="#49bd8d">Frontier 132.3</text>
+  <text x="80.0" y="385" class="ax" text-anchor="middle">2020</text><text x="236.0" y="385" class="ax" text-anchor="middle">2021</text><text x="392.0" y="385" class="ax" text-anchor="middle">2022</text><text x="548.0" y="385" class="ax" text-anchor="middle">2023</text><text x="704.0" y="385" class="ax" text-anchor="middle">2024</text><text x="860.0" y="385" class="ax" text-anchor="middle">2025</text>
+  <text x="24" y="26" style="font-size:12px;font-weight:800;fill:#7f96a8;letter-spacing:.06em">IPI &#183; INDEXED 2019 = 100</text>
+</svg>
+      <div class="bm-legend">
+        <span><i style="background:#ff8300"></i>The OEM</span>
+        <span><i style="background:#8fd0ee"></i>Peer group &mdash; Passenger &amp; Light Vehicles (n=16)</span>
+        <span><i style="background:#6b8299"></i>Automotive industry (n=64)</span>
+        <span><i style="background:#49bd8d"></i>Productivity frontier &mdash; auto Pathfinders / WMPC (n=14)</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:6px">
+      <div class="section-title"><span class="eyebrow">Who's in each group</span><h2 style="font-size:26px">The cohorts behind the lines</h2></div>
+    </div>
+    <p class="page-deck" style="margin-top:0">The chart shows <strong>anonymized aggregates</strong> &mdash; no single competitor's score is exposed &mdash; but the membership of each cohort is not a secret. Here is who sits in the peer group the OEM is measured against, the automotive productivity frontier, and the cross-industry reliability frontier used later on this page.</p>
+    <div class="co-grid">
+      <div class="co-card" style="border-top-color:#8fd0ee">
+        <h4>Peer group</h4>
+        <div class="n">Passenger &amp; Light Vehicles &middot; public OEMs (n&nbsp;=&nbsp;16)</div>
+        <ul>
+          <li>Toyota</li><li>Volkswagen Group</li><li>General Motors</li><li>Ford</li>
+          <li>Stellantis</li><li>Honda</li><li>Hyundai</li><li>Kia</li>
+          <li>Mercedes-Benz</li><li>BMW</li><li>Renault</li><li>Tesla</li>
+          <li>Mazda</li><li>Subaru</li><li>Suzuki</li><li>Mitsubishi</li>
+        </ul>
+      </div>
+      <div class="co-card" style="border-top-color:#49bd8d">
+        <h4>Automotive frontier</h4>
+        <div class="n">Productivity "Pathfinders" &middot; top IPI quartile (n&nbsp;=&nbsp;14)</div>
+        <ul>
+          <li>Toyota</li><li>Hyundai Motor Group</li><li>BMW</li><li>Tesla</li>
+          <li>Suzuki</li><li>Honda</li><li>Kia</li><li>+ top-quartile others</li>
+        </ul>
+        <div class="n" style="margin:8px 0 0">Membership is by IPI rank, refreshed yearly &mdash; the frontier is a moving target, not a fixed club.</div>
+      </div>
+      <div class="co-card" style="border-top-color:#6b8299">
+        <h4>Cross-industry reliability frontier</h4>
+        <div class="n">Asset-intensive sectors &middot; the maturity benchmark below</div>
+        <ul>
+          <li>ExxonMobil</li><li>Chevron</li><li>Shell</li><li>TotalEnergies</li>
+          <li>Dow</li><li>LyondellBasell</li><li>Georgia-Pacific</li><li>Duke Energy</li>
+          <li>Southern Company</li><li>+ peers in O&amp;G, chemicals, power</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px"><strong>Why these three.</strong> The <em>peer group</em> is who the OEM competes with for capital and margin. The <em>automotive frontier</em> is what "best-in-class for a carmaker" looks like today. The <em>cross-industry reliability frontier</em> is where the asset-health and maintenance disciplines were actually invented &mdash; the standard the maturity matrix below holds every automaker to.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Reading the curve</span>
+      <h2 style="font-size:28px">Below the pack, and the gap is widening</h2>
+      <ul>
+        <li>The OEM has run <strong>below its passenger-vehicle peer group across the entire 2020&ndash;2025 window</strong> &mdash; never closing to the peer average in any year.</li>
+        <li>The OEM's index peaked at 120 in 2023, then <strong>fell ~6 points to 113.9 by 2025</strong> &mdash; while the peer group held near 124 and the frontier pulled <em>further</em> ahead (129.5 &rarr; 132.3).</li>
+        <li>The result: an <strong>18-point gap to the productivity frontier</strong> and a bottom-quartile rank (13th of 16) in the OEM's own peer group.</li>
+        <li>This is the automotive pattern LNS sees broadly &mdash; the field's post-2020 productivity recovery separated the leaders from the laggards; the OEM is on the wrong side of that split.</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">Why this page comes first</h3>
+      <p style="margin:0 0 10px">A Unified Namespace, a maintenance cockpit, and asset-health scoring aren't the goal &mdash; they're the <strong style="color:#9fd6ff">mechanism to move this number</strong>. Closing even half the gap to the peer average is measurable margin.</p>
+      <p style="margin:0">The rest of this site is the plan to do it: <a href="architecture.html" style="color:#9fd6ff">the architecture</a> that makes plant data usable, <a href="poc.html" style="color:#9fd6ff">the live proof</a> it runs today, and <a href="roi.html" style="color:#9fd6ff">the ROI</a> that ties it back to this index.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:6px">
+      <div class="section-title"><span class="eyebrow">Beneath the number</span><h2 style="font-size:30px">Why the gap exists &mdash; the reliability maturity matrix</h2></div>
+    </div>
+    <p class="page-deck" style="margin-top:0">The index says <em>how much</em>. This says <em>why</em>. Seven operating capabilities that drive asset uptime and productivity, each scored on the standard maintenance-maturity ladder &mdash; <strong>Reactive &rarr; Preventive &rarr; Condition-based &rarr; Predictive &rarr; Prescriptive</strong>. the flagship plant today, the automotive median, the automotive frontier, and &mdash; the honest benchmark &mdash; the <strong>cross-industry reliability frontier</strong>: oil&nbsp;&amp;&nbsp;gas, chemicals, and power, the asset-intensive industries that built predictive maintenance and remote operations decades before automotive needed to.</p>
+
+    <figure style="margin:18px 0 0">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Asset-health &amp; reliability maturity &#183; where the capability actually sits<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">Directional &#183; for discussion</span></div>
+      <svg class="mm-svg" viewBox="0 0 1015 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliability maturity matrix: seven operating capabilities scored 1 (Reactive) to 5 (Prescriptive) for the OEM today, automotive median, automotive frontier, and the cross-industry reliability frontier. The OEM ranges from about 1.5 to 3 across the capabilities — strongest on asset data foundation (the flagship plant is well-instrumented), strong on asset data foundation and analytics (predictive monitoring is deployed), and weakest on reliability engineering and cross-functional decision flow — the execution loop, not the tooling.">
+        <style>
+          .mmL{font-size:11px;fill:#8ea6ba} .mmN{font-size:14px;font-weight:800;fill:#c7d7e6}
+          .mmDim{font-size:13px;font-weight:700;fill:#dbe7f1} .mmHd{font-size:11px;font-weight:800;letter-spacing:.05em;fill:#7f96a8;text-transform:uppercase}
+        </style>
+        <rect x="0" y="0" width="1015" height="470" rx="12" fill="#0e2236"/>
+        <text class="mmHd" x="22" y="26">Operating capability</text>
+        <text class="mmHd" x="635" y="26" text-anchor="middle">Maturity level &#8594;</text>
+        <!-- level gridlines + headers -->
+        <g>
+          <line x1="330" y1="74" x2="330" y2="404" stroke="#16324a"/><text class="mmN" x="330" y="46" text-anchor="middle">1</text><text class="mmL" x="330" y="62" text-anchor="middle">Reactive</text>
+          <line x1="482.5" y1="74" x2="482.5" y2="404" stroke="#16324a"/><text class="mmN" x="482.5" y="46" text-anchor="middle">2</text><text class="mmL" x="482.5" y="62" text-anchor="middle">Preventive</text>
+          <line x1="635" y1="74" x2="635" y2="404" stroke="#16324a"/><text class="mmN" x="635" y="46" text-anchor="middle">3</text><text class="mmL" x="635" y="62" text-anchor="middle">Condition-based</text>
+          <line x1="787.5" y1="74" x2="787.5" y2="404" stroke="#16324a"/><text class="mmN" x="787.5" y="46" text-anchor="middle">4</text><text class="mmL" x="787.5" y="62" text-anchor="middle">Predictive</text>
+          <line x1="940" y1="74" x2="940" y2="404" stroke="#16324a"/><text class="mmN" x="940" y="46" text-anchor="middle">5</text><text class="mmL" x="940" y="62" text-anchor="middle">Prescriptive</text>
+        </g>
+        <line x1="318" y1="74" x2="318" y2="404" stroke="#24425f"/>
+        <defs><marker id="arrOr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#ff8300"/></marker></defs>
+        <!-- the OEM values are the flagship plant, paint-shop-influenced. Hover the label for a definition; hover the orange dot for the flagship plant rationale. -->
+        <!-- 1 Asset data foundation — the OEM 2.5 (well-instrumented but no UNS) -->
+        <text class="mmDim" x="22" y="112">Asset data foundation</text>
+        <line x1="558.75" y1="108" x2="863.75" y2="108" stroke="#24425f" stroke-width="2"/>
+        <circle cx="482.5" cy="108" r="6" fill="#6b8299"/><circle cx="711.25" cy="108" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="108" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="108" r="7.5" fill="#ff8300" style="cursor:help"><title>the flagship plant: well-instrumented (SCADA, historians, the predictive-maintenance platform) but with NO Unified Namespace — data stays in per-system islands, uncontextualized and unshared. That missing UNS is what holds an otherwise-strong foundation at 2.5.</title></circle>
+        <rect x="16" y="93" width="300" height="30" fill="transparent" style="cursor:help"><title>Asset data foundation — Is equipment data collected, contextualized, and available in one place, or trapped in per-system islands (SCADA, historians, spreadsheets)? the flagship plant is well-instrumented; the gap is contextualization, not collection.</title></rect>
+        <!-- 2 Maintenance strategy — the OEM 2.5 and climbing toward 3-4 (the improvement initiative) -->
+        <text class="mmDim" x="22" y="156">Maintenance strategy</text>
+        <line x1="558.75" y1="152" x2="863.75" y2="152" stroke="#24425f" stroke-width="2"/>
+        <line x1="568" y1="152" x2="778" y2="152" stroke="#ff8300" stroke-width="2" stroke-dasharray="3 4" marker-end="url(#arrOr)" opacity="0.9"/>
+        <circle cx="482.5" cy="152" r="6" fill="#6b8299"/><circle cx="711.25" cy="152" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="152" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="152" r="7.5" fill="#ff8300" style="cursor:help"><title>Predominantly reactive today, but an improvement initiative is moving strategy toward condition-based/predictive — hence 2.5 and climbing toward 3–4 (the orange arrow).</title></circle>
+        <rect x="16" y="137" width="300" height="30" fill="transparent" style="cursor:help"><title>Maintenance strategy — The dominant maintenance mode: run-to-failure and calendar-based PMs at the low end, condition-based and predictive at the high end.</title></rect>
+        <!-- 3 Reliability engineering / RCA -->
+        <text class="mmDim" x="22" y="200">Reliability engineering / RCA</text>
+        <line x1="406.25" y1="196" x2="863.75" y2="196" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="196" r="6" fill="#6b8299"/><circle cx="711.25" cy="196" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="196" r="6" fill="#49bd8d"/>
+        <circle cx="406.25" cy="196" r="7.5" fill="#ff8300" style="cursor:help"><title>Recurring faults aren't being closed — booth-starvation and cell-not-ready faults repeat month after month. Symptoms get fixed, root causes persist — low RCA / bad-actor discipline.</title></circle>
+        <rect x="16" y="181" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability engineering / RCA — Discipline for eliminating recurring failures: root-cause analysis, RCM/FMEA, and bad-actor programs. Closing causes, not just fixing symptoms.</title></rect>
+        <!-- 4 Cross-functional decision flow -->
+        <text class="mmDim" x="22" y="244">Cross-functional decision flow</text>
+        <line x1="406.25" y1="240" x2="787.5" y2="240" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="240" r="6" fill="#6b8299"/><circle cx="711.25" cy="240" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="240" r="6" fill="#49bd8d"/>
+        <circle cx="406.25" cy="240" r="7.5" fill="#ff8300" style="cursor:help"><title>the flagship plant: downtime events don't move through one shared record — departments still tap each other to learn what happened. No single trail from signal to closed action.</title></circle>
+        <rect x="16" y="225" width="300" height="30" fill="transparent" style="cursor:help"><title>Cross-functional decision flow — Does an event move through one shared record with clear escalation, or does it depend on people tapping each department to find out what happened?</title></rect>
+        <!-- 5 Connected-worker enablement -->
+        <text class="mmDim" x="22" y="288">Connected-worker enablement</text>
+        <line x1="482.5" y1="284" x2="787.5" y2="284" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="284" r="6" fill="#6b8299"/><circle cx="711.25" cy="284" r="6" fill="#8fd0ee"/><circle cx="787.5" cy="284" r="6" fill="#49bd8d"/>
+        <circle cx="482.5" cy="284" r="7.5" fill="#ff8300" style="cursor:help"><title>the flagship plant: SOPs and troubleshooting know-how live in binders and senior techs' heads; limited guided workflow delivered at the point of work.</title></circle>
+        <rect x="16" y="269" width="300" height="30" fill="transparent" style="cursor:help"><title>Connected-worker enablement — How well SOPs, troubleshooting guidance, and tacit know-how reach the technician at the point of work, rather than living in binders and senior heads.</title></rect>
+        <!-- 6 Analytics & industrial AI -->
+        <text class="mmDim" x="22" y="332">Analytics &amp; industrial AI</text>
+        <line x1="635" y1="328" x2="863.75" y2="328" stroke="#24425f" stroke-width="2"/>
+        <circle cx="558.75" cy="328" r="6" fill="#6b8299"/><circle cx="787.5" cy="328" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="328" r="6" fill="#49bd8d"/>
+        <circle cx="635" cy="328" r="7.5" fill="#ff8300" style="cursor:help"><title>A predictive-maintenance platform is deployed across the paint shop (condition-based analytics) — a genuine strength. The gap is turning its anomalies into prescriptive, closed-loop action.</title></circle>
+        <rect x="16" y="313" width="300" height="30" fill="transparent" style="cursor:help"><title>Analytics &amp; industrial AI — From static dashboards, to causal reasoning, to ranked prescriptive action on live data. The OEM runs a predictive-maintenance platform across the paint shop (condition-based analytics) — the gap is turning its signals into prescriptive action.</title></rect>
+        <!-- 7 Reliability -> productivity link -->
+        <text class="mmDim" x="22" y="376">Reliability &#8594; productivity link</text>
+        <line x1="558.75" y1="372" x2="863.75" y2="372" stroke="#24425f" stroke-width="2"/>
+        <circle cx="635" cy="372" r="6" fill="#6b8299"/><circle cx="787.5" cy="372" r="6" fill="#8fd0ee"/><circle cx="863.75" cy="372" r="6" fill="#49bd8d"/>
+        <circle cx="558.75" cy="372" r="7.5" fill="#ff8300" style="cursor:help"><title>the flagship plant: downtime is tracked (the DTR) but not systematically tied to OEE, cost, and the productivity number leadership manages.</title></circle>
+        <rect x="16" y="357" width="300" height="30" fill="transparent" style="cursor:help"><title>Reliability → productivity link — Are asset health and downtime explicitly tied to OEE, cost, and the productivity number leadership actually manages?</title></rect>
+        <text class="mmL" x="22" y="432" style="font-size:11.5px;fill:#ffb15b;font-weight:700">the flagship plant only &#183; heavily paint-shop-influenced (the CMMS / DTR / the predictive-maintenance platform data in hand is all paint).</text>
+        <text class="mmL" x="22" y="452" style="font-size:11px;fill:#6b8299">Hover a capability for its definition, or a the OEM (orange) dot for the flagship plant rationale &#183; markers are directional, not survey means &#183; the orange arrow shows momentum.</text>
+      </svg>
+      <div class="mm-legend">
+        <span><i style="background:#ff8300"></i>the flagship plant &mdash; today</span>
+        <span><i style="background:#6b8299"></i>Automotive median</span>
+        <span><i style="background:#8fd0ee"></i>Automotive frontier</span>
+        <span><i style="background:#49bd8d"></i>Cross-industry reliability frontier (O&amp;G / chemicals / power)</span>
+      </div>
+    </figure>
+
+    <div class="mm-cards">
+      <div class="mm-card">
+        <span class="lvl" style="background:#3a1c12;color:#ffb08a;border:1px solid #7a3a1f">Where the OEM sits</span>
+        <h4>Well-instrumented, under-leveraged</h4>
+        <p>the flagship plant is <strong>well-instrumented and already runs predictive monitoring</strong> &mdash; data and analytics are relative strengths. Yet maintenance stays predominantly reactive (emergency + corrective), with little preventive and effectively no predictive execution. The condition data sits in islands and never closes the loop &mdash; so the same faults recur. Monitoring without execution.</p>
+      </div>
+      <div class="mm-card">
+        <span class="lvl" style="background:#0f2b1f;color:#6fe0a8;border:1px solid #1f7a55">The reliability frontier</span>
+        <h4>Prescriptive, from a central desk</h4>
+        <p>Oil&nbsp;&amp;&nbsp;gas and chemicals run remote operations centers that watch fleet health, predict failures, and prescribe the intervention &mdash; because unplanned downtime there is measured in millions per hour. That discipline, not a newer robot, is what automotive&rsquo;s productivity leaders are now importing.</p>
+      </div>
+      <div class="mm-card">
+        <span class="lvl" style="background:#12233a;color:#8fd0ee;border:1px solid #2f6488">The move this site makes</span>
+        <h4>Build on the instrumentation, close the low points</h4>
+        <p>The plant already has the data. The Unified Namespace turns the flagship plant&rsquo;s existing instrumentation into one governed, shared record &mdash; which directly lifts the two lowest scores, <em>Cross-functional decision flow</em> and <em>Reliability engineering</em>, and makes predictive and prescriptive reachable rather than aspirational.</p>
+      </div>
+    </div>
+
+    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc;margin-top:22px">
+      <strong style="color:#10324b">A different lens than the tech-stack scorecard.</strong> A capability benchmark like this scores <em>business outcomes</em> &mdash; can the plant find the cause, share the decision, and stop the recurrence? That is deliberately different from an IT/architecture scorecard that rates edge compute, connectivity, digital twins, and cloud as components. Those matter, but a plant can score well on the component checklist and still sit at reliability maturity&nbsp;2. This matrix measures whether the <strong>operating model</strong>, not the tech inventory, has moved.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:6px">
+      <div class="section-title"><span class="eyebrow">The maintenance signature</span><h2 style="font-size:28px">How the work actually breaks down</h2></div>
+    </div>
+    <p class="page-deck" style="margin-top:0">Maturity isn't abstract &mdash; it shows up in the maintenance mix. A plant stuck at reactive/preventive spends its hours fighting fires and swapping parts on a calendar; a reliability leader spends them on condition and prediction. The split below is illustrative of each tier, calibrated to public maintenance surveys.</p>
+    <figure style="margin:6px 0 0">
+      <div class="bm-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Maintenance strategy mix &#183; share of maintenance hours by type<span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#123e61;border:1px solid #2f6488;color:#8fd0ee;border-radius:999px;padding:3px 9px">Illustrative</span></div>
+      <div style="background:#fff;border:1px solid #e0e4ea;border-top:0;border-radius:0 0 12px 12px;padding:20px 22px">
+        <div class="msm">
+          <div class="row">
+            <div class="lab"><span class="who">The OEM <small>&middot; today (representative)</small></span><span style="color:#bf3f3f">~85% reactive + preventive</span></div>
+            <div class="bar">
+              <div class="seg" style="width:40%;background:#ef6a5b">40%</div>
+              <div class="seg" style="width:45%;background:#ffb15b;color:#5a3d12">45%</div>
+              <div class="seg" style="width:12%;background:#8fd0ee;color:#0e2236">12%</div>
+              <div class="seg" style="width:3%;background:#49bd8d"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="lab"><span class="who">Automotive median <small>&middot; public benchmark</small></span><span style="color:#5a6a7e">~75% reactive + preventive</span></div>
+            <div class="bar">
+              <div class="seg" style="width:30%;background:#ef6a5b">30%</div>
+              <div class="seg" style="width:45%;background:#ffb15b;color:#5a3d12">45%</div>
+              <div class="seg" style="width:18%;background:#8fd0ee;color:#0e2236">18%</div>
+              <div class="seg" style="width:7%;background:#49bd8d">7%</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="lab"><span class="who">Reliability frontier <small>&middot; O&amp;G / chemicals, public benchmark</small></span><span style="color:#1f8a5c">~55% condition + predictive</span></div>
+            <div class="bar">
+              <div class="seg" style="width:12%;background:#ef6a5b">12%</div>
+              <div class="seg" style="width:33%;background:#ffb15b;color:#5a3d12">33%</div>
+              <div class="seg" style="width:30%;background:#8fd0ee;color:#0e2236">30%</div>
+              <div class="seg" style="width:25%;background:#49bd8d">25%</div>
+            </div>
+          </div>
+        </div>
+        <div class="msm-legend">
+          <span><i style="background:#ef6a5b"></i>Reactive (emergency + corrective)</span>
+          <span><i style="background:#ffb15b"></i>Preventive (calendar-based)</span>
+          <span><i style="background:#8fd0ee"></i>Condition-based</span>
+          <span><i style="background:#49bd8d"></i>Predictive + prescriptive</span>
+        </div>
+        <p class="chart-note">A common pattern: even where a plant runs predictive <em>monitoring</em>, executed maintenance stays reactive/preventive &mdash; the gap is closing the loop from a condition signal to a work order and a closed cause, which is what the UNS + asset-health layer is built to do. In an engagement, this bar is replaced with the plant's own CMMS work-order data.</p>
+      </div>
+    </figure>
+    <div class="scope-callout" style="border-color:#f0c56b;background:#fdf6e6;margin-top:16px"><strong style="color:#8a6413">Directional ranges.</strong> Figures on this page are illustrative of each maturity tier, calibrated to <strong>public</strong> maintenance surveys to locate the gap &mdash; not any single company's data. In a live engagement they are replaced with the plant's own work-order and downtime records.</div>
+    <p class="chart-note" style="margin-top:10px"><strong>Public sources:</strong>
+      <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research (public blog)</a> &mdash; the reactive&rarr;prescriptive progression;
+      <a href="https://www.plantengineering.com/2018-maintenance-survey-playing-offense-and-defense/" target="_blank" rel="noopener">Plant Engineering Maintenance Survey</a> and
+      <a href="https://www.reliableplant.com/Read/31707/predictive-maintenance-survey-2019" target="_blank" rel="noopener">Reliable Plant</a> &mdash; the mix and the world-class target (&lt;20% reactive, 50&ndash;60% preventive, 25&ndash;35% predictive);
+      Deloitte 2025 (~82% still reactive or time-based) and Fluke 2025 (predictive adoption ~18%). Rounded to typical tier values.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout"><strong>Method &amp; source.</strong> LNS Research Industrial Productivity Index (IPI), 2026 analysis &mdash; 671 public manufacturers, company-level index (2019&nbsp;=&nbsp;100), 2020&ndash;2025. "Peer group" = LNS's Passenger &amp; Light-Vehicle segment (n=16); "frontier" = the automotive Pathfinders and World's-Most-Productive-Company set (n=14). Peer, industry, and frontier figures are <strong>anonymized aggregates</strong> &mdash; no individual competitor's score is shown. IPI is LNS proprietary research; shared here for the subject OEM's benchmarking. <br><br>The <strong>reliability maturity matrix</strong> is a directional assessment, not a survey dataset. The scale is the widely-used five-level maintenance-maturity ladder &mdash; reactive / preventive / condition-based / predictive / prescriptive &mdash; as framed in <a href="https://blog.lnsresearch.com/what-comes-after-predictive-maintenance" target="_blank" rel="noopener">LNS Research's public writing</a> and standard reliability practice. The OEM's placements are directional, reflecting a typical well-instrumented plant; the cross-industry frontier reflects publicly-documented oil&nbsp;&amp;&nbsp;gas / chemicals practice (remote operations centers, prescriptive maintenance). No proprietary LNS research-library data is used, and no individual company's maturity score is claimed &mdash; the matrix locates the capability gap, it does not assert decimal-precise scores.</div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for the flagship plant. The benchmark sizes the opportunity; the rest of the site is the plan to move it.</div>
+    </div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<div class="mm-tip" id="mmTip" role="tooltip"></div>
+<script>
+/* Maturity-matrix tooltips — reliable custom hover/tap popup.
+   Converts the SVG <title> elements into a styled tooltip that appears instantly,
+   with enlarged hit areas on the small the OEM markers and tap support on touch. */
+(function(){
+  var tip = document.getElementById('mmTip');
+  var svg = document.querySelector('.mm-svg');
+  if(!tip || !svg) return;
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var targets = [];
+
+  // 1) migrate every <title> to a data-tip attribute (and aria-label for screen readers),
+  //    then remove the native <title> so it doesn't double up with our tooltip.
+  svg.querySelectorAll('rect, circle').forEach(function(el){
+    var t = el.getElementsByTagName('title')[0];
+    if(t){
+      var txt = t.textContent.trim();
+      el.setAttribute('data-tip', txt);
+      el.setAttribute('aria-label', txt);
+      el.removeChild(t);
+    }
+    if(el.getAttribute('data-tip')) targets.push(el);
+  });
+
+  // 2) enlarge the hit area on the small the OEM (orange) markers with an invisible overlay.
+  svg.querySelectorAll('circle[fill="#ff8300"][data-tip]').forEach(function(c){
+    var hit = document.createElementNS(SVGNS,'circle');
+    hit.setAttribute('cx', c.getAttribute('cx'));
+    hit.setAttribute('cy', c.getAttribute('cy'));
+    hit.setAttribute('r', '16');
+    hit.setAttribute('fill', 'transparent');
+    hit.setAttribute('data-tip', c.getAttribute('data-tip'));
+    c.parentNode.insertBefore(hit, c.nextSibling);
+    targets.push(hit);
+  });
+
+  function place(x, y){
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(x + 14, window.innerWidth - w - 10);
+    left = Math.max(10, left);
+    var top = y - h - 12;
+    if(top < 8) top = y + 20;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function show(e){
+    var el = e.currentTarget;
+    tip.textContent = el.getAttribute('data-tip');
+    tip.classList.add('on');
+    place(e.clientX, e.clientY);
+  }
+  function move(e){ if(tip.classList.contains('on')) place(e.clientX, e.clientY); }
+  function hide(){ tip.classList.remove('on'); }
+
+  targets.forEach(function(el){
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('mousemove', move);
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('click', function(e){ e.stopPropagation(); show(e); }); // tap on touch
+  });
+  document.addEventListener('click', function(e){ if(!e.target.closest('[data-tip]')) hide(); });
+  window.addEventListener('scroll', hide, {passive:true});
+})();
+</script>
+</body>
+</html>
