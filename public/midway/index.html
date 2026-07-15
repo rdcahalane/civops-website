@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The One-Degree Dispatch — Decision Architecture</title>
+  <meta name="description" content="AI advantage is not intelligence. It is decision architecture. An interactive journey through four battles, four tests, and one continuous choice — from the series by Michael Carroll." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/midway/assets/index-F3KN-t5h.js"></script>
+  <link rel="stylesheet" crossorigin href="/midway/assets/index-BXfIsv2W.css">
+</head>
+<body>
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-dial">
+      <svg viewBox="0 0 200 200" class="pre-compass">
+        <circle cx="100" cy="100" r="92" class="pre-ring" />
+        <g id="pre-ticks"></g>
+        <line x1="100" y1="100" x2="100" y2="18" class="pre-needle" id="pre-needle" />
+        <circle cx="100" cy="100" r="4" class="pre-hub" />
+      </svg>
+      <div class="pre-readout"><span id="pre-bearing">000</span>°</div>
+    </div>
+    <div class="pre-label">PLOTTING COURSE</div>
+  </div>
+
+  <!-- ===================== PERSISTENT HUD ===================== -->
+  <header id="hud">
+    <a class="hud-mark" href="#top">
+      <span class="hud-deg">1°</span>
+      <span class="hud-title">THE ONE-DEGREE DISPATCH</span>
+    </a>
+    <nav id="chapter-nav" aria-label="Chapters"></nav>
+    <div class="hud-bearing">
+      <span class="hud-bearing-label">BEARING</span>
+      <span class="hud-bearing-val" id="hud-bearing-val">000°</span>
+    </div>
+  </header>
+  <div id="scroll-progress"><span id="scroll-progress-bar"></span></div>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="scene hero" id="hero" data-chapter="Prologue" data-bearing="1">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-grid-overlay"></div>
+      <div class="hero-inner">
+        <div class="kicker reveal">DECISION ARCHITECTURE &amp; TECHNOLOGICAL CHANGE</div>
+        <h1 class="hero-title">
+          <span class="reveal-line">The distance</span>
+          <span class="reveal-line">is the danger.</span>
+        </h1>
+        <p class="hero-sub reveal">A one-degree error is invisible at the start and decisive at the end. Four battles, four tests, and one continuous choice — on what separates the firms that win a technology transition from the ones that merely adopt it.</p>
+        <div class="hero-byline reveal">
+          <span>A series by <strong>Michael Carroll</strong></span>
+          <span class="dot">·</span>
+          <span>Rendered as an interactive dispatch</span>
+        </div>
+      </div>
+      <div class="scroll-cue reveal" aria-hidden="true">
+        <span>BEGIN THE DESCENT</span>
+        <div class="scroll-cue-line"></div>
+      </div>
+    </section>
+
+    <!-- ===================== PROLOGUE / THESIS ===================== -->
+    <section class="scene prologue" id="prologue" data-chapter="Prologue" data-bearing="1">
+      <div class="scene-bg" data-img="prologue" data-speed="0.85"></div>
+      <div class="prose-wrap">
+        <p class="lead reveal">The tanks, the battleship, the U-boats, and the carriers were never the real subject.</p>
+        <p class="reveal">They were visible objects inside a larger argument about technological change: <em>how institutions convert what is newly possible into consequence before the moment closes.</em></p>
+        <div class="thesis-cards">
+          <div class="tcard reveal" data-accent="late"><span class="tcard-battle">Blitzkrieg</span><span class="tcard-line">strength made <strong>late</strong></span></div>
+          <div class="tcard reveal" data-accent="aim"><span class="tcard-battle">Yamato</span><span class="tcard-line">magnificence for the <strong>wrong war</strong></span></div>
+          <div class="tcard reveal" data-accent="score"><span class="tcard-battle">The U-Boats</span><span class="tcard-line">a fast loop, <strong>wrong scoreboard</strong></span></div>
+          <div class="tcard reveal" data-accent="build"><span class="tcard-battle">Midway</span><span class="tcard-line">enough evidence, <strong>in time</strong></span></div>
+        </div>
+        <p class="reveal drop">The deciding question is whether the operating model can turn <span class="hl">signal</span> into <span class="hl">legitimate action</span> before the value of action decays.</p>
+        <p class="reveal">That is decision architecture. Without it, intelligence becomes theater. Dashboards become narration. Agents become motion without legitimacy.</p>
+      </div>
+    </section>
+
+    <!-- ===================== CHAPTER I — BLITZKRIEG / LATENCY ===================== -->
+    <section class="scene chapter" id="blitzkrieg" data-chapter="I · Latency" data-bearing="47" data-accent="late">
+      <div class="scene-bg" data-img="blitzkrieg" data-speed="0.8"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER I</div>
+        <div class="chapter-test">THE LATENCY TEST</div>
+        <h2 class="chapter-title reveal">Blitzkrieg was a decision architecture that made strength late.</h2>
+        <p class="chapter-dek reveal">France had strength. Germany had the shorter system from signal to legitimate action. May 10 – June 22, 1940: six weeks that revealed how much of France's strength depended on time it no longer had.</p>
+      </div>
+
+      <div class="viz-stage" id="viz-latency">
+        <div class="viz-canvas-wrap"><canvas class="viz-canvas" id="latency-canvas"></canvas></div>
+        <div class="viz-caption">
+          <p class="viz-step" data-step="0"><span class="viz-step-k">THE ARMORY</span>The Allies were not an empty arsenal. The French <strong>Char B1&nbsp;bis</strong> was better armored and better armed than most German tanks it faced. The stronger ledger does not matter if the system cannot convert it into timely consequence.</p>
+          <p class="viz-step" data-step="1"><span class="viz-step-k">THE DISMISSED PATH</span>The Allies swung their best formations north into Belgium — toward the war the last war had trained them to expect. The decisive pressure came through the <strong>Ardennes</strong>, the route the operating model had priced as unlikely.</p>
+          <p class="viz-step" data-step="2"><span class="viz-step-k">THE SHORTER LOOP</span>Concentrated armor. Radios in moving units. Air support turning break-points into shock. <strong>Auftragstaktik</strong> — mission command — let leaders at the edge act inside intent, not wait for every instruction.</p>
+          <p class="viz-step" data-step="3"><span class="viz-step-k">STRENGTH ARRIVES LATE</span>One system converted movement into consequence while the other was still converting understanding into response. Latency rarely appears as delay. It looks like coordination. It looks like prudence.</p>
+        </div>
+      </div>
+
+      <div class="prose-wrap">
+        <p class="reveal">Speed was not a mood. It was designed into the system — doctrine, permission, communication, concentration, and trust built <em>before</em> the moment of need.</p>
+        <blockquote class="pullquote reveal">
+          <span class="pq-mark">PERVITIN</span>
+          The drug helped the march. It did not design the army. Many companies are preparing to use AI as digital Pervitin — more emails, more summaries, more decks. If the architecture is unchanged, the system has not been transformed. It has been stimulated.
+        </blockquote>
+      </div>
+
+      <aside class="test-card reveal" data-accent="late">
+        <div class="test-card-eyebrow">THE BOARD TEST</div>
+        <h3>Latency</h3>
+        <p>When a material signal appears at the edge of the enterprise, how many human handoffs sit between recognition and authorized action? Which add judgment — and which only transfer accountability?</p>
+        <p class="test-card-q">If the same signal appears on a Friday afternoon, does the organization act from designed doctrine — or wait for authority to gather on Monday?</p>
+      </aside>
+    </section>
+
+    <!-- ===================== CHAPTER II — YAMATO / AIM ===================== -->
+    <section class="scene chapter" id="yamato" data-chapter="II · Aim" data-bearing="188" data-accent="aim">
+      <div class="scene-bg" data-img="yamato" data-speed="0.8"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER II</div>
+        <div class="chapter-test">THE WRONG-WAR TEST</div>
+        <h2 class="chapter-title reveal">The largest battleship ever built was built for the wrong war.</h2>
+        <p class="chapter-dek reveal">72,000 tons. Nine 18.1-inch guns, the largest ever mounted on a warship. Yamato was the full expression of competence inside a belief the war had already outgrown. The ship was not the mistake. The assumption was.</p>
+      </div>
+
+      <div class="viz-stage" id="viz-yamato">
+        <div class="viz-toggle">
+          <span class="viz-toggle-label">The same object, two architectures:</span>
+          <div class="toggle-track" id="yamato-toggle" role="tablist">
+            <button class="toggle-opt is-active" data-mode="adopt" role="tab">ADOPT · the champion</button>
+            <button class="toggle-opt" data-mode="adapt" role="tab">ADAPT · the node</button>
+          </div>
+        </div>
+        <div class="viz-canvas-wrap"><canvas class="viz-canvas" id="yamato-canvas"></canvas></div>
+        <div class="viz-caption viz-caption--dual">
+          <p class="viz-mode-copy" data-mode="adopt"><span class="viz-step-k">ADOPTION IS POSSESSION</span>Inside the old doctrine — <em>Kantai Kessen</em>, the decisive fleet engagement — the battleship is the final champion waiting for another champion. Magnificent, revered, and increasingly alone. The duel it was built to fight never came.</p>
+          <p class="viz-mode-copy is-hidden" data-mode="adapt"><span class="viz-step-k">ADAPTATION IS CONVERSION</span>The American advantage was not a cleaner battleship. It was the battleship as one <strong>actuator</strong> inside a system that could sense (radar), compute (fire control), coordinate (carriers, comms), sustain (logistics), and learn. The object looks similar. The meaning is entirely different.</p>
+        </div>
+      </div>
+
+      <div class="prose-wrap">
+        <p class="reveal">Every institution has a Yamato — the thing it has invested in so heavily that asking whether the underlying assumption is still right feels disloyal. A platform. A data lake. A transformation office. Now an AI program.</p>
+        <blockquote class="pullquote reveal">
+          <span class="pq-mark">THE PERMISSION TEST</span>
+          An agent without permission is a narrator. An agent with bad context is a liability. An agent inside real architecture can become governed consequence.
+        </blockquote>
+        <p class="reveal">AI Yamatos are being built everywhere — large, expensive, sincere, sponsored, governed. The AI Yamato writes the report faster, but the report still exists because authority is unclear. That is not transformation. It is a larger gun mounted on the old doctrine.</p>
+      </div>
+
+      <aside class="test-card reveal" data-accent="aim">
+        <div class="test-card-eyebrow">THE BOARD TEST</div>
+        <h3>Aim</h3>
+        <p>What war is the system actually built to win? When the company says it is adopting AI — what old work disappeared? Which decisions moved closer to the signal? Which battle are we still building for that may never come?</p>
+        <p class="test-card-q">Do not build the largest battleship for a battle that is not coming.</p>
+      </aside>
+    </section>
+
+    <!-- ===================== CHAPTER III — U-BOATS / SCOREBOARD ===================== -->
+    <section class="scene chapter" id="uboats" data-chapter="III · Scoreboard" data-bearing="271" data-accent="score">
+      <div class="scene-bg" data-img="uboats" data-speed="0.8"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER III</div>
+        <div class="chapter-test">THE WRONG-WAR TEST · II</div>
+        <h2 class="chapter-title reveal">The U-boats ran the fastest loop in the Atlantic and still lost the war.</h2>
+        <p class="chapter-dek reveal">Dönitz kept winning the number his doctrine could see. The Allies changed the variables his scoreboard could not measure. A metric built inside a doctrine cannot detect that the doctrine is wrong.</p>
+      </div>
+
+      <div class="viz-stage" id="viz-scoreboard">
+        <div class="viz-canvas-wrap"><canvas class="viz-canvas" id="scoreboard-canvas"></canvas></div>
+        <div class="viz-caption">
+          <p class="viz-step" data-step="0"><span class="viz-step-k">THE NUMBER CLIMBS</span>The wolfpack passed every latency test cleanly — short distance from signal to action, authority designed in advance, a learning loop feeding each contact into the next. For three years, tonnage sunk moved the right way.</p>
+          <p class="viz-step" data-step="1"><span class="viz-step-k">THE HIDDEN VARIABLES</span>The scoreboard had no column for HF/DF, centimetric radar, escort carriers, very-long-range aircraft, or cryptographic recovery. They moved outside the German frame — until the exchange rate collapsed.</p>
+          <p class="viz-step" data-step="2"><span class="viz-step-k">BLACK MAY, 1943</span>The cliff arrived. Forty-one U-boats lost in a single month. Late in May, Dönitz pulled the packs from the North Atlantic. The scoreboard had said <em>winning</em> before the ocean said <em>over</em>.</p>
+          <p class="viz-step" data-step="3"><span class="viz-step-k">SPEED WAS THE EXPOSURE</span>The radio message that made the pack was also a flare in the dark. The mechanism of the fast loop became the vulnerability of the fast loop. Speed multiplies whatever the aim already is.</p>
+        </div>
+      </div>
+
+      <div class="prose-wrap">
+        <p class="reveal">The Allied answer was not a better submarine. It was <strong>operational research</strong> — Patrick Blackett and a small group asked to recompute the question from outside the line command. Larger convoys lost a smaller percentage. Shallower depth charges killed more boats. Aircraft moved to the air gap bought more security per plane than anything else in the theater.</p>
+        <blockquote class="pullquote reveal">
+          <span class="pq-mark">THE WRONG-WAR TEST</span>
+          A metric internal to the doctrine cannot fail the doctrine. Someone outside the doctrine has to be paid to ask what the number cannot. A record dashboard is the most expensive place to stop asking what war you are in.
+        </blockquote>
+      </div>
+
+      <aside class="test-card reveal" data-accent="score">
+        <div class="test-card-eyebrow">THE BOARD TEST</div>
+        <h3>Scoreboard</h3>
+        <p>Name the war inside the metric. What theory of victory does this number assume? What would it keep showing if that theory had already expired? Any number that cannot go down when the doctrine is wrong is a tonnage number.</p>
+        <p class="test-card-q">Pair every internal number with an external twin. The divergence between the pair — not either line — is the truth.</p>
+      </aside>
+    </section>
+
+    <!-- ===================== CHAPTER IV — MIDWAY / SUFFICIENT EVIDENCE ===================== -->
+    <section class="scene chapter chapter--build" id="midway" data-chapter="IV · Sufficient Evidence" data-bearing="315" data-accent="build">
+      <div class="scene-bg" data-img="midway" data-speed="0.8"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER IV</div>
+        <div class="chapter-test">THE SUFFICIENT-EVIDENCE TEST</div>
+        <h2 class="chapter-title reveal">Midway was won before the dive bombers arrived.</h2>
+        <p class="chapter-dek reveal">Not by certainty. Not by overwhelming strength. It was won because partial knowledge became trusted evidence, trusted evidence became legitimate action, and action arrived before the window closed. This is the constructive case.</p>
+      </div>
+
+      <div class="viz-stage" id="viz-midway">
+        <div class="viz-canvas-wrap"><canvas class="viz-canvas" id="midway-canvas"></canvas></div>
+        <div class="viz-loop-nodes" id="midway-nodes"></div>
+        <div class="viz-caption">
+          <p class="viz-step" data-step="0"><span class="viz-step-k">SIGNAL</span>At Station HYPO beneath Pearl Harbor, Rochefort's team could not read JN-25 as an open book. From fragments, call signs, and timing, one conclusion gained weight: the objective designated <strong>AF</strong> was Midway.</p>
+          <p class="viz-step" data-step="1"><span class="viz-step-k">THE TEST</span>A conclusion that important needed a way to fail. Midway transmitted, in the clear, that its water plant had broken down. Japanese traffic soon reported <em>AF is short of water.</em> A plausible interpretation became evidence strong enough to carry consequence.</p>
+          <p class="viz-step" data-step="2"><span class="viz-step-k">PERMISSION</span>The evidence reached Nimitz. He did not wait for certainty that would arrive after the battle had already changed itself. He committed the carriers.</p>
+          <p class="viz-step" data-step="3"><span class="viz-step-k">POSITIONED CAPACITY</span>Yorktown returned to Pearl Harbor on May 27, damaged at Coral Sea. Nimitz did not ask whether she could be made whole. He asked whether she could fight. Around-the-clock crews returned her to sea in roughly 48 hours — repaired to be <em>present</em>, not perfect.</p>
+          <p class="viz-step" data-step="4"><span class="viz-step-k">ACTION &amp; LEARNING</span>Fletcher and Spruance took position northeast of Midway before the Japanese plan expected an American carrier to be there. The decisive advantage was not certainty. It was position, created from enough evidence, early enough.</p>
+        </div>
+      </div>
+
+      <div class="prose-wrap">
+        <p class="reveal">Enough is not a relaxed standard. It is a demanding one. Most organizations call themselves data-driven while quietly demanding proof the real world cannot provide on time — one more analysis, one more review, one more meeting. Each step looks responsible in isolation. Together they become a system for arriving late.</p>
+        <blockquote class="pullquote reveal">
+          <span class="pq-mark">CORE CLAIM</span>
+          Certainty often arrives after the window closes. Good architecture defines when evidence is sufficient, who may act, and what must already be in position.
+        </blockquote>
+      </div>
+
+      <aside class="test-card reveal" data-accent="build">
+        <div class="test-card-eyebrow">THE BOARD TEST</div>
+        <h3>Sufficient Evidence</h3>
+        <p>What decision is waiting for certainty that will arrive too late? What evidence would justify the next reversible move? Who is trusted to interpret it? What test could prove the interpretation wrong? What capacity must already be positioned?</p>
+        <p class="test-card-q">The visible sign of a firm that passes will be subtraction: meetings, reports, and approvals that existed only because evidence could not be trusted in time begin to disappear.</p>
+      </aside>
+    </section>
+
+    <!-- ===================== CHAPTER V — CAPSTONE / DECISION ARCHITECTURE ===================== -->
+    <section class="scene capstone" id="capstone" data-chapter="V · The Architecture" data-bearing="360" data-accent="build">
+      <div class="scene-bg" data-img="capstone" data-speed="0.85"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER V · THE SYNTHESIS</div>
+        <h2 class="chapter-title reveal">AI advantage is not intelligence. It is decision architecture.</h2>
+        <p class="chapter-dek reveal">AI compresses the loop. It does not choose the war. If the organization is pointed at the wrong war, AI compresses the path to the wrong war. The technology shortens the distance to motion. It does not automatically shorten the distance to consequence.</p>
+      </div>
+
+      <!-- Four tests converge -->
+      <div class="four-tests">
+        <h3 class="block-title reveal">Four tests turn the series into a decision architecture.</h3>
+        <div class="tests-grid" id="tests-grid"></div>
+      </div>
+
+      <!-- Decision architecture stack -->
+      <div class="stack-block" id="stack-block">
+        <div class="stack-intro reveal">
+          <h3 class="block-title">The stack is not a technical diagram.<br />It is an operating model diagram.</h3>
+          <p>Advantage appears only when signal, context, evidence, reasoning, permission, action, proof, and learning belong to one architecture. Most firms buy the top layer first — agents, dashboards, copilots — then bolt them onto old operating rules. That is why adoption outruns adaptation.</p>
+          <p class="stack-permission">Permission is the missing layer. Not bureaucracy — <strong>designed authority</strong>. It decides in advance what may move, under what conditions, with what evidence, inside what boundaries, with what learning loop attached.</p>
+        </div>
+        <div class="stack-viz" id="stack-viz"></div>
+      </div>
+
+      <!-- Eight board questions -->
+      <div class="board-block" id="board-block">
+        <div class="board-intro reveal">
+          <div class="chapter-test">THE BOARD SHOULD ASK EIGHT QUESTIONS</div>
+          <h3 class="block-title">Run the tests on your own enterprise.</h3>
+          <p>A board does not need to understand every model architecture to govern AI well. It needs to know whether the enterprise has an architecture for converting intelligence into consequence.</p>
+        </div>
+        <div class="board-quiz" id="board-quiz"></div>
+      </div>
+    </section>
+
+    <!-- ===================== CHAPTER VI — THE CONTINUOUS CHOICE ===================== -->
+    <section class="scene chapter chapter--atom" id="atom" data-chapter="VI · The Continuous Choice" data-bearing="1" data-accent="atom">
+      <div class="scene-bg scene-bg--atom" data-img="atom" data-speed="0.9"></div>
+      <div class="chapter-head">
+        <div class="chapter-index">CHAPTER VI · FORTHCOMING</div>
+        <div class="chapter-test">THE CONTINUOUS CHOICE</div>
+        <h2 class="chapter-title reveal">The fifth object was never a weapon of war. It was a decision that would not end.</h2>
+        <p class="chapter-dek reveal">The four battles asked how institutions convert new capability into consequence in time. The last chapter asks the harder question the twentieth century left open: what happens when the capability outruns every architecture built to govern it — and the choice reopens with each generation of the technology.</p>
+      </div>
+
+      <div class="atom-stage" id="atom-stage">
+        <div class="atom-timeline" id="atom-timeline"></div>
+      </div>
+
+      <div class="prose-wrap">
+        <p class="reveal">Trinity, July 16, 1945. Before dawn, a device on a steel tower in the New Mexico desert proved that a small group of people could now release the energy that powers the stars. The engineering was real. The courage was real. What was new was not the explosion. It was that the choice did not close when the light faded.</p>
+        <p class="reveal">The scientists knew it first. Szilard's petition. The Franck Report's plea for a demonstration rather than a city. The Acheson–Lilienthal argument for international control. Within two years, the <em>Bulletin of the Atomic Scientists</em> set a clock — and has been resetting it ever since. The choice became a permanent institution.</p>
+        <blockquote class="pullquote reveal" data-accent="atom">
+          <span class="pq-mark">THE PARALLEL, HELD WITH DISCIPLINE</span>
+          Intelligence is becoming easy to buy, rent, copy, and call through an API. That does not make it unimportant. It makes it insufficient. The atomic age is not a metaphor for AI. It is the precedent for what happens when capability arrives before the architecture of permission, verification, and legitimate restraint that must govern it.
+        </blockquote>
+        <p class="reveal">The first four chapters warned against strength made late, magnificence for the wrong war, and a fast loop trapped inside the wrong scoreboard. Midway showed the constructive answer. The atom bomb shows the stakes when the answer is not built — and rebuilt — every time the technology takes another step.</p>
+        <p class="reveal atom-close">Do not build strength that arrives late. Do not build a perfect object for the wrong war. Do not let the wrong scoreboard tell you the doctrine is working. Do not wait for certainty after the window closes. Build the architecture that lets enough evidence become legitimate action while the moment still matters — and while the choice is still ours to make.</p>
+      </div>
+      <div class="atom-forthcoming reveal">
+        <span class="pulse-dot"></span>
+        The sixth dispatch is in preparation. This chapter presents its thesis; the full essay follows.
+      </div>
+    </section>
+
+    <!-- ===================== CODA ===================== -->
+    <footer class="scene coda" id="coda" data-chapter="Coda" data-bearing="1">
+      <div class="coda-inner">
+        <div class="coda-degree reveal">1°</div>
+        <blockquote class="coda-quote reveal">AI advantage is not intelligence. It is the architecture that turns intelligence into legitimate consequence.</blockquote>
+        <div class="coda-series reveal">
+          <div class="coda-series-title">THE ONE-DEGREE DISPATCH</div>
+          <ol class="coda-list">
+            <li><span>I</span> Blitzkrieg — Strength Made Late</li>
+            <li><span>II</span> Yamato — The Wrong War</li>
+            <li><span>III</span> The U-Boats — The Wrong Scoreboard</li>
+            <li><span>IV</span> Midway — Sufficient Evidence</li>
+            <li><span>V</span> AI Advantage Is Decision Architecture</li>
+            <li class="is-coming"><span>VI</span> The Continuous Choice <em>· forthcoming</em></li>
+          </ol>
+        </div>
+        <p class="coda-bio reveal">Michael Carroll is a global executive in industrial innovation and AI research, a board advisor, keynote speaker, and columnist focused on the operating architectures that turn technology, capital, and human judgment into durable performance.</p>
+        <p class="coda-credit reveal">An interactive experience built from the essay series. Historical narrative draws on the U.S. Navy Naval History and Heritage Command, the NSA history of the AF water-shortage test, Imperial War Museums, and the scholarship cited in each dispatch. History is used as disciplined analogy, not as a reduction of war to a business metaphor.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div id="grain" aria-hidden="true"></div>
+</body>
+</html>
