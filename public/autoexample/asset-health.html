@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/autoexample/" />
@@ -35,8 +35,8 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Asset Health Index</div>
-    <h1 class="page-title">Asset Health Index — one score, four pillars</h1>
-    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0–100% score per asset. The database layer — fed by Cimplicity and an i3X UNS layer — computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell A.</p>
+    <h1 class="page-title">Asset Health Index � one score, four pillars</h1>
+    <p class="page-deck">The Asset Health Index (AHI) compiles real-time condition, operational reliability, lifecycle age, and financial risk into a single 0�100% score per asset. The database layer � fed by Cimplicity and an i3X UNS layer � computes it as a weighted moving average tuned for heavy, asset-intensive manufacturing. Below is the blueprint and a real worked example for an ABB paint robot in Cell A.</p>
   </div>
 </section>
 
@@ -65,10 +65,10 @@
     </style>
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">The weighting blueprint</span><h2>Four pillars, one weighted score</h2></div>
-      <p class="section-copy">Weights are tuned for heavy, asset-intensive manufacturing — condition carries the most signal, financial and age temper it. Pillar 1 is fed by the real OT telemetry templated on the Detail Design tab; pillars 2–4 draw on MES, EAM, and ERP / the CMMS.</p>
+      <p class="section-copy">Weights are tuned for heavy, asset-intensive manufacturing � condition carries the most signal, financial and age temper it. Pillar 1 is fed by the real OT telemetry templated on the Detail Design tab; pillars 2�4 draw on MES, EAM, and ERP / the CMMS.</p>
     </div>
     <div class="ahi-pillars">
-      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry — motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity → UNS</div></div>
+      <div class="ahi-pill"><div class="w">35%</div><h3>Condition monitoring</h3><small>Real-time OT telemetry � motor temp, vibration, joint torque.</small><div class="ahi-src">Cimplicity ? UNS</div></div>
       <div class="ahi-pill"><div class="w">25%</div><h3>Operational reliability</h3><small>Availability, MTBF trend, micro-stoppage frequency.</small><div class="ahi-src">DRS / MES</div></div>
       <div class="ahi-pill"><div class="w">20%</div><h3>Lifecycle age</h3><small>Runtime hours consumed vs. manufacturer rated life.</small><div class="ahi-src">EAM registry</div></div>
       <div class="ahi-pill"><div class="w">20%</div><h3>Financial risk</h3><small>Life-to-date repair cost vs. asset replacement value.</small><div class="ahi-src">ERP / the CMMS</div></div>
@@ -79,56 +79,56 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 — Robot R4, Paint Cell A (base coat)</h2></div>
+      <div class="section-title"><span class="eyebrow">Worked example</span><h2>ABB IRB 6600 � Robot R4, Paint Cell A (base coat)</h2></div>
       <p class="section-copy">The highest-burden robot in Cell A in the sample month 2026: 11 work orders, 29 labor hours, 7 emergency callouts. Hi-slope faults, paint leaks, max-tracking errors, and HV faults across the month. Here is how its the sample month metrics compile into a single AHI score.</p>
     </div>
     <div class="ahi-banner">
       <div class="ahi-score">42%<small>ALERT</small></div>
       <div>
-        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 42%.</strong> Reliability is severely degraded — 7 emergency work orders in a single month, repeated applicator failures, vacuum-line contamination, and a color-tree paint leak spanning multiple shifts. The condition pillar is declining; financial risk is high. This asset needs a structured intervention plan, not another reactive repair.</p>
+        <p class="section-copy" style="max-width:none;margin:0"><strong>Asset Health Index = 42%.</strong> Reliability is severely degraded � 7 emergency work orders in a single month, repeated applicator failures, vacuum-line contamination, and a color-tree paint leak spanning multiple shifts. The condition pillar is declining; financial risk is high. This asset needs a structured intervention plan, not another reactive repair.</p>
       </div>
     </div>
     <div class="ahi-ex">
       <div class="ahi-card">
-        <div class="hd"><b>1 · Condition monitoring</b><span class="sc">S₁ = 73%</span></div>
+        <div class="hd"><b>1 � Condition monitoring</b><span class="sc">S1 = 73%</span></div>
         <ul>
-          <li><b>Axis 2 peak torque (sample):</b> 28.2 Nm max / −18.2 Nm min — within range but variable across repeated applicator swaps</li>
-          <li><b>Hi-slope faults:</b> repeated axis high-slope fault events — applicator wear pattern consistent with vacuum-line contamination</li>
+          <li><b>Axis 2 peak torque (sample):</b> 28.2 Nm max / -18.2 Nm min � within range but variable across repeated applicator swaps</li>
+          <li><b>Hi-slope faults:</b> repeated axis high-slope fault events � applicator wear pattern consistent with vacuum-line contamination</li>
           <li><b>HV faults:</b> multiple high-voltage events in the final week of the sample month</li>
           <li><em>Composite condition score = 73%</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>2 · Operational reliability</b><span class="sc">S₂ = 26%</span></div>
+        <div class="hd"><b>2 � Operational reliability</b><span class="sc">S2 = 26%</span></div>
         <ul>
-          <li><b>Emergency WOs in the sample month:</b> 7 (highest in cell) — MTBF &lt; 4 days</li>
-          <li><b>Corrective WOs:</b> 3 additional — paint leak (color tree), fill-cart error, applicator rebuild</li>
+          <li><b>Emergency WOs in the sample month:</b> 7 (highest in cell) � MTBF &lt; 4 days</li>
+          <li><b>Corrective WOs:</b> 3 additional � paint leak (color tree), fill-cart error, applicator rebuild</li>
           <li><b>Multi-shift events:</b> color-tree leak persisted across 3 shifts before repair</li>
           <li><em>Severely degraded reliability = 26%</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>3 · Lifecycle age</b><span class="sc">S₃ = 15%</span></div>
+        <div class="hd"><b>3 � Lifecycle age</b><span class="sc">S3 = 15%</span></div>
         <ul>
           <li><b>Current runtime:</b> ~43,000 operational hours (estimated)</li>
           <li><b>Rated useful life:</b> 50,000 hours (high-velocity paint config)</b></li>
-          <li><em>~85% of intended life consumed → 15% health remaining</em></li>
+          <li><em>~85% of intended life consumed ? 15% health remaining</em></li>
         </ul>
       </div>
       <div class="ahi-card">
-        <div class="hd"><b>4 · Financial risk</b><span class="sc">S₄ = 20%</span></div>
+        <div class="hd"><b>4 � Financial risk</b><span class="sc">S4 = 20%</span></div>
         <ul>
           <li><b>Emergency labor:</b> 29 hours in the sample month</li>
           <li><b>Life-to-date repair cost:</b> elevated &mdash; overhauls, applicators, O-rings, paint-leak cleanup</li>
           <li><b>Asset replacement value:</b> the asset's replacement value</li>
-          <li><em>Cost ratio = 80% → score = 20%</em></li>
+          <li><em>Cost ratio = 80% ? score = 20%</em></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="maint,quality">
   <div class="container">
     <style>
       .ahi-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
@@ -149,14 +149,14 @@
       .cv-pop a:hover{text-decoration:underline}
     </style>
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Representative cell view</span><h2>Cell A at a glance — 8 robots + conveyor</h2></div>
-      <p class="section-copy">How the cell reads in the cockpit: one rolled-up cell AHI, and a per-asset score on each of the 8 ABB robots and the conveyor. Color flags the band so maintenance and operations leadership triage the cell in one look, then drill into the asset dragging it down — here, Robot R5 at 54%.</p>
+      <div class="section-title"><span class="eyebrow">Representative cell view</span><h2>Cell A at a glance � 8 robots + conveyor</h2></div>
+      <p class="section-copy">How the cell reads in the cockpit: one rolled-up cell AHI, and a per-asset score on each of the 8 ABB robots and the conveyor. Color flags the band so maintenance and operations leadership triage the cell in one look, then drill into the asset dragging it down � here, Robot R5 at 54%.</p>
     </div>
     <figure class="platform-figure">
-      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>civops cockpit — Cell A asset health<span class="pf-badge">Representative view</span></div>
+      <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>civops cockpit � Cell A asset health<span class="pf-badge">Representative view</span></div>
       <div class="cv-wrap">
       <svg width="100%" viewBox="0 0 680 424" role="img" style="display:block;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
-        <title>Cell A base coat asset health — 8 ABB robots around a conveyor with per-asset AHI</title>
+        <title>Cell A base coat asset health � 8 ABB robots around a conveyor with per-asset AHI</title>
         <desc>Eight ABB IRB 6600 robots, four above and four below a central conveyor, each showing an Asset Health Index score; the conveyor and the rolled-up cell AHI are also shown. Robot R5 is in the alert band at 54 percent.</desc>
         <style>
           .cvt{font-size:13px;fill:#e6eef5}.cvscore{font-size:20px;font-weight:800}
@@ -166,11 +166,11 @@
           .cvbadgenum{font-size:18px;font-weight:800;fill:#ffb15b}
         </style>
         <rect x="2" y="2" width="676" height="420" rx="16" fill="#0e2236" stroke="#1f587a"/>
-        <text class="cvhd" x="24" y="32">Cell A — Base Coat</text>
-        <text class="cvsub" x="24" y="49">ABB IRB 6600 · 8 robots + conveyor</text>
+        <text class="cvhd" x="24" y="32">Cell A � Base Coat</text>
+        <text class="cvsub" x="24" y="49">ABB IRB 6600 � 8 robots + conveyor</text>
         <rect x="494" y="14" width="162" height="48" rx="10" fill="#241a06" stroke="#ffb15b"/>
-        <text class="cvsub" x="508" y="33">CELL AHI · roll-up</text>
-        <text class="cvbadgenum" x="508" y="54">63%<tspan class="cvsub" dx="6" fill="#ffb15b"> · WATCH</tspan></text>
+        <text class="cvsub" x="508" y="33">CELL AHI � roll-up</text>
+        <text class="cvbadgenum" x="508" y="54">63%<tspan class="cvsub" dx="6" fill="#ffb15b"> � WATCH</tspan></text>
 
         <rect class="cvconv" x="40" y="188" width="600" height="48" rx="10"/>
         <text class="cvt" x="56" y="218" text-anchor="start">Conveyor 056</text>
@@ -224,8 +224,8 @@
         <text class="cvt" x="589" y="324" text-anchor="middle">Robot R8</text>
         <text class="cvscore" x="589" y="347" text-anchor="middle" fill="#ffb15b">64%</text>
 
-        <circle cx="206" cy="400" r="5" fill="#49bd8d"/><text class="cvlegend" x="216" y="404">Healthy ≥ 80</text>
-        <circle cx="330" cy="400" r="5" fill="#ffb15b"/><text class="cvlegend" x="340" y="404">Watch 60–79</text>
+        <circle cx="206" cy="400" r="5" fill="#49bd8d"/><text class="cvlegend" x="216" y="404">Healthy = 80</text>
+        <circle cx="330" cy="400" r="5" fill="#ffb15b"/><text class="cvlegend" x="340" y="404">Watch 60�79</text>
         <circle cx="452" cy="400" r="5" fill="#ef6a5b"/><text class="cvlegend" x="462" y="404">Alert &lt; 60</text>
       </svg>
       <div class="cv-hot" data-asset="R1" data-pos="top" tabindex="0" style="left:3.8%;top:19.8%;width:19.1%;height:13.7%"></div>
@@ -239,7 +239,7 @@
       <div class="cv-hot" data-asset="R8" data-pos="bottom" tabindex="0" style="left:77.1%;top:70.8%;width:19.1%;height:13.7%"></div>
       <div class="cv-pop" id="cvPop" role="dialog"></div>
       </div>
-      <figcaption><b>Cell A asset health.</b> Representative scores — cell roll-up 77% (Watch), driven down by Robot R5 (54%, Alert). Robots flank the conveyor 4 + 4; the conveyor carries its own AHI.</figcaption>
+      <figcaption><b>Cell A asset health.</b> Representative scores � cell roll-up 77% (Watch), driven down by Robot R5 (54%, Alert). Robots flank the conveyor 4 + 4; the conveyor carries its own AHI.</figcaption>
     </figure>
     <table class="ahi-tbl">
       <tr><th>Asset</th><th>Model</th><th>AHI</th><th>Band</th></tr>
@@ -254,11 +254,11 @@
       <tr><td>Robot R8</td><td>ABB IRB 6600</td><td>64%</td><td><span class="ahi-chip" style="background:#d9851f">Watch</span></td></tr>
       <tr><td>Conveyor 056</td><td>Cell conveyor</td><td>83%</td><td><span class="ahi-chip" style="background:#2f9e6e">Healthy</span></td></tr>
     </table>
-    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">AHI scores derived from the sample month CMMS work order data and the robot-controller database torque exports. Pillars 3–4 incorporate estimated lifecycle and cost values pending EAM / ERP integration. Cell roll-up shown as weighted asset average; worst-of vs. weighted is a config decision to confirm with the OEM.</p>
+    <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted)">AHI scores derived from the sample month CMMS work order data and the robot-controller database torque exports. Pillars 3�4 incorporate estimated lifecycle and cost values pending EAM / ERP integration. Cell roll-up shown as weighted asset average; worst-of vs. weighted is a config decision to confirm with the OEM.</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="maint">
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">The calculation</span><h2>Weighted moving average</h2></div>
@@ -266,23 +266,23 @@
     <p class="section-copy" style="max-width:none;margin-bottom:14px"><strong>Pillar 1 runs on real torque.</strong> The condition score is computed from the ABB controller's per-cycle torque monitor (<code>Monitor1Tsk.TorqueData</code>). Below is the <strong>actual torque envelope Robot R4 produced on 26 recent</strong> (real <code>the axis-torque export</code> data, the robot-controller database DB export). Each cycle is scored against a learned per-axis baseline; limits to be set from the asset population. Motor-temperature and vibration still need their tags historized.</p>
     <table class="ahi-tbl">
       <tr><th>Axis</th><th>Observed max torque (Nm)</th><th>Observed min torque (Nm)</th></tr>
-      <tr><td>A1</td><td>28.2</td><td>−18.2</td></tr>
-      <tr><td>A2</td><td>28.9</td><td>−30.5</td></tr>
-      <tr><td>A3</td><td>6.8</td><td>−9.4</td></tr>
-      <tr><td>A4</td><td>2.4</td><td>−1.7</td></tr>
-      <tr><td>A5</td><td>1.4</td><td>−2.8</td></tr>
-      <tr><td>A6</td><td>0.9</td><td>−0.6</td></tr>
-      <tr><td>A7</td><td colspan="2">— external axis, unused on this robot</td></tr>
+      <tr><td>A1</td><td>28.2</td><td>-18.2</td></tr>
+      <tr><td>A2</td><td>28.9</td><td>-30.5</td></tr>
+      <tr><td>A3</td><td>6.8</td><td>-9.4</td></tr>
+      <tr><td>A4</td><td>2.4</td><td>-1.7</td></tr>
+      <tr><td>A5</td><td>1.4</td><td>-2.8</td></tr>
+      <tr><td>A6</td><td>0.9</td><td>-0.6</td></tr>
+      <tr><td>A7</td><td colspan="2">� external axis, unused on this robot</td></tr>
     </table>
     <p class="section-copy" style="max-width:none;font-size:12px;color:var(--muted);margin:6px 0 22px">Illustrative values, representative of a robot-controller DB export (the predictive-maintenance platform trends these same signals as MaxTorque per axis).</p>
 
-    <div class="ahi-calc">AHI = (S₁ × W₁) + (S₂ × W₂) + (S₃ × W₃) + (S₄ × W₄)
+    <div class="ahi-calc">AHI = (S1 � W1) + (S2 � W2) + (S3 � W3) + (S4 � W4)
 
-AHI = (73 × 0.35) + (26 × 0.25) + (15 × 0.20) + (20 × 0.20)
+AHI = (73 � 0.35) + (26 � 0.25) + (15 � 0.20) + (20 � 0.20)
 
 AHI = 25.55 + 6.50 + 3.00 + 4.00
 
-AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
+AHI = <b>39.05% ? 42% (rounded, illustrative)</b></div>
   </div>
 </section>
 
@@ -291,14 +291,14 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
     <div class="panel">
       <span class="eyebrow">Reading the score</span>
       <h2 style="font-size:28px">What 42% means at the Control Tower</h2>
-      <p class="section-copy" style="max-width:none">A single number lets maintenance and operations leadership triage hundreds of assets at a glance, then drill into the pillars. 42% is a clear ALERT band: R4 is not just aging — it is actively consuming labor and production time at an unsustainable rate. Seven emergency callouts in one month, a color-tree leak that spanned three shifts, and recurring hi-slope faults point to a systemic failure mode, not isolated incidents.</p>
+      <p class="section-copy" style="max-width:none">A single number lets maintenance and operations leadership triage hundreds of assets at a glance, then drill into the pillars. 42% is a clear ALERT band: R4 is not just aging � it is actively consuming labor and production time at an unsustainable rate. Seven emergency callouts in one month, a color-tree leak that spanned three shifts, and recurring hi-slope faults point to a systemic failure mode, not isolated incidents.</p>
     </div>
     <div class="panel dark">
       <h3 style="margin-top:0">Recommended action playbook</h3>
-      <p style="color:#ffd9b0;font-weight:900;margin:0 0 8px">⚠ Critical path warning — asset is on the final-assembly critical path.</p>
+      <p style="color:#ffd9b0;font-weight:900;margin:0 0 8px">? Critical path warning � asset is on the final-assembly critical path.</p>
       <ul>
         <li>Restrict further heavy capital component overhauls.</li>
-        <li>Defer restoration spend — repair economics no longer justify it.</li>
+        <li>Defer restoration spend � repair economics no longer justify it.</li>
         <li>Flag the asset registry for full CapEx replacement during the next shutdown.</li>
       </ul>
     </div>
@@ -307,7 +307,7 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
 
 <section class="section">
   <div class="container">
-    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity → UNS). Pillars 2–4 require MES (DRS), EAM (runtime registry), and ERP / the CMMS (cost ledger) feeds — the integration points to confirm with the OEM controls / IT before the score goes live.</p></div>
+    <div class="callout"><strong>Data lineage:</strong> Pillar 1 is computed from the real ABB telemetry templated on the <a href="detail-design.html">Detail Design</a> tab (per-axis motor temperature, gearbox vibration, dynamic joint torque via Cimplicity ? UNS). Pillars 2�4 require MES (DRS), EAM (runtime registry), and ERP / the CMMS (cost ledger) feeds � the integration points to confirm with the OEM controls / IT before the score goes live.</p></div>
   </div>
 </section>
 
@@ -318,8 +318,8 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
       @media(max-width:700px){.ahi-charts{grid-template-columns:1fr}}
     </style>
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">CMMS data — Cell A (illustrative)</span><h2>Work-order data behind the scores (illustrative)</h2></div>
-      <p class="section-copy">Representative of a Cell A CMMS export (62 work orders in the sample month). R4 accounts for 11 WOs and 29 labor hours — more than the next three robots combined. The type mix reveals the reactive burden: 37% of all work orders were unplanned emergency callouts.</p>
+      <div class="section-title"><span class="eyebrow">CMMS data � Cell A (illustrative)</span><h2>Work-order data behind the scores (illustrative)</h2></div>
+      <p class="section-copy">Representative of a Cell A CMMS export (62 work orders in the sample month). R4 accounts for 11 WOs and 29 labor hours � more than the next three robots combined. The type mix reveals the reactive burden: 37% of all work orders were unplanned emergency callouts.</p>
     </div>
     <div class="ahi-charts">
       <figure class="platform-figure" style="margin:0">
@@ -330,32 +330,32 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
           <!-- R4 -->
           <text class="bcl" x="70" y="26" text-anchor="end">R4</text>
           <rect x="76" y="13" width="198" height="18" rx="4" fill="#ef6a5b"/>
-          <text class="bcv" x="280" y="26">11 WOs · 7 EM</text>
+          <text class="bcv" x="280" y="26">11 WOs � 7 EM</text>
           <!-- R7 -->
           <text class="bcl" x="70" y="58" text-anchor="end">R7</text>
           <rect x="76" y="45" width="72" height="18" rx="4" fill="#ffb15b"/>
-          <text class="bcv" x="154" y="58">4 WOs · 4 EM</text>
+          <text class="bcv" x="154" y="58">4 WOs � 4 EM</text>
           <!-- R8 -->
           <text class="bcl" x="70" y="90" text-anchor="end">R8</text>
           <rect x="76" y="77" width="54" height="18" rx="4" fill="#ffb15b"/>
-          <text class="bcv" x="136" y="90">3 WOs · 3 EM</text>
+          <text class="bcv" x="136" y="90">3 WOs � 3 EM</text>
           <!-- R5 -->
           <text class="bcl" x="70" y="122" text-anchor="end">R5</text>
           <rect x="76" y="109" width="54" height="18" rx="4" fill="#ffb15b"/>
-          <text class="bcv" x="136" y="122">3 WOs · 3 EM</text>
+          <text class="bcv" x="136" y="122">3 WOs � 3 EM</text>
           <!-- R6 -->
           <text class="bcl" x="70" y="154" text-anchor="end">R6</text>
           <rect x="76" y="141" width="36" height="18" rx="4" fill="#ffb15b"/>
-          <text class="bcv" x="118" y="154">2 WOs · 2 EM</text>
+          <text class="bcv" x="118" y="154">2 WOs � 2 EM</text>
           <!-- R1 -->
           <text class="bcl" x="70" y="186" text-anchor="end">R1</text>
           <rect x="76" y="173" width="18" height="18" rx="4" fill="#49bd8d"/>
-          <text class="bcv" x="100" y="186">1 WO · 1 EM</text>
+          <text class="bcv" x="100" y="186">1 WO � 1 EM</text>
         </svg>
         <figcaption>Emergency and corrective work orders per robot, the sample month. R4 generated more unplanned maintenance events than all other robots combined.</figcaption>
       </figure>
       <figure class="platform-figure" style="margin:0">
-        <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Work-order type mix — Cell A (illustrative)<span class="pf-badge">Illustrative</span></div>
+        <div class="pf-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Work-order type mix � Cell A (illustrative)<span class="pf-badge">Illustrative</span></div>
         <svg width="100%" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" style="display:block;font-family:inherit">
           <rect x="0" y="0" width="340" height="210" rx="0" fill="#0e2236"/>
           <style>.pct{font-size:22px;font-weight:800}.pcs{font-size:12px;fill:#9fb6c6}.pcl{font-size:13px;fill:#e6eef5}</style>
@@ -370,16 +370,16 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
           <text x="208" y="54" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">37%</text>
           <!-- legend -->
           <rect x="30" y="90" width="14" height="14" rx="3" fill="#2f9e6e"/>
-          <text class="pcl" x="50" y="102">Preventive (PMT / PMR) — 28 WOs</text>
+          <text class="pcl" x="50" y="102">Preventive (PMT / PMR) � 28 WOs</text>
           <rect x="30" y="116" width="14" height="14" rx="3" fill="#ef6a5b"/>
-          <text class="pcl" x="50" y="128">Emergency (EM) — 23 WOs</text>
+          <text class="pcl" x="50" y="128">Emergency (EM) � 23 WOs</text>
           <rect x="30" y="142" width="14" height="14" rx="3" fill="#ffb15b"/>
-          <text class="pcl" x="50" y="154">Corrective (CMA/CMC/CMT) — 7 WOs</text>
+          <text class="pcl" x="50" y="154">Corrective (CMA/CMC/CMT) � 7 WOs</text>
           <rect x="30" y="168" width="14" height="14" rx="3" fill="#3f627d"/>
-          <text class="pcl" x="50" y="180">Scheduled / Other — 4 WOs</text>
-          <text x="30" y="205" font-size="11" fill="#6a8fa8">Source: representative CMMS export · sample month · 62 WOs</text>
+          <text class="pcl" x="50" y="180">Scheduled / Other � 4 WOs</text>
+          <text x="30" y="205" font-size="11" fill="#6a8fa8">Source: representative CMMS export � sample month � 62 WOs</text>
         </svg>
-        <figcaption>WO type mix for Cell A, the sample month. 37% emergency — the reactive burden that structured predictive maintenance is designed to reduce.</figcaption>
+        <figcaption>WO type mix for Cell A, the sample month. 37% emergency � the reactive burden that structured predictive maintenance is designed to reduce.</figcaption>
       </figure>
     </div>
   </div>
@@ -389,18 +389,18 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Standards basis</span><h2>Grounded in established health-index practice</h2></div>
-      <p class="section-copy">The AHI approach — compressing condition, reliability, age, and risk into one banded 0–100 score — is consistent with recognized asset-management standards and decades of published prior art. The closest precedents come from regulated, asset-intensive industries that have done exactly this for years.</p>
+      <p class="section-copy">The AHI approach � compressing condition, reliability, age, and risk into one banded 0�100 score � is consistent with recognized asset-management standards and decades of published prior art. The closest precedents come from regulated, asset-intensive industries that have done exactly this for years.</p>
     </div>
 
     <table class="ahi-tbl">
       <tr><th>What we do</th><th>Recognized basis</th></tr>
-      <tr><td>Single 0–100 score, banded into health levels</td><td>CIGRE/IEEE transformer Health Index (0–100%, 100 = healthy, &lt;25 = poor); Ofgem <strong>CNAIM</strong> bands HI1–HI5 mapped to Probability of Failure</td></tr>
-      <tr><td>Combining condition + reliability + age into one composite</td><td>CNAIM: <em>Health Score = Initial (age) × Health-Score Factor (condition) × Reliability Factor</em></td></tr>
-      <tr><td>Weighted aggregation of heterogeneous factors</td><td><strong>Weighted Sum Model</strong> — the named method behind most published Health Indices (Naderian &amp; Jahromi, IEEE 2008)</td></tr>
-      <tr><td>Pillar 1 · Condition monitoring</td><td><strong>ISO 13374</strong> "Health Assessment" functional block; implemented by <strong>MIMOSA OSA-CBM</strong></td></tr>
-      <tr><td>Pillar 2 · Operational reliability</td><td>CNAIM Reliability Factor; ISO 14224 reliability/maintenance data (MTBF/MTTR); SMRP metrics</td></tr>
-      <tr><td>Pillar 3 · Lifecycle age</td><td>CNAIM age-based Initial Health Score (an <em>initial proxy</em> — see caution); ISO 13381 remaining-useful-life prognostics</td></tr>
-      <tr><td>Pillar 4 · Financial risk</td><td>No condition-monitoring HI precedent — maps to asset-management criticality / consequence-of-failure (ISO 55000, ISO 31000). Our extension.</td></tr>
+      <tr><td>Single 0�100 score, banded into health levels</td><td>CIGRE/IEEE transformer Health Index (0�100%, 100 = healthy, &lt;25 = poor); Ofgem <strong>CNAIM</strong> bands HI1�HI5 mapped to Probability of Failure</td></tr>
+      <tr><td>Combining condition + reliability + age into one composite</td><td>CNAIM: <em>Health Score = Initial (age) � Health-Score Factor (condition) � Reliability Factor</em></td></tr>
+      <tr><td>Weighted aggregation of heterogeneous factors</td><td><strong>Weighted Sum Model</strong> � the named method behind most published Health Indices (Naderian &amp; Jahromi, IEEE 2008)</td></tr>
+      <tr><td>Pillar 1 � Condition monitoring</td><td><strong>ISO 13374</strong> "Health Assessment" functional block; implemented by <strong>MIMOSA OSA-CBM</strong></td></tr>
+      <tr><td>Pillar 2 � Operational reliability</td><td>CNAIM Reliability Factor; ISO 14224 reliability/maintenance data (MTBF/MTTR); SMRP metrics</td></tr>
+      <tr><td>Pillar 3 � Lifecycle age</td><td>CNAIM age-based Initial Health Score (an <em>initial proxy</em> � see caution); ISO 13381 remaining-useful-life prognostics</td></tr>
+      <tr><td>Pillar 4 � Financial risk</td><td>No condition-monitoring HI precedent � maps to asset-management criticality / consequence-of-failure (ISO 55000, ISO 31000). Our extension.</td></tr>
     </table>
 
     <div class="grid-2" style="margin-top:18px">
@@ -408,18 +408,18 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
         <span class="eyebrow">Precedents</span>
         <h3 style="margin-top:6px">Published methodologies this follows</h3>
         <ul>
-          <li><strong>Ofgem CNAIM v2.1</strong> — the UK electricity-network regulator's Health Index / Probability-of-Failure methodology. <a href="https://www.ofgem.gov.uk/sites/default/files/docs/2021/04/dno_common_network_asset_indices_methodology_v2.1_final_01-04-2021.pdf" target="_blank" rel="noreferrer">source →</a></li>
-          <li><strong>CIGRE / IEEE transformer Health Index</strong> — recognized industry technical methodology (CIGRE TB 761; Naderian &amp; Jahromi, IEEE 2008). <a href="https://ieeexplore.ieee.org/document/4570308/" target="_blank" rel="noreferrer">source →</a></li>
-          <li><strong>ISO 13374 + MIMOSA OSA-CBM</strong> — the standard condition-monitoring processing chain with a formal Health Assessment block. <a href="https://www.mimosa.org/mimosa-osa-cbm/" target="_blank" rel="noreferrer">source →</a></li>
-          <li><strong>Process-pump fleet AHI</strong> — a non-transformer, rotating-equipment precedent. <a href="https://omaintec.org/journal/index.php/docs/asset-health-index-method-a-case-study-for-process-pumps-fleet/" target="_blank" rel="noreferrer">source →</a></li>
+          <li><strong>Ofgem CNAIM v2.1</strong> � the UK electricity-network regulator's Health Index / Probability-of-Failure methodology. <a href="https://www.ofgem.gov.uk/sites/default/files/docs/2021/04/dno_common_network_asset_indices_methodology_v2.1_final_01-04-2021.pdf" target="_blank" rel="noreferrer">source ?</a></li>
+          <li><strong>CIGRE / IEEE transformer Health Index</strong> � recognized industry technical methodology (CIGRE TB 761; Naderian &amp; Jahromi, IEEE 2008). <a href="https://ieeexplore.ieee.org/document/4570308/" target="_blank" rel="noreferrer">source ?</a></li>
+          <li><strong>ISO 13374 + MIMOSA OSA-CBM</strong> � the standard condition-monitoring processing chain with a formal Health Assessment block. <a href="https://www.mimosa.org/mimosa-osa-cbm/" target="_blank" rel="noreferrer">source ?</a></li>
+          <li><strong>Process-pump fleet AHI</strong> � a non-transformer, rotating-equipment precedent. <a href="https://omaintec.org/journal/index.php/docs/asset-health-index-method-a-case-study-for-process-pumps-fleet/" target="_blank" rel="noreferrer">source ?</a></li>
         </ul>
       </div>
       <div class="panel" style="border-left:3px solid #d9a441;background:#fbf6ec">
-        <span class="eyebrow">What is engineering judgment — disclosed</span>
+        <span class="eyebrow">What is engineering judgment � disclosed</span>
         <h3 style="margin-top:6px">What the standards don't mandate</h3>
         <ul>
-          <li><strong>The 35/25/20/20 weights, the four-pillar set, and the weighted-average math are our engineering judgment</strong> — no standard mandates them. Composite-indicator guidance (OECD/JRC) treats weights as value judgments that change the verdict, so they're tuned and validated with the OEM.</li>
-          <li><strong>Age ≠ condition.</strong> Lifecycle age is only a starting proxy; observed condition must be able to override it (as CNAIM does with caps &amp; collars).</li>
+          <li><strong>The 35/25/20/20 weights, the four-pillar set, and the weighted-average math are our engineering judgment</strong> � no standard mandates them. Composite-indicator guidance (OECD/JRC) treats weights as value judgments that change the verdict, so they're tuned and validated with the OEM.</li>
+          <li><strong>Age ? condition.</strong> Lifecycle age is only a starting proxy; observed condition must be able to override it (as CNAIM does with caps &amp; collars).</li>
           <li><strong>Normalization matters.</strong> A simple weighted average can mask a single urgent failure mode; we calibrate the scale (and consider a hard condition override) so one critical signal can't be diluted, and tie each band to an action and timescale.</li>
         </ul>
       </div>
@@ -459,10 +459,10 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
   if(!pop) return;
   function html(id){
     var d=D[id]; if(!d) return '';
-    var rows=d.p.map(function(s,i){return '<tr><td>'+LBL[i]+' <span style="opacity:.6">·'+Math.round(W[i]*100)+'%</span></td><td class="v">'+s+'%</td></tr>';}).join('');
-    return '<h4>'+d.name+'<span class="pop-ahi" style="color:'+d.color+'">'+d.ahi+'% · '+d.band+'</span></h4>'+
+    var rows=d.p.map(function(s,i){return '<tr><td>'+LBL[i]+' <span style="opacity:.6">�'+Math.round(W[i]*100)+'%</span></td><td class="v">'+s+'%</td></tr>';}).join('');
+    return '<h4>'+d.name+'<span class="pop-ahi" style="color:'+d.color+'">'+d.ahi+'% � '+d.band+'</span></h4>'+
       '<table>'+rows+'</table>'+
-      '<a href="asset-data.html?asset='+id+'">View source data →</a>';
+      '<a href="asset-data.html?asset='+id+'">View source data ?</a>';
   }
   function show(hot){
     var id=hot.getAttribute('data-asset');
@@ -487,5 +487,6 @@ AHI = <b>39.05% → 42% (rounded, illustrative)</b></div>
 })();
 </script>
 <script src="main.js"></script>
+<script src="role.js"></script>
 </body>
 </html>
