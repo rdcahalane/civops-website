@@ -11,7 +11,7 @@
   var NAV_MAP = {
     plant:   ['index.html', 'benchmarking.html', 'journey.html', 'roi.html'],
     ops:     ['index.html', 'journey.html', 'ops-cockpit.html', 'roi.html'],
-    quality: ['journey.html', 'ops-cockpit.html', 'asset-health.html'],
+    quality: ['journey.html', 'ops-cockpit.html', 'asset-health.html', 'roi.html'],
     itot:    ['architecture.html', 'detail-design.html', 'technology.html', 'poc.html'],
     maint:   ['cockpit.html', 'asset-health.html', 'architecture.html', 'detail-design.html']
   };
