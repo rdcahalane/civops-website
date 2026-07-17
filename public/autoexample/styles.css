@@ -533,8 +533,8 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 .civops-role-bar{background:#ff8300;color:#fff;padding:8px 20px;font-size:12px;font-weight:700;letter-spacing:.01em;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
 .civops-role-bar a{color:rgba(255,255,255,.9);text-decoration:underline}
 .civops-role-bar a:hover{color:#fff}
-.role-nav-active{position:relative}
-.role-nav-active::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:#ff8300;display:block}
+.page-nav a.role-nav-active{background:rgba(255,131,0,.1);border-color:rgba(255,131,0,.35);color:#a04800}
+.page-nav a.role-nav-active:after{background:#ff8300;transform:scaleX(1)}
 .role-highlight{background:rgba(255,131,0,.06);box-shadow:inset 0 4px 0 #ff8300}
 .role-section-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#a95000;background:#fff4e8;border:1px solid #ffd9b3;border-radius:6px;padding:5px 12px;margin-bottom:16px;margin-top:4px}
 .role-chip-star{color:#ff8300;font-size:10px}
