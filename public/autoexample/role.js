@@ -58,9 +58,17 @@
         var chip = document.createElement('div');
         chip.className = 'role-section-chip';
         chip.innerHTML = '<span class="role-chip-star">&#9733;</span> Recommended for ' + label;
-        // Insert chip inside .container so it gets proper padding
-        var target = el.querySelector('.container') || el;
-        target.insertBefore(chip, target.firstChild);
+        // If the first container is a grid, insert a padded wrapper before it
+        // so the chip never becomes a grid item and displaces layout.
+        var container = el.querySelector('.container') || el;
+        if (window.getComputedStyle(container).display === 'grid') {
+          var wrap = document.createElement('div');
+          wrap.className = 'role-chip-wrap';
+          wrap.appendChild(chip);
+          el.insertBefore(wrap, container);
+        } else {
+          container.insertBefore(chip, container.firstChild);
+        }
       }
     });
   }
