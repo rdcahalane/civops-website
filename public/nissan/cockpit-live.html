@@ -184,8 +184,6 @@
   function bandName(a){ return a>=80?'good':(a>=60?'watch':'alert'); }
   function oeeVal(o){ return Math.round(o.avail*o.perf*o.quality/10000); }
 
-  // Public UNS bridge (Canoe HighByte broker :1885 -> SSE, via Cloudflare tunnel).
-  var BRIDGE = (typeof window!=='undefined' && window.UNS_BRIDGE) || 'https://nissan-uns.civops.io';
   function setConn(txt){ var e=document.getElementById('lcConn'); if(e) e.textContent=txt; }
 
   // ---- live motion / live feed ----
@@ -206,26 +204,7 @@
       lastUpdate = Date.now();
       if(active==='overview'||active==='oee'||active==='alert') render();
     },
-    // connectUNS: PRODUCTION path, now live. Reads the bridge's SSE stream and maps the
-    // real bc5602 axis-torque payload into MODEL.torque. No render changes — same MODEL shape.
-    connectUNS:function(){
-      if(typeof EventSource==='undefined'){ setConn('UNS · representative feed'); return; }
-      var es;
-      try{ es=new EventSource(BRIDGE+'/stream'); }catch(e){ setConn('UNS · representative feed'); return; }
-      es.onopen=function(){ if(!Feed.liveTorque) setConn('UNS connected'); };
-      es.addEventListener('uns',function(ev){
-        var msg; try{ msg=JSON.parse(ev.data); }catch(e){ return; }
-        var t=msg.topic||'', p=msg.payload||{};
-        if(/\/bc5602$/i.test(t) && p.torqueMaxA1!=null && !msg.snapshot){
-          MODEL.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6]
-            .map(function(v){return +(+v).toFixed(1);});
-          Feed.liveTorque=true; Feed._lastTorque=Date.now(); lastUpdate=Date.now();
-          setConn('UNS connected · live');
-          if(active==='overview'||active==='alert') render();
-        }
-      });
-      es.onerror=function(){ if(!Feed.liveTorque) setConn('UNS · reconnecting…'); };
-    }
+    connectUNS:function(){ setConn('UNS · representative feed'); }
   };
 
   function tiles(){
