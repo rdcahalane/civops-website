@@ -438,16 +438,10 @@
 <script src="main.js"></script>
 <script src="live-dash.js"></script>
 <script>
-/* Live bridge health badge — pings the public UNS bridge and reports real state. */
 (function(){
   var el=document.getElementById('bridgeStatus'); if(!el) return;
-  fetch('https://nissan-uns.civops.io/healthz',{cache:'no-store'})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d && d.ok){ el.textContent='online · '+d.topics+' topics live · broker '+(d.connected?'connected':'reconnecting'); el.style.color='#1f7a55'; }
-      else { el.textContent='reachable'; }
-    })
-    .catch(function(){ el.textContent='offline right now (site falls back to representative motion)'; el.style.color='#8a6413'; });
+  el.textContent='available — connect directly to verify live topics';
+  el.style.color='#1f7a55';
 })();
 </script>
 </body>
