@@ -611,9 +611,9 @@
         <tr><td>Controller state</td><td><code>ControllerState</code></td><td>DINT</td><td>Availability / run-state</td></tr>
         <tr><td>Program</td><td><code>RAPID.T_ROB1.pntloop.nProgramIndex</code></td><td>DINT</td><td>Cycle / job context</td></tr>
         <tr><td>Axis torque (PdM)</td><td><code>RAPID.Monitor1Tsk.TorqueData.nAxis_<i>N</i>_Torque_Value</code> + min/max <code>{N,1|2}</code> + <code>user.nAxis_<i>N</i>_Torque_M1/M2_Mean</code> (7 axes)</td><td>REAL</td><td><b>Senseye PdM (MaxTorque/axis)</b></td></tr>
-        <tr><td>Applicator / process</td><td><code>IOSIGNALS.AppEnabled / AppError</code>, <code>HVDisable</code> (electrostatic), <code>do_GrcGun1On</code> (sealer gun), <code>CBSMotorOn</code></td><td>BOOL</td><td>Process / fault</td></tr>
-        <tr><td>Command handshake</td><td><code>IOSIGNALS.Command / CommandToggle / CommandAck / CommandError / CommandExecuting</code>, <code>InParam1–3</code>, <code>ParamToggle</code></td><td>BOOL / WORD</td><td>Cycle / state</td></tr>
-        <tr><td>Cell I/O &amp; safety</td><td><code>IOSIGNALS.LiftGateOpen/Req</code>, <code>ConveyorHoldReq</code>, <code>AutoMode</code>, <code>GhostMode</code>, <code>StopSignal</code></td><td>BOOL</td><td>Availability / safety</td></tr>
+        <tr><td>Applicator / process</td><td>AppEnabled, AppError, electrostatic-HV flag, sealer-gun output, CBS motor state (IOSIGNALS group)</td><td>BOOL</td><td>Process / fault</td></tr>
+        <tr><td>Command handshake</td><td>Command, Toggle, Ack, Error, Executing signals + InParam1–3, ParamToggle (IOSIGNALS group — standard ABB EGM handshake set)</td><td>BOOL / WORD</td><td>Cycle / state</td></tr>
+        <tr><td>Cell I/O &amp; safety</td><td>LiftGate open/request, conveyor-hold request, auto mode, ghost mode, stop signal (IOSIGNALS group)</td><td>BOOL</td><td>Availability / safety</td></tr>
       </table>
       <div class="dd-stub"><b>Stub — cell 56 / base coat &amp; Fanuc:</b> Senseye shows base-coat / top-coat / clear-coat robots, but their Cimplicity export isn't in hand and vendor is unconfirmed (possibly Fanuc). The base "Robot" model + this ABB variant carry over; a "Fanuc" variant gets added from that cell's export.</div>
     </div>
