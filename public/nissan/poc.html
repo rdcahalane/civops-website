@@ -238,7 +238,7 @@
         <div class="poc-card-body">
           <div class="poc-card-label">Connections</div>
           <div class="poc-card-title">The broker every pipeline writes through</div>
-          <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here; every reader subscribes here.</div>
+          <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here; every reader subscribes here. Swappable for an enterprise broker like HiveMQ later — HighByte publishes there just as easily, and nothing downstream changes.</div>
         </div>
       </div>
     </div>
@@ -338,7 +338,7 @@
 
     <div class="section-head" style="margin-top:40px">
       <div class="section-title"><span class="eyebrow">Built on the live feed — in any tool</span><h2 style="font-size:26px">Cell 056 Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
-      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Shown here to demonstrate the pattern; the identical views can be built in Humble/Eva, Power&nbsp;BI, Grafana, or Ignition Perspective against the same topics.</p>
+      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Shown here to demonstrate the pattern; the identical views can be built in Humble/Eva, Grafana, or Ignition Perspective reading the topics directly &mdash; or in Power&nbsp;BI reading from the SQL landing zone those same topics flow into (see section 5 below).</p>
     </div>
     <div class="dash-two">
       <figure class="fig" style="margin-top:0">
@@ -391,6 +391,26 @@
     <div class="callout" style="margin-top:18px">
       <strong>The bridge, live:</strong> <code>https://nissan-uns.civops.io</code> &mdash; <span id="bridgeStatus" style="font-weight:700;color:#8a6413">checking&hellip;</span>. Read-only, CORS-open, synthetic demo telemetry only. Endpoints: <code>/healthz</code>, <code>/snapshot</code>, <code>/stream</code> (Server-Sent Events). <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
     </div>
+
+    <div class="section-head" id="powerbi-block" style="margin-top:32px">
+      <div class="section-title"><span class="eyebrow">A third consumer, by design</span><h2 style="font-size:22px">Power&nbsp;BI reads from SQL, not from the broker &mdash; and that's the correct design, not a workaround</h2></div>
+      <p class="section-copy">Power&nbsp;BI doesn't subscribe to MQTT &mdash; it reads from a data store on a refresh schedule. So the path to Power&nbsp;BI isn't a third live subscriber next to the two above; it's <b>MQTT&nbsp;&rarr;&nbsp;SQL&nbsp;&rarr;&nbsp;Power&nbsp;BI</b>. A HighByte flow writes the same governed topics to SQL tables, flattening the topic structure into the columns Power&nbsp;BI expects, and Power&nbsp;BI connects with import or DirectQuery &mdash; the same as any other database source. Since SQL was already the planned landing zone for this data, this isn't a new path; it's the one already planned, with Power&nbsp;BI reading from it like any other consumer.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Why this fits Smyrna's environment</div>
+          <div class="poc-card-desc">Matches the zone model already in use &mdash; Power&nbsp;BI sits on the IS side reading a SQL database, the same pattern Senseye uses today; nothing new touches the plant floor, and it stays read-only. No new licensing: runs on the Power&nbsp;BI Nissan already has, no streaming infrastructure or Fabric capacity to size. The SQL tables double as history &mdash; MQTT stores nothing, so a landing zone is needed regardless, and this gives every future consumer one to read.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">The one gap, and how the UNS covers it</div>
+          <div class="poc-card-desc">Power&nbsp;BI's refresh model was never built for a screen that updates in seconds, so live values and ad-hoc real-time trending aren't its job &mdash; that's what the cockpit above is for. Because HighByte publishes one governed namespace, anything needing live data plugs into the <em>same</em> topics without a second data path. For deep troubleshooting, Proficy Historian subscribes with its own MQTT collector &mdash; granular history alongside the same SQL tables.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>The broker underneath isn't locked in either.</strong> HighByte publishes to its own embedded broker today (see section 1). If Nissan's enterprise direction later standardizes on something like <a href="technology.html#dataops" style="color:inherit;text-decoration:underline">HiveMQ</a>, HighByte publishes to that broker just as easily &mdash; nothing downstream (SQL, Power&nbsp;BI, Historian, Humble) changes. The same holds for whichever direction analytics grows: Grafana, Proficy Operations Hub, Humble, or a parallel Ignition stack for new lines or supplier integration. Power&nbsp;BI is one more consumer on the pipe, not a redesign of it.</div>
   </div>
 </section>
 
@@ -406,12 +426,14 @@
         <li>A second, independent vendor platform consumes the same feed with zero translation — the platform decision is decoupled from the value already flowing.</li>
         <li>The asset model is generated from Nissan's own Cimplicity exports — the structure Eva reasons over is the structure the plant floor actually uses.</li>
         <li>Eva turns that feed into causal chains, ranked decisions, and answerable questions — and the Cell 056 Asset Health and OEE cockpit is built on the same topics, in whatever tool Nissan prefers.</li>
+        <li>Enterprise BI reads the same pipe without a second data path: Power&nbsp;BI via a SQL landing zone HighByte writes to, no new licensing or streaming infrastructure required — and the broker underneath swaps for HiveMQ if Nissan standardizes on it, with nothing downstream changing.</li>
       </ul>
     </div>
     <div class="panel dark">
       <h3 style="margin-top:0">What's still ahead before this is Nissan's real system</h3>
       <ul>
         <li>Bind the model attributes to live source tags instead of representative values, once source access is confirmed. Detail on the <a href="fascia-design.html" style="color:#9fd6ff">Fascia &amp; Plastics track</a>.</li>
+        <li>Stand up the HighByte-to-SQL flow so Power&nbsp;BI has real tables to read, not just the design pattern described in section 5.</li>
         <li>Security review of the MQTT broker's external-subscriber credential model before anything touches production OT data.</li>
         <li>Decide the platform of record on Nissan's own timeline — this page's whole point is that decision no longer has to gate operator and maintenance value.</li>
       </ul>

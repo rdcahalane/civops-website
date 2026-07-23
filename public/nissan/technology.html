@@ -210,6 +210,30 @@
     </div>
   </div>
 </section>
+<section class="section" id="powerbi">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">How enterprise BI plugs in</span><h2>Power BI doesn't subscribe to a broker &mdash; so the path is MQTT &rarr; SQL &rarr; Power BI</h2></div>
+      <p class="section-copy">Power BI reads from a data store on a refresh schedule; it does not subscribe to MQTT. That does not change the design &mdash; it confirms it. A HighByte flow writes the modeled UNS topics to SQL tables, flattening the topic structure into the columns Power BI expects, and Power BI connects to that SQL database with import or DirectQuery, the same as any other report source. Since SQL was already the planned landing zone, this is not a new data path &mdash; it's the one already planned, with Power BI reading from it like any other consumer.</p>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="tag blue">Why this fits Smyrna's environment</div>
+        <ul>
+          <li><b>Matches the zone model already in use.</b> Power BI sits on the IS side reading a SQL database &mdash; the same pattern Senseye uses today. Nothing new touches the plant floor, and it stays read-only.</li>
+          <li><b>No new licensing.</b> Runs on the Power BI Nissan already has &mdash; no streaming infrastructure, no Fabric capacity to size and pay for.</li>
+          <li><b>The SQL tables double as history.</b> MQTT does not store anything, so a landing zone is needed regardless &mdash; this gives Nissan one that any future consumer can also read.</li>
+        </ul>
+      </div>
+      <div class="panel dark">
+        <h3 style="margin-top:0">The one gap &mdash; and how the UNS covers it</h3>
+        <p>Power BI's refresh model was never built for a screen that updates in seconds, so live values and ad-hoc real-time trending are not its job. That gap is one of the benefits of the UNS: because HighByte publishes one governed namespace, anything that needs live data plugs into the <em>same</em> topics without a second data path being built. For deep troubleshooting and process analytics, Proficy Historian subscribes with its own MQTT collector &mdash; granular history alongside the same SQL tables.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>The broker underneath isn't locked in either.</strong> HighByte publishes to its own embedded broker today. If Nissan's enterprise direction later standardizes on something like <a href="#dataops" style="color:inherit;text-decoration:underline">HiveMQ</a>, HighByte publishes to that broker just as easily &mdash; nothing downstream (SQL, Power BI, Historian, Humble) changes.</div>
+    <p class="section-copy" style="margin-top:16px">The same pattern holds whichever direction Nissan grows analytics: open source like Grafana, current providers like Proficy (e.g. Operations Hub), next-generation tools like Humble, or parallel stacks like Ignition for new lines, new plants that aren't Cimplicity, or supplier integration. Power BI slots in as one more consumer on that pipe &mdash; exactly as demonstrated on the <a href="poc.html">Live Proof</a> page.</p>
+  </div>
+</section>
 <section class="section tech-category" id="frontline">
   <div class="container">
     <div class="category-head">
