@@ -41,7 +41,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant,ops,quality,maint">
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Journey map</span><h2>Customer-journey style map across the shift</h2></div>
@@ -101,7 +101,7 @@
   </div>
 </section>
 
-<section class="section" id="day-in-the-life">
+<section class="section" id="day-in-the-life" data-role="plant,ops,maint">
   <div class="container">
     <style>
       .dil-step{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
@@ -126,7 +126,7 @@
         <p class="dil-moment">Process Lead walks the line; first units enter the booth.</p>
         <div class="dil-ba">
           <div class="dil-card dil-today"><div class="lbl">Today</div>OEE sits in the low-30s%. No one can say <em>why</em> in the moment — the answer is spread across Cimplicity, the FAULT app, the robot pendants, and the CMMS.</div>
-          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The area opens on one screen —, JPH-first. The number is honest and live; the gaps are already attributed.</div>
+          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The area opens on one screen — JPH-first. The number is honest and live; the gaps are already attributed.</div>
         </div>
       </div>
     </div>
@@ -134,7 +134,7 @@
     <div class="dil-step">
       <div class="dil-time">06:30</div>
       <div><h3>Spray booth starves</h3>
-        <p class="dil-moment">the paint booth booth goes STARVED — the biggest downtime bucket this shift (34 min over 22 events).</p>
+        <p class="dil-moment">The paint booth goes STARVED — the biggest downtime bucket this shift (34 min over 22 events).</p>
         <div class="dil-ba">
           <div class="dil-card dil-today"><div class="lbl">Today</div>Logged as "Starved" — one of dozens of look-alike entries. The upstream reason (a cell not keeping pace) is lost.</div>
           <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>STARVED shows next to the upstream cell state and conveyor block/starve signals on one timeline. The Control Room rebalances before it repeats.</div>
@@ -159,19 +159,18 @@
         <p class="dil-moment">A unit stops on a likely lens/bracket issue.</p>
         <div class="dil-ba">
           <div class="dil-card dil-today"><div class="lbl">Today</div>The tender hunts across SOPs, prior incidents, parts, and escalation by hand.</div>
-          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The
-opens one event record — likely cause, the SOP page, parts-on-hand, and a one-tap escalation that brings controls + quality + Control Room into the same case.</div>
+          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The cockpit opens one event record — likely cause, the SOP page, parts-on-hand, and a one-tap escalation that brings controls + quality + Control Room into the same case.</div>
         </div>
       </div>
     </div>
 
     <div class="dil-step">
       <div class="dil-time">13:00</div>
-      <div><h3>The 1 PM the improvement initiative — a score crosses threshold</h3>
+      <div><h3>The 1 PM improvement review — a score crosses threshold</h3>
         <p class="dil-moment">The daily Control Center Review. A basecoat robot's predictive score has dropped past threshold.</p>
         <div class="dil-ba">
           <div class="dil-card dil-today"><div class="lbl">Today</div>A spreadsheet recap of yesterday; predictive signals live only in the predictive-maintenance platform, untied to cost or age.</div>
-          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The shows Robot R5 in ALERT — condition slipping, 92% of life consumed, 77% of replacement value already spent on repairs. The verdict isn't "repair again" — it's a planned-replacement call, evidence on one screen.</div>
+          <div class="dil-card dil-civ"><div class="lbl">WITH NEW DATA FLOW DESIGN</div>The cockpit shows Robot R5 in ALERT — condition slipping, 92% of life consumed, 77% of replacement value already spent on repairs. The verdict isn't "repair again" — it's a planned-replacement call, evidence on one screen.</div>
         </div>
       </div>
     </div>
@@ -216,5 +215,6 @@ opens one event record — likely cause, the SOP page, parts-on-hand, and a one-
 </footer>
 
 <script src="main.js"></script>
+<script src="role.js"></script>
 </body>
 </html>

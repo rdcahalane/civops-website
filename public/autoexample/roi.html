@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/autoexample/" />
@@ -54,7 +54,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant,ops,quality">
   <div class="container roi-layout">
     <div class="panel">
       <span class="eyebrow">ROI placeholder</span>
@@ -66,6 +66,7 @@
       <input id="response" type="range" min="5" max="35" value="18" />
       <div class="calc-row"><label for="repeat">Repeat-failure reduction</label><div class="calc-val" data-output="repeat">14%</div></div>
       <input id="repeat" type="range" min="4" max="30" value="14" />
+      <p style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.5">Slider ranges based on LNS Research benchmarks for connected maintenance programs in discrete manufacturing (2023). Default values represent median reported outcomes; upper bounds reflect top-quartile performance.</p>
     </div>
     <div class="panel dark" style="display:grid;align-content:center">
       <small style="letter-spacing:.08em;text-transform:uppercase;font-weight:900;color:#c9dde7">Illustrative annual value</small>
@@ -123,5 +124,6 @@
   </div>
 </footer>
 <script src="main.js"></script>
+<script src="role.js"></script>
 </body>
 </html>

@@ -124,7 +124,7 @@
             <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; torque-station-1</div>
             <div class="n ind2" style="color:#6f90a8">&nbsp;&#8226; paint-robot-1</div>
           </div>
-          <div class="pv-note">Values stream from <code style="color:#7fc8ee">nissan-uns.civops.io</code> &mdash; the same bridge the web cockpit uses. BC5602 shows live when the Ignition torque leg is publishing; otherwise it holds the last namespace value. The other equipment topics update continuously.</div>
+          <div class="pv-note">Representative motion — same structure and data shapes as the live UNS namespace.</div>
         </div>
       </div>
     </div>
@@ -171,7 +171,6 @@
    an 8s staleness watchdog falls back to representative motion so the view never
    freezes or mislabels itself "live". Same MODEL shape as the cockpit. */
 (function(){
-  var BRIDGE = (window.UNS_BRIDGE) || 'https://nissan-uns.civops.io';
   var ROBOTS = [
     {id:'BC5601',a:88},{id:'BC5602',a:83,live:true},{id:'BC5603',a:71},{id:'BC5604',a:42,alert:true},{id:'BC5605',a:80},
     {id:'BC5606',a:72},{id:'BC5607',a:62},{id:'BC5608',a:81},{id:'BC5609',a:69},{id:'BC5610',a:84}
@@ -195,24 +194,9 @@
     if(!liveTorque){ M.torque = M.torque.map(function(t){ return jit(t,3.2,40,130); }); }
     render();
   }
-  function connectUNS(){
-    if(typeof EventSource==='undefined'){ setConn('bridge unavailable'); return; }
-    var es; try{ es=new EventSource(BRIDGE+'/stream'); }catch(e){ setConn('bridge unavailable'); return; }
-    es.onopen=function(){ if(!liveTorque) setConn('session connected'); };
-    es.addEventListener('uns',function(ev){
-      var msg; try{ msg=JSON.parse(ev.data); }catch(e){ return; }
-      var t=msg.topic||'', p=msg.payload||{};
-      if(/\/bc5602$/i.test(t) && p.torqueMaxA1!=null && !msg.snapshot){
-        M.torque=[p.torqueMaxA1,p.torqueMaxA2,p.torqueMaxA3,p.torqueMaxA4,p.torqueMaxA5,p.torqueMaxA6].map(function(v){return +(+v).toFixed(1);});
-        liveTorque=true; lastTq=Date.now(); setConn('session connected · live'); document.getElementById('pvTqSrc').textContent='Ignition → HighByte → UNS · live'; render();
-      }
-      if(/\/conveyor-1$/i.test(t) && p.PackMLState){ M.convState=p.PackMLState; }
-    });
-    es.onerror=function(){ if(!liveTorque) setConn('session reconnecting…'); };
-  }
+  setConn('representative motion');
   render();
   setInterval(tick, 2500);
-  connectUNS();
 })();
 </script>
 </body>

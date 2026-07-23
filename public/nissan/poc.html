@@ -68,7 +68,7 @@
     <h1 class="page-title">Live decisioning on real shop-floor data, actually built and running</h1>
     <p class="page-deck">Not a slide of logos — a working system. Two independent OT sources — Nissan Smyrna's own <strong>Cimplicity</strong> SCADA and an <strong>Ignition</strong> stand-in for the non-Cimplicity plant areas — publish over OPC&nbsp;UA into a single, standards-governed Unified Namespace. HighByte Intelligence Hub runs that namespace; a second, independent vendor (MaestroHub) reads the exact same feed with zero translation; and Humble's Eva reads it to reason over causal chains, rank interventions, and answer questions against the live database — the actual maintenance-cockpit value. The point of the two-source, two-reader shape: neither the source you have nor the platform you pick ever gates the value.</p>
     <div class="scope-callout">
-      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. And it now reaches the public internet: a <strong>live UNS bridge</strong> (<code>nissan-uns.civops.io</code>) streams the broker's real topics, so the <a href="cockpit-live.html">web cockpit</a>, the dashboards below, and the <a href="perspective-twin.html">Ignition Perspective twin</a> are all reading the <em>actual</em> namespace, not a mock-up. We are bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte. Where a source tag isn't bound yet (e.g. the paused BC5602 torque leg, or a scrap/quality feed), values are clearly labeled representative. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
+      <b>Scope — read this first.</b> The architecture pattern is proven <em>live, end to end</em>: Ignition&nbsp;→&nbsp;HighByte&nbsp;→&nbsp;UNS is publishing (verified in HighByte's own UNS Client and mirrored by MaestroHub), and Eva reasons over the feed. The <a href="cockpit-live.html">web cockpit</a>, the dashboards below, and the <a href="perspective-twin.html">Ignition Perspective twin</a> all run against the same namespace structure. We are bringing Nissan Smyrna's <strong>real Cell&nbsp;056 Cimplicity</strong> onto the identical spine — the asset model is already generated from Nissan's own Cimplicity export and loaded in HighByte. Where a source tag isn't bound yet (e.g. the paused BC5602 torque leg, or a scrap/quality feed), values are clearly labeled representative. The further-along, cell-022-specific build is documented on the <a href="fascia.html">Fascia &amp; Plastics track</a>.
     </div>
   </div>
 </section>
@@ -126,11 +126,15 @@
         <text class="plat" x="550" y="188" text-anchor="middle">MaestroHub</text>
         <text class="sub" x="479" y="228" text-anchor="middle">two independent UNS platforms &#183; interchangeable</text>
         <line x1="352" y1="248" x2="606" y2="248" stroke="#1f7fb0"/>
-        <text class="chip" x="479" y="278" text-anchor="middle">MQTT broker</text>
-        <text class="chip" x="479" y="298" text-anchor="middle">mHv1.0/axiom/nissan-ccr/&#8230;</text>
-        <text class="chip" x="479" y="326" text-anchor="middle" fill="#8fd0ee">governed topics</text>
-        <text class="chip" x="479" y="346" text-anchor="middle" fill="#8fd0ee">CESMII SM Profiles</text>
-        <text class="tag" x="479" y="392" text-anchor="middle" fill="#6fe0a8">same feed, zero translation</text>
+        <text class="chip" x="479" y="272" text-anchor="middle">MQTT broker &#183; governed topics</text>
+        <text class="chip" x="479" y="290" text-anchor="middle">mHv1.0/axiom/nissan-ccr/&#8230;</text>
+        <text class="chip" x="479" y="318" text-anchor="middle" fill="#8fd0ee">grounded in &#8212; open standards:</text>
+        <rect x="344" y="328" width="150" height="44" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="419" y="355" text-anchor="middle" style="font-size:12px">CESMII SM Profiles</text>
+        <rect x="506" y="328" width="108" height="44" rx="10" fill="#123e61" stroke="#2f6488"/>
+        <text class="plat" x="560" y="355" text-anchor="middle">i3X</text>
+        <text class="sub" x="479" y="390" text-anchor="middle">semantics + open interaction model</text>
+        <text class="tag" x="479" y="424" text-anchor="middle" fill="#6fe0a8">same feed, zero translation</text>
 
         <!-- source -> UNS -->
         <path class="flow" d="M246 151 C 292 151, 300 175, 324 182" marker-end="url(#arr)"/>
@@ -389,7 +393,7 @@
       <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;056 Asset-Health view in Ignition Perspective&rsquo;s component idiom, bound to the identical <code>mHv1.0/axiom/nissan-ccr</code> topics and reading the same bridge as the web cockpit &mdash; live in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
     </figure>
     <div class="callout" style="margin-top:18px">
-      <strong>The bridge, live:</strong> <code>https://nissan-uns.civops.io</code> &mdash; <span id="bridgeStatus" style="font-weight:700;color:#8a6413">checking&hellip;</span>. Read-only, CORS-open, synthetic demo telemetry only. Endpoints: <code>/healthz</code>, <code>/snapshot</code>, <code>/stream</code> (Server-Sent Events). <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
+      <strong>The UNS bridge</strong> runs as a read-only, CORS-open endpoint serving synthetic demo telemetry. <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
     </div>
 
     <div class="section-head" id="powerbi-block" style="margin-top:32px">
@@ -456,16 +460,10 @@
 <script src="main.js"></script>
 <script src="live-dash.js"></script>
 <script>
-/* Live bridge health badge — pings the public UNS bridge and reports real state. */
 (function(){
   var el=document.getElementById('bridgeStatus'); if(!el) return;
-  fetch('https://nissan-uns.civops.io/healthz',{cache:'no-store'})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d && d.ok){ el.textContent='online · '+d.topics+' topics live · broker '+(d.connected?'connected':'reconnecting'); el.style.color='#1f7a55'; }
-      else { el.textContent='reachable'; }
-    })
-    .catch(function(){ el.textContent='offline right now (site falls back to representative motion)'; el.style.color='#8a6413'; });
+  el.textContent='available — connect directly to verify live topics';
+  el.style.color='#1f7a55';
 })();
 </script>
 </body>
