@@ -4,7 +4,7 @@
 
   var MODEL = {
     cellAHI:66, conveyor:85,
-    robots:[{i:'BC5601',a:88},{i:'BC5602',a:83,live:true},{i:'BC5603',a:71},{i:'BC5604',a:42,alert:true},{i:'BC5605',a:80},
+    robots:[{i:'BC5601',a:88},{i:'BC5602',a:83},{i:'BC5603',a:71},{i:'BC5604',a:42,alert:true},{i:'BC5605',a:80},
             {i:'BC5606',a:72},{i:'BC5607',a:62},{i:'BC5608',a:81},{i:'BC5609',a:69},{i:'BC5610',a:84}],
     torque:[95.2,101.8,88.4,76.1,94.7,102.3],
     oee:{avail:84,perf:91,quality:95,hourly:[62,71,48,67,76,58,80,69]}
@@ -16,7 +16,7 @@
 
   function health(){
     function row(list){return list.map(function(r){
-      return '<div class="ld-r '+band(r.a)+'"><div class="i">'+r.i+(r.live?' &#183; live':'')+'</div><div class="s">'+r.a+'%</div></div>';
+      return '<div class="ld-r '+band(r.a)+'"><div class="i">'+r.i+'</div><div class="s">'+r.a+'%</div></div>';
     }).join('');}
     return '<div class="ld">'
       +'<div class="ld-hd"><h4>Cell 056 &#183; Base Coat</h4><span class="sub">roll-up '+MODEL.cellAHI+'% &#183; Watch</span></div>'
