@@ -341,19 +341,19 @@
     </div>
 
     <div class="section-head" style="margin-top:40px">
-      <div class="section-title"><span class="eyebrow">Built on the live feed — in any tool</span><h2 style="font-size:26px">Cell 056 Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
-      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Shown here to demonstrate the pattern; the identical views can be built in Humble/Eva, Grafana, or Ignition Perspective reading the topics directly &mdash; or in Power&nbsp;BI reading from the SQL landing zone those same topics flow into (see section 5 below).</p>
+      <div class="section-title"><span class="eyebrow">Built on the namespace — in any tool</span><h2 style="font-size:26px">Cell 056 Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
+      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Running on the same representative feed as the rest of the proof today; the identical views can be built in Humble/Eva, Grafana, or Ignition Perspective reading the topics directly &mdash; or in Power&nbsp;BI reading from the SQL landing zone those same topics flow into (see section 5 below).</p>
     </div>
     <div class="dash-two">
       <figure class="fig" style="margin-top:0">
-        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; Asset Health Index<span class="fig-badge live">&#9679; Live from UNS</span></div>
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; Asset Health Index<span class="fig-badge live">&#9679; Representative feed</span></div>
         <div class="fig-svg" data-livedash="health" style="min-height:308px"></div>
-        <figcaption><b>Asset Health.</b> One number per robot; color triages the cell at a glance. BC5604 (Alert, 42%) is what a lead drills into first &#8212; updating live off the torque/fault signals on the UNS.</figcaption>
+        <figcaption><b>Asset Health.</b> One number per robot; color triages the cell at a glance. BC5604 (Alert, 42%) is what a lead drills into first &#8212; the same torque/fault signal shape the UNS carries once source tags are bound.</figcaption>
       </figure>
       <figure class="fig" style="margin-top:0">
-        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; OEE (current shift)<span class="fig-badge live">&#9679; Live from UNS</span></div>
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; OEE (current shift)<span class="fig-badge live">&#9679; Representative feed</span></div>
         <div class="fig-svg" data-livedash="oee" style="min-height:308px"></div>
-        <figcaption><b>OEE.</b> Availability&#215;Performance&#215;Quality, decomposed and updating live. Quality flagged <em>est.</em> &#8212; pending a scrap/rework feed. Any BI tool renders this off the UNS topics.</figcaption>
+        <figcaption><b>OEE.</b> Availability&#215;Performance&#215;Quality, decomposed. Quality flagged <em>est.</em> &#8212; pending a scrap/rework feed. Any BI tool renders this off the UNS topics once wired live.</figcaption>
       </figure>
     </div>
     <div class="callout" style="margin-top:20px"><strong>This is the argument, not the demo:</strong> the reasoning surfaces above and the cockpit views here are two consumers of one namespace. Swap the reader, swap the source, add a cell — the spine, and everything built on it, keeps working.</div>
@@ -368,32 +368,32 @@
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">5 — Off the plant floor, onto the internet</span><h2>A live UNS bridge — and the same screen in a second tool</h2></div>
-      <p class="section-copy">The namespace no longer lives only on the plant network. A small read-only bridge subscribes to HighByte's broker and streams its real topics over a Cloudflare tunnel, so any authorized consumer — a browser, a BI tool, a second HMI platform — can read the live namespace without touching OT. Two consumers are wired to it right now.</p>
+      <div class="section-title"><span class="eyebrow">5 — Off the plant floor, portable by design</span><h2>The same screen, two tools — a one-function swap from live</h2></div>
+      <p class="section-copy">The namespace isn't locked to the plant network — a read-only bridge exists to stream HighByte's real topics to any authorized consumer (a browser, a BI tool, a second HMI platform) without touching OT. Both apps below run on the same representative feed as the rest of this proof today; going live is a one-function swap, not a rebuild, exactly as each app's own status line says.</p>
     </div>
     <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
       <div class="poc-card">
         <div class="poc-card-body">
           <div class="poc-card-label">Consumer 1 — the web cockpit</div>
-          <div class="poc-card-title">Cell 056 tablet cockpit, on the live feed</div>
-          <div class="poc-card-desc">The working technician app reads the bridge via a one-line <code>EventSource</code> subscription. BC5602 axis torque shows live end-to-end whenever the Ignition leg is publishing; the other equipment topics stream continuously. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the live cockpit &rarr;</a></div>
+          <div class="poc-card-title">Cell 056 tablet cockpit, on the representative feed</div>
+          <div class="poc-card-desc">The working technician app — tiles, health scores, OEE, axis torque — runs on the same representative feed as the rest of the proof. Going live is a one-function swap: <code>Feed.connectUNS()</code> subscribes to the real broker in place of the simulator tick. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the cockpit &rarr;</a></div>
         </div>
       </div>
       <div class="poc-card">
         <div class="poc-card-body">
           <div class="poc-card-label">Consumer 2 — Ignition Perspective</div>
           <div class="poc-card-title">The same screen, rebuilt in Perspective</div>
-          <div class="poc-card-desc">The Cell&nbsp;056 Asset-Health screen in Ignition Perspective's component idiom, bound to the identical <code>mHv1.0/axiom/nissan-ccr</code> topics and reading the same bridge — the proof the value layer ports across tools. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
+          <div class="poc-card-desc">The Cell&nbsp;056 Asset-Health screen in Ignition Perspective's component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure — the proof the value layer ports across tools, not just across data. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
         </div>
       </div>
     </div>
     <figure class="fig" style="margin-top:22px">
-      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ignition Perspective &#183; Cell 056 Asset Health &#183; reading the live UNS<span class="fig-badge live">&#9679; Live from UNS</span></div>
-      <iframe src="perspective-embed.html" title="Ignition Perspective twin — Cell 056 Asset Health, live from the UNS" loading="lazy" style="display:block;width:100%;height:474px;border:1px solid #1f587a;border-top:0;border-radius:0 0 12px 12px;background:#0e2236"></iframe>
-      <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;056 Asset-Health view in Ignition Perspective&rsquo;s component idiom, bound to the identical <code>mHv1.0/axiom/nissan-ccr</code> topics and reading the same bridge as the web cockpit &mdash; live in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
+      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ignition Perspective &#183; Cell 056 Asset Health &#183; representative motion<span class="fig-badge live">&#9679; Representative feed</span></div>
+      <iframe src="perspective-embed.html" title="Ignition Perspective twin — Cell 056 Asset Health, representative motion" loading="lazy" style="display:block;width:100%;height:474px;border:1px solid #1f587a;border-top:0;border-radius:0 0 12px 12px;background:#0e2236"></iframe>
+      <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;056 Asset-Health view in Ignition Perspective&rsquo;s component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure as the web cockpit &mdash; running the same representative motion in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
     </figure>
     <div class="callout" style="margin-top:18px">
-      <strong>The UNS bridge</strong> runs as a read-only, CORS-open endpoint serving synthetic demo telemetry. <strong>Before any production OT data flows through it, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
+      <strong>The UNS bridge</strong> exists as a read-only, CORS-open endpoint serving synthetic demo telemetry; neither app above is wired to it by default today, both run local representative motion instead. <strong>Before it carries production OT data, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
     </div>
 
     <div class="section-head" id="powerbi-block" style="margin-top:32px">
