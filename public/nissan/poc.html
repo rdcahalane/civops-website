@@ -242,7 +242,7 @@
         <div class="poc-card-body">
           <div class="poc-card-label">Connections</div>
           <div class="poc-card-title">The broker every pipeline writes through</div>
-          <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker, port 1885. Every pipeline's final stage writes here; every reader subscribes here.</div>
+          <div class="poc-card-desc"><code>highbyte_uns_publish</code> — this hub's own embedded MQTT broker. Every pipeline's final stage writes here; every reader subscribes here.</div>
         </div>
       </div>
     </div>
@@ -291,7 +291,7 @@
         <div class="poc-card-body">
           <div class="poc-card-label">MaestroHub — Connect &rarr; Discover</div>
           <div class="poc-card-title">The full topic tree, live payloads — read-only mirror</div>
-          <div class="poc-card-desc">Sourced entirely from HighByte's broker (100.74.158.107:1885) — "last seen less than a minute ago," messages climbing. A genuine second-vendor mirror of section 1, not a re-implementation. The Ignition-sourced <code>bc5602</code> node shows up here too, proving the source side is just as open as the reader side.</div>
+          <div class="poc-card-desc">Sourced entirely from HighByte's own embedded broker — "last seen less than a minute ago," messages climbing. A genuine second-vendor mirror of section 1, not a re-implementation. The Ignition-sourced <code>bc5602</code> node shows up here too, proving the source side is just as open as the reader side.</div>
         </div>
       </div>
     </div>
