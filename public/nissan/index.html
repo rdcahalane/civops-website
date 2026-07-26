@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nissan Smyrna | Overview</title>
+  <title>Nissan Smyrna | Overview &amp; Approach</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.ico" />
 </head>
@@ -19,13 +19,11 @@
     <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="current">Overview</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
-<a href="decision.html" class="">Approach</a>
-<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="benchmarking.html" class="">Benchmarks</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="cesmii-survey.html" class="">CESMII<br>Survey</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
-<a href="journey.html" class="">Journey<br>Map</a>
+<a href="journey.html" class="">Journey<br>Mapping</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="architecture.html" class="">Conceptual Architecture</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
@@ -53,7 +51,7 @@
       <h1>Maintenance intelligence for<br>Nissan Smyrna</h1>
       <p class="lead">A leadership-ready concept site built to answer one question clearly: how does Nissan Smyrna move from fragmented maintenance signals to a cleaner operating model, a stronger data backbone, and faster problem resolution on the plant floor?</p>
       <div class="hero-actions">
-        <a class="btn primary" href="decision.html">See Good / Better / Best</a>
+        <a class="btn primary" href="#approach">See Good / Better / Best</a>
         <a class="btn secondary" href="architecture.html">See the architecture build</a>
       </div>
     </div>
@@ -69,30 +67,48 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="approach">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
-        <span class="eyebrow">The management decision</span>
-        <h2>What Nissan Smyrna should decide now</h2>
+        <span class="eyebrow">The approach</span>
+        <h2>Good / Better / Best</h2>
       </div>
-      <p class="section-copy">Senior management and maintenance leadership do not need to approve a giant replacement program. They need to choose a practical path that improves troubleshooting, creates cleaner operational data, and sets up the next wave of analytics and AI.</p>
+      <p class="section-copy">Senior management and maintenance leadership do not need to approve a giant replacement program. The choice is how much change to take on now, what capability to unlock next, and where CESMII i3X anchors the data strategy.</p>
     </div>
     <div class="comparison">
       <div class="card">
-        <div class="tag orange">Decision 1</div>
-        <h3>Keep what already works</h3>
-        <p>Retain CIMPLICITY and the existing control layer as the plant-floor truth source. Avoid destabilizing the operations backbone.</p>
+        <div class="tag">Good</div>
+        <h3>Stabilize and simplify</h3>
+        <p><strong>Best when:</strong> leadership wants faster improvement without major architecture change.</p>
+        <ul>
+          <li>Keep current Proficy / CIMPLICITY stack.</li>
+          <li>Centralize access through one dashboard.</li>
+          <li>Improve structured fault entry and reason coding.</li>
+          <li>Use SQL where it already works.</li>
+        </ul>
       </div>
       <div class="card">
-        <div class="tag orange">Decision 2</div>
-        <h3>Add the missing middle</h3>
-        <p>Insert historian + context + event modeling so Nissan has one reusable operational language rather than several isolated databases.</p>
+        <div class="tag blue">Better</div>
+        <h3>Build the missing middle</h3>
+        <p><strong>Best when:</strong> Nissan wants the strongest practical answer for maintenance performance and data quality.</p>
+        <ul>
+          <li>Add historian for OT time-series and alarm/event data.</li>
+          <li>Add an i3X-aligned context / UNS layer.</li>
+          <li>Use one maintenance cockpit for faults, RCA, parts, and escalation.</li>
+          <li>Publish curated operational context to cloud analytics.</li>
+        </ul>
       </div>
       <div class="card">
-        <div class="tag orange">Decision 3</div>
-        <h3>Give the plant one operating experience</h3>
-        <p>Build a single maintenance cockpit for live alerts, guided troubleshooting, escalation, and closure — not another disconnected dashboard.</p>
+        <div class="tag green">Best</div>
+        <h3>Standardize for scale</h3>
+        <p><strong>Best when:</strong> leadership wants an interoperable long-term operating layer that supports AI and fleet learning.</p>
+        <ul>
+          <li>Combine historian + i3X UNS layer + modern frontline UI.</li>
+          <li>Use CESMII SM Profiles + i3X as the interoperability contract.</li>
+          <li>Feed a cloud data platform with clean contextualized events.</li>
+          <li>Scale the operating model across body, paint, and assembly.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -101,33 +117,49 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title">
-        <span class="eyebrow">Decision framing</span>
-        <h2>Good / Better / Best</h2>
-      </div>
-      <p class="section-copy">Make the choice easy to follow. Show the path, the tradeoffs, and what each level unlocks for maintenance performance and enterprise learning.</p>
+      <div class="section-title"><span class="eyebrow">Brooksource recommendation</span><h2>Recommended path: Better now, designed to become Best</h2></div>
+      <p class="section-copy">The sweet spot is to make the Better option the primary recommendation, but architect it so Nissan does not have to backtrack later to reach Best.</p>
     </div>
-    <div class="comparison">
-      <div class="score-card">
-        <div class="tag">Good</div>
-        <b>Centralize what already exists</b>
-        <small>One dashboard, structured fault entry, and light integration. Best when the goal is quick improvement with low disruption.</small>
-        <div class="scorebar"><span style="width:42%"></span></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3 style="margin-top:0">Why Better is the strongest management answer</h3>
+        <ul>
+          <li>It improves maintenance performance in a visible way without destabilizing the current control stack.</li>
+          <li>It fixes the most important gap: the missing context layer between plant systems and enterprise analytics.</li>
+          <li>It gives Nissan a real operating experience — one cockpit, one event record, one escalation pathway.</li>
+          <li>It creates the conditions for AI to be useful later instead of speculative now.</li>
+        </ul>
       </div>
-      <div class="score-card">
-        <div class="tag blue">Better</div>
-        <b>Add historian + context layer + cockpit</b>
-        <small>The strongest practical recommendation: better troubleshooting, stronger data quality, and a clear path to scale.</small>
-        <div class="scorebar"><span style="width:78%"></span></div>
-      </div>
-      <div class="score-card">
-        <div class="tag green">Best</div>
-        <b>Standardize for AI and fleet learning</b>
-        <small>Combine historian, context, modern UI, a cloud data platform, and CESMII/i3X-aligned models for a future-ready operating layer.</small>
-        <div class="scorebar"><span style="width:92%"></span></div>
+      <div class="panel dark">
+        <h3 style="margin-top:0">How CESMII i3X fits each option</h3>
+        <ul>
+          <li><strong>Good:</strong> a reference point for where data and events should eventually land.</li>
+          <li><strong>Better:</strong> the design center for asset identity, event identity, and reusable plant context.</li>
+          <li><strong>Best:</strong> the plant-wide interoperability spine that keeps the architecture portable and future-proof.</li>
+        </ul>
       </div>
     </div>
-    <div style="margin-top:18px"><a class="btn primary" href="decision.html">Open the decision page</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Comparison</span><h2>Compare the three options on the dimensions management will care about</h2></div>
+      <p class="section-copy">The dimensions that actually drive the choice &mdash; change load, maintenance value, data reuse, CESMII / i3X role, and readiness for cloud and AI.</p>
+    </div>
+    <table class="table-like">
+      <thead><tr><th>Dimension</th><th>Good</th><th>Better</th><th>Best</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primary outcome</strong></td><td>Faster visibility</td><td>Faster troubleshooting + better data quality</td><td>Future-ready plant operating layer</td></tr>
+        <tr><td><strong>Change load</strong></td><td>Low</td><td>Moderate</td><td>Highest</td></tr>
+        <tr><td><strong>Maintenance user value</strong></td><td>Medium</td><td>High</td><td>Very high</td></tr>
+        <tr><td><strong>Data reuse</strong></td><td>Limited</td><td>Strong</td><td>Strongest</td></tr>
+        <tr><td><strong>CESMII / i3X role</strong></td><td>Reference</td><td>Design center</td><td>Full operating contract</td></tr>
+        <tr><td><strong>Cloud / AI readiness</strong></td><td>Low</td><td>Good</td><td>Excellent</td></tr>
+        <tr><td><strong>Brooksource view</strong></td><td>Acceptable first step</td><td>Recommended path</td><td>North star</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -196,21 +228,40 @@
 </section>
 
 <section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">Placeholder economics</span>
+      <h2 style="font-size:30px">Framing the ROI conversation</h2>
+      <ul>
+        <li>How much unplanned downtime can the first pilot realistically reduce?</li>
+        <li>How much faster can the plant diagnose and close repeat issues?</li>
+        <li>How much administrative waste disappears when the same event record is reused instead of re-entered?</li>
+        <li>How much value does Nissan create by making paint-shop learning portable across the site?</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">Recommended leadership sound bite</h3>
+      <div class="callout"><strong>Brooksource recommendation:</strong> retain the existing control-layer investments, add a purpose-built historian and context layer, use CESMII SM Profiles + i3X as the interoperability centerpoint, and deliver one frontline maintenance cockpit as the new operational experience.</div>
+      <div style="margin-top:18px"><a class="btn primary" href="architecture.html">Next: see the architecture build</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title">
-        <span class="eyebrow">Sequencing</span>
-        <h2>Suggested roadmap</h2>
-      </div>
-      <p class="section-copy">The path should move from clarity to proof to scale — not from concept directly to enterprise complexity, and not from assessment to more assessment. The near-term goal is a working pilot on real equipment, on the plant floor.</p>
+      <div class="section-title"><span class="eyebrow">Engagement arc</span><h2>How we get to the target state — a five-phase assessment</h2></div>
+      <p class="section-copy">Before the day-in-the-life is real, there is a disciplined path to it. This is the assessment arc: evaluate the current state, benchmark the gaps, and deliver a prioritized modernization roadmap — structured so every recommendation traces to observed evidence, not assumption.</p>
     </div>
-    <div class="phase-grid">
-      <div class="phase"><div class="when">Phase 1</div><h3>Confirm the source landscape</h3><p>Validate systems, data owners, naming conventions, and the first viable event model.</p></div>
-      <div class="phase"><div class="when">Phase 2</div><h3>Pilot in automotive paint</h3><p>Use the paint shop example to prove live fault capture, guided troubleshooting, and cross-role collaboration.</p></div>
-      <div class="phase"><div class="when">Phase 3</div><h3>Stand up the cockpit</h3><p>Launch a role-based maintenance command experience with historian, context, and shared escalation.</p></div>
-      <div class="phase"><div class="when">Phase 4</div><h3>Scale and learn</h3><p>Expand across plant areas and feed curated events to analytics, AI, and fleet learning.</p></div>
+    <div class="eng-arc">
+      <div class="arc-phase"><span class="arc-num">1</span><h3>Pre-Assessment Planning</h3><p>Kickoff and team alignment, baseline documentation, a stakeholder questionnaire, and scoping of the focus area.</p><div class="arc-goal">Goal: team buy-in, project plan, baseline inputs gathered.</div></div>
+      <div class="arc-phase"><span class="arc-num">2</span><h3>Onsite Assessment</h3><p>Onsite evaluation of the centralized control room and target area; document processes, workflows, and pain points with the site teams.</p><div class="arc-goal">Goal: validated current-state documentation.</div></div>
+      <div class="arc-phase"><span class="arc-num">3</span><h3>Gap Analysis &amp; Benchmarking</h3><p>Compare practices against maintenance &amp; reliability and manufacturing industry benchmarks; identify gaps and prioritized, actionable recommendations.</p><div class="arc-goal">Goal: gap analysis + benchmarking summary.</div></div>
+      <div class="arc-phase"><span class="arc-num">4</span><h3>Integrated Controls Modernization Roadmap</h3><p>Define investment priorities and an ROI tracking framework tied to uptime, MTTR, and maintenance cost; outline training and adoption.</p><div class="arc-goal">Goal: prioritized modernization roadmap.</div></div>
+      <div class="arc-phase"><span class="arc-num">5</span><h3>Executive Presentation</h3><p>Translate technical findings into business outcomes — reliability impact and cost avoidance — in an executive-ready package.</p><div class="arc-goal">Goal: decision-ready findings + roadmap.</div></div>
     </div>
-    <div class="callout" style="margin-top:18px"><strong>Next workstream:</strong> compare sample technology candidates across historian &amp; operations platforms, UNS/DataOps, frontline knowledge tools, and industrial AI. <a href="technology.html" style="font-weight:900;color:var(--brook-blue)">Open the Tech Stack page →</a></div>
+    <div class="build-note" style="max-width:none"><strong>Why it is sequenced this way:</strong> current state → benchmarked gaps → prioritized roadmap → executive decision. Each phase's output is the next phase's input, so the final roadmap is grounded in observed evidence rather than assumption.</div>
+    <div class="callout" style="margin-top:18px"><strong>What comes after the decision:</strong> the assessment arc above gets Nissan to a decision. <a href="next-steps.html" style="font-weight:900;color:var(--brook-blue)">Next Steps</a> covers what happens once Better is chosen — the interop kaizen, sandbox, and pilot phases.</div>
   </div>
 </section>
 
@@ -221,10 +272,9 @@
       <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
       <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
     </div>
-    
+
       <div style="margin-top:8px;font-size:11px"><a href="https://civops.io/nissan/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
-    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="cesmii-survey.html">CESMII Survey</a> <a href="architecture.html">Conceptual Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
-<a href="cockpit.html#asset-health">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a> <a href="next-steps.html">Next Steps</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="benchmarking.html">Benchmarks</a> <a href="cesmii-survey.html">CESMII Survey</a> <a href="architecture.html">Conceptual Architecture</a> <a href="journey.html">Journey Mapping</a> <a href="cockpit.html">Maintenance Cockpit</a> <a href="cockpit.html#asset-health">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a> <a href="next-steps.html">Next Steps</a></div>
   </div>
 </footer>
 
