@@ -31,8 +31,6 @@
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="cockpit.html" class="current">Maintenance<br>Cockpit</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
-<a href="cockpit.html#asset-health" class="">Asset Health<br>Index</a>
-<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="detail-design.html" class="">Detail<br>Design</a>
 <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
 <a href="poc.html" class="">Live<br>Proof</a>
@@ -51,7 +49,7 @@
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Maintenance cockpit</div>
     <h1 class="page-title">Maintenance Cockpit</h1>
     <p class="page-deck">A floor-ready workspace a Nissan maintenance technician would actually use &mdash; a rugged tablet experience with role-specific logic, root-cause support, and one shared event record.</p>
-    <a href="#asset-health" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#f3f6f9;border:1px solid #d0d8e2;color:#1a2433;font-weight:700;font-size:14px;text-decoration:none;padding:10px 20px;border-radius:999px;">Asset Health Index &darr;</a>
+    <a href="cockpit.html#asset-health" onclick="event.preventDefault();document.getElementById('asset-health').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#f3f6f9;border:1px solid #d0d8e2;color:#1a2433;font-weight:700;font-size:14px;text-decoration:none;padding:10px 20px;border-radius:999px;">Asset Health Index &darr;</a>
   </div>
 </section>
 
@@ -632,7 +630,7 @@ ready(function(){
     function showPop(hot){
       var d = ASSET_DATA[hot.dataset.asset]; if(!d) return;
       var rows = d.rows.map(function(r){return '<tr><td>'+r[0]+'</td><td class="v">'+r[1]+'</td></tr>';}).join('');
-      pop.innerHTML='<h4>'+d.name+'<span class="pop-ahi" style="color:'+d.color+'">'+d.ahi+'% <span style="font-size:11px">'+d.band+'</span></span></h4><table>'+rows+'</table><a href="#asset-health">See full AHI breakdown &darr;</a>';
+      pop.innerHTML='<h4>'+d.name+'<span class="pop-ahi" style="color:'+d.color+'">'+d.ahi+'% <span style="font-size:11px">'+d.band+'</span></span></h4><table>'+rows+'</table><a href="cockpit.html#asset-health" onclick="event.preventDefault();document.getElementById('asset-health').scrollIntoView({behavior:'smooth'})">See full AHI breakdown &darr;</a>';
       var wrap = pop.parentElement; var wRect = wrap.getBoundingClientRect();
       var hRect = hot.getBoundingClientRect();
       var relTop = hRect.top - wRect.top; var relLeft = hRect.left - wRect.left;
