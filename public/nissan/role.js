@@ -9,7 +9,7 @@
 
   // Which nav hrefs to highlight per role
   var NAV_MAP = {
-    plant:   ['index.html', 'decision.html', 'benchmarking.html', 'journey.html', 'roi.html', 'next-steps.html'],
+    plant:   ['index.html', 'benchmarking.html', 'journey.html', 'roi.html', 'next-steps.html'],
     ops:     ['index.html', 'journey.html', 'cockpit.html', 'roi.html', 'next-steps.html'],
     quality: ['journey.html', 'cockpit.html', 'roi.html'],
     itot:    ['architecture.html', 'detail-design.html', 'technology.html', 'poc.html', 'cesmii-survey.html'],
