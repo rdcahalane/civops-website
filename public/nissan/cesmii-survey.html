@@ -89,12 +89,12 @@
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">The maturity grid</span><h2>Where each respondent lands, area by area</h2></div>
-      <p class="section-copy">Same visual model as CESMII's own roadmap tool: five maturity stages across, six Smart Manufacturing areas down. Each marker is one respondent's average maturity level for that area; the orange line traces the average across all respondents. The gray bar behind the markers spans the full range &mdash; the wider the bar, the more the org disagrees with itself on that area.</p>
+      <div class="section-title"><span class="eyebrow">The maturity grid</span><h2>Where each function lands, area by area</h2></div>
+      <p class="section-copy">Same visual model as CESMII's own roadmap tool: five maturity stages across, six Smart Manufacturing areas down. Each marker is one response's maturity level for that area, shown by department/function &mdash; not by individual, to keep respondents anonymous even at low sample sizes. The orange line traces the average across all respondents. The gray bar behind the markers spans the full range &mdash; the wider the bar, the more the org disagrees with itself on that area.</p>
     </div>
     <figure class="fig">
       <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Nissan Smyrna &mdash; CESMII maturity by area<span class="fig-badge live">&#9679; Live &middot; 3 responses</span></div>
-      <svg class="fig-svg" viewBox="0 0 1100 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maturity grid: six Smart Manufacturing areas against five maturity stages (Reactive through Adaptive), with per-respondent markers and an average line.">
+      <svg class="fig-svg" viewBox="0 0 1100 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maturity grid: six Smart Manufacturing areas against five maturity stages (Reactive through Adaptive), with markers by department/function and an average line.">
         <style>
           .row-lbl{font-size:12.5px;font-weight:700;fill:#eef5fb}
           .col-lbl{font-size:11.5px;font-weight:800;letter-spacing:.05em;fill:#8fd0ee;text-transform:uppercase;text-anchor:middle}
@@ -140,7 +140,7 @@
         <circle class="avg-dot" cx="543.3" cy="338" r="5"/>
         <circle class="avg-dot" cx="547.5" cy="400" r="5"/>
 
-        <!-- Respondent A — blue circle -->
+        <!-- Engineering (n=2) — blue circle -->
         <g fill="#0a77a9" stroke="#0e2236" stroke-width="1.2">
           <circle cx="560" cy="90" r="6.5"/>
           <circle cx="660" cy="152" r="6.5"/>
@@ -148,17 +148,14 @@
           <circle cx="610" cy="276" r="6.5"/>
           <circle cx="710" cy="338" r="6.5"/>
           <circle cx="560" cy="400" r="6.5"/>
+          <circle cx="470" cy="90" r="6.5"/>
+          <circle cx="510" cy="152" r="6.5"/>
+          <circle cx="560" cy="214" r="6.5"/>
+          <circle cx="510" cy="276" r="6.5"/>
+          <circle cx="510" cy="338" r="6.5"/>
+          <circle cx="522.5" cy="400" r="6.5"/>
         </g>
-        <!-- Respondent B — orange square -->
-        <g fill="#e8a33d" stroke="#0e2236" stroke-width="1.2">
-          <rect x="464" y="84" width="12" height="12"/>
-          <rect x="504" y="146" width="12" height="12"/>
-          <rect x="554" y="208" width="12" height="12"/>
-          <rect x="504" y="270" width="12" height="12"/>
-          <rect x="504" y="332" width="12" height="12"/>
-          <rect x="516.5" y="394" width="12" height="12"/>
-        </g>
-        <!-- Respondent C — green diamond -->
+        <!-- Operations (n=1) — green diamond -->
         <g fill="#2f9e6e" stroke="#0e2236" stroke-width="1.2">
           <rect x="494" y="84" width="11" height="11" transform="rotate(45 500 90)"/>
           <rect x="654" y="146" width="11" height="11" transform="rotate(45 660 152)"/>
@@ -171,9 +168,8 @@
       <figcaption><b>Reading this:</b> Workforce Optimization has the widest spread (2.00&ndash;4.00, a full 2-point range) &mdash; the org disagrees most with itself there. Data Driven Processes and Supply Chain are the tightest (0.25 range) &mdash; general agreement on where the plant stands. The average sits between Aware and Collaborative (2.7&ndash;3.3) across every area &mdash; consistent with an org that has real momentum but hasn't systematized it yet.</figcaption>
     </figure>
     <div class="cs-legend">
-      <span class="swatch"><span class="mark" style="background:#0a77a9;border-radius:50%"></span> Respondent A &middot; SCOR Contractor &ndash; Engineering</span>
-      <span class="swatch"><span class="mark" style="background:#e8a33d"></span> Respondent B &middot; Manager, Monozukuri Innovation</span>
-      <span class="swatch"><span class="mark" style="background:#2f9e6e;transform:rotate(45deg)"></span> Respondent C &middot; Area Manager</span>
+      <span class="swatch"><span class="mark" style="background:#0a77a9;border-radius:50%"></span> Engineering (n=2)</span>
+      <span class="swatch"><span class="mark" style="background:#2f9e6e;transform:rotate(45deg)"></span> Operations (n=1)</span>
       <span class="swatch"><span class="mark" style="background:#ff8300;border-radius:50%"></span> Average across respondents</span>
       <span class="swatch"><span class="mark" style="background:#3f627d;opacity:.55;height:5px;width:22px;border-radius:3px"></span> Range (min&ndash;max)</span>
     </div>
@@ -197,22 +193,21 @@
         <tr><td>Supply Chain Resiliency and Agility <em>*</em></td><td class="num">2.92</td><td class="num">2.75</td><td class="num">3.00</td><td class="num">0.25</td></tr>
       </tbody>
     </table>
-    <div class="callout" style="margin-top:16px"><strong>n=3 caveat:</strong> a range this early is a signal to watch, not a conclusion to act on. Workforce Optimization's 2.00 spread is one respondent (Respondent C, Area Manager) rating it lowest of the three while Respondent A rated it highest &mdash; worth a direct conversation once more Maintenance and Operations roles complete the survey.</div>
+    <div class="callout" style="margin-top:16px"><strong>n=3 caveat:</strong> a range this early is a signal to watch, not a conclusion to act on. Workforce Optimization's 2.00 spread is the Operations response rating it lowest of the three while an Engineering response rated it highest &mdash; worth a direct conversation once more Maintenance and Operations roles complete the survey.</div>
   </div>
 </section>
 
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Function &amp; role pivot</span><h2>Per-respondent scores, by area</h2></div>
-      <p class="section-copy">Pulled from each respondent's Base Question role answer. With 3 of 23 responses in, this is a per-person table rather than a role-group rollup &mdash; it becomes a true pivot (grouped by role silo) once enough responses land per group.</p>
+      <div class="section-title"><span class="eyebrow">Function &amp; role pivot</span><h2>Scores by department/function, by area</h2></div>
+      <p class="section-copy">Pulled from each respondent's Base Question role answer and grouped by department &mdash; never shown per individual. Engineering's row is an average across its 2 responses; Operations reflects its 1 response as-is. Both groups will read as more stable, and other groups will appear, as more of the 20 outstanding invitations complete.</p>
     </div>
     <table class="tech-matrix">
-      <thead><tr><th>Respondent</th><th>Role</th><th class="num">Strategy &amp; Leadership</th><th class="num">Excellence &amp; Culture</th><th class="num">Data-Driven</th><th class="num">Systems Integration</th><th class="num">Workforce</th><th class="num">Supply Chain</th></tr></thead>
+      <thead><tr><th>Function</th><th class="num">Strategy &amp; Leadership</th><th class="num">Excellence &amp; Culture</th><th class="num">Data-Driven</th><th class="num">Systems Integration</th><th class="num">Workforce</th><th class="num">Supply Chain</th></tr></thead>
       <tbody>
-        <tr><td>Respondent A</td><td class="small-cell">SCOR Contractor &ndash; Engineering</td><td class="num">3.00</td><td class="num">3.67</td><td class="num">2.75</td><td class="num">3.33</td><td class="num">4.00</td><td class="num">3.00</td></tr>
-        <tr><td>Respondent B</td><td class="small-cell">Manager, Monozukuri Innovation</td><td class="num">2.40</td><td class="num">2.67</td><td class="num">3.00</td><td class="num">2.67</td><td class="num">2.67</td><td class="num">2.75</td></tr>
-        <tr><td>Respondent C</td><td class="small-cell">Area Manager</td><td class="num">2.60</td><td class="num">3.67</td><td class="num">2.75</td><td class="num">2.67</td><td class="num">2.00</td><td class="num">3.00</td></tr>
+        <tr><td>Engineering (n=2)</td><td class="num">2.70</td><td class="num">3.17</td><td class="num">2.88</td><td class="num">3.00</td><td class="num">3.34</td><td class="num">2.88</td></tr>
+        <tr><td>Operations (n=1)</td><td class="num">2.60</td><td class="num">3.67</td><td class="num">2.75</td><td class="num">2.67</td><td class="num">2.00</td><td class="num">3.00</td></tr>
       </tbody>
     </table>
   </div>
