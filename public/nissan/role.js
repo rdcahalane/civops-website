@@ -10,10 +10,10 @@
   // Which nav hrefs to highlight per role
   var NAV_MAP = {
     plant:   ['index.html', 'benchmarking.html', 'cesmii-survey.html', 'detail-design.html', 'roi.html', 'next-steps.html'],
-    ops:     ['index.html', 'journey.html', 'cockpit.html', 'poc.html', 'roi.html', 'next-steps.html'],
-    quality: ['journey.html', 'cockpit.html', 'roi.html'],
-    itot:    ['architecture.html', 'detail-design.html', 'technology.html', 'poc.html', 'cesmii-survey.html'],
-    maint:   ['cockpit.html', 'architecture.html', 'detail-design.html', 'cesmii-survey.html', 'next-steps.html']
+    ops:     ['index.html', 'journey.html', 'cockpit.html', 'poc.html', 'roi.html', 'technology.html', 'next-steps.html'],
+    quality: ['benchmarking.html', 'cesmii-survey.html', 'journey.html', 'poc.html', 'roi.html', 'technology.html', 'next-steps.html'],
+    itot:    ['index.html', 'cesmii-survey.html', 'journey.html', 'architecture.html', 'detail-design.html', 'poc.html', 'technology.html', 'next-steps.html'],
+    maint:   ['index.html', 'cesmii-survey.html', 'journey.html', 'cockpit.html', 'detail-design.html', 'poc.html', 'roi.html', 'next-steps.html']
   };
 
   var KEY = 'civops_role';
