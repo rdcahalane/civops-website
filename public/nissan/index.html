@@ -67,7 +67,30 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="role-select">
+  <div class="container">
+    <div class="role-select-card">
+      <div class="role-select-intro">
+        <span class="eyebrow">Personalize your tour</span>
+        <h3>Short on time? Let us guide you.</h3>
+        <p>Select your role and we&rsquo;ll highlight the sections most relevant to you &mdash; across every tab on the site. You can still navigate anywhere; this just makes sure you hit your most important stops in 10 minutes or less.</p>
+      </div>
+      <div class="role-select-controls">
+        <select id="role-selector" class="role-selector">
+          <option value="">&#8212; Select your role &#8212;</option>
+          <option value="plant">Plant Management</option>
+          <option value="ops">Operations Management</option>
+          <option value="quality">Quality Management</option>
+          <option value="itot">IT / OT Management</option>
+          <option value="maint">Maintenance Management</option>
+        </select>
+        <button class="role-clear-btn" id="role-clear-btn">Clear highlights</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-role="plant,ops">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -96,7 +119,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant,ops">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -129,7 +152,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="itot">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -158,7 +181,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -175,7 +198,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant,ops">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -193,7 +216,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-role="plant,ops,maint">
   <div class="container">
     <div class="section-head">
       <div class="section-title">
@@ -227,5 +250,6 @@
 </footer>
 
 <script src="main.js"></script>
+<script src="role.js"></script>
 </body>
 </html>
