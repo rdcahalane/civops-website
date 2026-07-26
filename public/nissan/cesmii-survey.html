@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nissan/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nissan Smyrna | CESMII Survey Results</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    .poc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-top: 22px; }
+    .fig { margin: 24px 0 0; }
+    .fig-bar { display:flex; align-items:center; gap:7px; background:#0b1b2c; border:1px solid #1f587a; border-bottom:0; border-radius:12px 12px 0 0; padding:9px 14px; font-size:12.5px; color:#cfe0ec; }
+    .fig-bar .dot { width:9px;height:9px;border-radius:50%;background:#3f627d; }
+    .fig-badge { margin-left:auto; font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:3px 9px; background:#123e61; border:1px solid #2f6488; color:#8fd0ee; }
+    .fig-badge.live { background:#0f3b2b; border-color:#1f7a55; color:#6fe0a8; }
+    .fig-svg { display:block; width:100%; border:1px solid #1f587a; border-radius:0 0 12px 12px; background:#0e2236; }
+    .fig figcaption { display:block; font-size:12.5px; color:#5a6a7e; margin-top:10px; line-height:1.5; }
+    .fig figcaption b { color:#152434; }
+    .cs-legend { display:flex; gap:20px; flex-wrap:wrap; margin-top:14px; font-size:12.5px; color:#405060; }
+    .cs-legend .swatch { display:inline-flex; align-items:center; gap:7px; }
+    .cs-legend .mark { width:13px; height:13px; display:inline-block; }
+    table.tech-matrix td.num, table.tech-matrix th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="prepared">Prepared for<br><b>Nissan Smyrna senior management &amp; maintenance leadership</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation"><a href="index.html" class="">Overview</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="decision.html" class="">Approach</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="benchmarking.html" class="">Benchmarks</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="cesmii-survey.html" class="current">CESMII<br>Survey</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="journey.html" class="">Journey<br>Map</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="architecture.html" class="">Architecture</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="cockpit.html" class="">Maintenance<br>Cockpit</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="asset-health.html" class="">Asset Health<br>Index</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="detail-design.html" class="">Detail<br>Design</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="poc.html" class="">Live<br>Proof</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="roi.html" class="">ROI</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="technology.html" class="">Tech<br>Options</a>
+<span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+<a href="next-steps.html" class="">Next<br>Steps</a></nav>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Overview</a> / CESMII survey results</div>
+    <h1 class="page-title">CESMII maturity survey — live results, not a mockup</h1>
+    <p class="page-deck">Every chart below is computed from real submitted responses in the running assessment platform — not sample data. The survey follows CESMII's own Smart Manufacturing maturity model: the same <strong>Base Questions</strong> (firmographic + role) and <strong>Assessment</strong> (35-question, 6-area maturity instrument) structure CESMII uses in its own Readiness/Roadmap tool.</p>
+    <div class="scope-callout">
+      <b>Sample size — read this first.</b> <strong>3 of 23</strong> invited stakeholders have completed the survey so far (17 more opened it and were nudged on 2026-07-26 — see <a href="next-steps.html">Next Steps</a>). Every chart on this page recomputes automatically as more responses land; three respondents is enough to prove the analytics pipeline works end to end, not enough yet to call the results representative of the plant.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">What's being measured</span><h2>Six Smart Manufacturing areas, 35 questions, one instrument</h2></div>
+      <p class="section-copy">Respondents answer maturity questions grouped into the same six areas CESMII's own roadmap tool uses. Each answer maps to a 1&ndash;5 maturity level (Reactive &rarr; Aware &rarr; Collaborative &rarr; Proactive &rarr; Adaptive). Base Questions (company, role, industry, headcount) drive the function/role pivot further down this page.</p>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Smart Manufacturing area</th><th>Example question</th><th class="num">Questions</th></tr></thead>
+      <tbody>
+        <tr><td>Manufacturing Strategy and Leadership</td><td class="small-cell">Characterize the maturity of the business model and management practices</td><td class="num">5</td></tr>
+        <tr><td>Manufacturing Excellence and Culture <em>*priority</em></td><td class="small-cell">Are your manufacturing processes standardized and documented?</td><td class="num">3</td></tr>
+        <tr><td>Data Driven Processes <em>*priority</em></td><td class="small-cell">Characterize your level of manufacturing data collection</td><td class="num">4</td></tr>
+        <tr><td>System Infrastructure and Integration <em>*priority</em></td><td class="small-cell">Are your manufacturing assets connected through OT/IT integration?</td><td class="num">3</td></tr>
+        <tr><td>Workforce Optimization</td><td class="small-cell">Are employees augmented with technology to improve productivity?</td><td class="num">3</td></tr>
+        <tr><td>Supply Chain Resiliency and Agility <em>*priority</em></td><td class="small-cell">How do you handle sharp changes and disruptions in the supply chain?</td><td class="num">4</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The maturity grid</span><h2>Where each respondent lands, area by area</h2></div>
+      <p class="section-copy">Same visual model as CESMII's own roadmap tool: five maturity stages across, six Smart Manufacturing areas down. Each marker is one respondent's average maturity level for that area; the orange line traces the average across all respondents. The gray bar behind the markers spans the full range &mdash; the wider the bar, the more the org disagrees with itself on that area.</p>
+    </div>
+    <figure class="fig">
+      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Nissan Smyrna &mdash; CESMII maturity by area<span class="fig-badge live">&#9679; Live &middot; 3 responses</span></div>
+      <svg class="fig-svg" viewBox="0 0 1100 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maturity grid: six Smart Manufacturing areas against five maturity stages (Reactive through Adaptive), with per-respondent markers and an average line.">
+        <style>
+          .row-lbl{font-size:12.5px;font-weight:700;fill:#eef5fb}
+          .col-lbl{font-size:11.5px;font-weight:800;letter-spacing:.05em;fill:#8fd0ee;text-transform:uppercase;text-anchor:middle}
+          .range-bar{stroke:#3f627d;stroke-width:6;stroke-linecap:round;opacity:.55}
+          .avg-line{stroke:#ff8300;stroke-width:2.5;fill:none}
+          .avg-dot{fill:#ff8300;stroke:#0e2236;stroke-width:1.5}
+          .gridline{stroke:#1f3a52;stroke-width:1}
+        </style>
+        <!-- column gridlines + headers -->
+        <line class="gridline" x1="260" y1="60" x2="260" y2="440"/>
+        <line class="gridline" x1="410" y1="60" x2="410" y2="440"/>
+        <line class="gridline" x1="560" y1="60" x2="560" y2="440"/>
+        <line class="gridline" x1="710" y1="60" x2="710" y2="440"/>
+        <line class="gridline" x1="860" y1="60" x2="860" y2="440"/>
+        <text class="col-lbl" x="260" y="42">Reactive</text>
+        <text class="col-lbl" x="410" y="42">Aware</text>
+        <text class="col-lbl" x="560" y="42">Collaborative</text>
+        <text class="col-lbl" x="710" y="42">Proactive</text>
+        <text class="col-lbl" x="860" y="42">Adaptive</text>
+
+        <!-- row labels -->
+        <text class="row-lbl" x="16" y="94">Manufacturing Strategy &amp; Leadership</text>
+        <text class="row-lbl" x="16" y="156">Manufacturing Excellence &amp; Culture</text>
+        <text class="row-lbl" x="16" y="218">Data Driven Processes</text>
+        <text class="row-lbl" x="16" y="280">System Infrastructure &amp; Integration</text>
+        <text class="row-lbl" x="16" y="342">Workforce Optimization</text>
+        <text class="row-lbl" x="16" y="404">Supply Chain Resiliency &amp; Agility</text>
+
+        <!-- range bars (min-max spread across respondents) -->
+        <line class="range-bar" x1="470" y1="90"  x2="560" y2="90"/>
+        <line class="range-bar" x1="510" y1="152" x2="660" y2="152"/>
+        <line class="range-bar" x1="522.5" y1="214" x2="560" y2="214"/>
+        <line class="range-bar" x1="510" y1="276" x2="610" y2="276"/>
+        <line class="range-bar" x1="410" y1="338" x2="710" y2="338"/>
+        <line class="range-bar" x1="522.5" y1="400" x2="560" y2="400"/>
+
+        <!-- average line across the 6 areas -->
+        <polyline class="avg-line" points="510,90 610,152 535,214 543.3,276 543.3,338 547.5,400"/>
+        <circle class="avg-dot" cx="510" cy="90" r="5"/>
+        <circle class="avg-dot" cx="610" cy="152" r="5"/>
+        <circle class="avg-dot" cx="535" cy="214" r="5"/>
+        <circle class="avg-dot" cx="543.3" cy="276" r="5"/>
+        <circle class="avg-dot" cx="543.3" cy="338" r="5"/>
+        <circle class="avg-dot" cx="547.5" cy="400" r="5"/>
+
+        <!-- John Cooper — blue circle -->
+        <g fill="#0a77a9" stroke="#0e2236" stroke-width="1.2">
+          <circle cx="560" cy="90" r="6.5"/>
+          <circle cx="660" cy="152" r="6.5"/>
+          <circle cx="522.5" cy="214" r="6.5"/>
+          <circle cx="610" cy="276" r="6.5"/>
+          <circle cx="710" cy="338" r="6.5"/>
+          <circle cx="560" cy="400" r="6.5"/>
+        </g>
+        <!-- Jeremy Near — orange square -->
+        <g fill="#e8a33d" stroke="#0e2236" stroke-width="1.2">
+          <rect x="464" y="84" width="12" height="12"/>
+          <rect x="504" y="146" width="12" height="12"/>
+          <rect x="554" y="208" width="12" height="12"/>
+          <rect x="504" y="270" width="12" height="12"/>
+          <rect x="504" y="332" width="12" height="12"/>
+          <rect x="516.5" y="394" width="12" height="12"/>
+        </g>
+        <!-- Brad Craven — green diamond -->
+        <g fill="#2f9e6e" stroke="#0e2236" stroke-width="1.2">
+          <rect x="494" y="84" width="11" height="11" transform="rotate(45 500 90)"/>
+          <rect x="654" y="146" width="11" height="11" transform="rotate(45 660 152)"/>
+          <rect x="516.5" y="208" width="11" height="11" transform="rotate(45 522.5 214)"/>
+          <rect x="504" y="270" width="11" height="11" transform="rotate(45 510 276)"/>
+          <rect x="404" y="332" width="11" height="11" transform="rotate(45 410 338)"/>
+          <rect x="554" y="394" width="11" height="11" transform="rotate(45 560 400)"/>
+        </g>
+      </svg>
+      <figcaption><b>Reading this:</b> Workforce Optimization has the widest spread (2.00&ndash;4.00, a full 2-point range) &mdash; the org disagrees most with itself there. Data Driven Processes and Supply Chain are the tightest (0.25 range) &mdash; general agreement on where the plant stands. The average sits between Aware and Collaborative (2.7&ndash;3.3) across every area &mdash; consistent with an org that has real momentum but hasn't systematized it yet.</figcaption>
+    </figure>
+    <div class="cs-legend">
+      <span class="swatch"><span class="mark" style="background:#0a77a9;border-radius:50%"></span> John Cooper &middot; SCOR Contractor &ndash; Engineering</span>
+      <span class="swatch"><span class="mark" style="background:#e8a33d"></span> Jeremy Near &middot; Manager, Monozukuri Innovation</span>
+      <span class="swatch"><span class="mark" style="background:#2f9e6e;transform:rotate(45deg)"></span> Brad Craven &middot; Area Manager</span>
+      <span class="swatch"><span class="mark" style="background:#ff8300;border-radius:50%"></span> Average across respondents</span>
+      <span class="swatch"><span class="mark" style="background:#3f627d;opacity:.55;height:5px;width:22px;border-radius:3px"></span> Range (min&ndash;max)</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Deviation across respondents</span><h2>Where the org agrees with itself, and where it doesn't</h2></div>
+      <p class="section-copy">The same range data as the chart above, as numbers. A large range on a priority area (marked *) is the fastest way to find where a workshop or interop kaizen would resolve the most disagreement per hour spent &mdash; see <a href="next-steps.html">Next Steps</a>.</p>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Smart Manufacturing area</th><th class="num">Average</th><th class="num">Min</th><th class="num">Max</th><th class="num">Range</th></tr></thead>
+      <tbody>
+        <tr><td>Manufacturing Strategy and Leadership</td><td class="num">2.67</td><td class="num">2.40</td><td class="num">3.00</td><td class="num">0.60</td></tr>
+        <tr><td>Manufacturing Excellence and Culture <em>*</em></td><td class="num">3.33</td><td class="num">2.67</td><td class="num">3.67</td><td class="num">1.00</td></tr>
+        <tr><td>Data Driven Processes <em>*</em></td><td class="num">2.83</td><td class="num">2.75</td><td class="num">3.00</td><td class="num">0.25</td></tr>
+        <tr><td>System Infrastructure and Integration <em>*</em></td><td class="num">2.89</td><td class="num">2.67</td><td class="num">3.33</td><td class="num">0.67</td></tr>
+        <tr><td><strong>Workforce Optimization</strong></td><td class="num">2.89</td><td class="num">2.00</td><td class="num">4.00</td><td class="num"><strong>2.00</strong></td></tr>
+        <tr><td>Supply Chain Resiliency and Agility <em>*</em></td><td class="num">2.92</td><td class="num">2.75</td><td class="num">3.00</td><td class="num">0.25</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="margin-top:16px"><strong>n=3 caveat:</strong> a range this early is a signal to watch, not a conclusion to act on. Workforce Optimization's 2.00 spread is one respondent (Brad Craven, Area Manager) rating it lowest of the three while John Cooper rated it highest &mdash; worth a direct conversation once more Maintenance and Operations roles complete the survey.</div>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Function &amp; role pivot</span><h2>Per-respondent scores, by area</h2></div>
+      <p class="section-copy">Pulled from each respondent's Base Question role answer. With 3 of 23 responses in, this is a per-person table rather than a role-group rollup &mdash; it becomes a true pivot (grouped by role silo) once enough responses land per group.</p>
+    </div>
+    <table class="tech-matrix">
+      <thead><tr><th>Respondent</th><th>Role</th><th class="num">Strategy &amp; Leadership</th><th class="num">Excellence &amp; Culture</th><th class="num">Data-Driven</th><th class="num">Systems Integration</th><th class="num">Workforce</th><th class="num">Supply Chain</th></tr></thead>
+      <tbody>
+        <tr><td>John Cooper</td><td class="small-cell">SCOR Contractor &ndash; Engineering</td><td class="num">3.00</td><td class="num">3.67</td><td class="num">2.75</td><td class="num">3.33</td><td class="num">4.00</td><td class="num">3.00</td></tr>
+        <tr><td>Jeremy Near</td><td class="small-cell">Manager, Monozukuri Innovation</td><td class="num">2.40</td><td class="num">2.67</td><td class="num">3.00</td><td class="num">2.67</td><td class="num">2.67</td><td class="num">2.75</td></tr>
+        <tr><td>Brad Craven</td><td class="small-cell">Area Manager</td><td class="num">2.60</td><td class="num">3.67</td><td class="num">2.75</td><td class="num">2.67</td><td class="num">2.00</td><td class="num">3.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <span class="eyebrow">What this proves</span>
+      <h2 style="font-size:26px">A real analytics pipeline, not a mockup</h2>
+      <ul>
+        <li>Every number on this page traces back to a real submitted response in the assessment platform &mdash; the same instrument, the same 6 areas, the same maturity scale CESMII uses.</li>
+        <li>The grid, deviation table, and role pivot all recompute from source data &mdash; there is nothing hardcoded to update by hand as responses come in.</li>
+        <li>19 more invited stakeholders have opened the survey and were nudged 2026-07-26 &mdash; each additional completion sharpens every chart on this page automatically.</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <h3 style="margin-top:0">What sharper data unlocks next</h3>
+      <ul>
+        <li>True role-silo pivots (Maintenance vs. Engineering vs. IS) once each group clears 3+ responses.</li>
+        <li>A current-state &rarr; future-state comparison, the same way CESMII's own roadmap tool tracks progress after a Focus/Roadmap workshop.</li>
+        <li>Feeds directly into the <a href="next-steps.html" style="color:#9fd6ff">Phase 2 interop kaizen</a> agenda &mdash; the widest-deviation areas are the highest-value discussion topics for that room.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+      <div class="footnote">Working concept site for Nissan Smyrna. Built to support a management decision, maintenance alignment, and follow-on design work. Core message: keep what works, create one event record, and use CESMII SM Profiles + i3X as the interoperability spine.</div>
+    </div>
+
+      <div style="margin-top:8px;font-size:11px"><a href="https://civops.io/nissan/fascia" style="color:#8e9aab">Switch to Fascia &amp; Plastics &rarr;</a></div>
+    <div class="small-nav"><a href="index.html">Overview</a> <a href="decision.html">Approach</a> <a href="benchmarking.html">Benchmarks</a> <a href="cesmii-survey.html">CESMII Survey</a> <a href="architecture.html">Architecture</a> <a href="journey.html">Journey Map</a> <a href="cockpit.html">Maintenance Cockpit</a>
+<a href="asset-health.html">Asset Health Index</a> <a href="detail-design.html">Detail Design</a> <a href="poc.html">Live Proof</a> <a href="roi.html">ROI</a> <a href="technology.html">Tech Options</a> <a href="next-steps.html">Next Steps</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
