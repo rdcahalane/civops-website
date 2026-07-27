@@ -83,7 +83,7 @@
     </div>
 
     <div class="ns-grid">
-      <div class="ns-card a">
+      <div class="ns-card a" id="card-a" style="border:2px dashed #ff8300;box-shadow:0 0 0 0;">
         <div class="ns-tag"><span class="ns-letter">a</span><span class="ns-when">Standards &amp; interop</span></div>
         <h3>i3X / UNS Interoperability Kaizen <span style="font-weight:600;color:var(--muted);font-size:12px">(working name)</span></h3>
         <p>The event itself is 2 days — but a kaizen only works if the 2 days are loaded before they start. That prep is the real work: engaging CESMII, defining the one problem worth locking a room over, getting the right roles in that room (not just IT), and building exercises against Nissan's <em>actual</em> Cimplicity/UNS data — not generic slides. Same shape as any good kaizen: clear problem definition, everything staged to charge the hill, lock the team away, and they emerge having made a real leap on interop — not just watched a presentation about it.</p>
@@ -114,7 +114,7 @@
   </div>
 </section>
 
-<section class="section secondary-section">
+<section class="section secondary-section" id="kaizen-section">
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Is this basically a kaizen or hackathon?</span><h2>Yes &mdash; and the Brooksource team's job is making sure Nissan doesn't hit a wall in the middle of it</h2></div>
@@ -172,5 +172,65 @@
 </footer>
 <script src="main.js"></script>
 <script src="role.js"></script>
+<script>
+(function(){
+  function drawConnector(){
+    var existing = document.getElementById('kaizen-connector');
+    if(existing) existing.remove();
+
+    var cardA = document.getElementById('card-a');
+    var kaizen = document.getElementById('kaizen-section');
+    if(!cardA || !kaizen) return;
+
+    var aRect = cardA.getBoundingClientRect();
+    var kRect = kaizen.getBoundingClientRect();
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    // Anchor: bottom-left area of card-a, top of kaizen section
+    var startX = aRect.left + aRect.width * 0.25;
+    var startY = aRect.bottom + scrollY;
+    var endX   = kRect.left + kRect.width * 0.25;
+    var endY   = kRect.top + scrollY;
+
+    var svgH = endY - startY + 20;
+    var svgW = Math.max(aRect.width, 200);
+    var ox = Math.min(startX, endX) - 20;
+
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.id = 'kaizen-connector';
+    svg.setAttribute('aria-hidden','true');
+    svg.style.cssText = 'position:absolute;top:'+(startY-10)+'px;left:'+ox+'px;width:'+svgW+'px;height:'+(svgH+10)+'px;pointer-events:none;overflow:visible;z-index:10';
+
+    // Defs: arrowhead marker
+    var defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+    defs.innerHTML = '<marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ff8300"/></marker>';
+    svg.appendChild(defs);
+
+    var sx = startX - ox;
+    var ex = endX - ox;
+    var sy = 10;
+    var ey = svgH + 8;
+    var midY = (sy + ey) / 2;
+
+    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M'+sx+','+sy+' C'+sx+','+(midY)+' '+ex+','+(midY)+' '+ex+','+ey);
+    path.setAttribute('stroke','#ff8300');
+    path.setAttribute('stroke-width','2');
+    path.setAttribute('stroke-dasharray','6,5');
+    path.setAttribute('fill','none');
+    path.setAttribute('marker-end','url(#arr)');
+    svg.appendChild(path);
+
+    document.body.appendChild(svg);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', drawConnector);
+  } else {
+    drawConnector();
+  }
+  window.addEventListener('resize', drawConnector);
+})();
+</script>
 </body>
 </html>
