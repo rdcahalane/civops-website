@@ -115,12 +115,12 @@
     <div class="panel">
       <span class="eyebrow">ROI placeholder</span>
       <h2 style="font-size:32px">Illustrative ROI conversation</h2>
-      <p class="section-copy" style="max-width:none;margin-bottom:18px">Use this as a discussion aid only. Replace the assumptions with Nissan baseline downtime, MTTR, repeat-failure, quality, and labor data when available.</p>
-      <div class="calc-row"><label for="downtime">Downtime reduction</label><div class="calc-val" data-output="downtime">6%</div></div>
+      <p class="section-copy" style="max-width:none;margin-bottom:18px">Each slider reflects the unit from "The Opportunity" section above. Move them to explore illustrative annual value at different improvement levels.</p>
+      <div class="calc-row"><label for="downtime">Shift-points of availability recovered <span style="font-size:11px;color:var(--muted)">(@ $200K &times; 2 shifts / pt)</span></label><div class="calc-val" data-output="downtime">6 pts</div></div>
       <input id="downtime" type="range" min="2" max="14" value="6" />
-      <div class="calc-row"><label for="response">Faster response / MTTR improvement</label><div class="calc-val" data-output="response">18%</div></div>
+      <div class="calc-row"><label for="response">Minutes of MTTR improvement per event <span style="font-size:11px;color:var(--muted)">(@ $35K / min)</span></label><div class="calc-val" data-output="response">18 min</div></div>
       <input id="response" type="range" min="5" max="35" value="18" />
-      <div class="calc-row"><label for="repeat">Repeat-failure reduction</label><div class="calc-val" data-output="repeat">14%</div></div>
+      <div class="calc-row"><label for="repeat">First-pass yield points improved <span style="font-size:11px;color:var(--muted)">(@ $175K / pt)</span></label><div class="calc-val" data-output="repeat">14 pts</div></div>
       <input id="repeat" type="range" min="4" max="30" value="14" />
     </div>
     <div class="panel dark" style="display:grid;align-content:center">
