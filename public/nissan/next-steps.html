@@ -186,33 +186,43 @@
     var kRect = kaizen.getBoundingClientRect();
     var scrollY = window.scrollY || window.pageYOffset;
 
-    var startX = aRect.left + aRect.width * 0.25;
-    var startY = aRect.bottom + scrollY;
-    var endX   = kRect.left + kRect.width * 0.15;
-    var endY   = kRect.top + scrollY;
+    var startX = aRect.left + aRect.width * 0.25;  // viewport x
+    var startY = aRect.bottom + scrollY;             // document y
+    var endX   = kRect.left + kRect.width * 0.15;   // viewport x
+    var endY   = kRect.top + scrollY;                // document y
 
-    // Route around the left side of card-c using a rectangular path with rounded corners
     var r = 28;
-    var leftEdge = aRect.left - 56; // clear of the card grid left edge
-    var drop = 36;  // drop below card-a before turning left
-    var rise = 36;  // rise above kaizen section before turning right
+    var leftEdge = aRect.left - 56; // viewport x — left of card grid
+    var drop = 36;  // px below card-a before turning left
+    var rise = 36;  // px above kaizen before turning right
+
+    // SVG is positioned at (ox, svgTop) in document space;
+    // all path coords are relative to that origin
+    var ox = leftEdge - 20;
+    var svgTop = startY - 10;
+    var svgW = Math.max(startX, endX) - ox + 20;
+    var svgH = endY - svgTop + 20;
+
+    var sx = startX - ox;
+    var ex = endX - ox;
+    var lx = leftEdge - ox;          // = 20
+    var sy = startY - svgTop;        // = 10
+    var ey = endY - svgTop;
+    var dropY = sy + drop;
+    var riseY = ey - rise;
 
     var d = [
-      'M', startX, startY,
-      'L', startX, (startY + drop - r),
-      'Q', startX, (startY + drop), (startX - r), (startY + drop),
-      'L', (leftEdge + r), (startY + drop),
-      'Q', leftEdge, (startY + drop), leftEdge, (startY + drop + r),
-      'L', leftEdge, (endY - rise - r),
-      'Q', leftEdge, (endY - rise), (leftEdge + r), (endY - rise),
-      'L', (endX - r), (endY - rise),
-      'Q', endX, (endY - rise), endX, (endY - rise + r),
-      'L', endX, endY
+      'M', sx, sy,
+      'L', sx, (dropY - r),
+      'Q', sx, dropY, (sx - r), dropY,
+      'L', (lx + r), dropY,
+      'Q', lx, dropY, lx, (dropY + r),
+      'L', lx, (riseY - r),
+      'Q', lx, riseY, (lx + r), riseY,
+      'L', (ex - r), riseY,
+      'Q', ex, riseY, ex, (riseY + r),
+      'L', ex, ey
     ].join(' ');
-
-    var ox = leftEdge - 20;
-    var svgW = Math.max(startX, endX) - ox + 20;
-    var svgH = endY - startY + 20;
 
     var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.id = 'kaizen-connector';
