@@ -7,6 +7,18 @@
   <title>Nissan Smyrna | ROI and Justification</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.ico" />
+  <style>
+    .oee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}
+    @media(max-width:1000px){.oee-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.oee-grid{grid-template-columns:1fr}}
+    .oee-card{background:white;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
+    .oee-card .oee-eyebrow{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+    .oee-card .oee-stat{font-size:26px;font-weight:950;letter-spacing:-.03em;color:#ff8300;line-height:1.1;margin-bottom:10px}
+    .oee-card p{font-size:14px;color:var(--body);line-height:1.55;margin:0 0 10px}
+    .oee-card .oee-basis{font-size:11px;font-style:italic;color:var(--muted);margin:0}
+    .oee-assumptions{border:1px solid #9ec3e0;background:#eef6fc;border-radius:10px;padding:14px 18px;margin-bottom:22px;font-size:14px;line-height:1.55;color:#33414f}
+    .oee-assumptions strong{color:#10324b}
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -43,8 +55,43 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / ROI and justification</div>
-    <h1 class="page-title">Return on Investment</h1>
-    <p class="page-deck">Value justification, kept separate from the cockpit demo. The numbers are intentionally placeholders until Nissan provides baseline downtime, MTTR, repeat-failure, labor, throughput, and quality assumptions.</p>
+    <h1 class="page-title">Return on investment &mdash; the case for visibility</h1>
+    <p class="page-deck">Smyrna produces high-volume, multi-model output across two lines. Every minute of unplanned downtime, every repeat failure, and every delayed maintenance response has a measurable cost. The numbers below are illustrative &mdash; built from Smyrna&rsquo;s known production rate (~58 JPH) and publicly available vehicle pricing data. The Phase 2 engagement will replace these estimates with figures grounded in Nissan&rsquo;s actual downtime history, MTTR, and quality data.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The Opportunity</span><h2>What each OEE dimension is worth at Nissan Smyrna</h2></div>
+    </div>
+    <div class="oee-assumptions"><strong>Working assumptions (illustrative).</strong> Smyrna runs approximately 58 JPH across a 10-hour shift, producing ~580 vehicles per shift. Blended average selling price across the Rogue, Frontier, Pathfinder, and Murano is estimated at ~$35,000. Typical automotive assembly unplanned downtime runs 6&ndash;10% of available time. These assumptions drive the estimates below &mdash; actual figures will differ and will be refined during the Phase 2 data mapping workstream.</div>
+    <div class="oee-grid">
+      <div class="oee-card">
+        <span class="oee-eyebrow">Availability &mdash; downtime reduction</span>
+        <div class="oee-stat">~$200K / shift-point</div>
+        <p>Each percentage point of uptime recovered at Smyrna&rsquo;s scale represents 5&ndash;6 vehicles per shift. At 580 vehicles per shift and ~$35K ASP, that&rsquo;s roughly $200K in recovered output &mdash; every shift the line runs cleaner.</p>
+        <p class="oee-basis">Basis: 58 JPH &times; 10-hr shift &times; $35K ASP &times; 1pt availability &asymp; 5.8 vehicles/shift</p>
+      </div>
+      <div class="oee-card">
+        <span class="oee-eyebrow">Performance &mdash; JPH improvement</span>
+        <div class="oee-stat">~$350K / JPH point</div>
+        <p>Closing even a portion of the gap between actual and target JPH compounds across shifts. One additional vehicle per hour sustained across a full 10-hour shift adds 10 vehicles &mdash; roughly $350K in additional output per shift.</p>
+        <p class="oee-basis">Basis: 1 JPH &times; 10-hr shift &times; $35K ASP = $350K/shift</p>
+      </div>
+      <div class="oee-card">
+        <span class="oee-eyebrow">Quality &mdash; first-pass yield</span>
+        <div class="oee-stat">~$175K / yield point</div>
+        <p>Each rework loop at Smyrna costs time on the line and carries warranty risk downstream. Closing 1 point of first-pass yield eliminates rework on roughly 5&ndash;6 vehicles per shift and reduces the downstream warranty exposure that follows quality escapes.</p>
+        <p class="oee-basis">Basis: 1pt FPY at 580 vehicles/shift &times; rework cost + warranty tail</p>
+      </div>
+      <div class="oee-card">
+        <span class="oee-eyebrow">Maintenance &mdash; response time</span>
+        <div class="oee-stat">~$35K / minute per event</div>
+        <p>At 58 JPH, each minute of unplanned downtime costs roughly one vehicle in lost output. Reducing average response time by even one minute per maintenance event &mdash; across the recurring incidents a plant this size sees daily &mdash; accumulates rapidly against the annual baseline.</p>
+        <p class="oee-basis">Basis: 1 min &times; 58 JPH &divide; 60 &asymp; 1 vehicle &times; $35K ASP per event</p>
+      </div>
+    </div>
   </div>
 </section>
 
