@@ -186,34 +186,45 @@
     var kRect = kaizen.getBoundingClientRect();
     var scrollY = window.scrollY || window.pageYOffset;
 
-    // Anchor: bottom-left area of card-a, top of kaizen section
     var startX = aRect.left + aRect.width * 0.25;
     var startY = aRect.bottom + scrollY;
-    var endX   = kRect.left + kRect.width * 0.25;
+    var endX   = kRect.left + kRect.width * 0.15;
     var endY   = kRect.top + scrollY;
 
+    // Route around the left side of card-c using a rectangular path with rounded corners
+    var r = 28;
+    var leftEdge = aRect.left - 56; // clear of the card grid left edge
+    var drop = 36;  // drop below card-a before turning left
+    var rise = 36;  // rise above kaizen section before turning right
+
+    var d = [
+      'M', startX, startY,
+      'L', startX, (startY + drop - r),
+      'Q', startX, (startY + drop), (startX - r), (startY + drop),
+      'L', (leftEdge + r), (startY + drop),
+      'Q', leftEdge, (startY + drop), leftEdge, (startY + drop + r),
+      'L', leftEdge, (endY - rise - r),
+      'Q', leftEdge, (endY - rise), (leftEdge + r), (endY - rise),
+      'L', (endX - r), (endY - rise),
+      'Q', endX, (endY - rise), endX, (endY - rise + r),
+      'L', endX, endY
+    ].join(' ');
+
+    var ox = leftEdge - 20;
+    var svgW = Math.max(startX, endX) - ox + 20;
     var svgH = endY - startY + 20;
-    var svgW = Math.max(aRect.width, 200);
-    var ox = Math.min(startX, endX) - 20;
 
     var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.id = 'kaizen-connector';
     svg.setAttribute('aria-hidden','true');
     svg.style.cssText = 'position:absolute;top:'+(startY-10)+'px;left:'+ox+'px;width:'+svgW+'px;height:'+(svgH+10)+'px;pointer-events:none;overflow:visible;z-index:10';
 
-    // Defs: arrowhead marker
     var defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
     defs.innerHTML = '<marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ff8300"/></marker>';
     svg.appendChild(defs);
 
-    var sx = startX - ox;
-    var ex = endX - ox;
-    var sy = 10;
-    var ey = svgH + 8;
-    var midY = (sy + ey) / 2;
-
     var path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d','M'+sx+','+sy+' C'+sx+','+(midY)+' '+ex+','+(midY)+' '+ex+','+ey);
+    path.setAttribute('d', d);
     path.setAttribute('stroke','#ff8300');
     path.setAttribute('stroke-width','2');
     path.setAttribute('stroke-dasharray','6,5');
