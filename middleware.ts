@@ -2,10 +2,21 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // Gate the conceptual demo sites behind shared passwords.
-// - /nissan       : real (confidential) customer build. Password from env; FAIL CLOSED.
-// - /autoexample  : anonymized public example. Password from env with a demo fallback.
+// - /nissan               : real (confidential) customer build. Password from env; FAIL CLOSED.
+// - /autoexample          : anonymized public example. Password from env with a demo fallback.
+// - /hackathon-kaizen     : Brooksource x CESMII pitch + engagement toolkit. Shared demo password.
+// - /axiomhackathon-kaizen: Axiom x CESMII mirror of the same. Shared demo password.
 export const config = {
-  matcher: ["/nissan", "/nissan/:path*", "/autoexample", "/autoexample/:path*"],
+  matcher: [
+    "/nissan",
+    "/nissan/:path*",
+    "/autoexample",
+    "/autoexample/:path*",
+    "/hackathon-kaizen",
+    "/hackathon-kaizen/:path*",
+    "/axiomhackathon-kaizen",
+    "/axiomhackathon-kaizen/:path*",
+  ],
 };
 
 type Gate = { user: string; pass: string | undefined; realm: string };
@@ -17,6 +28,20 @@ function gateFor(path: string): Gate {
       // Shareable anonymized example: env override, else the demo default.
       pass: process.env.AUTOEXAMPLE_SITE_PASSWORD || "2026Password!",
       realm: 'Basic realm="CivOps restricted (Example)", charset="UTF-8"',
+    };
+  }
+  if (path === "/hackathon-kaizen" || path.startsWith("/hackathon-kaizen/")) {
+    return {
+      user: process.env.HACKATHON_KAIZEN_SITE_USER || "Kaizen",
+      pass: process.env.HACKATHON_KAIZEN_SITE_PASSWORD || "BSHackathon",
+      realm: 'Basic realm="CivOps restricted (Hackathon Kaizen)", charset="UTF-8"',
+    };
+  }
+  if (path === "/axiomhackathon-kaizen" || path.startsWith("/axiomhackathon-kaizen/")) {
+    return {
+      user: process.env.AXIOM_HACKATHON_KAIZEN_SITE_USER || "Kaizen",
+      pass: process.env.AXIOM_HACKATHON_KAIZEN_SITE_PASSWORD || "AxiomHackathon",
+      realm: 'Basic realm="CivOps restricted (Axiom Hackathon Kaizen)", charset="UTF-8"',
     };
   }
   // Default: the confidential Nissan build. No password env -> block (never leak).
