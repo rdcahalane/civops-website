@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working Tools | CESMII i3X Hackathon Kaizen Toolkit</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="toolkit.css" />
+  <link rel="icon" href="../favicon.ico" />
+</head>
+<body>
+
+<div class="internal-banner">Internal engagement-team tool &middot; not for customer distribution &middot; data stays in your browser only</div>
+
+<header class="tk-header">
+  <div class="container inner tk-brand">
+    <img src="../assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+    <span class="tk-x">&times;</span>
+    <span class="tk-cesmii"><img src="../assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
+    <span class="tk-title">Hackathon Kaizen Toolkit &middot; <span>Working Tools</span></span>
+  </div>
+  <div class="container inner" style="margin-top:8px">
+    <nav class="tk-nav">
+      <a href="index.html">Toolkit Home</a>
+      <a href="playbook.html">Playbook</a>
+      <a href="tools.html" class="current">Working Tools</a>
+      <a href="../index.html">&larr; Public site</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tk-shell">
+  <div class="tk-doc-head">
+    <span class="tk-appendix-tag">Interactive</span>
+    <h1>Working Tools</h1>
+    <p class="tk-deck">Live versions of the seven working-tools sheets. Everything you type is saved to <b>this browser only</b> (localStorage) &mdash; use <b>Export all</b> before switching devices or handing off to another team member, and <b>Import all</b> to load a saved backup.</p>
+    <div class="tk-tool-actions" style="margin-top:14px">
+      <button class="tk-btn primary" onclick="tkExportAll()">⬇ Export all (JSON backup)</button>
+      <label class="tk-btn" style="cursor:pointer">
+        ⬆ Import all (JSON backup)
+        <input type="file" accept="application/json" style="display:none" onchange="tkImportAll(this.files[0], (ok)=>{ if(ok){ location.reload(); } else { alert('Could not read that file.'); } })" />
+      </label>
+      <button class="tk-btn" onclick="window.print()">🖨 Print / save as PDF</button>
+      <a class="tk-btn" href="downloads/CESMII_i3X_Hackathon_Kaizen_Working_Tools.xlsx" download>⬇ Original .xlsx</a>
+    </div>
+  </div>
+
+  <div class="tk-tabs">
+    <button class="tk-tab active" data-tk-tab="readiness">1 &middot; Readiness</button>
+    <button class="tk-tab" data-tk-tab="challenge">2 &middot; Challenge Selection</button>
+    <button class="tk-tab" data-tk-tab="decision">3 &middot; Decision Log</button>
+    <button class="tk-tab" data-tk-tab="exception">4 &middot; Exception Log</button>
+    <button class="tk-tab" data-tk-tab="scorecard">5 &middot; Validation Scorecard</button>
+    <button class="tk-tab" data-tk-tab="reuse">6 &middot; Reuse Register</button>
+    <button class="tk-tab" data-tk-tab="runsheet">7 &middot; Event Run Sheet</button>
+  </div>
+
+  <!-- 1. Readiness -->
+  <section class="tk-pane active" data-tk-pane="readiness">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Hackathon Kaizen Readiness Screen</h2>
+        <p>Score 1&ndash;5 on each dimension. A score below 3 on a &#9733; critical dimension normally requires roadmapping or prerequisite work, regardless of the total.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="readiness-export">Export CSV</button>
+        <button class="tk-btn danger" id="readiness-reset">Reset</button>
+      </div>
+    </div>
+    <div id="readiness-root"></div>
+  </section>
+
+  <!-- 2. Challenge Selection -->
+  <section class="tk-pane" data-tk-pane="challenge">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Challenge Selection Matrix</h2>
+        <p>Enter up to six candidate use cases. Weighted total and rank recalculate live as scores change.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="challenge-export">Export CSV</button>
+        <button class="tk-btn danger" id="challenge-reset">Reset</button>
+      </div>
+    </div>
+    <div id="challenge-root"></div>
+  </section>
+
+  <!-- 3. Decision Log -->
+  <section class="tk-pane" data-tk-pane="decision">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Decision and Gate Log</h2>
+        <p>One line per material decision, assumption, scope change, or gate disposition.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="decision-export">Export CSV</button>
+        <button class="tk-btn danger" id="decision-reset">Reset</button>
+      </div>
+    </div>
+    <div id="decision-root"></div>
+  </section>
+
+  <!-- 4. Exception Log -->
+  <section class="tk-pane" data-tk-pane="exception">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Exception and Failure Test Log</h2>
+        <p>Preserve evidence from failed, degraded, and misleading paths &mdash; not only the successful demonstration.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="exception-export">Export CSV</button>
+        <button class="tk-btn danger" id="exception-reset">Reset</button>
+      </div>
+    </div>
+    <div id="exception-root"></div>
+  </section>
+
+  <!-- 5. Validation Scorecard -->
+  <section class="tk-pane" data-tk-pane="scorecard">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Operational Validation Scorecard</h2>
+        <p>Tie baseline, target, and actual to named evidence sources. Keep observed results separate from inference.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="scorecard-export">Export CSV</button>
+        <button class="tk-btn danger" id="scorecard-reset">Reset</button>
+      </div>
+    </div>
+    <div id="scorecard-root"></div>
+  </section>
+
+  <!-- 6. Reuse Register -->
+  <section class="tk-pane" data-tk-pane="reuse">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Replication and Reuse Register</h2>
+        <p>Separate reusable assets from platform-, site-, asset-, and customer-specific assumptions.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="reuse-export">Export CSV</button>
+        <button class="tk-btn danger" id="reuse-reset">Reset</button>
+      </div>
+    </div>
+    <div id="reuse-root"></div>
+  </section>
+
+  <!-- 7. Event Run Sheet -->
+  <section class="tk-pane" data-tk-pane="runsheet">
+    <div class="tk-tool-head">
+      <div>
+        <h2>Focused Event Run Sheet</h2>
+        <p>Adjust times only after confirming the outputs and decision gates remain intact.</p>
+      </div>
+      <div class="tk-tool-actions">
+        <button class="tk-btn" id="runsheet-export">Export CSV</button>
+        <button class="tk-btn danger" id="runsheet-reset">Reset</button>
+      </div>
+    </div>
+    <div id="runsheet-root"></div>
+  </section>
+</div>
+
+<script src="toolkit-tools.js"></script>
+<script>
+  tkInitTabs();
+
+  // ── 1. Readiness ──
+  const READINESS_DIMENSIONS = [
+    { key: 'problem', label: 'Operating problem', question: 'Is a consequential and bounded operating problem named?', weight: 20, critical: true },
+    { key: 'sponsor', label: 'Sponsor', question: 'Is an executive sponsor committed to remove barriers?', weight: 10, critical: false },
+    { key: 'owner', label: 'Problem owner', question: 'Is one operating owner accountable for acceptance?', weight: 10, critical: true },
+    { key: 'baseline', label: 'Baseline', question: 'Can current performance be measured credibly?', weight: 10, critical: true },
+    { key: 'access', label: 'Data/system access', question: 'Can required information and environments be accessed in preparation?', weight: 15, critical: true },
+    { key: 'security', label: 'Security boundary', question: 'Is there a viable test and validation approval path?', weight: 10, critical: true },
+    { key: 'buildability', label: 'Buildability', question: 'Can the smallest complete capability fit the focused event?', weight: 10, critical: false },
+    { key: 'reuse', label: 'Reuse target', question: 'Can a second site, asset, or application be named?', weight: 10, critical: false },
+    { key: 'support', label: 'Support ownership', question: 'Is a team prepared to inherit the capability?', weight: 5, critical: false },
+  ];
+  const readinessTool = tkInitReadiness('readiness-root', READINESS_DIMENSIONS);
+  document.getElementById('readiness-export').addEventListener('click', () => readinessTool.exportCsv());
+  document.getElementById('readiness-reset').addEventListener('click', () => { if (confirm('Reset the Readiness Screen?')) readinessTool.reset(); });
+
+  // ── 2. Challenge Selection ──
+  const CHALLENGE_CRITERIA = [
+    { key: 'consequence', label: 'Operating consequence', question: 'Does the problem affect throughput, quality, asset availability, labor, energy, safety, service, or cash?', weight: 20 },
+    { key: 'clarity', label: 'Decision/workflow clarity', question: 'Can the team name the decision, user, trigger, current handoffs, and desired action?', weight: 15 },
+    { key: 'data', label: 'Data accessibility', question: 'Can the necessary information be accessed within the preparation window?', weight: 15 },
+    { key: 'buildability', label: 'Buildability', question: 'Can the smallest complete capability be built in the focused event?', weight: 15 },
+    { key: 'measurability', label: 'Measurability', question: 'Can baseline and post-change evidence be gathered?', weight: 10 },
+    { key: 'reuse', label: 'Reuse potential', question: 'Is there a credible second deployment target?', weight: 15 },
+    { key: 'commitment', label: 'Sponsor/user commitment', question: 'Will the owner and users participate during framing, build, and validation?', weight: 10 },
+  ];
+  const challengeTool = tkInitChallengeMatrix('challenge-root', CHALLENGE_CRITERIA);
+  document.getElementById('challenge-export').addEventListener('click', () => challengeTool.exportCsv());
+  document.getElementById('challenge-reset').addEventListener('click', () => { if (confirm('Reset the Challenge Selection matrix?')) challengeTool.reset(); });
+
+  // ── 3. Decision Log ──
+  const DECISION_COLUMNS = [
+    { key: 'id', label: 'ID', readonly: false, type: 'text' },
+    { key: 'date', label: 'Date', type: 'date' },
+    { key: 'phase', label: 'Phase', type: 'select', options: ['Qualify', 'Frame', 'Prepare', 'Hackathon Kaizen', 'Validate', 'Replicate'] },
+    { key: 'decision', label: 'Decision / question', type: 'textarea' },
+    { key: 'evidence', label: 'Evidence considered', type: 'textarea' },
+    { key: 'owner', label: 'Owner', type: 'text' },
+    { key: 'due', label: 'Due', type: 'date' },
+    { key: 'disposition', label: 'Disposition', type: 'select', options: ['Pending', 'Go', 'Revise', 'Contain', 'Stop'] },
+    { key: 'effect', label: 'Effect on scope / risk', type: 'textarea' },
+    { key: 'status', label: 'Status', type: 'select', options: ['Open', 'Closed'] },
+  ];
+  const decisionTool = tkInitEditableTable({
+    containerId: 'decision-root', toolKey: 'decision', columns: DECISION_COLUMNS,
+    defaultRows: [{ id: 'D1', date: '', phase: 'Qualify', decision: '', evidence: '', owner: '', due: '', disposition: 'Pending', effect: '', status: 'Open' }],
+    fixedRows: false, idPrefix: 'D', title: 'Decision Log',
+  });
+  document.getElementById('decision-export').addEventListener('click', () => decisionTool.exportCsv());
+  document.getElementById('decision-reset').addEventListener('click', () => { if (confirm('Reset the Decision Log?')) decisionTool.reset(); });
+
+  // ── 4. Exception Log ──
+  const EXCEPTION_COLUMNS = [
+    { key: 'id', label: 'ID', type: 'text' },
+    { key: 'scenario', label: 'Scenario', type: 'textarea' },
+    { key: 'expected', label: 'Expected behavior', type: 'textarea' },
+    { key: 'actual', label: 'Actual behavior', type: 'textarea' },
+    { key: 'consequence', label: 'User consequence', type: 'textarea' },
+    { key: 'severity', label: 'Severity', type: 'select', options: ['Low', 'Medium', 'High', 'Critical'] },
+    { key: 'owner', label: 'Owner', type: 'text' },
+    { key: 'disposition', label: 'Disposition', type: 'select', options: ['Pending', 'Go', 'Revise', 'Contain', 'Stop'] },
+    { key: 'retest', label: 'Retest date', type: 'date' },
+    { key: 'closed', label: 'Closed?', type: 'select', options: ['No', 'Yes'] },
+  ];
+  const exceptionTool = tkInitEditableTable({
+    containerId: 'exception-root', toolKey: 'exception', columns: EXCEPTION_COLUMNS,
+    defaultRows: [{ id: 'E1', scenario: '', expected: '', actual: '', consequence: '', severity: 'Medium', owner: '', disposition: 'Pending', retest: '', closed: 'No' }],
+    fixedRows: false, idPrefix: 'E', title: 'Exception Log',
+  });
+  document.getElementById('exception-export').addEventListener('click', () => exceptionTool.exportCsv());
+  document.getElementById('exception-reset').addEventListener('click', () => { if (confirm('Reset the Exception Log?')) exceptionTool.reset(); });
+
+  // ── 5. Validation Scorecard ──
+  const SCORECARD_COLUMNS = [
+    { key: 'measure', label: 'Measure', readonly: true },
+    { key: 'definition', label: 'Definition', type: 'textarea' },
+    { key: 'baseline', label: 'Baseline', type: 'text' },
+    { key: 'target', label: 'Target hypothesis', type: 'text' },
+    { key: 'actual', label: 'Actual', type: 'text' },
+    { key: 'unit', label: 'Unit', type: 'text' },
+    { key: 'evidence', label: 'Evidence source', type: 'text' },
+    { key: 'frequency', label: 'Frequency', type: 'text' },
+    { key: 'owner', label: 'Owner', type: 'text' },
+    { key: 'confidence', label: 'Confidence', type: 'select', options: ['', 'Low', 'Medium', 'High'] },
+    { key: 'notes', label: 'Notes', type: 'textarea' },
+  ];
+  const SCORECARD_MEASURES = [
+    'Operating result', 'Decision/workflow cycle time', 'Integration effort', 'Availability / reliability',
+    'Exception rate', 'Support hours', 'AI/model consumption cost', 'User adoption / use',
+    'Reusable asset percentage', 'Estimated second-deployment effort',
+  ];
+  const scorecardTool = tkInitEditableTable({
+    containerId: 'scorecard-root', toolKey: 'scorecard', columns: SCORECARD_COLUMNS,
+    defaultRows: SCORECARD_MEASURES.map(m => ({ measure: m, definition: '', baseline: '', target: '', actual: '', unit: '', evidence: '', frequency: '', owner: '', confidence: '', notes: '' })),
+    fixedRows: true, title: 'Validation Scorecard',
+  });
+  document.getElementById('scorecard-export').addEventListener('click', () => scorecardTool.exportCsv());
+  document.getElementById('scorecard-reset').addEventListener('click', () => { if (confirm('Reset the Validation Scorecard?')) scorecardTool.reset(); });
+
+  // ── 6. Reuse Register ──
+  const REUSE_COLUMNS = [
+    { key: 'asset', label: 'Asset / pattern', type: 'text' },
+    { key: 'type', label: 'Type', type: 'select', options: ['Architecture', 'Information model', 'Code & configuration', 'Testing', 'Operating method', 'Evidence', 'Standard feedback'] },
+    { key: 'reusable', label: 'Reusable portion', type: 'textarea' },
+    { key: 'assumption', label: 'Site-specific assumption', type: 'textarea' },
+    { key: 'docs', label: 'Documentation status', type: 'select', options: ['Not started', 'Draft', 'Complete'] },
+    { key: 'rights', label: 'Rights / confidentiality', type: 'select', options: ['Customer-owned', 'Shareable', 'Needs approval'] },
+    { key: 'nextTest', label: 'Next test', type: 'text' },
+    { key: 'owner', label: 'Owner', type: 'text' },
+    { key: 'status', label: 'Status', type: 'select', options: ['Open', 'Closed'] },
+  ];
+  const reuseTool = tkInitEditableTable({
+    containerId: 'reuse-root', toolKey: 'reuse', columns: REUSE_COLUMNS,
+    defaultRows: [{ asset: '', type: 'Architecture', reusable: '', assumption: '', docs: 'Not started', rights: 'Needs approval', nextTest: '', owner: '', status: 'Open' }],
+    fixedRows: false, idPrefix: 'R', title: 'Reuse Register',
+  });
+  document.getElementById('reuse-export').addEventListener('click', () => reuseTool.exportCsv());
+  document.getElementById('reuse-reset').addEventListener('click', () => { if (confirm('Reset the Reuse Register?')) reuseTool.reset(); });
+
+  // ── 7. Event Run Sheet ──
+  const RUNSHEET_COLUMNS = [
+    { key: 'day', label: 'Day', readonly: true },
+    { key: 'start', label: 'Start', readonly: true },
+    { key: 'end', label: 'End', readonly: true },
+    { key: 'session', label: 'Session', readonly: true },
+    { key: 'lead', label: 'Lead', type: 'text' },
+    { key: 'participants', label: 'Participants', type: 'text' },
+    { key: 'input', label: 'Required input', type: 'text' },
+    { key: 'output', label: 'Output / gate', readonly: true },
+    { key: 'status', label: 'Status', type: 'select', options: ['Not started', 'In progress', 'Done', 'Blocked'] },
+  ];
+  const RUNSHEET_DEFAULT = [
+    ['1','8:00','8:45','Operating reality','Challenge charter; baseline','Shared problem statement'],
+    ['1','8:45','9:30','Architecture and boundaries','Architecture pack; security boundary','Approved build boundary'],
+    ['1','9:30','10:15','Acceptance and test design','User script; conformance plan','Definition of done'],
+    ['1','10:30','12:00','Build cycle 1','Ready environment','Thin vertical slice'],
+    ['1','13:00','14:30','Build cycle 2','Vertical slice','Working happy path'],
+    ['1','14:30','15:15','User walkthrough','Working path','Trust and usability issues'],
+    ['1','15:15','16:45','Build cycle 3','Issue list','Day-one build'],
+    ['1','16:45','17:15','Evidence review','Boards and logs','Day-two go/no-go'],
+    ['2','8:00','8:30','Re-entry','Overnight changes','Updated plan'],
+    ['2','8:30','10:15','Exception sprint','Exception scenarios','Failure evidence'],
+    ['2','10:30','11:30','Conformance run','Endpoint and test suite','Conformance record'],
+    ['2','11:30','12:00','Operating-owner review','Current workflow','Acceptance direction'],
+    ['2','13:00','14:30','Hardening sprint','Defects and support needs','Validation candidate'],
+    ['2','14:30','15:30','Portability design','Build assets','Reuse register'],
+    ['2','15:30','16:30','Live validation plan','Candidate build','Approved validation plan'],
+    ['2','16:30','17:00','Gate review','All evidence','Go / revise / contain / stop'],
+    ['3','8:00','10:30','Controlled operating test','Validation candidate','Observed workflow evidence'],
+    ['3','10:30','11:30','Closeout and commitments','Logs; scorecard','Working commitments'],
+    ['3','11:30','12:00','Replication hypothesis','Reuse register','Second target'],
+  ].map(([day, start, end, session, input, output]) => ({ day, start, end, session, lead: '', participants: '', input, output, status: 'Not started' }));
+  const runsheetTool = tkInitEditableTable({
+    containerId: 'runsheet-root', toolKey: 'runsheet', columns: RUNSHEET_COLUMNS,
+    defaultRows: RUNSHEET_DEFAULT, fixedRows: true, title: 'Event Run Sheet',
+  });
+  document.getElementById('runsheet-export').addEventListener('click', () => runsheetTool.exportCsv());
+  document.getElementById('runsheet-reset').addEventListener('click', () => { if (confirm('Reset the Event Run Sheet?')) runsheetTool.reset(); });
+</script>
+</body>
+</html>

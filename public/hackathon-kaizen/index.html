@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CESMII i3X Hackathon Kaizen | Brooksource &amp; CESMII</title>
+  <meta name="description" content="A structured, outcome-focused engagement that helps a manufacturer solve a real operating problem while testing how much faster and more reusable the solution becomes through i3X." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ── page-local additions ── */
+    .brand-lockup{display:flex;align-items:center;gap:14px}
+    .brand-x{color:var(--muted);font-weight:700;font-size:15px}
+    .cesmii-chip{display:inline-flex;align-items:center;background:linear-gradient(160deg,#0d2236,#123e61);border-radius:12px;padding:8px 14px;box-shadow:0 6px 14px rgba(13,34,54,.18)}
+    .cesmii-chip img{height:16px;width:auto;display:block}
+    .footer .cesmii-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);box-shadow:none}
+
+    .disc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .disc-card{position:relative;overflow:hidden;padding:22px}
+    .disc-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--brook-blue)}
+    .disc-card.kaizen:before{background:var(--brook-orange)}
+    .disc-card .disc-eyebrow{font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .disc-card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em;color:#101923}
+    .disc-card p{margin:0;color:var(--muted);line-height:1.55;font-size:14.5px}
+
+    .receive-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .receive-card{padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+    .receive-card .rc-num{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:950;font-size:12px;color:#122130}
+    .receive-card p{margin:0;color:var(--text);line-height:1.48;font-size:14.5px}
+
+    .char-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+    .char-card{padding:16px;text-align:center}
+    .char-card .char-mark{width:36px;height:36px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,var(--brook-blue),var(--brook-orange));color:#fff;display:grid;place-items:center;font-weight:950;font-size:14px}
+    .char-card p{margin:0;font-size:13.5px;line-height:1.4;color:var(--muted)}
+    .usecase-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .usecase-row span{font-size:12.5px;font-weight:800;color:#0f2133;background:var(--soft);border:1px solid var(--line-2);border-radius:999px;padding:7px 12px}
+
+    .reuse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .reuse-card{padding:20px}
+    .reuse-card .reuse-q{font-size:14.5px;font-weight:800;color:var(--brook-blue);margin-bottom:10px}
+    .reuse-card h3{margin:0 0 8px;font-size:19px;color:#101923}
+    .reuse-card p{margin:0;color:var(--muted);line-height:1.52;font-size:14px}
+
+    .role-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .role-card{padding:14px;text-align:left}
+    .role-card .role-tag{font-size:10.5px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--brook-orange);display:block;margin-bottom:6px}
+    .role-card p{margin:0;font-size:13px;line-height:1.42;color:var(--muted)}
+
+    .not-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+    .not-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+    .not-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:#dce8ef}
+    .not-list li:before{content:"—";flex:0 0 auto;color:#ff8300;font-weight:900}
+
+    .measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .measure-chip{background:white;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;color:#26374a;font-weight:700;box-shadow:var(--shadow)}
+
+    .offer-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+    .offer-list li{font-size:16px;font-weight:800;color:white;padding:12px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px}
+
+    .kit-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .kit-wrap span{font-size:12px;font-weight:800;color:#005a82;background:#edf8fc;border:1px solid #cfe9f4;border-radius:999px;padding:6px 11px}
+
+    @media (max-width:1100px){
+      .disc-grid,.receive-grid,.reuse-grid,.not-grid{grid-template-columns:1fr}
+      .char-grid{grid-template-columns:1fr 1fr}
+      .role-grid{grid-template-columns:1fr 1fr}
+      .measure-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:680px){
+      .char-grid,.role-grid,.measure-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container inner">
+    <div class="brand">
+      <div class="brand-lockup">
+        <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+        <span class="brand-x">&times;</span>
+        <span class="cesmii-chip"><img src="assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
+      </div>
+      <div class="prepared">Prepared for<br><b>Manufacturers evaluating a CESMII i3X Hackathon Kaizen</b></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="page-nav" aria-label="Site navigation">
+      <a href="#overview" class="current">Overview</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#receive">What You<br>Receive</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#starting-point">Starting<br>Point</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#how-it-works">How It<br>Works</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#reuse">Forms of<br>Reuse</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#timeline">Timeline<br>&amp; Roles</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#success">Measures of<br>Success</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#not-this">Not<br>This</a>
+      <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
+      <a href="#offer">The<br>Offer</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="overview">
+  <div class="container">
+    <div class="kicker"><span class="dot"></span>CESMII &middot; i3X &middot; Hackathon Kaizen</div>
+    <h1>A focused engagement for solving a manufacturing problem &mdash; and creating a reusable path to scale</h1>
+    <p class="lead">A CESMII i3X Hackathon Kaizen brings a manufacturer, its operating experts, technology teams, selected solution providers, and facilitators together around one real problem. The goal is not to run a technology demonstration. It is to produce a working capability, validate it in normal operations, and leave the manufacturer with a clearer path to reuse the result across additional assets, lines, plants, or applications.</p>
+    <div class="hero-card" style="margin-top:24px">
+      <p class="answer">The customer-facing piece begins with <b>the manufacturer's problem and the engagement they are buying</b> &mdash; not with why CESMII needs an adoption mechanism. This is a structured, outcome-focused engagement that helps a manufacturer solve a real operating problem while testing how much faster and more reusable the solution becomes through i3X.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Two disciplines, one engagement</span><h2>A hackathon compresses the build. A Kaizen makes it stick.</h2></div>
+      <p class="section-copy">The engagement combines two disciplines that create a controlled environment for moving from a known manufacturing constraint to a working, supportable solution.</p>
+    </div>
+    <div class="disc-grid">
+      <div class="disc-card hack">
+        <div class="disc-eyebrow">Hackathon</div>
+        <h3>Compress design, integration, and experimentation</h3>
+        <p>A short, highly focused build cycle that forces the team to move from concept to working capability fast &mdash; no lengthy phased development, no waiting between decisions.</p>
+      </div>
+      <div class="disc-card kaizen">
+        <div class="disc-eyebrow">Kaizen</div>
+        <h3>Start from the current condition, measure the result</h3>
+        <p>Begins with the current operating condition, tests a practical improvement, measures the result against baseline, and establishes a better way of working &mdash; not just a one-time demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section secondary-section" id="receive">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">What the manufacturer receives</span><h2>More than a prototype</h2></div>
+      <p class="section-copy">The value is not only the first solution. It is the reduction in effort required to build the second one.</p>
+    </div>
+    <div class="receive-grid">
+      <div class="card receive-card"><span class="rc-num">1</span><p>A working solution tied to a defined operating problem</p></div>
+      <div class="card receive-card"><span class="rc-num">2</span><p>A documented baseline and measured result</p></div>
+      <div class="card receive-card"><span class="rc-num">3</span><p>An i3X-based integration and information pattern</p></div>
+      <div class="card receive-card"><span class="rc-num">4</span><p>A clear view of what can be reused elsewhere</p></div>
+      <div class="card receive-card"><span class="rc-num">5</span><p>Identified gaps, exceptions, and support requirements</p></div>
+      <div class="card receive-card"><span class="rc-num">6</span><p>A practical deployment plan for the next site, asset, or use case</p></div>
+      <div class="card receive-card"><span class="rc-num">7</span><p>Reusable technical and operating assets</p></div>
+      <div class="card receive-card"><span class="rc-num">8</span><p>A record of what should remain proprietary and what can be shared safely</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="starting-point">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">The right starting point</span><h2>Narrow enough for a short cycle, important enough to matter</h2></div>
+      <p class="section-copy">The engagement should begin with a problem that is narrow enough to address in a short cycle but important enough that improvement matters. Strong candidates share four characteristics.</p>
+    </div>
+    <div class="char-grid">
+      <div class="card char-card"><div class="char-mark">1</div><p>A named operating owner</p></div>
+      <div class="card char-card"><div class="char-mark">2</div><p>A measurable consequence</p></div>
+      <div class="card char-card"><div class="char-mark">3</div><p>Available data or accessible systems</p></div>
+      <div class="card char-card"><div class="char-mark">4</div><p>A workflow or decision that is currently too slow, manual, fragmented, or difficult to repeat</p></div>
+    </div>
+    <div class="usecase-row">
+      <span>Asset-health decisions</span><span>Maintenance prioritization</span><span>Quality investigation</span><span>Production-constraint response</span><span>Energy management</span><span>Genealogy</span><span>Schedule recovery</span><span>Governed access to plant context for AI applications</span>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>The starting question is practical &mdash;</strong> what operating problem could be solved faster, with less custom integration, and with a better chance of reuse?</div>
+  </div>
+</section>
+
+<section class="section secondary-section" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">How the engagement works</span><h2>Five stages, from framing to the next deployment</h2></div>
+      <p class="section-copy">Each stage below opens to the full detail &mdash; what happens, what it produces, and why it matters to the sequence.</p>
+    </div>
+
+    <div class="eng-arc">
+      <div class="arc-phase"><span class="arc-num">1</span><h3>Select &amp; frame the challenge</h3><p>Define the current condition before discussing architecture.</p><div class="arc-goal">Output: a concise challenge charter</div></div>
+      <div class="arc-phase"><span class="arc-num">2</span><h3>Prepare the working environment</h3><p>Confirm systems, interfaces, data, and roles are ready.</p><div class="arc-goal">Goal: solve the problem, not wait for access</div></div>
+      <div class="arc-phase"><span class="arc-num">3</span><h3>Build &amp; test</h3><p>The cross-functional team builds the smallest complete capability.</p><div class="arc-goal">Working sessions and decision gates, not presentations</div></div>
+      <div class="arc-phase"><span class="arc-num">4</span><h3>Validate in normal operations</h3><p>A successful demo is not yet a successful implementation.</p><div class="arc-goal">Compare against baseline, correct, document</div></div>
+      <div class="arc-phase"><span class="arc-num">5</span><h3>Define the next deployment</h3><p>A deliberate reuse decision, not an optional follow-up.</p><div class="arc-goal">Part of the value case, not an afterthought</div></div>
+    </div>
+
+    <details class="tech-accordion" style="margin-top:22px">
+      <summary>1 &middot; Select and frame the challenge <span class="sub">Operations before architecture</span></summary>
+      <div class="acc-body">
+        <p style="color:var(--muted);line-height:1.55;margin:0 0 14px">The team defines the current condition before discussing architecture. This includes the operating workflow, systems involved, available data, recurring exceptions, decision rights, baseline performance, and economic consequence. This stage prevents the engagement from becoming a technology exercise disconnected from operations.</p>
+        <p style="font-weight:800;color:#122130;margin:0 0 8px">The output is a concise challenge charter that defines:</p>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.6">
+          <li>The problem</li><li>The owner</li><li>The baseline</li><li>The target outcome</li><li>The systems and information involved</li><li>The i3X capabilities to be tested</li><li>Security and access constraints</li><li>The validation period</li><li>The expected reuse opportunity</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tech-accordion">
+      <summary>2 &middot; Prepare the working environment <span class="sub">Access resolved before the event starts</span></summary>
+      <div class="acc-body">
+        <p style="color:var(--muted);line-height:1.55;margin:0 0 14px">Before the event, the engagement team confirms that the required systems, interfaces, data, credentials, test environments, and participant roles are ready. The objective is to spend the Hackathon Kaizen solving the problem, not waiting for access.</p>
+        <p style="font-weight:800;color:#122130;margin:0 0 8px">This preparation may include:</p>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.6">
+          <li>Identifying available i3X endpoints</li><li>Mapping relevant assets, relationships, events, and measures</li><li>Confirming data quality and access</li><li>Establishing test and security boundaries</li><li>Selecting participating applications and platforms</li><li>Defining acceptance criteria</li><li>Preparing reusable templates and development environments</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tech-accordion">
+      <summary>3 &middot; Build and test <span class="sub">Working sessions and decision gates</span></summary>
+      <div class="acc-body">
+        <p style="color:var(--muted);line-height:1.55;margin:0 0 14px">During the focused working session, the cross-functional team builds the smallest complete capability that can improve the target workflow or decision. The team may include plant operations, maintenance, quality, engineering, IT, OT, architecture, cybersecurity, technology providers, integrators, and application developers.</p>
+        <p style="font-weight:800;color:#122130;margin:0 0 8px">The work should produce:</p>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.6">
+          <li>A functioning connection through i3X</li><li>A usable information model</li><li>A working application, workflow, or decision aid</li><li>Tested exception paths</li><li>Visible conformance results</li><li>Initial operating feedback</li><li>A clear record of issues and assumptions</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tech-accordion">
+      <summary>4 &middot; Validate in normal operations <span class="sub">This is where the Kaizen discipline matters</span></summary>
+      <div class="acc-body">
+        <p style="color:var(--muted);line-height:1.55;margin:0 0 14px">A successful demonstration is not yet a successful implementation. The capability should operate for a defined validation period so the team can observe reliability, user adoption, data accuracy, exception behavior, security issues, support demand, changes in the operating measure, and differences between the demonstration environment and normal plant conditions. The team compares the result with the original baseline, corrects what did not work, and documents the improved method.</p>
+      </div>
+    </details>
+
+    <details class="tech-accordion">
+      <summary>5 &middot; Define the next deployment <span class="sub">Part of the value case, not optional</span></summary>
+      <div class="acc-body">
+        <p style="color:var(--muted);line-height:1.55;margin:0 0 14px">The engagement should end with a deliberate reuse decision.</p>
+        <p style="font-weight:800;color:#122130;margin:0 0 8px">The team identifies:</p>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.6">
+          <li>Which components are portable</li><li>Which mappings are reusable</li><li>Which elements remain site-specific</li><li>What must be hardened before scaling</li><li>What support model is required</li><li>Which next plant, line, asset, or application provides the best replication test</li><li>What can be contributed back to the wider ecosystem without exposing proprietary information</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Not a conventional pilot</span><h2>A conventional pilot asks whether a technology can work. This asks harder questions.</h2></div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>Did it improve the operating problem?</h3><p>Judged on operating value, not a successful demo.</p></div>
+      <div class="card"><h3>Did i3X reduce custom integration effort?</h3><p>Judged on technical reliability and integration cost.</p></div>
+      <div class="card"><h3>Can it be supported and reused?</h3><p>Judged on supportability and portability &mdash; can another team understand it, deploy it again, without starting over?</p></div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Did the manufacturer gain a repeatable method &mdash;</strong> not just a successful demonstration?</div>
+  </div>
+</section>
+
+<section class="section secondary-section" id="reuse">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Three forms of reuse</span><h2>A useful engagement tests reuse at three levels</h2></div>
+      <p class="section-copy">The third is often the hardest. Technical portability has limited value when the operating model remains entirely custom.</p>
+    </div>
+    <div class="reuse-grid">
+      <div class="card reuse-card"><div class="reuse-q">Technical reuse</div><h3>Connect without redevelopment</h3><p>Can the application connect to another i3X-compliant environment without substantial redevelopment?</p></div>
+      <div class="card reuse-card"><div class="reuse-q">Information reuse</div><h3>Interpret consistently</h3><p>Can the application interpret assets, relationships, conditions, and events consistently across different equipment and plants?</p></div>
+      <div class="card reuse-card"><div class="reuse-q">Operating reuse</div><h3>Adopt without reconstructing</h3><p>Can another site adopt the workflow, decision rights, exception handling, training, and support model without reconstructing them from the beginning?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="timeline">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">A likely engagement timeline</span><h2>Eight to twelve weeks, start to replication plan</h2></div>
+      <p class="section-copy">The actual timing depends on data access, cybersecurity requirements, system readiness, and the complexity of the selected use case.</p>
+    </div>
+    <div class="ns-timeline">
+      <div><div class="tl-label">Framing &amp; baseline</div><div class="tl-weeks">1&ndash;2 wks</div><div class="tl-desc">Challenge framing and baseline definition.</div></div>
+      <div><div class="tl-label">Environment prep</div><div class="tl-weeks">2&ndash;3 wks</div><div class="tl-desc">Architecture and environment preparation.</div></div>
+      <div><div class="tl-label">Hackathon Kaizen event</div><div class="tl-weeks">2&ndash;3 days</div><div class="tl-desc">The focused build &amp; test event itself.</div></div>
+      <div><div class="tl-label">Operational validation</div><div class="tl-weeks">4&ndash;6 wks</div><div class="tl-desc">Real users, real feedback, baseline comparison.</div></div>
+    </div>
+    <div class="callout" style="margin-top:14px"><strong>Plus results review and replication planning &mdash;</strong> roughly one additional week to close out and define the next deployment.</div>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Roles</span><h2>Clear roles matter &mdash; this crosses operating, technical, and commercial boundaries</h2></div>
+    </div>
+    <div class="role-grid">
+      <div class="card role-card"><span class="role-tag">Problem owner</span><p>The manufacturer remains the problem owner and decision authority.</p></div>
+      <div class="card role-card"><span class="role-tag">Engagement team</span><p>Provides structure, facilitation, architecture support, working methods, documentation, and coordination across participants.</p></div>
+      <div class="card role-card"><span class="role-tag">Technology providers</span><p>Support platform access, conformance, and product-specific implementation.</p></div>
+      <div class="card role-card"><span class="role-tag">Integrators &amp; developers</span><p>Build and test the capability.</p></div>
+      <div class="card role-card"><span class="role-tag">CESMII</span><p>Provides the i3X foundation, ecosystem context, technical resources, and stewardship of generalized learning where appropriate.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="success">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Measures of success</span><h2>Agreed before the build begins</h2></div>
+      <p class="section-copy">The strongest proof point is often the second deployment. A successful first implementation shows that the team solved a problem. A successful second implementation shows that the method may scale.</p>
+    </div>
+    <div class="measure-grid">
+      <div class="measure-chip">Improvement in the selected operating result</div>
+      <div class="measure-chip">Time from challenge definition to working capability</div>
+      <div class="measure-chip">Integration effort required</div>
+      <div class="measure-chip">Number of systems connected</div>
+      <div class="measure-chip">Percentage of reusable components</div>
+      <div class="measure-chip">Number and severity of exceptions</div>
+      <div class="measure-chip">Support effort during validation</div>
+      <div class="measure-chip">User adoption</div>
+      <div class="measure-chip">Conformance results</div>
+      <div class="measure-chip">Time &amp; effort for the next deployment</div>
+    </div>
+  </div>
+</section>
+
+<section class="section secondary-section" id="not-this">
+  <div class="container">
+    <div class="not-grid">
+      <div class="panel dark">
+        <span class="eyebrow" style="color:#ffb15b">What the engagement is not</span>
+        <h2 style="font-size:26px;margin-top:6px">Eight things this deliberately isn't</h2>
+        <ul class="not-list" style="margin-top:14px">
+          <li>A generic innovation workshop</li>
+          <li>A vendor demonstration</li>
+          <li>An architecture assessment with no build component</li>
+          <li>A coding event disconnected from plant operations</li>
+          <li>A standards seminar</li>
+          <li>A pilot declared complete when the prototype runs</li>
+          <li>An open-source exercise that requires disclosure of proprietary plant knowledge</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">What it protects</span>
+        <h3 style="font-size:19px;margin-top:6px">Confidentiality first, contribution second</h3>
+        <p class="section-copy" style="max-width:none;margin-bottom:14px">The engagement protects manufacturer confidentiality while contributing generalized patterns, test cases, tools, and lessons where appropriate. A record of what should remain proprietary and what can be shared safely is one of the deliverables &mdash; not an afterthought decided after the fact.</p>
+        <div class="tag blue">Proprietary vs. shareable, decided deliberately</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="offer">
+  <div class="container">
+    <div class="panel dark" style="padding:34px 30px">
+      <span class="eyebrow" style="color:#ffb15b">The customer proposition</span>
+      <h2 style="font-size:clamp(26px,3vw,38px);margin-top:8px;max-width:820px">The manufacturer isn't buying a hackathon for its own sake</h2>
+      <p style="max-width:760px;line-height:1.55;font-size:16px;color:#dce8ef">It is buying a faster and more disciplined way to answer several difficult questions at once.</p>
+      <ul class="offer-list">
+        <li>Can we solve this operating problem?</li>
+        <li>Can we reduce the custom work normally required?</li>
+        <li>Can we support the result after the initial team leaves?</li>
+        <li>Can we reuse the architecture and method elsewhere?</li>
+        <li>Can we learn enough from the first deployment to make the second one materially easier?</li>
+      </ul>
+      <p style="margin-top:18px;font-size:16px;font-weight:800;color:white">That is the offer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Delivery system</span><h2>The engagement-team package is a working delivery system, not just an agenda</h2></div>
+      <p class="section-copy">Separately, the package that supports this engagement should include the following as standing components &mdash; not documents assembled once per event.</p>
+    </div>
+    <div class="kit-wrap">
+      <span>Challenge-selection method</span>
+      <span>Pre-event readiness assessment</span>
+      <span>Facilitation guide</span>
+      <span>Participant roles</span>
+      <span>Data &amp; security checklist</span>
+      <span>Architecture templates</span>
+      <span>Baseline worksheet</span>
+      <span>Decision log</span>
+      <span>Daily agenda</span>
+      <span>Technical workstream structure</span>
+      <span>Conformance process</span>
+      <span>Validation scorecard</span>
+      <span>Reuse assessment</span>
+      <span>Closeout report</span>
+      <span>Replication plan</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <div class="brand-lockup">
+        <img src="assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+        <span class="brand-x" style="color:#7c8ea0">&times;</span>
+        <span class="cesmii-chip"><img src="assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
+      </div>
+      <div class="footnote">A CESMII i3X Hackathon Kaizen: a structured, outcome-focused engagement that helps a manufacturer solve a real operating problem while testing how much faster and more reusable the solution becomes through i3X. Brooksource brings setup, execution, and the follow-up that sticks; CESMII brings i3X standards depth and ecosystem context.</div>
+    </div>
+    <div class="small-nav">
+      <a href="#overview">Overview</a> <a href="#receive">What You Receive</a> <a href="#starting-point">Starting Point</a> <a href="#how-it-works">How It Works</a> <a href="#reuse">Forms of Reuse</a> <a href="#timeline">Timeline</a> <a href="#success">Measures of Success</a> <a href="#not-this">Not This</a> <a href="#offer">The Offer</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

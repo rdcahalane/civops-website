@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement Team Playbook | CESMII i3X Hackathon Kaizen Toolkit</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="toolkit.css" />
+  <link rel="icon" href="../favicon.ico" />
+</head>
+<body>
+
+<div class="internal-banner">Internal engagement-team playbook &middot; not for customer distribution</div>
+
+<header class="tk-header">
+  <div class="container inner tk-brand">
+    <img src="../assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+    <span class="tk-x">&times;</span>
+    <span class="tk-cesmii"><img src="../assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
+    <span class="tk-title">Hackathon Kaizen Toolkit &middot; <span>Engagement Team Playbook</span></span>
+  </div>
+  <div class="container inner" style="margin-top:8px">
+    <nav class="tk-nav">
+      <a href="index.html">Toolkit Home</a>
+      <a href="playbook.html" class="current">Playbook</a>
+      <a href="tools.html">Working Tools</a>
+      <a href="../index.html">&larr; Public site</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tk-shell">
+  <div class="tk-layout">
+    <nav class="tk-toc" aria-label="Playbook table of contents">
+      <div class="tk-toc-group">Overview</div>
+      <a href="#purpose">1. Purpose &amp; premise</a>
+      <a href="#architecture">2. Engagement architecture</a>
+      <a href="#team">3. Team &amp; decision rights</a>
+
+      <div class="tk-toc-group">Qualify &amp; frame</div>
+      <a href="#qualification">4. Qualification &amp; path</a>
+      <a href="#challenge-selection">5. Challenge selection</a>
+      <a href="#charter">6. Challenge charter</a>
+
+      <div class="tk-toc-group">Prepare &amp; build</div>
+      <a href="#preparation">7. Preparation workstreams</a>
+      <a href="#technical">8. Technical &amp; i3X checkpoints</a>
+      <a href="#agenda">9. Focused event agenda</a>
+      <a href="#facilitation">10. Facilitation mechanics</a>
+
+      <div class="tk-toc-group">Govern &amp; validate</div>
+      <a href="#gates">11. Gate criteria</a>
+      <a href="#validation-model">12. Validation operating model</a>
+      <a href="#year-two">13. Year-two reality check</a>
+
+      <div class="tk-toc-group">Close out</div>
+      <a href="#replication">14. Replication &amp; community assets</a>
+      <a href="#closeout">15. Closeout report structure</a>
+
+      <div class="tk-toc-group">Appendices</div>
+      <a href="#appendix-a">A. Interview guide</a>
+      <a href="#appendix-b">B. Stand-up script</a>
+      <a href="#appendix-c">C. Source anchors</a>
+    </nav>
+
+    <main class="tk-doc">
+      <div class="tk-doc-head">
+        <span class="tag blue">CESMII i3X &middot; Hackathon Kaizen</span>
+        <h1>Engagement Team Playbook and Facilitation Toolkit</h1>
+        <p class="tk-deck">Solve one consequential manufacturing problem. Prove the result in normal operations. Make the second deployment materially easier.</p>
+        <p class="tk-meta-line">Internal working draft &middot; July 2026 &middot; companion to the <a href="../index.html" style="color:var(--brook-blue);font-weight:800">public engagement overview</a> and the <a href="tools.html" style="color:var(--brook-blue);font-weight:800">interactive working tools</a></p>
+        <div class="tk-download-row">
+          <a class="tk-download" href="downloads/CESMII_i3X_Hackathon_Kaizen_Engagement_Team_Playbook.docx" download>⬇ Download .docx<small>Original playbook file</small></a>
+          <a class="tk-download" href="downloads/CESMII_i3X_Hackathon_Kaizen_Working_Tools.xlsx" download>⬇ Download .xlsx<small>Original working tools</small></a>
+        </div>
+      </div>
+
+      <section class="tk-sec" id="purpose">
+        <h2>1. Purpose and operating premise</h2>
+        <p>This playbook equips an engagement team to lead a manufacturer through a CESMII i3X Hackathon Kaizen. The engagement combines a focused build event with Kaizen discipline: begin with a real operating constraint, establish a baseline, build the smallest complete capability, validate it during normal operations, and test what can be reused.</p>
+        <p>The engagement is not complete when an API call succeeds or a demonstration runs. It is complete when the team can show what changed in the operating workflow, what support and exception burden remains, and whether the architecture and method can travel.</p>
+        <h3>Engagement principles</h3>
+        <ul>
+          <li>The manufacturer owns the problem, decision authority, operating measure, and final acceptance.</li>
+          <li>The operating problem leads. Technology choices follow.</li>
+          <li>A focused build event is the center of the engagement, not the whole engagement.</li>
+          <li>Conformance is tested, not asserted.</li>
+          <li>Normal-operation validation is required before success is declared.</li>
+          <li>The team records failures, exceptions, support demand, and unresolved risks as carefully as the successful path.</li>
+          <li>Confidential plant context remains protected. Generalized patterns may be shared only within agreed boundaries.</li>
+          <li>The second deployment is treated as a design requirement from the beginning.</li>
+        </ul>
+      </section>
+
+      <section class="tk-sec" id="architecture">
+        <h2>2. Engagement architecture</h2>
+        <p>Six phases, from qualification to replication. This is the internal operating model behind the five-stage arc described on the <a href="../index.html#how-it-works" style="color:var(--brook-blue);font-weight:800">public engagement page</a> &mdash; Qualify is the pre-step that decides whether a manufacturer is ready to enter it.</p>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Phase</th><th>Purpose</th><th>Typical duration</th><th>Primary outputs</th><th>Decision gate</th></tr>
+          <tr><td>0. Qualify</td><td>Confirm fit, sponsorship, problem ownership, and readiness.</td><td>1&ndash;2 working sessions</td><td>Opportunity brief; readiness screen; proposed path</td><td>Proceed directly, perform roadmapping first, or stop</td></tr>
+          <tr><td>1. Frame</td><td>Define the operating constraint, baseline, users, decision rights, and target result.</td><td>1&ndash;2 weeks</td><td>Challenge charter; baseline; acceptance criteria; value hypothesis</td><td>Challenge is bounded and worth solving</td></tr>
+          <tr><td>2. Prepare</td><td>Ready systems, data, security, i3X endpoints, participants, and work environment.</td><td>2&ndash;3 weeks</td><td>Architecture pack; access plan; information model; test plan; runbook</td><td>Build event is genuinely ready</td></tr>
+          <tr><td>3. Hackathon Kaizen</td><td>Build and test the smallest complete capability.</td><td>2&ndash;3 focused days</td><td>Working capability; conformance evidence; exception log; operating walkthrough</td><td>Safe and useful enough for live validation</td></tr>
+          <tr><td>4. Validate</td><td>Run under normal operating conditions and improve the method.</td><td>4&ndash;6 weeks</td><td>Validation scorecard; issue resolution; support record; measured operating result</td><td>Result is credible and supportable</td></tr>
+          <tr><td>5. Replicate</td><td>Separate reusable assets from site-specific work and select the next deployment.</td><td>1&ndash;2 weeks</td><td>Replication plan; reusable asset register; closeout; backlog</td><td>Scale, revise, contain, or retire</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="team">
+        <h2>3. Team structure and decision rights</h2>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Role</th><th>Core responsibility</th><th>Must be present when</th><th>Decision authority</th></tr>
+          <tr><td>Executive sponsor</td><td>Protects priority, removes cross-functional barriers, accepts business risk.</td><td>Kickoff, event opening/close, validation review</td><td>Business priority and funding</td></tr>
+          <tr><td>Operating problem owner</td><td>Owns the workflow, baseline, user acceptance, and operating result.</td><td>All major gates and live testing</td><td>Problem definition and acceptance</td></tr>
+          <tr><td>Lead facilitator</td><td>Controls cadence, decisions, evidence, issue escalation, and team conduct.</td><td>Entire engagement</td><td>Process and gate discipline</td></tr>
+          <tr><td>Engagement architect</td><td>Maintains end-to-end architecture, boundaries, reuse intent, and technical decisions.</td><td>Preparation, build, validation, replication</td><td>Architecture recommendations and exception escalation</td></tr>
+          <tr><td>i3X technical lead</td><td>Guides endpoint design, API use, information modeling, security, and conformance.</td><td>Preparation and build</td><td>Interpretation of i3X implementation requirements</td></tr>
+          <tr><td>OT/IT system owners</td><td>Provide system knowledge, access, change windows, and support commitments.</td><td>Preparation, build, validation</td><td>System access and operational change approval</td></tr>
+          <tr><td>Cybersecurity lead</td><td>Defines access, credentials, network, logging, data handling, and approval conditions.</td><td>Qualification through validation</td><td>Security acceptance and stop authority</td></tr>
+          <tr><td>Application/developer lead</td><td>Builds the capability and documents code, tests, dependencies, and support needs.</td><td>Preparation through replication</td><td>Technical implementation within approved architecture</td></tr>
+          <tr><td>Frontline users / SMEs</td><td>Expose actual work, exceptions, trust conditions, and usability constraints.</td><td>Framing, build walkthroughs, validation</td><td>User acceptance input</td></tr>
+          <tr><td>Measurement lead</td><td>Protects baseline integrity and validates results.</td><td>Framing and validation</td><td>Measurement method and evidence quality</td></tr>
+          <tr><td>Scribe / asset curator</td><td>Maintains decision log, issue log, reusable assets, and closeout record.</td><td>Entire engagement</td><td>Record integrity</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="qualification">
+        <h2>4. Qualification and path selection</h2>
+        <p>The first engagement-team responsibility is to determine whether the customer is ready for a Hackathon Kaizen or needs a short roadmapping phase first. Roadmapping is useful when the enterprise has several plausible problems, unclear architecture prerequisites, weak ownership, unresolved security boundaries, or no credible path from a local build to a second deployment. A prior manufacturer roadmapping engagement is one example of an optional predecessor: it connects operating priorities, architecture choices, technology candidates, and a sequenced delivery path before committing to the first build.</p>
+        <a class="tk-callout-link" href="tools.html#readiness">→ Score this live in the Readiness Screen tool</a>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Readiness dimension</th><th>Direct to Hackathon Kaizen</th><th>Roadmapping likely needed first</th><th>Stop / revisit</th></tr>
+          <tr><td>Operating problem</td><td>Named, consequential, and bounded</td><td>Several competing or broadly defined problems</td><td>No owner or no meaningful consequence</td></tr>
+          <tr><td>Sponsor and owner</td><td>Both committed and available</td><td>Interest exists but ownership is fragmented</td><td>No decision authority</td></tr>
+          <tr><td>Baseline</td><td>Current measure is available or can be established quickly</td><td>Measures conflict or workflow is poorly understood</td><td>No credible way to observe change</td></tr>
+          <tr><td>Data and systems</td><td>Accessible enough for preparation</td><td>Unknown interfaces, data quality, or architecture dependencies</td><td>Access prohibited within useful timeframe</td></tr>
+          <tr><td>Security</td><td>Known approval path and test boundary</td><td>Controls need design or substantial review</td><td>No acceptable test arrangement</td></tr>
+          <tr><td>Use-case scale</td><td>Smallest complete result fits a short build</td><td>Requires decomposition and sequencing</td><td>Depends on major platform replacement first</td></tr>
+          <tr><td>Reuse target</td><td>Second site, asset, or application can be named</td><td>Potential exists but must be identified</td><td>One-off value only and no strategic reason to proceed</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="challenge-selection">
+        <h2>5. Challenge selection method</h2>
+        <p>Score each candidate from 1 to 5. A strong first challenge is material enough to matter, bounded enough to complete, and reusable enough to teach.</p>
+        <a class="tk-callout-link" href="tools.html#challenge">→ Score candidates live in the Challenge Selection tool</a>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Criterion</th><th>Question</th><th>Weight</th><th>Reject when</th></tr>
+          <tr><td>Operating consequence</td><td>Does the problem affect throughput, quality, asset availability, labor, energy, safety, service, or cash?</td><td>20%</td><td>The consequence is mostly demonstrative</td></tr>
+          <tr><td>Decision/workflow clarity</td><td>Can the team name the decision, user, trigger, current handoffs, and desired action?</td><td>15%</td><td>The use case is only &lsquo;create visibility&rsquo;</td></tr>
+          <tr><td>Data accessibility</td><td>Can the necessary information be accessed within the preparation window?</td><td>15%</td><td>Critical data is unavailable or legally blocked</td></tr>
+          <tr><td>Buildability</td><td>Can the smallest complete capability be built in the focused event?</td><td>15%</td><td>Success requires a large upstream program</td></tr>
+          <tr><td>Measurability</td><td>Can baseline and post-change evidence be gathered?</td><td>10%</td><td>No observable result or proxy exists</td></tr>
+          <tr><td>Reuse potential</td><td>Is there a credible second deployment target?</td><td>15%</td><td>The solution is intentionally one-off</td></tr>
+          <tr><td>Sponsor/user commitment</td><td>Will the owner and users participate during framing, build, and validation?</td><td>10%</td><td>Participation is delegated to observers</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="charter">
+        <h2>6. Challenge charter template</h2>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Charter field</th><th>Working content</th></tr>
+          <tr><td>Operating problem</td><td>What condition, delay, failure mode, or decision is being improved?</td></tr>
+          <tr><td>Problem owner</td><td>Named role accountable for the workflow and acceptance</td></tr>
+          <tr><td>Users</td><td>Roles that will use, trust, challenge, or support the capability</td></tr>
+          <tr><td>Trigger and decision window</td><td>What starts the workflow and how long remains before the answer loses value?</td></tr>
+          <tr><td>Current workflow</td><td>Systems, spreadsheets, calls, approvals, manual checks, and exception paths</td></tr>
+          <tr><td>Consequence</td><td>Operational and financial effect of current performance</td></tr>
+          <tr><td>Baseline</td><td>Current measure, measurement period, and evidence source</td></tr>
+          <tr><td>Minimum useful outcome</td><td>Smallest complete capability worth validating</td></tr>
+          <tr><td>Target result</td><td>Expected change and time horizon, clearly marked as a hypothesis</td></tr>
+          <tr><td>i3X test intent</td><td>Endpoints, relationships, current/history values, events, information context, MCP use, or portability claims being tested</td></tr>
+          <tr><td>Security and data boundary</td><td>Allowed systems, data classification, credentials, logging, retention, and prohibited actions</td></tr>
+          <tr><td>Replication hypothesis</td><td>Named next site, line, asset class, or application</td></tr>
+          <tr><td>Exit criteria</td><td>Conditions for live validation, revision, containment, or termination</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="preparation">
+        <h2>7. Preparation workstreams</h2>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Workstream</th><th>Required outputs before event</th><th>Failure signal</th></tr>
+          <tr><td>Operating design</td><td>Current-state workflow; baseline; target workflow; user acceptance script; exception scenarios</td><td>Team cannot describe what changes for a named user</td></tr>
+          <tr><td>Architecture</td><td>System context; trust boundaries; i3X server/client roles; dependencies; environments; reuse assumptions</td><td>Architecture depends on unapproved production changes</td></tr>
+          <tr><td>Information model</td><td>Relevant entities, attributes, relationships, events, units, history, naming, and source provenance</td><td>Required context is still buried in verbal knowledge</td></tr>
+          <tr><td>Access and security</td><td>Accounts; credentials; network route; data handling; audit/logging; rollback; approved test boundary</td><td>Access is expected to be solved during the event</td></tr>
+          <tr><td>i3X conformance</td><td>Target compliance level; test-suite plan; local/private test plan where required; issue owner</td><td>Provider support is claimed but no endpoint can be tested</td></tr>
+          <tr><td>Development</td><td>Repositories; branching; environments; dependency inventory; test harness; documentation standard</td><td>Code can only run on one developer&rsquo;s machine</td></tr>
+          <tr><td>Measurement</td><td>Baseline source; collection method; comparison period; confounders; owner</td><td>Success will be judged by opinion</td></tr>
+          <tr><td>Event operations</td><td>Agenda; room/virtual tools; decision board; issue log; backup plan; escalation contacts</td><td>Participants do not know when decisions will be made</td></tr>
+          <tr><td>Post-event support</td><td>On-call roles; monitoring; defect path; user contact; deployment/rollback; validation cadence</td><td>No one owns the capability after day three</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="technical">
+        <h2>8. Technical and i3X checkpoints</h2>
+        <p>CESMII&rsquo;s i3X 1.0 package defines required and optional behaviors and includes an OpenAPI specification, implementation guidance, an automated conformance test suite, an i3X Explorer, an official Python client library, SDK documentation, and an open-source MCP server. The engagement team should use these assets as working tools, not as presentation material.</p>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Checkpoint</th><th>Team question</th><th>Evidence expected</th></tr>
+          <tr><td>Endpoint ownership</td><td>Which platform or service exposes the i3X server, and who supports it?</td><td>Named owner, endpoint, environment, support contact</td></tr>
+          <tr><td>Authentication and authorization</td><td>How are identities, credentials, roles, and least-privilege access handled?</td><td>Approved auth flow and test account</td></tr>
+          <tr><td>Information context</td><td>Can the client discover the objects, properties, relationships, events, and history needed for the use case?</td><td>Queries and returned examples tied to the challenge</td></tr>
+          <tr><td>Source and provenance</td><td>Can users distinguish source records, derived values, estimates, and model outputs?</td><td>Field-level source notes or lineage where needed</td></tr>
+          <tr><td>Conformance</td><td>What does the automated test suite report?</td><td>Full 1.0 Compliance, 1.0 Compatible, or documented gaps</td></tr>
+          <tr><td>Exception behavior</td><td>What happens when a property is missing, a relationship changes, a unit conflicts, or an endpoint is unavailable?</td><td>Test cases, expected behavior, owner, and user message</td></tr>
+          <tr><td>MCP boundary</td><td>If natural-language access is used, which tools/actions are exposed and what remains read-only?</td><td>Tool manifest, permission limits, logging, prompt-injection controls</td></tr>
+          <tr><td>Portability</td><td>Which elements should work against another compliant endpoint without code changes?</td><td>Explicit portability claim and second-endpoint test plan</td></tr>
+          <tr><td>Performance</td><td>Are latency, refresh, history, and subscription behavior adequate for the decision window?</td><td>Measured response and failure behavior</td></tr>
+          <tr><td>Operational support</td><td>How will the endpoint, client, and application be monitored and recovered?</td><td>Runbook, alerts, support owner, rollback method</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="agenda">
+        <h2>9. Focused event agenda</h2>
+        <p>Default design: two and one-half days. Compress only when preparation is unusually complete.</p>
+        <a class="tk-callout-link" href="tools.html#runsheet">→ Assign leads and track status live in the Event Run Sheet tool</a>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Time</th><th>Session</th><th>Purpose</th><th>Output / gate</th></tr>
+          <tr><td>Day 1, 8:00&ndash;8:45</td><td>Operating reality</td><td>Problem owner walks the current workflow, baseline, exceptions, and cost.</td><td>Shared problem statement</td></tr>
+          <tr><td>8:45&ndash;9:30</td><td>Architecture and boundaries</td><td>Review systems, data, i3X roles, security, and prohibited actions.</td><td>Approved build boundary</td></tr>
+          <tr><td>9:30&ndash;10:15</td><td>Acceptance and test design</td><td>Confirm minimum useful result, user script, conformance plan, and failure tests.</td><td>Definition of done</td></tr>
+          <tr><td>10:30&ndash;12:00</td><td>Build cycle 1</td><td>Establish endpoints, queries, model, and first end-to-end path.</td><td>Thin vertical slice</td></tr>
+          <tr><td>1:00&ndash;2:30</td><td>Build cycle 2</td><td>Add usable workflow and instrumentation.</td><td>Working happy path</td></tr>
+          <tr><td>2:30&ndash;3:15</td><td>User walkthrough</td><td>Frontline user tests the current result.</td><td>Usability and trust issues</td></tr>
+          <tr><td>3:15&ndash;4:45</td><td>Build cycle 3</td><td>Correct issues and add first exception path.</td><td>Day-one build</td></tr>
+          <tr><td>4:45&ndash;5:15</td><td>Evidence review</td><td>Record decisions, failures, risks, and overnight work.</td><td>Go/no-go for Day 2</td></tr>
+          <tr><td>Day 2, 8:00&ndash;8:30</td><td>Re-entry</td><td>Review overnight changes and unresolved blockers.</td><td>Updated plan</td></tr>
+          <tr><td>8:30&ndash;10:15</td><td>Exception sprint</td><td>Test missing data, endpoint failure, conflicting context, and permission limits.</td><td>Exception evidence</td></tr>
+          <tr><td>10:30&ndash;11:30</td><td>Conformance run</td><td>Execute relevant i3X conformance tests and document gaps.</td><td>Conformance record</td></tr>
+          <tr><td>11:30&ndash;12:00</td><td>Operating owner review</td><td>Confirm whether workflow is useful enough to continue.</td><td>Acceptance direction</td></tr>
+          <tr><td>1:00&ndash;2:30</td><td>Hardening sprint</td><td>Improve reliability, logging, security, documentation, and user feedback.</td><td>Validation candidate</td></tr>
+          <tr><td>2:30&ndash;3:30</td><td>Portability design</td><td>Identify reusable code, mappings, configuration, and site-specific assumptions.</td><td>Reuse register</td></tr>
+          <tr><td>3:30&ndash;4:30</td><td>Live validation plan</td><td>Define deployment, monitoring, support, rollback, measures, and cadence.</td><td>Approved validation plan</td></tr>
+          <tr><td>4:30&ndash;5:00</td><td>Gate review</td><td>Sponsor and owners decide whether to enter validation.</td><td>Go, revise, contain, or stop</td></tr>
+          <tr><td>Day 3, 8:00&ndash;10:30</td><td>Controlled operating test</td><td>Run the capability with representative users and conditions.</td><td>Observed workflow evidence</td></tr>
+          <tr><td>10:30&ndash;11:30</td><td>Closeout and commitments</td><td>Confirm defects, ownership, support rota, measurement, and next review.</td><td>Signed working commitments</td></tr>
+          <tr><td>11:30&ndash;12:00</td><td>Replication hypothesis</td><td>Name the second deployment and what must be proven first.</td><td>Replication target</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="facilitation">
+        <h2>10. Facilitation mechanics</h2>
+        <h3>Visible boards</h3>
+        <ul>
+          <li><b>Outcome board:</b> baseline, target hypothesis, current evidence, and confidence.</li>
+          <li><b>Decision board:</b> decision needed, owner, deadline, evidence, and resolution.</li>
+          <li><b>Issue board:</b> blocker, severity, owner, next action, and effect on the gate.</li>
+          <li><b>Exception board:</b> scenario, expected behavior, actual behavior, user consequence, and disposition.</li>
+          <li><b>Reuse board:</b> asset, generalizable portion, site-specific assumption, documentation status, and next test.</li>
+        </ul>
+        <h3>Facilitator rules</h3>
+        <ul>
+          <li>Bring discussion back to a named workflow, user, decision, system, measure, or exception.</li>
+          <li>Do not let architecture debates proceed without a stated effect on the operating problem or reuse target.</li>
+          <li>Separate a defect from a design decision, a missing prerequisite, and a hypothesis disproved by evidence.</li>
+          <li>Time-box unresolved issues. Assign an owner and decision deadline rather than allowing the room to circle.</li>
+          <li>Use gate language precisely: go, revise, contain, or stop.</li>
+          <li>Record what did not work. A clean demonstration with a missing failure record is weak evidence.</li>
+          <li>Require the person who will support the capability after the event to participate before live validation begins.</li>
+        </ul>
+      </section>
+
+      <section class="tk-sec" id="gates">
+        <h2>11. Gate criteria</h2>
+        <div class="tk-table-wrap"><table class="tk-table tk-gate">
+          <tr><th>Gate</th><th>Go</th><th>Revise</th><th>Contain</th><th>Stop</th></tr>
+          <tr><td>Enter build</td><td>Problem, baseline, owner, access, security, and definition of done are ready.</td><td>Minor gaps have named owners and near-term resolution.</td><td>Build limited to sandbox or reduced scope.</td><td>No credible path to useful result.</td></tr>
+          <tr><td>Enter live validation</td><td>Useful workflow, approved boundary, support, monitoring, rollback, and critical exceptions tested.</td><td>Value is visible but specific defects must close first.</td><td>Read-only or advisory use only.</td><td>Unsafe, misleading, unsupported, or not useful.</td></tr>
+          <tr><td>Declare result</td><td>Evidence shows the capability worked under normal conditions and support burden is understood.</td><td>Evidence is mixed and validation must continue.</td><td>Value exists only in narrow conditions.</td><td>No credible operating improvement.</td></tr>
+          <tr><td>Replicate</td><td>Reusable assets are documented and a second target is ready.</td><td>Reuse claim requires hardening or more evidence.</td><td>Reuse limited to same platform or site pattern.</td><td>One-off result with no strategic case.</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="validation-model">
+        <h2>12. Validation operating model</h2>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Cadence</th><th>Participants</th><th>Questions</th><th>Artifacts updated</th></tr>
+          <tr><td>Daily, first week</td><td>Problem owner, support lead, developer, facilitator</td><td>Did it run? What failed? Were users able to act? Did any workaround appear?</td><td>Incident/exception log; support effort; user notes</td></tr>
+          <tr><td>Twice weekly thereafter</td><td>Operating, architecture, security, measurement</td><td>Is the result stable? Is the measure moving? What is the support burden?</td><td>Scorecard; risk register; change log</td></tr>
+          <tr><td>End of validation</td><td>Sponsor and gate owners</td><td>What is observed, inferred, and still unknown? What would make replication unsafe?</td><td>Evidence review; disposition; replication recommendation</td></tr>
+        </table></div>
+        <h3>Required measures</h3>
+        <a class="tk-callout-link" href="tools.html#scorecard">→ Track these live in the Validation Scorecard tool</a>
+        <ul>
+          <li>Operating result tied to the selected constraint or workflow.</li>
+          <li>Time from challenge definition to working capability.</li>
+          <li>Integration and configuration effort by role.</li>
+          <li>Conformance result and unresolved compatibility gaps.</li>
+          <li>Exception count, severity, recurrence, and mean time to resolution.</li>
+          <li>Availability, response time, and data-quality incidents relevant to the decision window.</li>
+          <li>User adoption, trust, workarounds, and time added or removed from the workflow.</li>
+          <li>Support hours, release effort, documentation debt, and recurring infrastructure/model cost.</li>
+          <li>Reusable percentage of code, configuration, information model, tests, training, and operating method.</li>
+          <li>Estimated and then measured effort for the second deployment.</li>
+        </ul>
+      </section>
+
+      <section class="tk-sec" id="year-two">
+        <h2>13. Year-two reality check</h2>
+        <p>Year one can make everyone look capable. AI-assisted coding, subsidized model usage, concentrated expert attention, and temporary project support can make the initial result appear cheaper and easier than the operating model that follows. The engagement team must expose the ownership burden before replication.</p>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Risk area</th><th>Evidence to collect during validation</th><th>Question before scale</th></tr>
+          <tr><td>Code comprehension</td><td>Named maintainers can explain generated code, dependencies, tests, and failure modes.</td><td>Who can safely change this six months from now?</td></tr>
+          <tr><td>Exceptions</td><td>Known edge cases and actual production exceptions are documented and tested.</td><td>What happens outside the demonstration path?</td></tr>
+          <tr><td>AI/model economics</td><td>Token/model use, latency, fallback, rate limits, and current pricing are measured.</td><td>What cost changes if subsidies or pricing change?</td></tr>
+          <tr><td>Support</td><td>Actual support hours, alerts, incidents, and user questions are recorded.</td><td>Is the support burden proportional to value?</td></tr>
+          <tr><td>Security and audit</td><td>Logs, access review, secrets handling, model/tool boundaries, and response procedures exist.</td><td>Can the enterprise defend how the answer or action was produced?</td></tr>
+          <tr><td>Vendor/open-source dependencies</td><td>Versions, licenses, maintainers, upgrade path, and abandonment risk are listed.</td><td>What breaks when a dependency changes?</td></tr>
+          <tr><td>Operating ownership</td><td>Plant, IT/OT, architecture, and product responsibilities are explicit.</td><td>Who owns the bill when the capability fails?</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="replication">
+        <h2>14. Replication and community asset model</h2>
+        <p>The closeout separates customer-owned implementation assets from generalized community assets. No confidential plant context, proprietary process detail, or protected data is shared without explicit approval.</p>
+        <a class="tk-callout-link" href="tools.html#reuse">→ Log assets live in the Reuse Register tool</a>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Asset class</th><th>Customer package</th><th>Potential generalized contribution</th></tr>
+          <tr><td>Architecture</td><td>Actual system context, security boundary, deployment architecture</td><td>Reference pattern with customer details removed</td></tr>
+          <tr><td>Information model</td><td>Customer entities, relationships, mappings, naming, units</td><td>Generic model pattern, mapping guidance, test examples</td></tr>
+          <tr><td>Code and configuration</td><td>Working implementation and environment configuration</td><td>Reusable connector, library, sample, or configuration pattern where rights permit</td></tr>
+          <tr><td>Testing</td><td>Customer acceptance, exception, security, and performance tests</td><td>General conformance and edge-case tests</td></tr>
+          <tr><td>Operating method</td><td>Workflow, decision rights, support, training, escalation</td><td>Reusable facilitation and adoption pattern</td></tr>
+          <tr><td>Evidence</td><td>Detailed operating and financial results</td><td>Anonymized learning and implementation ranges where approved</td></tr>
+          <tr><td>Standard feedback</td><td>Observed gaps and workarounds</td><td>Issue or proposal for specification, SDK, tooling, or documentation</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="closeout">
+        <h2>15. Closeout report structure</h2>
+        <ul>
+          <li>Executive disposition: scale, revise, contain, or retire.</li>
+          <li>Operating problem, baseline, target hypothesis, and observed result.</li>
+          <li>What was built and how it changed the workflow.</li>
+          <li>Architecture, i3X use, conformance evidence, and security boundary.</li>
+          <li>Exceptions, defects, unresolved risks, and support demand.</li>
+          <li>Observed cost, including labor, infrastructure, AI/model use, and ongoing ownership.</li>
+          <li>Reusable assets and site-specific assumptions.</li>
+          <li>Second-deployment target, prerequisites, estimate, and success test.</li>
+          <li>Community assets proposed for contribution and required approvals.</li>
+          <li>Thirty-, sixty-, and ninety-day commitments with named owners.</li>
+        </ul>
+      </section>
+
+      <section class="tk-sec" id="appendix-a">
+        <span class="tk-appendix-tag">Appendix A</span>
+        <h2>Pre-engagement interview guide</h2>
+        <ul>
+          <li>Which operating decision or workflow repeatedly consumes more time than it should?</li>
+          <li>What happens downstream when the decision is late, wrong, or not made?</li>
+          <li>Who owns the result, and who currently performs the work?</li>
+          <li>What signals exist before the consequence occurs?</li>
+          <li>Where does the team assemble context today: systems, spreadsheets, calls, experience, or vendor tools?</li>
+          <li>Which exception consumes the most expert time?</li>
+          <li>What action is currently allowed without escalation, and where do decision rights become unclear?</li>
+          <li>Which systems and data sources are required? Who owns access?</li>
+          <li>What security, regulatory, or labor constraints shape the solution?</li>
+          <li>What is the smallest useful result that a frontline user would accept?</li>
+          <li>How will improvement be measured, and what could falsely make the result look better?</li>
+          <li>Where should the result be reused next if it works?</li>
+          <li>What support team will inherit the capability after the event?</li>
+        </ul>
+      </section>
+
+      <section class="tk-sec" id="appendix-b">
+        <span class="tk-appendix-tag">Appendix B</span>
+        <h2>Daily stand-up script</h2>
+        <div class="tk-table-wrap"><table class="tk-table">
+          <tr><th>Prompt</th><th>Expected answer</th></tr>
+          <tr><td>What changed since the last review?</td><td>Working evidence, not activity description</td></tr>
+          <tr><td>What is the most consequential blocker?</td><td>Named issue, consequence, owner, deadline</td></tr>
+          <tr><td>Which assumption was disproved or weakened?</td><td>Updated hypothesis or design</td></tr>
+          <tr><td>What exception was tested?</td><td>Expected and actual behavior</td></tr>
+          <tr><td>What does the operating owner need to see next?</td><td>Specific workflow evidence</td></tr>
+          <tr><td>What are we carrying into support debt?</td><td>Code, documentation, monitoring, security, or ownership gap</td></tr>
+          <tr><td>Are we still building the smallest complete capability?</td><td>Scope confirmation or explicit change decision</td></tr>
+        </table></div>
+      </section>
+
+      <section class="tk-sec" id="appendix-c">
+        <span class="tk-appendix-tag">Appendix C</span>
+        <h2>Source anchors</h2>
+        <p>CESMII announced i3X 1.0 on June 18, 2026 as an implementation-ready open interoperability standard supported by more than 40 manufacturing technology providers. The package includes an Implementation Guide, OpenAPI specification, automated Conformance Test Suite, i3X Explorer, Python client library, MCP server, and SDK documentation. CESMII&rsquo;s ProveIt! work also demonstrated live multi-provider integration, supporting the use of build-and-prove sessions rather than standards discussion alone.</p>
+        <p style="margin-bottom:6px"><b>Official references</b> (verified against cesmii.org, July 2026):</p>
+        <ul>
+          <li><a href="https://www.cesmii.org/cesmii-releases-i3x-1-0/" target="_blank" rel="noopener">cesmii.org/cesmii-releases-i3x-1-0</a></li>
+          <li><a href="https://www.cesmii.org/prove-it-recap/" target="_blank" rel="noopener">cesmii.org/prove-it-recap</a></li>
+          <li><a href="https://www.cesmii.org/ecosystem/" target="_blank" rel="noopener">cesmii.org/ecosystem</a></li>
+          <li><a href="https://i3x.dev/" target="_blank" rel="noopener">i3x.dev</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="toolkit-tools.js"></script>
+<script>
+  // scroll-spy for the sidebar TOC
+  const tocLinks = Array.from(document.querySelectorAll('.tk-toc a'));
+  const secs = tocLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const byId = new Map(tocLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = byId.get(entry.target.id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.remove('current'));
+          link.classList.add('current');
+        }
+      });
+    }, { threshold: 0, rootMargin: '-15% 0px -70% 0px' });
+    secs.forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>
