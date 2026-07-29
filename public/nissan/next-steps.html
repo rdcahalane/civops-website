@@ -9,7 +9,8 @@
   <link rel="icon" href="favicon.ico" />
   <style>
     .ns-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
-    @media(max-width:900px){.ns-grid{grid-template-columns:1fr}}
+    .ns-grid-3{grid-template-columns:repeat(3,1fr)}
+    @media(max-width:900px){.ns-grid,.ns-grid-3{grid-template-columns:1fr}}
     .ns-card{background:white;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;position:relative;overflow:hidden}
     .ns-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--brook-blue)}
     .ns-card.b:before{background:#2388b3}
@@ -67,10 +68,10 @@
 <section class="page-intro">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Overview</a> / Next steps</div>
-    <h1 class="page-title">From proven pattern to Nissan's own system</h1>
+    <h1 class="page-title">From a proven trial to a targeted pilot deployment inside Nissan's own system</h1>
     <p class="page-deck">The <a href="poc.html">live proof</a> answers the architecture question — the pattern works, on Nissan's real Cimplicity export, read by two independent platforms. What's proposed here is <strong>Phase 2</strong>: the work that turns a proven pattern into something Nissan's own people can run, on Nissan's own floor, with Nissan's own data. Phase&nbsp;3 is the scale-out that follows once Phase&nbsp;2 lands.</p>
-    <div class="scope-callout">
-      <b>Read this as a proposal, not a commitment already made.</b> Durations below are planning estimates for sequencing and resourcing conversations — they firm up once scope, systems access, and the pilot area are confirmed with Nissan.
+    <div class="scope-callout" style="border:1px solid #f0c56b;background:#fdf6e6;border-radius:10px;padding:16px 18px;margin-top:28px;font-size:14px;line-height:1.55">
+      <b style="color:#8a6413">Read this as a proposal, not a commitment already made.</b> Durations below are planning estimates for sequencing and resourcing conversations — they firm up once scope, systems access, and the pilot area are confirmed with Nissan.
     </div>
   </div>
 </section>
@@ -111,21 +112,13 @@
         <div class="ns-est">Optional &middot; timing-dependent</div>
       </div>
     </div>
-
-    <div class="ns-timeline">
-      <div><div class="tl-label">(a) Interop kaizen</div><div class="tl-weeks">3&ndash;4 wks</div><div class="tl-desc">Prep + 2-day event. Can start immediately &mdash; gated only by CESMII scheduling and getting the right people on the calendar.</div></div>
-      <div><div class="tl-label">(b) Sandbox</div><div class="tl-weeks">2&ndash;4 wks</div><div class="tl-desc">Can run in parallel with (a). Paced by Nissan Systems review, not the build itself.</div></div>
-      <div><div class="tl-label">(c) Pilot + adoption</div><div class="tl-weeks">4&ndash;6+ wks</div><div class="tl-desc">Starts once (b) is cleared and a pilot area is picked. Real users, real feedback, real iteration.</div></div>
-      <div><div class="tl-label">(d) Boston</div><div class="tl-weeks">optional</div><div class="tl-desc">Runs on its own track whenever it fits Paul's and LNS's calendars.</div></div>
-    </div>
-    <div class="callout" style="margin-top:18px"><strong>On a good day, that's 3&ndash;4 months</strong> from kickoff to a real pilot with real users on it &mdash; (a) and (b) overlapping, (c) following. That's the realistic estimate, not the optimistic one.</div>
   </div>
 </section>
 
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Is this basically a kaizen or hackathon?</span><h2>Yes &mdash; and the Brooksource team's job is making sure Nissan doesn't hit a wall in the middle of it</h2></div>
+      <div class="section-title"><span class="eyebrow">A Kaizen Event with a Data Connections Focus</span><h2>&hellip;and the Brooksource team's job is making sure Nissan doesn't hit a wall in the middle of it.</h2></div>
       <p class="section-copy">Same underlying model as any good kaizen event: a clearly defined problem, everything the team needs staged in advance, the room locked until it's solved, and a real leap forward when they emerge &mdash; not incremental progress, a step-change. CESMII is a resource Brooksource brings into that room; Brooksource is the point of accountability for proper setup, execution, and follow-up so the two days actually land instead of stalling out.</p>
     </div>
     <div class="grid-2">
@@ -140,30 +133,41 @@
         <p class="section-copy" style="max-width:none">Defining the problem worth locking a room over, building exercises against Nissan's actual systems, getting the right people in the room, running the two days, and &mdash; the part that most kaizen events skip &mdash; making sure the leap forward turns into a standardized work flow afterward.</p>
       </div>
     </div>
-    <div class="scope-callout" style="border-color:#9ec3e0;background:#eef6fc;margin-top:16px"><strong style="color:#10324b">Worth knowing &mdash;</strong> CESMII is not the one running Toyota's equivalent effort. Toyota's version of this is reportedly being done through a competing SI, not CESMII directly. That's context for pace, not a claim about what Toyota is or isn't doing &mdash; worth knowing either way.</div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container grid-2">
-    <div class="panel">
-      <span class="eyebrow">Phase 3 &mdash; scale</span>
-      <h2 style="font-size:28px">Take what the pilot proves, roll it wider</h2>
-      <p class="section-copy" style="max-width:none;margin-bottom:14px">Phase 3 takes whatever Phase 2's pilot proves out (or, if learnings are already folded into the pilot itself, takes the pilot's end-state directly) and extends it to more lines and areas. Realistic sequencing wraps out the remainder of 2026 or continues into 2027, depending on how much ground Phase 2 covers and how many areas Nissan wants to bring on.</p>
-      <ul>
-        <li>Integrate whatever Phase 2 surfaces that wasn't already resolved mid-pilot.</li>
-        <li>Expand to additional lines/areas beyond the pilot cell.</li>
-        <li>Timeline is a function of Phase 2 scope &mdash; not fixed in advance.</li>
-      </ul>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Phase 3 &mdash; scale</span><h2>From Maintenance to the Fascia Subassembly Area — building on a foundation that's already laid</h2></div>
+      <p class="section-copy">Once Phase 2 lands, the next natural expansion is the Fascia Subassembly Area that feeds the Trim Department. The area paints front and rear fascias, punches holes for sensors, assembles lenses, sensors, and wiring harnesses, and stages finished assemblies in vehicle sequence for Trim. We've already met with their leadership and begun developing As-Is and To-Be concepts. The workflow mirrors what we built with Maintenance — and because the data mapping and interoperability foundations from Phase 2 carry forward, the Fascia engagement starts with a meaningful head start rather than from scratch.</p>
     </div>
-    <div class="panel dark">
-      <h3 style="margin-top:0">What this needs from Nissan to start</h3>
-      <ul>
-        <li>Confirm the pilot area and the people who'll actually use it day to day.</li>
-        <li>Clear the sandbox environment through Systems early &mdash; it's the item most likely to set the pace.</li>
-        <li>Put the right roles in the room for the interop kaizen, not just IT.</li>
-        <li>Decide whether the Boston trip is worth scheduling now or later.</li>
-      </ul>
+
+    <div class="ns-grid ns-grid-3">
+      <div class="ns-card">
+        <div class="ns-tag"><span class="ns-letter">a</span><span class="ns-when">Why Fascia next</span></div>
+        <h3>A natural handoff point with high sequence sensitivity</h3>
+        <p>Fascia Subassembly is one of the most sequence-critical areas feeding Trim. Getting sensor punch, lens assembly, and wiring right — in the right vehicle order — makes it an ideal environment for the same real-time data visibility and error-proofing pattern proven in Maintenance.</p>
+      </div>
+      <div class="ns-card">
+        <div class="ns-tag"><span class="ns-letter">b</span><span class="ns-when">Head start</span></div>
+        <h3>The interop foundation from Phase 2 carries forward</h3>
+        <p>The SM Profile definitions, UNS namespace decisions, and i3X interoperability pattern built during Phase 2 don't have to be rebuilt — they extend. Fascia onboarding skips the foundational kaizen and moves directly to area-specific data mapping and dashboard buildout.</p>
+      </div>
+      <div class="ns-card">
+        <div class="ns-tag"><span class="ns-letter">c</span><span class="ns-when">Engagement model</span></div>
+        <h3>Same workflow, stronger starting position</h3>
+        <p>We follow the same leadership alignment → As-Is/To-Be → sandbox build → pilot deployment sequence used with Maintenance. With leadership already engaged and concept work underway, Phase 3 picks up from an already-established foundation rather than starting from zero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">Phase 4 &mdash; a broader signal</span><h2>Two areas successfully pulling real time data from this new interoperability layer changes the conversation.</h2></div>
+      <p class="section-copy">Maintenance proves the pattern works. Fascia proves it scales. Two departments running shared interoperability infrastructure — with real data, real users, and documented results — is the evidence base Nissan needs to make a plant-wide decision with confidence.</p>
     </div>
   </div>
 </section>

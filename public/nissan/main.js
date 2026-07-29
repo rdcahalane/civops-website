@@ -24,19 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const ids = ['downtime', 'response', 'repeat'];
   const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+  // Coefficients tied to "The Opportunity" OEE card economics:
+  //   downtime  = shift-points of availability recovered × $200K/shift-point × 2 shifts
+  //   response  = minutes of avg MTTR improvement per event × $35K/min-event
+  //   repeat    = first-pass yield points improved × $175K/yield-point
+  const DOWNTIME_RATE = 400000;  // $200K × 2 shifts
+  const RESPONSE_RATE = 35000;   // $35K per minute per event
+  const REPEAT_RATE   = 175000;  // $175K per yield point
+
+  const UNITS = { downtime: 'pts', response: 'min', repeat: 'pts' };
+
   const update = () => {
     const downtime = +document.getElementById('downtime')?.value || 6;
     const response = +document.getElementById('response')?.value || 18;
-    const repeat = +document.getElementById('repeat')?.value || 14;
-    const annual = downtime * 180000 + response * 22000 + repeat * 12000;
-    const payback = Math.max(4, Math.round(10 - (downtime / 2 + response / 9 + repeat / 10)));
+    const repeat   = +document.getElementById('repeat')?.value   || 14;
 
-    ids.forEach(id => {
-      const out = document.querySelector(`[data-output="${id}"]`);
+    const annual = downtime * DOWNTIME_RATE + response * RESPONSE_RATE + repeat * REPEAT_RATE;
+    const payback = Math.max(3, Math.round(18 - (downtime / 1.5 + response / 7 + repeat / 5)));
+
+    ['downtime', 'response', 'repeat'].forEach(id => {
+      const out = document.querySelector('[data-output="' + id + '"]');
       const input = document.getElementById(id);
-      if (out && input) out.textContent = input.value + '%';
+      if (out && input) out.textContent = input.value + ' ' + UNITS[id];
     });
 
     const annualOut = document.getElementById('roiAnnual');
@@ -45,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (paybackOut) paybackOut.textContent = payback + ' months';
   };
 
-  ids.forEach(id => document.getElementById(id)?.addEventListener('input', update));
+  ['downtime', 'response', 'repeat'].forEach(id => document.getElementById(id)?.addEventListener('input', update));
   update();
 
   // ── scroll progress bar ──
