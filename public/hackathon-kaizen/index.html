@@ -24,9 +24,15 @@
     .disc-card p{margin:0;color:var(--muted);line-height:1.55;font-size:14.5px}
 
     .receive-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .receive-card{padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+    .receive-card{padding:0;overflow:hidden}
+    .receive-card summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:12px;align-items:center}
+    .receive-card summary::-webkit-details-marker{display:none}
+    .receive-card summary::after{content:"+";margin-left:auto;flex:0 0 auto;font-size:18px;font-weight:700;color:var(--brook-orange);transition:transform .2s ease}
+    .receive-card[open] summary::after{transform:rotate(45deg)}
     .receive-card .rc-num{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:950;font-size:12px;color:#122130}
-    .receive-card p{margin:0;color:var(--text);line-height:1.48;font-size:14.5px}
+    .receive-card .rc-title{font-weight:800;font-size:15px;color:#122130;letter-spacing:-.01em}
+    .receive-card .rc-detail{padding:0 18px 16px 56px;display:grid;gap:6px}
+    .receive-card .rc-detail p{margin:0;color:var(--text);line-height:1.48;font-size:14px}
 
     .char-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
     .char-card{padding:16px;text-align:center}
@@ -145,14 +151,34 @@
       <p class="section-copy">The value is not only the first solution. It is the reduction in effort required to build the second one.</p>
     </div>
     <div class="receive-grid">
-      <div class="card receive-card"><span class="rc-num">1</span><p>A working solution tied to a defined operating problem</p></div>
-      <div class="card receive-card"><span class="rc-num">2</span><p>A documented baseline and measured result</p></div>
-      <div class="card receive-card"><span class="rc-num">3</span><p>An i3X-based integration and information pattern</p></div>
-      <div class="card receive-card"><span class="rc-num">4</span><p>A clear view of what can be reused elsewhere</p></div>
-      <div class="card receive-card"><span class="rc-num">5</span><p>Identified gaps, exceptions, and support requirements</p></div>
-      <div class="card receive-card"><span class="rc-num">6</span><p>A practical deployment plan for the next site, asset, or use case</p></div>
-      <div class="card receive-card"><span class="rc-num">7</span><p>Reusable technical and operating assets</p></div>
-      <div class="card receive-card"><span class="rc-num">8</span><p>A record of what should remain proprietary and what can be shared safely</p></div>
+      <details class="card receive-card">
+        <summary><span class="rc-num">1</span><span class="rc-title">A working capability, proven</span></summary>
+        <div class="rc-detail">
+          <p>A working solution tied to a defined operating problem.</p>
+          <p>A documented baseline and measured result.</p>
+        </div>
+      </details>
+      <details class="card receive-card">
+        <summary><span class="rc-num">2</span><span class="rc-title">A technical foundation that travels</span></summary>
+        <div class="rc-detail">
+          <p>An i3X-based integration and information pattern.</p>
+          <p>Reusable technical and operating assets.</p>
+        </div>
+      </details>
+      <details class="card receive-card">
+        <summary><span class="rc-num">3</span><span class="rc-title">A concrete path to scale</span></summary>
+        <div class="rc-detail">
+          <p>A clear view of what can be reused elsewhere.</p>
+          <p>A practical deployment plan for the next site, asset, or use case.</p>
+        </div>
+      </details>
+      <details class="card receive-card">
+        <summary><span class="rc-num">4</span><span class="rc-title">Clarity on risk and ownership</span></summary>
+        <div class="rc-detail">
+          <p>Identified gaps, exceptions, and support requirements.</p>
+          <p>A record of what should remain proprietary and what can be shared safely.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
