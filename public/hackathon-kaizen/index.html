@@ -41,6 +41,14 @@
     .usecase-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
     .usecase-row span{font-size:12.5px;font-weight:800;color:#0f2133;background:var(--soft);border:1px solid var(--line-2);border-radius:999px;padding:7px 12px}
 
+    .stage-groups{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:10px}
+    .stage-group{grid-column:span 2;border-bottom:3px solid var(--brook-blue);padding-bottom:8px}
+    .stage-group.event{grid-column:span 1;border-bottom-color:var(--brook-orange)}
+    .stage-group .sg-label{display:block;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:#0f2133}
+    .stage-group .sg-dur{display:block;font-size:11.5px;color:var(--muted);margin-top:2px}
+    .arc-phase .arc-dur{position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:900;letter-spacing:.03em;color:#546878;background:var(--soft);border:1px solid var(--line-2);border-radius:999px;padding:4px 9px;white-space:nowrap}
+    @media(max-width:1100px){.stage-groups{display:none}}
+
     .reuse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .reuse-card{padding:20px}
     .reuse-card .reuse-q{font-size:14.5px;font-weight:800;color:var(--brook-blue);margin-bottom:10px}
@@ -101,7 +109,7 @@
       <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
       <a href="#reuse">Forms of<br>Reuse</a>
       <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
-      <a href="#timeline">Timeline<br>&amp; Roles</a>
+      <a href="#roles">Roles</a>
       <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
       <a href="#success">Measures of<br>Success</a>
       <span class="nav-chev" aria-hidden="true">&rsaquo;</span>
@@ -205,17 +213,23 @@
 <section class="section secondary-section" id="how-it-works">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">How the engagement works</span><h2>Five stages, from framing to the next deployment</h2></div>
-      <p class="section-copy">Each stage below opens to the full detail &mdash; what happens, what it produces, and why it matters to the sequence.</p>
+      <div class="section-title"><span class="eyebrow">How the engagement works</span><h2>Five stages, eight to twelve weeks start to replication plan</h2></div>
+      <p class="section-copy">The shape is a familiar one: real prep before anyone builds anything, a short, focused event &mdash; under a week &mdash; and weeks of sustaining and scaling after it. Each stage opens to the full detail below.</p>
     </div>
 
-    <div class="eng-arc">
-      <div class="arc-phase"><span class="arc-num">1</span><h3>Select &amp; frame the challenge</h3><p>Define the current condition before discussing architecture.</p><div class="arc-goal">Output: a concise challenge charter</div></div>
-      <div class="arc-phase"><span class="arc-num">2</span><h3>Prepare the working environment</h3><p>Confirm systems, interfaces, data, and roles are ready.</p><div class="arc-goal">Goal: solve the problem, not wait for access</div></div>
-      <div class="arc-phase"><span class="arc-num">3</span><h3>Build &amp; test</h3><p>The cross-functional team builds the smallest complete capability.</p><div class="arc-goal">Working sessions and decision gates, not presentations</div></div>
-      <div class="arc-phase"><span class="arc-num">4</span><h3>Validate in normal operations</h3><p>A successful demo is not yet a successful implementation.</p><div class="arc-goal">Compare against baseline, correct, document</div></div>
-      <div class="arc-phase"><span class="arc-num">5</span><h3>Define the next deployment</h3><p>A deliberate reuse decision, not an optional follow-up.</p><div class="arc-goal">Part of the value case, not an afterthought</div></div>
+    <div class="stage-groups">
+      <div class="stage-group"><span class="sg-label">Prepare</span><span class="sg-dur">~3&ndash;5 weeks &middot; before the event</span></div>
+      <div class="stage-group event"><span class="sg-label">The event</span><span class="sg-dur">2&ndash;3 days &middot; under a week</span></div>
+      <div class="stage-group"><span class="sg-label">Sustain &amp; scale</span><span class="sg-dur">~5&ndash;7 weeks &middot; after the event</span></div>
     </div>
+    <div class="eng-arc">
+      <div class="arc-phase"><span class="arc-num">1</span><span class="arc-dur">1&ndash;2 wks</span><h3>Select &amp; frame the challenge</h3><p>Define the current condition before discussing architecture.</p><div class="arc-goal">Output: a concise challenge charter</div></div>
+      <div class="arc-phase"><span class="arc-num">2</span><span class="arc-dur">2&ndash;3 wks</span><h3>Prepare the working environment</h3><p>Confirm systems, interfaces, data, and roles are ready.</p><div class="arc-goal">Goal: solve the problem, not wait for access</div></div>
+      <div class="arc-phase"><span class="arc-num">3</span><span class="arc-dur">2&ndash;3 days</span><h3>Build &amp; test</h3><p>The cross-functional team builds the smallest complete capability.</p><div class="arc-goal">Working sessions and decision gates, not presentations</div></div>
+      <div class="arc-phase"><span class="arc-num">4</span><span class="arc-dur">4&ndash;6 wks</span><h3>Validate in normal operations</h3><p>A successful demo is not yet a successful implementation.</p><div class="arc-goal">Compare against baseline, correct, document</div></div>
+      <div class="arc-phase"><span class="arc-num">5</span><span class="arc-dur">~1 wk</span><h3>Define the next deployment</h3><p>A deliberate reuse decision, not an optional follow-up.</p><div class="arc-goal">Part of the value case, not an afterthought</div></div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>Actual timing depends on data access, cybersecurity requirements, system readiness, and the complexity of the selected use case</strong> &mdash; these durations are typical ranges, not a fixed quote.</div>
 
     <details class="tech-accordion" style="margin-top:22px">
       <summary>1 &middot; Select and frame the challenge <span class="sub">Operations before architecture</span></summary>
@@ -298,23 +312,7 @@
   </div>
 </section>
 
-<section class="section" id="timeline">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">A likely engagement timeline</span><h2>Eight to twelve weeks, start to replication plan</h2></div>
-      <p class="section-copy">The actual timing depends on data access, cybersecurity requirements, system readiness, and the complexity of the selected use case.</p>
-    </div>
-    <div class="ns-timeline">
-      <div><div class="tl-label">Framing &amp; baseline</div><div class="tl-weeks">1&ndash;2 wks</div><div class="tl-desc">Challenge framing and baseline definition.</div></div>
-      <div><div class="tl-label">Environment prep</div><div class="tl-weeks">2&ndash;3 wks</div><div class="tl-desc">Architecture and environment preparation.</div></div>
-      <div><div class="tl-label">Hackathon Kaizen event</div><div class="tl-weeks">2&ndash;3 days</div><div class="tl-desc">The focused build &amp; test event itself.</div></div>
-      <div><div class="tl-label">Operational validation</div><div class="tl-weeks">4&ndash;6 wks</div><div class="tl-desc">Real users, real feedback, baseline comparison.</div></div>
-    </div>
-    <div class="callout" style="margin-top:14px"><strong>Plus results review and replication planning &mdash;</strong> roughly one additional week to close out and define the next deployment.</div>
-  </div>
-</section>
-
-<section class="section secondary-section">
+<section class="section secondary-section" id="roles">
   <div class="container">
     <div class="section-head">
       <div class="section-title"><span class="eyebrow">Roles</span><h2>Clear roles matter &mdash; this crosses operating, technical, and commercial boundaries</h2></div>
@@ -431,7 +429,7 @@
       <div class="footnote">A CESMII i3X Hackathon Kaizen: a structured, outcome-focused engagement that helps a manufacturer solve a real operating problem while testing how much faster and more reusable the solution becomes through i3X. Brooksource brings setup, execution, and the follow-up that sticks; CESMII brings i3X standards depth and ecosystem context.</div>
     </div>
     <div class="small-nav">
-      <a href="#overview">Overview</a> <a href="#receive">What You Receive</a> <a href="#starting-point">Starting Point</a> <a href="#how-it-works">How It Works</a> <a href="#reuse">Forms of Reuse</a> <a href="#timeline">Timeline</a> <a href="#success">Measures of Success</a> <a href="#not-this">Not This</a> <a href="#offer">The Offer</a>
+      <a href="#overview">Overview</a> <a href="#receive">What You Receive</a> <a href="#starting-point">Starting Point</a> <a href="#how-it-works">How It Works</a> <a href="#reuse">Forms of Reuse</a> <a href="#roles">Roles</a> <a href="#success">Measures of Success</a> <a href="#not-this">Not This</a> <a href="#offer">The Offer</a>
     </div>
   </div>
 </footer>
