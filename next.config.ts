@@ -11,18 +11,9 @@ const nextConfig: NextConfig = {
         source: "/example/:slug",
         destination: "/example/:slug.html",
       },
-      {
-        source: "/nissan",
-        destination: "/nissan/index.html",
-      },
-      {
-        source: "/nissan/",
-        destination: "/nissan/index.html",
-      },
-      {
-        source: "/nissan/:slug",
-        destination: "/nissan/:slug.html",
-      },
+      // /nissan, /autoexample, /hackathon-kaizen, /axiomhackathon-kaizen are
+      // handled entirely by their own app/<name>/[[...slug]]/route.ts - no
+      // rewrite needed, and none of that content lives under /public.
     ];
   },
 };
