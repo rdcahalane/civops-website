@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Working Tools | CESMII i3X Hackathon Kaizen Toolkit</title>
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="toolkit.css" />
-  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="/hackathon-kaizen/styles.css" />
+  <link rel="stylesheet" href="/hackathon-kaizen/toolkit/toolkit.css" />
+  <link rel="icon" href="/hackathon-kaizen/favicon.ico" />
 </head>
 <body>
 
@@ -15,17 +15,17 @@
 
 <header class="tk-header">
   <div class="container inner tk-brand">
-    <img src="../assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
+    <img src="/hackathon-kaizen/assets/BRK_2c_HEX_horizontal.svg" alt="Brooksource logo" />
     <span class="tk-x">&times;</span>
-    <span class="tk-cesmii"><img src="../assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
+    <span class="tk-cesmii"><img src="/hackathon-kaizen/assets/cesmii-logo-white.png" alt="CESMII logo" /></span>
     <span class="tk-title">Hackathon Kaizen Toolkit &middot; <span>Working Tools</span></span>
   </div>
   <div class="container inner" style="margin-top:8px">
     <nav class="tk-nav">
-      <a href="index.html">Toolkit Home</a>
-      <a href="playbook.html">Playbook</a>
-      <a href="tools.html" class="current">Working Tools</a>
-      <a href="../index.html">&larr; Public site</a>
+      <a href="/hackathon-kaizen/toolkit/index.html">Toolkit Home</a>
+      <a href="/hackathon-kaizen/toolkit/playbook.html">Playbook</a>
+      <a href="/hackathon-kaizen/toolkit/tools.html" class="current">Working Tools</a>
+      <a href="/hackathon-kaizen/index.html">&larr; Public site</a>
     </nav>
   </div>
 </header>
@@ -42,7 +42,7 @@
         <input type="file" accept="application/json" style="display:none" onchange="tkImportAll(this.files[0], (ok)=>{ if(ok){ location.reload(); } else { alert('Could not read that file.'); } })" />
       </label>
       <button class="tk-btn" onclick="window.print()">🖨 Print / save as PDF</button>
-      <a class="tk-btn" href="downloads/CESMII_i3X_Hackathon_Kaizen_Working_Tools.xlsx" download>⬇ Original .xlsx</a>
+      <a class="tk-btn" href="/hackathon-kaizen/toolkit/downloads/CESMII_i3X_Hackathon_Kaizen_Working_Tools.xlsx" download>⬇ Original .xlsx</a>
     </div>
   </div>
 
@@ -162,7 +162,7 @@
   </section>
 </div>
 
-<script src="toolkit-tools.js"></script>
+<script src="/hackathon-kaizen/toolkit/toolkit-tools.js"></script>
 <script>
   tkInitTabs();
 
