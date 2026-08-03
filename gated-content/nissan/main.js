@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const UNITS = { downtime: 'pts', response: 'min', repeat: 'pts' };
 
   const update = () => {
-    const downtime = +document.getElementById('downtime')?.value || 6;
+    const downtime = +document.getElementById('downtime')?.value || 4;
     const response = +document.getElementById('response')?.value || 18;
-    const repeat   = +document.getElementById('repeat')?.value   || 14;
+    const repeat   = +document.getElementById('repeat')?.value   || 8;
 
     const annual = downtime * DOWNTIME_RATE + response * RESPONSE_RATE + repeat * REPEAT_RATE;
     const payback = Math.max(3, Math.round(18 - (downtime / 1.5 + response / 7 + repeat / 5)));
