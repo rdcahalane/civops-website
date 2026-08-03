@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const repeat   = +document.getElementById('repeat')?.value   || 8;
 
     const annual = downtime * DOWNTIME_RATE + response * RESPONSE_RATE + repeat * REPEAT_RATE;
-    const payback = Math.max(3, Math.round(18 - (downtime / 1.5 + response / 7 + repeat / 5)));
+    const payback = 12;
 
     ['downtime', 'response', 'repeat'].forEach(id => {
       const out = document.querySelector('[data-output="' + id + '"]');
