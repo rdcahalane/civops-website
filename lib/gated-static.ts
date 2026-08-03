@@ -70,6 +70,16 @@ async function resolveFile(contentRoot: string, slugPath: string): Promise<strin
     }
     return candidate;
   } catch {
+    // If no file extension, try appending .html (e.g. /nissan/fascia → fascia.html)
+    if (!path.extname(normalized)) {
+      try {
+        const htmlCandidate = candidate + ".html";
+        await stat(htmlCandidate);
+        return htmlCandidate;
+      } catch {
+        return null;
+      }
+    }
     return null;
   }
 }
