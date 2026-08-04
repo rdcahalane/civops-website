@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/nissan/" />
@@ -83,131 +83,11 @@
   </div>
 </section>
 
-<!-- ===================== 1. THE VALUE: EVA + COCKPIT ===================== -->
-<section class="section" data-role="itot">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">1 — The value: what a maintenance lead opens</span><h2>Eva reasons over the feed — and the Cell 056 cockpit is built on it</h2></div>
-      <p class="section-copy">A UNS that just feeds a chart is a science project. A UNS that feeds causal reasoning, ranked decisions, answerable questions — and the operator-facing cockpit — is a maintenance team's daily tool. Below: Eva's decisioning surfaces (real captures from the running instance), then the Cell&nbsp;056 Asset Health and OEE views that get built directly on the same namespace.</p>
-    </div>
-    <div class="poc-grid">
-      <div class="poc-card">
-        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">Inbox — Eva AI</div>
-          <div class="poc-card-title">Morning briefing — causal chain, not just an alarm list</div>
-          <div class="poc-card-desc">Eva surfaces open decisions with urgency tags and renders the causal chain inline — Basecoat 56 &rarr; Conveyor Stop &rarr; Topcoat 5 Starved — so the operator sees root cause, not a raw fault code.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">Decision workflow — D-9</div>
-          <div class="poc-card-title">Ranked options, evidence, and one-click "Act on this"</div>
-          <div class="poc-card-desc">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 starvation — why it matters, causal mechanism, ranked options, and the full evidence trail in one panel.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">Control Center</div>
-          <div class="poc-card-title">Performance — status — anomalies, in Eva's own narrative</div>
-          <div class="poc-card-desc">Eva-generated summary of where the shop stands versus peak — OEE availability gaps, asset health, throughput/quality/labor — read as a briefing, not assembled by hand from six reports.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <img src="assets/humble/15-knowledge.png" alt="Humble Knowledge Base with Ask Eva chat" loading="lazy" />
-        <div class="poc-card-body">
-          <div class="poc-card-label">Knowledge Base — Ask Eva</div>
-          <div class="poc-card-title">Live Q&amp;A against real plant documentation</div>
-          <div class="poc-card-desc">19 documents loaded — ABB robotics diagnostics, paint line fault logs, Asset Health Index methodology, IIoT/UNS/CMMS architecture. "Ask Eva" answers against this corpus plus the live database.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-head" style="margin-top:40px">
-      <div class="section-title"><span class="eyebrow">Built on the namespace — in any tool</span><h2 style="font-size:26px">Cell 056 Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
-      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Running on the same representative feed as the rest of the proof today; the identical views can be built in Humble/Eva, Grafana, or Ignition Perspective reading the topics directly &mdash; or in Power&nbsp;BI reading from the SQL landing zone those same topics flow into (see section 2 below).</p>
-    </div>
-    <div class="dash-two">
-      <figure class="fig" style="margin-top:0">
-        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; Asset Health Index<span class="fig-badge live">&#9679; Representative feed</span></div>
-        <div class="fig-svg" data-livedash="health" style="min-height:308px"></div>
-        <figcaption><b>Asset Health.</b> One number per robot; color triages the cell at a glance. BC5604 (Alert, 42%) is what a lead drills into first &#8212; the same torque/fault signal shape the UNS carries once source tags are bound.</figcaption>
-      </figure>
-      <figure class="fig" style="margin-top:0">
-        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; OEE (current shift)<span class="fig-badge live">&#9679; Representative feed</span></div>
-        <div class="fig-svg" data-livedash="oee" style="min-height:308px"></div>
-        <figcaption><b>OEE.</b> Availability&#215;Performance&#215;Quality, decomposed. Quality flagged <em>est.</em> &#8212; pending a scrap/rework feed. Any BI tool renders this off the UNS topics once wired live.</figcaption>
-      </figure>
-    </div>
-    <div class="callout" style="margin-top:20px"><strong>This is the argument, not the demo:</strong> the reasoning surfaces above and the cockpit views here are two consumers of one namespace. Swap the reader, swap the source, add a cell — the layer, and everything built on it, keeps working.</div>
-    <div style="text-align:center;margin-top:24px">
-      <a href="cockpit-live.html" style="display:inline-flex;align-items:center;gap:10px;background:#006394;color:#fff;font-weight:800;font-size:15px;text-decoration:none;padding:14px 26px;border-radius:12px;box-shadow:0 12px 30px rgba(0,99,148,.24)">Open the live Cell&nbsp;056 cockpit &rarr;</a>
-      <div style="font-size:12.5px;color:#5a6a7e;margin-top:10px">A working web app — the tablet a technician holds, updating on screen. Not a picture; a live-ready consumer of the namespace.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 2. LIVE BRIDGE + PERSPECTIVE TWIN ===================== -->
-<section class="section secondary-section">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-title"><span class="eyebrow">2 — Off the plant floor, portable by design</span><h2>The same screen, two tools — a one-function swap from live</h2></div>
-      <p class="section-copy">The namespace isn't locked to the plant network — a read-only bridge exists to stream HighByte's real topics to any authorized consumer (a browser, a BI tool, a second HMI platform) without touching OT. Both apps below run on the same representative feed as the rest of this proof today; going live is a one-function swap, not a rebuild, exactly as each app's own status line says.</p>
-    </div>
-    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
-      <div class="poc-card">
-        <div class="poc-card-body">
-          <div class="poc-card-label">Consumer 1 — the web cockpit</div>
-          <div class="poc-card-title">Cell 056 tablet cockpit, on the representative feed</div>
-          <div class="poc-card-desc">The working technician app — tiles, health scores, OEE, axis torque — runs on the same representative feed as the rest of the proof. Going live is a one-function swap: <code>Feed.connectUNS()</code> subscribes to the real broker in place of the simulator tick. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the cockpit &rarr;</a></div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <div class="poc-card-body">
-          <div class="poc-card-label">Consumer 2 — Ignition Perspective</div>
-          <div class="poc-card-title">The same screen, rebuilt in Perspective</div>
-          <div class="poc-card-desc">The Cell&nbsp;056 Asset-Health screen in Ignition Perspective's component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure — the proof the value layer ports across tools, not just across data. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
-        </div>
-      </div>
-    </div>
-    <figure class="fig" style="margin-top:22px">
-      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ignition Perspective &#183; Cell 056 Asset Health &#183; representative motion<span class="fig-badge live">&#9679; Representative feed</span></div>
-      <iframe src="perspective-embed.html" title="Ignition Perspective twin — Cell 056 Asset Health, representative motion" loading="lazy" style="display:block;width:100%;height:474px;border:1px solid #1f587a;border-top:0;border-radius:0 0 12px 12px;background:#0e2236"></iframe>
-      <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;056 Asset-Health view in Ignition Perspective&rsquo;s component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure as the web cockpit &mdash; running the same representative motion in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
-    </figure>
-    <div class="callout" style="margin-top:18px">
-      <strong>The UNS bridge</strong> exists as a read-only, CORS-open endpoint serving synthetic demo telemetry; neither app above is wired to it by default today, both run local representative motion instead. <strong>Before it carries production OT data, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
-    </div>
-
-    <div class="section-head" id="powerbi-block" style="margin-top:32px">
-      <div class="section-title"><span class="eyebrow">A third consumer, by design</span><h2 style="font-size:22px">Power&nbsp;BI reads from SQL, not from the broker &mdash; and that's the correct design, not a workaround</h2></div>
-      <p class="section-copy">Power&nbsp;BI doesn't subscribe to MQTT &mdash; it reads from a data store on a refresh schedule. So the path to Power&nbsp;BI isn't a third live subscriber next to the two above; it's <b>MQTT&nbsp;&rarr;&nbsp;SQL&nbsp;&rarr;&nbsp;Power&nbsp;BI</b>. A HighByte flow writes the same governed topics to SQL tables, flattening the topic structure into the columns Power&nbsp;BI expects, and Power&nbsp;BI connects with import or DirectQuery &mdash; the same as any other database source. Since SQL was already the planned landing zone for this data, this isn't a new path; it's the one already planned, with Power&nbsp;BI reading from it like any other consumer.</p>
-    </div>
-    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
-      <div class="poc-card">
-        <div class="poc-card-body">
-          <div class="poc-card-label">Why this fits Smyrna's environment</div>
-          <div class="poc-card-desc">Matches the zone model already in use &mdash; Power&nbsp;BI sits on the IS side reading a SQL database, the same pattern Senseye uses today; nothing new touches the plant floor, and it stays read-only. No new licensing: runs on the Power&nbsp;BI Nissan already has, no streaming infrastructure or Fabric capacity to size. The SQL tables double as history &mdash; MQTT stores nothing, so a landing zone is needed regardless, and this gives every future consumer one to read.</div>
-        </div>
-      </div>
-      <div class="poc-card">
-        <div class="poc-card-body">
-          <div class="poc-card-label">The one gap, and how the UNS covers it</div>
-          <div class="poc-card-desc">Power&nbsp;BI's refresh model was never built for a screen that updates in seconds, so live values and ad-hoc real-time trending aren't its job &mdash; that's what the cockpit above is for. Because HighByte publishes one governed namespace, anything needing live data plugs into the <em>same</em> topics without a second data path. For deep troubleshooting, Proficy Historian subscribes with its own MQTT collector &mdash; granular history alongside the same SQL tables.</div>
-        </div>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:18px"><strong>The broker underneath isn't locked in either.</strong> HighByte publishes to its own embedded broker today (see section 3 below). If Nissan's enterprise direction later standardizes on something like <a href="technology.html#dataops" style="color:inherit;text-decoration:underline">HiveMQ</a>, HighByte publishes to that broker just as easily &mdash; nothing downstream (SQL, Power&nbsp;BI, Historian, Humble) changes. The same holds for whichever direction analytics grows: Grafana, Proficy Operations Hub, Humble, or a parallel Ignition stack for new lines or supplier integration. Power&nbsp;BI is one more consumer on the pipe, not a redesign of it.</div>
-  </div>
-</section>
-
 <!-- ===================== THE STACK ===================== -->
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">The stack we built</span><h2>Two independent OT sources, one governed namespace, any consumer</h2></div>
+      <div class="section-title"><span class="eyebrow">1 &mdash; The stack we built</span><h2>Two independent OT sources, one governed namespace, any consumer</h2></div>
       <p class="section-copy">The Unified Namespace — an i3X / CESMII&nbsp;SM-Profiles-governed MQTT topic tree — is the layer. Sources publish into it; consumers read from it. Neither side is coupled to the other, which is exactly why the platform question never has to stall the value question.</p>
     </div>
     <figure class="fig">
@@ -325,7 +205,7 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">Standards, plainly</span><h2>How i3X-compliant is each schema, really?</h2></div>
+      <div class="section-title"><span class="eyebrow">2 &mdash; Standards, plainly</span><h2>How i3X-compliant is each schema, really?</h2></div>
       <p class="section-copy">"i3X-compliant" should mean a schema conforms to a published, machine-readable information model — an OPC&nbsp;UA Companion Specification or a CESMII SM Profile — not just that it's named after a standard. By that bar, <strong>four of the five now sit on real companion specs</strong> (the torque station was re-grounded from ISO&nbsp;5393 onto the OPC&nbsp;UA Tightening Systems companion spec — see below), and one is base-compliant with vendor-defined extensions. Stated plainly: <strong>none is a <em>certified</em> SM Profile yet</strong> — certification means registering and validating the type model, a defined next step, not a repaint.</p>
     </div>
     <table class="tech-matrix">
@@ -379,11 +259,92 @@
   </div>
 </section>
 
+<!-- ===================== 4. BUILT ON NAMESPACE — IN ANY TOOL ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">4 &mdash; Built on the namespace &mdash; in any tool</span><h2 style="font-size:26px">Cell 056 Base Coat — Asset Health &amp; OEE, off the namespace</h2></div>
+      <p class="section-copy">Once the data is on the UNS, the operator views are just consumers of it. These are what a plant actually watches. Running on the same representative feed as the rest of the proof today; the identical views can be built in Humble/Eva, Grafana, or Ignition Perspective reading the topics directly &mdash; or in Power&nbsp;BI reading from the SQL landing zone those same topics flow into (see section 2 below).</p>
+    </div>
+    <div class="dash-two">
+      <figure class="fig" style="margin-top:0">
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; Asset Health Index<span class="fig-badge live">&#9679; Representative feed</span></div>
+        <div class="fig-svg" data-livedash="health" style="min-height:308px"></div>
+        <figcaption><b>Asset Health.</b> One number per robot; color triages the cell at a glance. BC5604 (Alert, 42%) is what a lead drills into first &#8212; the same torque/fault signal shape the UNS carries once source tags are bound.</figcaption>
+      </figure>
+      <figure class="fig" style="margin-top:0">
+        <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Cell 056 &#8212; OEE (current shift)<span class="fig-badge live">&#9679; Representative feed</span></div>
+        <div class="fig-svg" data-livedash="oee" style="min-height:308px"></div>
+        <figcaption><b>OEE.</b> Availability&#215;Performance&#215;Quality, decomposed. Quality flagged <em>est.</em> &#8212; pending a scrap/rework feed. Any BI tool renders this off the UNS topics once wired live.</figcaption>
+      </figure>
+    </div>
+    <div class="callout" style="margin-top:20px"><strong>This is the argument, not the demo:</strong> the reasoning surfaces above and the cockpit views here are two consumers of one namespace. Swap the reader, swap the source, add a cell — the layer, and everything built on it, keeps working.</div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="cockpit-live.html" style="display:inline-flex;align-items:center;gap:10px;background:#006394;color:#fff;font-weight:800;font-size:15px;text-decoration:none;padding:14px 26px;border-radius:12px;box-shadow:0 12px 30px rgba(0,99,148,.24)">Open the live Cell&nbsp;056 cockpit &rarr;</a>
+      <div style="font-size:12.5px;color:#5a6a7e;margin-top:10px">A working web app — the tablet a technician holds, updating on screen. Not a picture; a live-ready consumer of the namespace.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2. LIVE BRIDGE + PERSPECTIVE TWIN ===================== -->
+<section class="section secondary-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">5 — Off the plant floor, portable by design</span><h2>The same screen, two tools — a one-function swap from live</h2></div>
+      <p class="section-copy">The namespace isn't locked to the plant network — a read-only bridge exists to stream HighByte's real topics to any authorized consumer (a browser, a BI tool, a second HMI platform) without touching OT. Both apps below run on the same representative feed as the rest of this proof today; going live is a one-function swap, not a rebuild, exactly as each app's own status line says.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 1 — the web cockpit</div>
+          <div class="poc-card-title">Cell 056 tablet cockpit, on the representative feed</div>
+          <div class="poc-card-desc">The working technician app — tiles, health scores, OEE, axis torque — runs on the same representative feed as the rest of the proof. Going live is a one-function swap: <code>Feed.connectUNS()</code> subscribes to the real broker in place of the simulator tick. <a href="cockpit-live.html" style="color:#006394;font-weight:700">Open the cockpit &rarr;</a></div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Consumer 2 — Ignition Perspective</div>
+          <div class="poc-card-title">The same screen, rebuilt in Perspective</div>
+          <div class="poc-card-desc">The Cell&nbsp;056 Asset-Health screen in Ignition Perspective's component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure — the proof the value layer ports across tools, not just across data. <a href="perspective-twin.html" style="color:#006394;font-weight:700">Open the Perspective twin &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+    <figure class="fig" style="margin-top:22px">
+      <div class="fig-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ignition Perspective &#183; Cell 056 Asset Health &#183; representative motion<span class="fig-badge live">&#9679; Representative feed</span></div>
+      <iframe src="perspective-embed.html" title="Ignition Perspective twin — Cell 056 Asset Health, representative motion" loading="lazy" style="display:block;width:100%;height:474px;border:1px solid #1f587a;border-top:0;border-radius:0 0 12px 12px;background:#0e2236"></iframe>
+      <figcaption><b>The same screen, a different tool.</b> This is the Cell&nbsp;056 Asset-Health view in Ignition Perspective&rsquo;s component idiom, built against the identical <code>mHv1.0/axiom/nissan-ccr</code> topic structure as the web cockpit &mdash; running the same representative motion in the page above. <a href="perspective-twin.html">Open it full-screen &rarr;</a></figcaption>
+    </figure>
+    <div class="callout" style="margin-top:18px">
+      <strong>The UNS bridge</strong> exists as a read-only, CORS-open endpoint serving synthetic demo telemetry; neither app above is wired to it by default today, both run local representative motion instead. <strong>Before it carries production OT data, the external-subscriber credential model gets a security review</strong> — the same gate named in "what's still ahead" below.
+    </div>
+
+    <div class="section-head" id="powerbi-block" style="margin-top:32px">
+      <div class="section-title"><span class="eyebrow">A third consumer, by design</span><h2 style="font-size:22px">Power&nbsp;BI reads from SQL, not from the broker &mdash; and that's the correct design, not a workaround</h2></div>
+      <p class="section-copy">Power&nbsp;BI doesn't subscribe to MQTT &mdash; it reads from a data store on a refresh schedule. So the path to Power&nbsp;BI isn't a third live subscriber next to the two above; it's <b>MQTT&nbsp;&rarr;&nbsp;SQL&nbsp;&rarr;&nbsp;Power&nbsp;BI</b>. A HighByte flow writes the same governed topics to SQL tables, flattening the topic structure into the columns Power&nbsp;BI expects, and Power&nbsp;BI connects with import or DirectQuery &mdash; the same as any other database source. Since SQL was already the planned landing zone for this data, this isn't a new path; it's the one already planned, with Power&nbsp;BI reading from it like any other consumer.</p>
+    </div>
+    <div class="secondary-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">Why this fits Smyrna's environment</div>
+          <div class="poc-card-desc">Matches the zone model already in use &mdash; Power&nbsp;BI sits on the IS side reading a SQL database, the same pattern Senseye uses today; nothing new touches the plant floor, and it stays read-only. No new licensing: runs on the Power&nbsp;BI Nissan already has, no streaming infrastructure or Fabric capacity to size. The SQL tables double as history &mdash; MQTT stores nothing, so a landing zone is needed regardless, and this gives every future consumer one to read.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <div class="poc-card-body">
+          <div class="poc-card-label">The one gap, and how the UNS covers it</div>
+          <div class="poc-card-desc">Power&nbsp;BI's refresh model was never built for a screen that updates in seconds, so live values and ad-hoc real-time trending aren't its job &mdash; that's what the cockpit above is for. Because HighByte publishes one governed namespace, anything needing live data plugs into the <em>same</em> topics without a second data path. For deep troubleshooting, Proficy Historian subscribes with its own MQTT collector &mdash; granular history alongside the same SQL tables.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px"><strong>The broker underneath isn't locked in either.</strong> HighByte publishes to its own embedded broker today (see section 3 below). If Nissan's enterprise direction later standardizes on something like <a href="technology.html#dataops" style="color:inherit;text-decoration:underline">HiveMQ</a>, HighByte publishes to that broker just as easily &mdash; nothing downstream (SQL, Power&nbsp;BI, Historian, Humble) changes. The same holds for whichever direction analytics grows: Grafana, Proficy Operations Hub, Humble, or a parallel Ignition stack for new lines or supplier integration. Power&nbsp;BI is one more consumer on the pipe, not a redesign of it.</div>
+  </div>
+</section>
+
 <!-- ===================== 4. CIMPLICITY LIVE ===================== -->
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">4 — Nissan's real SCADA on the same layer</span><h2>Cimplicity — Nissan's real Base Coat robots, from the plant's own export</h2></div>
+      <div class="section-title"><span class="eyebrow">6 — Nissan's real SCADA on the same layer</span><h2>Cimplicity — Nissan's real Base Coat robots, from the plant's own export</h2></div>
       <p class="section-copy">The asset structure isn't invented — it's generated directly from Nissan Smyrna's own Cimplicity Shared Name File exports and already sits in HighByte as Models and Instances: all 10 real Base Coat robots (BC5601&ndash;BC5610), organized exactly the way Cimplicity organizes them.</p>
     </div>
     <div class="secondary-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -408,11 +369,55 @@
   </div>
 </section>
 
-<!-- ===================== 5. SECOND VENDOR + SECOND SOURCE ===================== -->
+<!-- ===================== 7. THE VALUE: EVA + COCKPIT ===================== -->
+<section class="section" data-role="itot">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="eyebrow">7 — The value: what a maintenance lead opens</span><h2>Eva reasons over the feed — and the Cell 056 cockpit is built on it</h2></div>
+      <p class="section-copy">A UNS that just feeds a chart is a science project. A UNS that feeds causal reasoning, ranked decisions, answerable questions — and the operator-facing cockpit — is a maintenance team's daily tool. Below: Eva's decisioning surfaces (real captures from the running instance), then the Cell&nbsp;056 Asset Health and OEE views that get built directly on the same namespace.</p>
+    </div>
+    <div class="poc-grid">
+      <div class="poc-card">
+        <img src="assets/humble/01-inbox.png" alt="Humble inbox — Eva morning briefing with causal chain" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Inbox — Eva AI</div>
+          <div class="poc-card-title">Morning briefing — causal chain, not just an alarm list</div>
+          <div class="poc-card-desc">Eva surfaces open decisions with urgency tags and renders the causal chain inline — Basecoat 56 &rarr; Conveyor Stop &rarr; Topcoat 5 Starved — so the operator sees root cause, not a raw fault code.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/02-decision-d9.png" alt="Decision D-9: Fix Basecoat 56 24V Power Dip" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Decision workflow — D-9</div>
+          <div class="poc-card-title">Ranked options, evidence, and one-click "Act on this"</div>
+          <div class="poc-card-desc">Fix Basecoat 56 24V Power Dip to stop Topcoat 5 starvation — why it matters, causal mechanism, ranked options, and the full evidence trail in one panel.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/12-control-center.png" alt="Humble Control Center — Performance, Status, Anomalies" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Control Center</div>
+          <div class="poc-card-title">Performance — status — anomalies, in Eva's own narrative</div>
+          <div class="poc-card-desc">Eva-generated summary of where the shop stands versus peak — OEE availability gaps, asset health, throughput/quality/labor — read as a briefing, not assembled by hand from six reports.</div>
+        </div>
+      </div>
+      <div class="poc-card">
+        <img src="assets/humble/15-knowledge.png" alt="Humble Knowledge Base with Ask Eva chat" loading="lazy" />
+        <div class="poc-card-body">
+          <div class="poc-card-label">Knowledge Base — Ask Eva</div>
+          <div class="poc-card-title">Live Q&amp;A against real plant documentation</div>
+          <div class="poc-card-desc">19 documents loaded — ABB robotics diagnostics, paint line fault logs, Asset Health Index methodology, IIoT/UNS/CMMS architecture. "Ask Eva" answers against this corpus plus the live database.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. SECOND VENDOR + SECOND SOURCE ===================== -->
 <section class="section secondary-section">
   <div class="container">
     <div class="section-head">
-      <div class="section-title"><span class="eyebrow">5 — Not locked to one platform, or one source</span><h2>MaestroHub reads the same feed; Ignition proves any source rides the same pipe</h2></div>
+      <div class="section-title"><span class="eyebrow">8 — Not locked to one platform, or one source</span><h2>MaestroHub reads the same feed; Ignition proves any source rides the same pipe</h2></div>
       <p class="section-copy">MaestroHub — a completely separate product from a different vendor, and the platform this namespace originally ran on — subscribes to HighByte's broker as a read-only client: same topics, same payloads, zero translation. And the Ignition leg proves the mirror image on the source side: a non-Cimplicity system publishes onto the identical UNS with the identical pattern. Whatever platform Nissan lands on, and whatever mix of source systems the plant runs, the namespace keeps working.</p>
     </div>
     <div class="poc-grid" style="grid-template-columns: 1fr;">
