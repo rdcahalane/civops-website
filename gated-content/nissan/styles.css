@@ -139,8 +139,15 @@ h2{font-size:clamp(30px,3.2vw,46px);line-height:1.02;letter-spacing:-.04em;margi
 .page-intro{padding:34px 0 12px}
 .page-title{font-size:clamp(36px,4.2vw,56px);letter-spacing:-.045em;line-height:.98;margin:0 0 10px}
 .page-deck{max-width:760px;font-size:18px;line-height:1.55;color:var(--muted);margin:0}
-.breadcrumbs{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--brook-orange);margin-bottom:14px}
+.breadcrumbs{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--brook-orange);margin-bottom:14px}
 .breadcrumbs a{text-decoration:none;color:var(--brook-blue)}
+/* source attribution mark sitting at the right end of the breadcrumb row */
+.src-mark{margin-left:auto;display:flex;align-items:center;gap:10px}
+.src-mark i{font-style:normal;font-size:10px;font-weight:800;letter-spacing:.09em;color:#8a97a8}
+.src-mark img{height:26px;width:auto;display:block}
+.src-mark .logo-chip{display:flex;background:#10324b;border-radius:6px;padding:6px 10px}
+.src-mark .logo-chip img{height:20px}
+@media (max-width:640px){.src-mark{margin-left:0}}
 .tab-row,.role-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
 .tab-btn,.role-btn{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:900;color:#3b4a59;cursor:pointer}
 .tab-btn.active,.role-btn.active{background:var(--navy);border-color:var(--navy);color:white}

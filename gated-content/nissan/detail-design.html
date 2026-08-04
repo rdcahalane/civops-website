@@ -196,42 +196,72 @@
           <text x="654" y="236" fill="#7baac4" font-size="9">&lt;60 Alert</text>
           <text x="470" y="255" fill="#4a6a7a" font-size="9">representative pilot data — drives maintenance prioritisation in CCR</text>
           <!-- data flow arrows from middle tier to consumer panels -->
-          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
-          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
-          <line x1="797" y1="288" x2="720" y2="270" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-          <polygon points="720,266 713,276 726,276" fill="#ff8300" opacity="0.7"/>
-          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Maintenance agent (Eva) — MCP client</text>
-          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
-          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
-          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
-          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
-          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="122" y1="288" x2="122" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,266 115,276 129,276" fill="#ff8300"/>
+          <line x1="354" y1="288" x2="300" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="300,266 293,276 306,276" fill="#ff8300"/>
+          <line x1="586" y1="288" x2="440" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="440,266 433,276 446,276" fill="#ff8300"/>
+          <line x1="818" y1="288" x2="760" y2="270" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <polygon points="760,266 753,276 766,276" fill="#ff8300" opacity="0.7"/>
+          <!-- consumers: Power BI | Senseye PdM | Humble | Analytics / AI -->
+          <rect x="15" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="122" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Power BI</text>
+          <text x="122" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Microsoft — reports &amp;</text>
+          <text x="122" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">dashboards</text>
+          <rect x="247" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="354" y="332" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="354" y="352" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="479" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="586" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="586" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Maintenance agent (Eva)</text>
+          <text x="586" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">MCP client</text>
+          <rect x="711" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="818" y="344" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <!-- how each consumer reads: Power BI off HighByte's SQL/REST sink; Humble + Analytics call MCP and subscribe to the UNS -->
+          <line x1="122" y1="378" x2="122" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,412 115,400 129,400" fill="#4a8aaa"/>
+          <text x="130" y="397" fill="#7baac4" font-size="8.5" font-weight="700">SQL / REST</text>
+          <line x1="520" y1="378" x2="520" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="520,412 513,400 527,400" fill="#4a8aaa"/>
+          <text x="528" y="397" fill="#7baac4" font-size="8.5" font-weight="700">MCP</text>
+          <line x1="665" y1="378" x2="665" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="665,412 658,400 672,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="657" y="388" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
+          <line x1="745" y1="378" x2="572" y2="405" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="560,408 571,400 573,412" fill="#4a8aaa"/>
+          <text x="738" y="392" fill="#7baac4" font-size="8.5" font-weight="700" text-anchor="end">MCP</text>
+          <line x1="860" y1="378" x2="860" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="860,412 853,400 867,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="852" y="397" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
           <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
-          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <rect x="15" y="410" width="595" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
           <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps — i3X profiles — ISA-95</text>
-          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
-          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
-          <rect x="463" y="474" width="220" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="573" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — Cell 56</text>
+          <rect x="35" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="168" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="324" y="474" width="266" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="457" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — Cell 56</text>
+          <!-- HighByte publishes the modeled payloads into the broker -->
+          <line x1="612" y1="470" x2="628" y2="470" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="636,470 626,464 626,476" fill="#ff8300"/>
+          <!-- UNS broker is a separable component - 3rd-party or HighByte-embedded -->
+          <rect x="640" y="410" width="285" height="120" rx="12" fill="#0d2233" stroke="#5aa9d0" stroke-width="2"/>
+          <text x="660" y="440" fill="#5aa9d0" font-size="14" font-weight="900">MQTT broker = UNS</text>
+          <text x="660" y="462" fill="#9fb6c6" font-size="11">Sparkplug B — ISA-95 topic tree</text>
+          <rect x="660" y="474" width="245" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="783" y="494" fill="#ffffff" font-size="11.5" font-weight="700" text-anchor="middle">3rd-party or HighByte-embedded</text>
+          <text x="783" y="510" fill="#7baac4" font-size="9.5" text-anchor="middle">e.g. HiveMQ · EMQX · Mosquitto</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
           <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
           <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
-          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
-          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="765" y1="548" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="596" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="596,528 590,538 602,538" fill="#4a6a7a"/>
           <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.3"/><text x="64" y="569" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="583" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">archive</text><text x="64" y="597" fill="#6fe0a8" font-size="9" text-anchor="middle">edge → DMZ</text>
           <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
           <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
@@ -257,7 +287,7 @@
           <text x="650" y="660" fill="#8fbfa8" font-size="9">off OPC-UA → DMZ archive · UNS broker is a parallel consumer</text>
           <text x="18" y="688" fill="#4a6a7a" font-size="10">Historian: edge capture (store-and-forward) → DMZ archive · UNS broker = parallel consumer, never between source &amp; Historian · orange = consumers read via UNS / MCP</text>
         </svg>
-        <div class="phase-note"><strong>Phase 1 scope:</strong> Read-only pilot, localized to Paint — Cell 56. HighByte Intelligence Hub connects to Cimplicity, FAULT, Inspect/Autis, Robots DB, and Maximo, and stands up a plant Historian as part of this phase &mdash; captured <strong>at the edge</strong> with store-and-forward collectors off the OPC-UA source and archived in the DMZ (L3.5), so nothing is lost on a network drop. The UNS broker subscribes to the same source <strong>in parallel</strong> &mdash; it never sits between the source and the Historian. Humble Factory OS consumes via UNS and MCP to run a proof-of-concept maintenance agent — the same causal-chain reasoning and ranked-decision workflow demonstrated in <a href="poc.html">Live Proof</a> — plus Analytics/AI. Output: Maintenance Cockpit for CCR — cycle time, top-3 breakdowns, uptime, Senseye PdM, and inspection QC. Fascia is out of scope; the architecture is designed to extend to it in Phase 2 without rebuilding.</div>
+        <div class="phase-note"><strong>Phase 1 scope:</strong> Read-only pilot, localized to Paint — Cell 56. HighByte Intelligence Hub connects to Cimplicity, FAULT, Inspect/Autis, Robots DB, and Maximo, and stands up a plant Historian as part of this phase &mdash; captured <strong>at the edge</strong> with store-and-forward collectors off the OPC-UA source and archived in the DMZ (L3.5), so nothing is lost on a network drop. The UNS broker subscribes to the same source <strong>in parallel</strong> &mdash; it never sits between the source and the Historian. The MQTT broker that carries the UNS is drawn as its own box because it is its own component &mdash; it can be a third-party broker (HiveMQ, EMQX, Mosquitto) or the one embedded in HighByte, and that choice can be made later without touching the rest of the design. Humble Factory OS consumes via UNS and MCP to run a proof-of-concept maintenance agent — the same causal-chain reasoning and ranked-decision workflow demonstrated in <a href="poc.html">Live Proof</a> — plus Analytics/AI, which reads the same two ways. Any consumer that speaks MQTT can subscribe to the broker directly, and those links are drawn faded on purpose: the direct path returns raw topics, and the contextualized payload from HighByte is the better read in almost every case. Power BI is the case that proves it &mdash; it has no MQTT connector at all, so it reports off HighByte's SQL/REST output. It can also point straight at the Historian or the SQL mirror for long-range history; that path exists, it just isn't drawn, because it bypasses the contextualization the rest of this design pays for. Output: Maintenance Cockpit for CCR — cycle time, top-3 breakdowns, uptime, Senseye PdM, and inspection QC. Fascia is out of scope; the architecture is designed to extend to it in Phase 2 without rebuilding.</div>
       </div>
 
       <div class="phase-pane" data-phase-pane="p2">
@@ -317,45 +347,75 @@
           <text x="702" y="258" fill="#9fb6c6" font-size="8">Thin film  2</text>
           <rect x="702" y="260" width="40" height="5" rx="2" fill="#49a9bd" opacity="0.4"/>
           <!-- data flow arrows from middle tier -->
-          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
-          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
-          <line x1="800" y1="288" x2="750" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="750,266 743,276 756,276" fill="#ff8300"/>
-          <line x1="245" y1="288" x2="245" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
-          <text x="254" y="284" fill="#ff8300" font-size="10" opacity="0.8">write-back</text>
-          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Maintenance agent (Eva) — MCP client</text>
-          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
-          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
-          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
-          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
-          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="122" y1="288" x2="122" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,266 115,276 129,276" fill="#ff8300"/>
+          <line x1="354" y1="288" x2="300" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="300,266 293,276 306,276" fill="#ff8300"/>
+          <line x1="586" y1="288" x2="440" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="440,266 433,276 446,276" fill="#ff8300"/>
+          <line x1="818" y1="288" x2="760" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="760,266 753,276 766,276" fill="#ff8300"/>
+          <line x1="560" y1="288" x2="560" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <text x="569" y="284" fill="#ff8300" font-size="10" opacity="0.8">write-back</text>
+          <!-- consumers: Power BI | Senseye PdM | Humble | Analytics / AI -->
+          <rect x="15" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="122" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Power BI</text>
+          <text x="122" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Microsoft — reports &amp;</text>
+          <text x="122" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">dashboards</text>
+          <rect x="247" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="354" y="332" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="354" y="352" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="479" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="586" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="586" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Maintenance agent (Eva)</text>
+          <text x="586" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">MCP client</text>
+          <rect x="711" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="818" y="344" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <!-- how each consumer reads: Power BI off HighByte's SQL/REST sink; Humble + Analytics call MCP and subscribe to the UNS -->
+          <line x1="122" y1="378" x2="122" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,412 115,400 129,400" fill="#4a8aaa"/>
+          <text x="130" y="397" fill="#7baac4" font-size="8.5" font-weight="700">SQL / REST</text>
+          <line x1="520" y1="378" x2="520" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="520,412 513,400 527,400" fill="#4a8aaa"/>
+          <text x="528" y="397" fill="#7baac4" font-size="8.5" font-weight="700">MCP</text>
+          <line x1="665" y1="378" x2="665" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="665,412 658,400 672,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="657" y="388" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
+          <line x1="745" y1="378" x2="572" y2="405" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="560,408 571,400 573,412" fill="#4a8aaa"/>
+          <text x="738" y="392" fill="#7baac4" font-size="8.5" font-weight="700" text-anchor="end">MCP</text>
+          <line x1="860" y1="378" x2="860" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="860,412 853,400 867,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="852" y="397" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
           <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
-          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <rect x="15" y="410" width="595" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
           <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps — i3X profiles — ISA-95</text>
-          <line x1="310" y1="410" x2="310" y2="386" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
-          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
-          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
-          <rect x="463" y="474" width="240" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="583" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — 56 / front-rear</text>
+          <line x1="560" y1="410" x2="560" y2="376" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <rect x="35" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="168" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="324" y="474" width="266" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="457" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — 56 / front-rear</text>
+          <!-- HighByte publishes the modeled payloads into the broker -->
+          <line x1="612" y1="470" x2="628" y2="470" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="636,470 626,464 626,476" fill="#ff8300"/>
+          <!-- UNS broker is a separable component - 3rd-party or HighByte-embedded -->
+          <rect x="640" y="410" width="285" height="120" rx="12" fill="#0d2233" stroke="#5aa9d0" stroke-width="2"/>
+          <text x="660" y="440" fill="#5aa9d0" font-size="14" font-weight="900">MQTT broker = UNS</text>
+          <text x="660" y="462" fill="#9fb6c6" font-size="11">Sparkplug B — ISA-95 topic tree</text>
+          <rect x="660" y="474" width="245" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="783" y="494" fill="#ffffff" font-size="11.5" font-weight="700" text-anchor="middle">3rd-party or HighByte-embedded</text>
+          <text x="783" y="510" fill="#7baac4" font-size="9.5" text-anchor="middle">e.g. HiveMQ · EMQX · Mosquitto</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
           <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
           <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
-          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
-          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="765" y1="548" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="596" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="596,528 590,538 602,538" fill="#4a6a7a"/>
           <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.3"/><text x="64" y="569" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="583" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">archive</text><text x="64" y="597" fill="#6fe0a8" font-size="9" text-anchor="middle">edge → DMZ</text>
           <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
           <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
@@ -443,43 +503,73 @@
           <rect x="702" y="232" width="120" height="5" rx="2" fill="#49a9bd" opacity="0.75"/>
           <text x="702" y="246" fill="#9fb6c6" font-size="8">Run / sag  3</text>
           <rect x="702" y="249" width="60" height="5" rx="2" fill="#49a9bd" opacity="0.55"/>
-          <line x1="140" y1="288" x2="140" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,266 133,276 147,276" fill="#ff8300"/>
-          <line x1="450" y1="288" x2="280" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="280,266 273,276 286,276" fill="#ff8300"/>
-          <line x1="800" y1="288" x2="700" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="700,266 693,276 706,276" fill="#ff8300"/>
-          <line x1="245" y1="288" x2="245" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
-          <rect x="15" y="302" width="250" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="140" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
-          <text x="140" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Maintenance agent (Eva) — MCP client</text>
-          <rect x="360" y="302" width="210" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="465" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
-          <text x="465" y="360" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
-          <rect x="670" y="302" width="255" height="86" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
-          <text x="797" y="338" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
-          <line x1="140" y1="388" x2="140" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="140,412 133,400 147,400" fill="#4a8aaa"/>
-          <line x1="797" y1="388" x2="797" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="797,412 790,400 804,400" fill="#4a8aaa"/>
+          <line x1="122" y1="288" x2="122" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,266 115,276 129,276" fill="#ff8300"/>
+          <line x1="354" y1="288" x2="300" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="300,266 293,276 306,276" fill="#ff8300"/>
+          <line x1="586" y1="288" x2="440" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="440,266 433,276 446,276" fill="#ff8300"/>
+          <line x1="818" y1="288" x2="760" y2="270" stroke="#ff8300" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="760,266 753,276 766,276" fill="#ff8300"/>
+          <line x1="560" y1="288" x2="560" y2="272" stroke="#ff8300" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+          <!-- consumers: Power BI | Senseye PdM | Humble | Analytics / AI -->
+          <rect x="15" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="122" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Power BI</text>
+          <text x="122" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Microsoft — reports &amp;</text>
+          <text x="122" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">dashboards</text>
+          <rect x="247" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="354" y="332" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Senseye PdM</text>
+          <text x="354" y="352" fill="#9fb6c6" font-size="11" text-anchor="middle">Siemens</text>
+          <rect x="479" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="586" y="324" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Humble</text>
+          <text x="586" y="342" fill="#9fb6c6" font-size="10.5" text-anchor="middle">Maintenance agent (Eva)</text>
+          <text x="586" y="356" fill="#9fb6c6" font-size="10.5" text-anchor="middle">MCP client</text>
+          <rect x="711" y="298" width="214" height="80" rx="10" fill="#10283f" stroke="#3b7494" stroke-width="1.5"/>
+          <text x="818" y="344" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">Analytics / AI</text>
+          <!-- how each consumer reads: Power BI off HighByte's SQL/REST sink; Humble + Analytics call MCP and subscribe to the UNS -->
+          <line x1="122" y1="378" x2="122" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="122,412 115,400 129,400" fill="#4a8aaa"/>
+          <text x="130" y="397" fill="#7baac4" font-size="8.5" font-weight="700">SQL / REST</text>
+          <line x1="520" y1="378" x2="520" y2="408" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="520,412 513,400 527,400" fill="#4a8aaa"/>
+          <text x="528" y="397" fill="#7baac4" font-size="8.5" font-weight="700">MCP</text>
+          <line x1="665" y1="378" x2="665" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="665,412 658,400 672,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="657" y="388" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
+          <line x1="745" y1="378" x2="572" y2="405" stroke="#4a8aaa" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="560,408 571,400 573,412" fill="#4a8aaa"/>
+          <text x="738" y="392" fill="#7baac4" font-size="8.5" font-weight="700" text-anchor="end">MCP</text>
+          <line x1="860" y1="378" x2="860" y2="408" stroke="#4a8aaa" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <polygon points="860,412 853,400 867,400" fill="#4a8aaa" opacity="0.5"/>
+          <text x="852" y="397" fill="#7baac4" font-size="8.5" font-weight="700" opacity="0.65" text-anchor="end">MQTT direct</text>
           <line x1="15" y1="400" x2="925" y2="400" stroke="#2f5066" stroke-width="1.5" stroke-dasharray="10,6"/>
           <text x="910" y="398" fill="#4a7a94" font-size="11" font-weight="700" text-anchor="end">DMZ</text>
-          <rect x="15" y="410" width="910" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
+          <rect x="15" y="410" width="595" height="120" rx="12" fill="#170f00" stroke="#ff8300" stroke-width="2"/>
           <text x="35" y="440" fill="#ff8300" font-size="14" font-weight="900">HighByte Intelligence Hub</text>
           <text x="35" y="462" fill="#9fb6c6" font-size="11">DataOps — i3X profiles — ISA-95 — full Paint Line 1</text>
-          <rect x="35" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="133" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MQTT broker = UNS</text>
-          <rect x="249" y="474" width="196" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
-          <text x="347" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
-          <rect x="463" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
-          <text x="595" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — all cells — 56 / 22 / fascia</text>
+          <rect x="35" y="474" width="265" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="168" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">MCP server</text>
+          <rect x="324" y="474" width="266" height="46" rx="8" fill="#132f49" stroke="#49bd8d" stroke-width="1.5"/>
+          <text x="457" y="501" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">i3X templates — all cells — 56 / 22 / fascia</text>
+          <!-- HighByte publishes the modeled payloads into the broker -->
+          <line x1="612" y1="470" x2="628" y2="470" stroke="#ff8300" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="636,470 626,464 626,476" fill="#ff8300"/>
+          <!-- UNS broker is a separable component - 3rd-party or HighByte-embedded -->
+          <rect x="640" y="410" width="285" height="120" rx="12" fill="#0d2233" stroke="#5aa9d0" stroke-width="2"/>
+          <text x="660" y="440" fill="#5aa9d0" font-size="14" font-weight="900">MQTT broker = UNS</text>
+          <text x="660" y="462" fill="#9fb6c6" font-size="11">Sparkplug B — ISA-95 topic tree</text>
+          <rect x="660" y="474" width="245" height="46" rx="8" fill="#132f49" stroke="#3b7494"/>
+          <text x="783" y="494" fill="#ffffff" font-size="11.5" font-weight="700" text-anchor="middle">3rd-party or HighByte-embedded</text>
+          <text x="783" y="510" fill="#7baac4" font-size="9.5" text-anchor="middle">e.g. HiveMQ · EMQX · Mosquitto</text>
           <line x1="65" y1="548" x2="65" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="65,528 59,538 71,538" fill="#4a6a7a"/>
           <line x1="175" y1="548" x2="175" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="175,528 169,538 181,538" fill="#4a6a7a"/>
           <line x1="300" y1="548" x2="300" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="300,528 294,538 306,538" fill="#4a6a7a"/>
           <line x1="425" y1="548" x2="425" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="425,528 419,538 431,538" fill="#4a6a7a"/>
           <line x1="540" y1="548" x2="540" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="540,528 534,538 546,538" fill="#4a6a7a"/>
-          <line x1="655" y1="548" x2="655" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="655,528 649,538 661,538" fill="#4a6a7a"/>
-          <line x1="765" y1="548" x2="765" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="765,528 759,538 771,538" fill="#4a6a7a"/>
+          <line x1="655" y1="548" x2="655" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="765" y1="548" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="765" y2="542" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="596" y1="542" x2="596" y2="532" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/><polygon points="596,528 590,538 602,538" fill="#4a6a7a"/>
           <rect x="15" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#49bd8d" stroke-width="1.3"/><text x="64" y="569" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">Historian</text><text x="64" y="583" fill="#9fb6c6" font-size="11.5" font-weight="700" text-anchor="middle">archive</text><text x="64" y="597" fill="#6fe0a8" font-size="9" text-anchor="middle">edge → DMZ</text>
           <rect x="123" y="548" width="98" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="172" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">Fault</text><text x="172" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">downtime</text>
           <rect x="231" y="548" width="132" height="56" rx="8" fill="#0e2236" stroke="#2f5066"/><text x="297" y="572" fill="#9fb6c6" font-size="12" font-weight="700" text-anchor="middle">SQL mirror</text><text x="297" y="590" fill="#5a8a9a" font-size="10" text-anchor="middle">npsm-db-paint4</text>
